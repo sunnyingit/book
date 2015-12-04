@@ -1,0 +1,16 @@
+{
+    "plugins": ["prism"],
+    "title": "飘来飘去",
+    "links": {
+        "sidebar": {
+            "飘来飘去": "http://www.hellosunnyge.com/wordpress/"
+        },
+        "sharing": {
+            "google": null,
+            "facebook": null,
+            "twitter": null,
+            "weibo": null,
+            "all": null
+        }
+    }
+}
