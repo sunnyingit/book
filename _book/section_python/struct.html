@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>vim | 飘来飘去</title>
+        <title>data structures | 飘来飘去</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.4.3">
@@ -33,10 +33,10 @@
         
     
     
-    <link rel="next" href="../section_tool/zsh.html" />
+    <link rel="next" href="../section_python/import.html" />
     
     
-    <link rel="prev" href="../section_tool/sublime.html" />
+    <link rel="prev" href="../section_python/pip.html" />
     
 
         
@@ -44,7 +44,7 @@
     <body>
         
         
-    <div class="book" data-level="8.2" data-basepath=".." data-revision="Wed Dec 09 2015 20:50:05 GMT+0800 (CST)">
+    <div class="book" data-level="2.3" data-basepath=".." data-revision="Wed Dec 09 2015 20:50:05 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -143,7 +143,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3" data-path="section_python/struct.html">
+        <li class="chapter active" data-level="2.3" data-path="section_python/struct.html">
             
                 
                     <a href="../section_python/struct.html">
@@ -566,7 +566,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="8.2" data-path="section_tool/vim.html">
+        <li class="chapter " data-level="8.2" data-path="section_tool/vim.html">
             
                 
                     <a href="../section_tool/vim.html">
@@ -887,69 +887,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="vim">vim</h1>
-<p>&#x9009;&#x62E9;vim,&#x8FD8;&#x662F;&#x9009;&#x62E9;sublime, &#x4E24;&#x4E2A;&#x90FD;&#x53EF;&#x4EE5;&#x6709;</p>
-<h3 id="%E9%85%8D%E7%BD%AE">&#x914D;&#x7F6E;</h3>
-<p>&#x5F00;&#x542F;&#x8BED;&#x6CD5;&#x68C0;&#x6D4B;, vim&#x4F1A;&#x9AD8;&#x4EAE;</p>
-<pre><code>syntax on
-</code></pre><h4 id="%E7%A7%BB%E5%8A%A8">&#x79FB;&#x52A8;</h4>
-<pre><code>gg: &#x79FB;&#x52A8;&#x5230;&#x6587;&#x4EF6;&#x7B2C;&#x4E00;&#x884C;
-G &#x79FB;&#x52A8;&#x5230;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4E00;&#x884C;
-ngg: &#x79FB;&#x52A8;&#x5230;&#x6587;&#x4EF6;&#x7B2C;N&#x884C;
-L : &#x5C4F;&#x5E55;&#x7684;&#x6700;&#x4E0B;&#x65B9;
-M &#x4E2D;&#x95F4;&#x5C4F;&#x5E55;
-H &#x5C4F;&#x5E55;&#x7684;&#x6700;&#x4E0A;&#x65B9;
-w &#x79FB;&#x52A8;&#x5230;&#x4E0B;&#x4E00;&#x4E2A;&#x5B57;&#x6BCD;
-b &#x79FB;&#x52A8;&#x5230;&#x4E0A;&#x4E00;&#x4E2A;&#x5B57;&#x6BCD;
-e &#x8C03;&#x5230;&#x4E00;&#x4E2A;&#x5355;&#x8BCD;&#x7684;&#x7ED3;&#x675F;
-$ &#x79FB;&#x52A8;&#x5230;&#x884C;&#x672B;&#x5C3E;
-^ &#x79FB;&#x52A8;&#x5230;&#x884C;&#x9996;&#x5B57;&#x6BCD;
-0 &#x79FB;&#x52A8;&#x5230;&#x884C;&#x9996;
-</code></pre><h4 id="%E7%BC%96%E8%BE%91">&#x7F16;&#x8F91;</h4>
-<pre><code>y:&#x590D;&#x5236;&#x9009;&#x4E2D;&#x533A;&#x57DF;
-yy: &#x590D;&#x5236;&#x4E00;&#x884C;
-nyy: &#x590D;&#x5236;n&#x884C;
-x: &#x526A;&#x5207;(&#x5220;&#x9664;)&#x4E00;&#x4E2A;&#x5B57;&#x7B26;
-dd: &#x5220;&#x9664;&#x4E00;&#x884C;
-ndd: &#x5220;&#x9664;N&#x884C;
-D:&#x5220;&#x9664;&#x5149;&#x6807;&#x6240;&#x5728;&#x7684;&#x4F4D;&#x7F6E;&#x5230;&#x884C;&#x672B;&#x5C3E;
-X: &#x5220;&#x9664;&#x5149;&#x6807;&#x4E4B;&#x524D;&#x5B57;&#x7B26;
-p: &#x7C98;&#x8D34;
-ndd p: &#x79FB;&#x52A8;n&#x884C;&#x5230;&#x4E0B;&#x4E00;&#x884C;
-J:  &#x628A;&#x5149;&#x6807;&#x6240;&#x5728;&#x7684;&#x884C;&#x5408;&#x5E76;&#x5230;&#x4E0A;&#x4E00;&#x884C;
-r: &#x66FF;&#x6362;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;
-R: &#x4E00;&#x76F4;&#x66FF;&#x6362;
-</code></pre><h4 id="%E9%80%89%E4%B8%AD">&#x9009;&#x4E2D;</h4>
-<pre><code>v&#xFF0C;&#x4F7F;&#x7528;&#x4E0A;&#x4E0B;&#x5DE6;&#x53F3;&#x952E;&#x79FB;&#x52A8;&#xFF0C;&#x53EF;&#x4EE5;&#x9009;&#x4E2D;&#x5149;&#x6807;&#x7ECF;&#x8FC7;&#x7684;&#x5730;&#x65B9;
-vi} &#x9009;&#x4E2D;{}&#x4E2D;&#x95F4;&#x7684;&#x5185;&#x5BB9;,&#x4E0D;&#x5305;&#x62EC;{}
-va} &#x9009;&#x4E2D;{}&#x4E2D;&#x95F4;&#x5185;&#x5BB9;&#xFF0C;&#x5305;&#x62EC;{}
-vi( &#x9009;&#x4E2D;()&#x4E2D;&#x95F4;&#x5185;&#x5BB9;
-vi&lt; &#x9009;&#x4E2D;&lt;&gt;&#x4E2D;&#x95F4;&#x5185;&#x5BB9;
-vi[ &#x9009;&#x4E2D;[]&#x4E2D;&#x95F4;&#x5185;&#x5BB9;
-vit &#x9009;&#x4E2D;&#x4E2D;&#x95F4;&#x7684;&#x5185;&#x5BB9;
-vi&#x201D; &#x9009;&#x4E2D;&#x201D;&quot;&#x4E2D;&#x95F4;&#x5185;&#x5BB9;
-vi&#x2019; &#x9009;&#x4E2D;&#x201D;&#x4E2D;&#x95F4;&#x7684;&#x5185;&#x5BB9;
-vis &#x9009;&#x4E2D;&#x4E00;&#x4E2A;&#x53E5;&#x5B50;
-vib &#x9009;&#x4E2D;&#x4E00;&#x4E2A;block
-viw&#x9009;&#x4E2D;&#x4E00;&#x4E2A;&#x5355;&#x8BCD;
-vip &#x9009;&#x4E2D;&#x4E00;&#x4E2A;&#x6BB5;&#x843D;
-ctrl+v &#x9009;&#x4E2D;&#x4E00;&#x4E2A;&#x5757;
-</code></pre><h4 id="%E5%85%B6%E4%BB%96%E5%B8%B8%E7%94%A8">&#x5176;&#x4ED6;&#x5E38;&#x7528;</h4>
-<pre><code>/(?) &#x641C;&#x7D22; n &#x5411;&#x4E0B;&#x67E5;&#x627E; N&#x60F3;&#x4E0A;&#x67E5;&#x627E;
-
-&#x81EA;&#x52A8;&#x63D0;&#x793A;&#xFF1A; &lt;C-n&gt; &#x548C; &lt;C-p&gt;
-
-:w !sudo tee %: &#x6CA1;&#x6709;sudo&#x6743;&#x9650;&#x7684;&#x4FDD;&#x5B58;
-
-&#x8F93;&#x5165;vim &#x8F93;&#x5165;E,&#x65E2;&#x53EF;&#x4EE5;&#x6D4F;&#x89C8;&#x5F53;&#x524D;&#x76EE;&#x5F55;
-</code></pre><h4 id="%E5%8D%8E%E4%B8%BD%E7%9A%84%E5%9D%97%E6%93%8D%E4%BD%9C">&#x534E;&#x4E3D;&#x7684;&#x5757;&#x64CD;&#x4F5C;</h4>
-<p>&#x5757;&#x64CD;&#x4F5C;&#x7684;&#x601D;&#x8DEF;&#x662F;&#x9009;&#x4E2D;&#x6709;&#x89C4;&#x5F8B;&#x7684;&#x4E00;&#x5757;&#x533A;&#x57DF;&#x8FDB;&#x884C;&#x7F16;&#x8F91;&#xFF0C;&#x6BD4;&#x5982;&#x63D2;&#x5165;&#xFF0C;&#x5220;&#x9664;&#xFF0C;&#x4FEE;&#x6539;&#x7B49;</p>
-<p>&#x5178;&#x578B;&#x7684;&#x64CD;&#x4F5C;&#xFF1A;<code>&lt;Ctrl+v&gt; hjkl I-- [ESC]</code></p>
-<pre><code>&lt;Ctrl+v&gt; &#x2192; &#x5F00;&#x59CB;&#x5757;&#x64CD;&#x4F5C;
-jkhl &#x2192; &#x4F7F;&#x7528;hjkl&#x6765;&#x79FB;&#x52A8;&#x5149;&#x6807;&#x9009;&#x62E9;&#x533A;&#x57DF;
-I (&#x8F93;&#x5165;&#x63D2;&#x5165;&#x7684;&#x5185;&#x5BB9;) [ESC]  I&#x662F;&#x63D2;&#x5165;&#xFF0C;&#x63D2;&#x5165;&#x5185;&#x5BB9;&#x201C;--&#x201D;&#xFF0C;&#x6309;ESC&#x952E;&#x6765;&#x4E3A;&#x6BCF;&#x4E00;&#x884C;&#x751F;&#x6548;
-</code></pre><p>&#x9664;&#x4E86;I&#x4EE5;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x5176;&#x4ED6;&#x547D;&#x4EE4;&#xFF0C;&#x6BD4;&#x5982;A&#x5728;&#x5149;&#x6807;&#x540E;&#x9762;&#x63D2;&#x5165;&#x6570;&#x636E;&#xFF0C;&#x6216;&#x8005;o,&#x5728;&#x5149;&#x6807;&#x4E0B;&#x9762;&#x63D2;&#x5165;&#x6570;&#x636E;&#xFF0C;&#x6216;&#x8005;&#x5176;&#x4ED6;&#x64CD;&#x4F5C;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;
-r &#x66FF;&#x6362;&#x6570;&#x636E;&#xFF0C; x&#x5220;&#x9664;&#x6570;&#x636E;</p>
+                        <h1 id="data-structures">data structures</h1>
 
                     
                     </section>
@@ -960,10 +898,10 @@ r &#x66FF;&#x6362;&#x6570;&#x636E;&#xFF0C; x&#x5220;&#x9664;&#x6570;&#x636E;</p>
         </div>
 
         
-        <a href="../section_tool/sublime.html" class="navigation navigation-prev " aria-label="Previous page: sublime"><i class="fa fa-angle-left"></i></a>
+        <a href="../section_python/pip.html" class="navigation navigation-prev " aria-label="Previous page: pip"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../section_tool/zsh.html" class="navigation navigation-next " aria-label="Next page: zsh"><i class="fa fa-angle-right"></i></a>
+        <a href="../section_python/import.html" class="navigation navigation-next " aria-label="Next page: import"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
