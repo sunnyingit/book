@@ -1,8 +1,8 @@
 #!/bin/bash
 
- cp -r ~/workspace/gitbook/_book /tmp 
+ cp -r ~/workspace/book/_book /tmp 
 
- cd ~/workspace/gitbook
+ cd ~/workspace/book
 
  git checkout gh-pages
  
@@ -10,13 +10,15 @@
 
  cp -r /tmp/_book/* .
 
+ ls -la 
+
  git add -A  > /dev/null 2>&1
  
  [ $? != 0 ] && echo "fuck dog git add failed" && git checkout master && exit
 
  git commit -m 'push by shell'
  
- git push sunny > /dev/null 2>&1
+ git push > /dev/null 2>&1
 
  [ $? != 0 ] && echo "fuck dog push sunny failed" && git checkout master && exit
 
