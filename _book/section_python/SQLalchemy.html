@@ -44,7 +44,7 @@
     <body>
         
         
-    <div class="book" data-level="2.14" data-basepath=".." data-revision="Wed Dec 09 2015 20:53:48 GMT+0800 (CST)">
+    <div class="book" data-level="2.14" data-basepath=".." data-revision="Thu Dec 17 2015 00:32:56 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -887,8 +887,167 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="sqlalchemy">SQLalchemy</h1>
+                        <h1 id="sqlalchemy-session">sqlalchemy session</h1>
+<hr>
+<h3 id="what-does-the-session-do">What does the Session do?</h3>
+<p>1 session&#x521B;&#x5EFA;&#x548C;&#x7BA1;&#x7406;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x7684;&#x4F1A;&#x8BDD;
+2 model object &#x901A;&#x8FC7;session&#x5BF9;&#x8C61;&#x8BBF;&#x95EE;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x5E76;&#x628A;&#x8BBF;&#x95EE;&#x5230;&#x7684;&#x6570;&#x636E;&#x4EE5; <a href="http://martinfowler.com/eaaCatalog/identityMap.html" target="_blank">Identity Map</a>&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x6620;&#x5C04;&#x5230;Model object&#x4E2D;</p>
+<h3 id="a-typical-lifespan-of-a-session">A typical lifespan of a Session</h3>
+<p>&#x7406;&#x89E3;&#xFF1A;
+1 session&#x5728;&#x521A;&#x88AB;&#x521B;&#x5EFA;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD8;&#x6CA1;&#x6709;&#x548C;&#x4EFB;&#x4F55;model object &#x7ED1;&#x5B9A;&#xFF0C;&#x53EF;&#x8BA4;&#x4E3A;&#x662F;&#x65E0;&#x72B6;&#x6001;&#x7684;
+2 session &#x63A5;&#x53D7;&#x5230;query&#x67E5;&#x8BE2;&#x8BED;&#x53E5;, &#x6267;&#x884C;&#x7684;&#x7ED3;&#x679C;&#x6216;&#x4FDD;&#x6301;&#x6216;&#x8005;&#x5173;&#x8054;&#x5230;session&#x4E2D;
+3 &#x4EFB;&#x610F;&#x6570;&#x91CF;&#x7684;model object&#x88AB;&#x521B;&#x5EFA;&#xFF0C;&#x5E76;&#x7ED1;&#x5B9A;&#x5230;session&#x4E2D;&#xFF0C;session&#x4F1A;&#x7BA1;&#x7406;&#x8FD9;&#x4E9B;&#x5BF9;&#x8C61;
+4 &#x4E00;&#x65E6;session &#x91CC;&#x9762;&#x7684;objects &#x6709;&#x53D8;&#x5316;&#xFF0C;&#x90A3;&#x53EF;&#x662F;&#x8981;commit/rollback&#x63D0;&#x4EA4;&#x6216;&#x8005;&#x653E;&#x5F03;changs</p>
+<h3 id="how-to-use-session">how to use Session</h3>
+<pre><code>from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine
 
+# configure Session class with desired options
+Session = sessionmaker()
+
+# later, we create the engine
+engine = create_engine(&apos;postgresql://...&apos;)
+
+# associate it with our custom Session class
+Session.configure(bind=engine)
+
+# work with the session
+session = Session()
+</code></pre><p>&#x5982;&#x679C;&#x9700;&#x8981;&#x6539;&#x53D8;&#x5173;&#x8054;&#x7684;engine, &#x6BD4;&#x5982;&#x6570;&#x636E;&#x5E93;&#x662F;&#x4E3B;&#x4ECE;&#x8BBE;&#x8BA1;&#xFF0C;&#x67D0;&#x4E9B;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4ECE;&#x4E3B;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x5207;&#x6362;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x636E;&#x5E93;</p>
+<pre><code># at the module level, the global sessionmaker,
+# bound to a specific Engine
+Session = sessionmaker(bind=engine)
+
+# later, some unit of code wants to create a
+# Session that is bound to a specific Connection
+conn = engine.connect()
+session = Session(bind=conn)
+</code></pre><h3 id="when-do-i-construct-a-session-when-do-i-commit-it-and-when-do-i-close-it">When do I construct a Session, when do I commit it, and when do I close it?</h3>
+<p>&#x4E00;&#x822C;&#x6765;&#x8BF4;&#xFF0C;session&#x5728;&#x9700;&#x8981;&#x8BBF;&#x95EE;&#x6570;&#x636E;&#x5E93;&#x7684;&#x65F6;&#x5019;&#x521B;&#x5EFA;&#xFF0C;&#x5728;session&#x8BBF;&#x95EE;&#x6570;&#x636E;&#x5E93;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x51C6;&#x786E;&#x6765;&#x8BF4;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x201C;add/update/delete&#x201D;&#x6570;&#x636E;&#x5E93;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x5F00;&#x542F;<code>database transaction</code>, &#x5047;&#x8BBE;&#x6CA1;&#x6709;&#x4FEE;&#x6539;<code>autocommit</code>&#x7684;&#x9ED8;&#x8BA4;&#x503C;(False), &#x90A3;&#x4E48;&#xFF0C;<code>database transaction</code> &#x4E00;&#x76F4;&#x4F1A;&#x4FDD;&#x6301;&#xFF0C;&#x53EA;&#x6709;&#x7B49;&#x5230;session rolled back, committed, or closed&#x7684;&#x65F6;&#x5019;&#x624D;&#x7ED3;&#x675F;&#xFF0C;&#x4E00;&#x822C;&#x5EFA;&#x8BAE;&#xFF0C;&#x5F53;<code>database transaction</code>&#x7ED3;&#x675F;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x540C;&#x65F6;close session, &#x4FDD;&#x8BC1;&#xFF0C;&#x6BCF;&#x6B21;&#x53D1;&#x8D77;&#x8BF7;&#x6C42;&#xFF0C;&#x90FD;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;session</p>
+<p>&#x7279;&#x522B;&#x662F;&#x5BF9;web&#x5E94;&#x7528;&#x6765;&#x8BF4;&#xFF0C;&#x53D1;&#x8D77;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#xFF0C;&#x82E5;&#x8BF7;&#x6C42;&#x4F7F;&#x7528;&#x5230;Session&#x8BBF;&#x95EE;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x5219;&#x521B;&#x5EFA;session&#xFF0C;&#x5904;&#x7406;&#x5B8C;&#x8FD9;&#x4E2A;&#x8BF7;&#x6C42;&#x540E;&#xFF0C;&#x5173;&#x95ED;session&#xFF0C;&#x5982;&#x56FE;&#xFF1A;</p>
+<pre><code>Web Server          Web Framework        SQLAlchemy ORM Code
+--------------      --------------       ------------------------------
+startup        -&gt;   Web framework        # Session registry is established
+                    initializes          Session = scoped_session(sessionmaker())
+
+incoming
+web request    -&gt;   web request     -&gt;   # The registry is *optionally*
+                    starts               # called upon explicitly to create
+                                         # a Session local to the thread and/or request
+                                         Session()
+
+                                         # the Session registry can otherwise
+                                         # be used at any time, creating the
+                                         # request-local Session() if not present,
+                                         # or returning the existing one
+                                         Session.query(MyClass) # ...
+
+                                         Session.add(some_object) # ...
+
+                                         # if data was modified, commit the
+                                         # transaction
+                                         Session.commit()
+
+                    web request ends  -&gt; # the registry is instructed to
+                                         # remove the Session
+                                         Session.remove()
+
+                    sends output      &lt;-
+outgoing web    &lt;-
+response
+</code></pre><p>&#x8FD8;&#x6709;&#x4E00;&#x70B9;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x4FDD;&#x8BC1;session&#x662F;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x4EE5;&#x548C;&#x6570;&#x636E;&#x5E93;&#x901A;&#x4FE1;&#x7684;session&#x5728;&#x4EFB;&#x4F55;&#x65F6;&#x5019;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#xFF0C;&#x4E3A;&#x6BDB;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x4E00;&#x4E2A;session&#x5BF9;&#x8C61;&#xFF0C;&#x540C;&#x65F6;&#xFF0C;&#x7BA1;&#x7406;&#x4E00;&#x4E2A;session&#x5BF9;&#x8C61;&#x8FDC;&#x6BD4;&#x7BA1;&#x7406;&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#x7B80;&#x5355;</p>
+<h4 id="%E4%B8%8D%E8%A6%81%E8%BF%99%E4%B9%88%E5%81%9A%EF%BC%9A">&#x4E0D;&#x8981;&#x8FD9;&#x4E48;&#x505A;&#xFF1A;</h4>
+<pre><code>class ThingOne(object):
+    def go(self):
+        session = Session()
+        try:
+            session.query(FooBar).update({&quot;x&quot;: 5})
+            session.commit()
+        except:
+            session.rollback()
+            raise
+
+class ThingTwo(object):
+    def go(self):
+        session = Session()
+        try:
+            session.query(Widget).update({&quot;q&quot;: 18})
+            session.commit()
+        except:
+            session.rollback()
+            raise
+
+def run_my_program():
+    ThingOne().go()
+    ThingTwo().go()
+</code></pre><p>&#x63A8;&#x8350;&#x8FD9;&#x4E48;&#x505A;&#xFF1A;</p>
+<pre><code>class ThingOne(object):
+    def go(self, session):
+        session.query(FooBar).update({&quot;x&quot;: 5})
+
+class ThingTwo(object):
+    def go(self, session):
+        session.query(Widget).update({&quot;q&quot;: 18})
+
+def run_my_program():
+    session = Session()
+    try:
+        ThingOne().go(session)
+        ThingTwo().go(session)
+
+        session.commit()
+    except:
+        session.rollback()
+        raise
+    finally:
+        session.close()
+</code></pre><h3 id="is-the-session-a-cache">Is the Session a cache</h3>
+<p> session &#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x7F13;&#x5B58;</p>
+<h3 id="is-the-session-thread-safe">Is the session thread-safe</h3>
+<p>session &#x4E0D;&#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#xFF0C;&#x4E0A;&#x9762;&#x63D0;&#x5230;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4FDD;&#x8BC1;session object&#x662F;&#x5168;&#x5C40;&#x7684;&#xFF0C;&#x5728;&#x591A;&#x7EBF;&#x7A0B;&#x7684;&#x73AF;&#x5883;&#x4E2D;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x5C06;&#x4F1A;&#x5171;&#x4EAB;&#x540C;&#x4E00;&#x4E2A;session&#xFF0C; &#x8BD5;&#x60F3;&#x4E00;&#x4E0B;&#xFF0C;&#x5047;&#x8BBE;A&#x7EBF;&#x7A0B;&#x6B63;&#x5728;&#x4F7F;&#x7528;session&#x5904;&#x7406;&#x6570;&#x636E;&#x5E93;&#xFF0C;B&#x7EBF;&#x7A0B;&#x5DF2;&#x7ECF;&#x6267;&#x884C;&#x5B8C;&#x6210;&#xFF0C;&#x628A;session&#x7ED9;close&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x6B64;&#x65F6;A&#x5728;&#x4F7F;&#x7528;session&#x5C31;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x600E;&#x4E48;&#x907F;&#x514D;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;</p>
+<p>&#x5FC5;&#x987B;&#x4FDD;&#x8BC1;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x4F7F;&#x7528;&#x7684;session&#x90FD;&#x4E0D;&#x4E00;&#x6837;</p>
+<h3 id="thread-local-sessions">Thread-local Sessions</h3>
+<pre><code>from sqlalchemy.orm import scoped_session
+from sqlalchemy.orm import sessionmaker
+
+session_factory = sessionmaker(bind=some_engine)
+Session = scoped_session(session_factory)
+some_session = Session()
+some_other_session = Session()
+some_session is some_other_session #True
+</code></pre><p>&#x4F7F;&#x7528;&#x4E86;<code>scoped_session</code> &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x521B;&#x5EFA;&#x7684;session&#x90FD;&#x662F;<code>Thread-Local Scope</code>&#xFF0C;&#x521B;&#x5EFA;&#x7684;session&#x5BF9;&#x8C61;&#x5177;&#x4F53;&#x6709;&#x4E24;&#x70B9;&#x53D8;&#x5316;&#xFF1A;
+1 &#x4F7F;&#x7528;Session()&#x521B;&#x5EFA;&#x7684;session&#x5BF9;&#x8C61;&#x90FD;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x8FD9;&#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;&#x4EE3;&#x7801;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x591A;&#x6B21;&#x8C03;&#x7528;session()&#x4F9D;&#x7136;&#x83B7;&#x5F97;&#x5230;&#x76F8;&#x540C;&#x7684;session &#x5BF9;&#x8C61;
+2 &#x4F7F;&#x7528;Session()&#x521B;&#x5EFA;&#x7684;session&#x5BF9;&#x8C61; &#x662F; <code>Thread-local</code>, session&#x5728;&#x7EBF;&#x7A0B;&#x4E0E;&#x7EBF;&#x7A0B;&#x4E4B;&#x95F4;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x8054;&#x7CFB;</p>
+<p>sqlalchemy&#x600E;&#x4E48;&#x505A;&#x7684;&#xFF0C;<a href="http://docs.python.org/library/threading.html#threading.local" target="_blank">&#x731B;&#x51FB; thrending.local()</a></p>
+<h3 id="how-to-close-session">how to close session</h3>
+<pre><code>Session.remove()
+
+# This will first call Session.close() method on the current Session, which releases any existing transactional/connection resources still being held; transactions specifically are rolled back. The Session is then discarded. Upon next usage within the same scope, the scoped_session will produce a new Session object
+
+# &#x6CE8;&#x610F;&#xFF0C;&#x672A;commit&#x7684;transactions&#x4F1A;&#x88AB;&#x56DE;&#x6EDA;
+</code></pre><p>&#x90A3;&#x4E48;session.close&#x4F1A;&#x505A;&#x4EC0;&#x4E48;&#x4E8B;&#x60C5;&#x5462;&#xFF0C;&#x6587;&#x7AE0;&#x5F00;&#x5934;&#x8BF4;&#x9053;&#xFF0C;session&#x521B;&#x5EFA;&#x548C;&#x7BA1;&#x7406;&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x7684;&#x8FDE;&#x63A5;&#xFF0C;&#x5F53;&#x8C03;&#x7528;close&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6CE8;&#x610F;&#xFF0C;sqlalchemy&#x4E0D;&#x4F1A;&#x5173;&#x95ED;&#x4E0E;mysql&#x7684;&#x8FDE;&#x63A5;&#xFF0C;&#x800C;&#x662F;&#x628A;&#x8FDE;&#x63A5;&#x8FD4;&#x56DE;&#x5230;&#x8FDE;&#x63A5;&#x6C60;&#x3002;</p>
+<h3 id="model-object%E5%85%B3%E8%81%94%E5%88%B0session%E7%9A%84%E7%8A%B6%E6%80%81">model object&#x5173;&#x8054;&#x5230;session&#x7684;&#x72B6;&#x6001;</h3>
+<p>Session Object States</p>
+<p>Since we have already seen an Session object in action, it&apos;s important to also know the four different states of session objects:</p>
+<p>Transient: an instance that&apos;s not included in a session and has not been persisted to the database.
+Pending: an instance that has been added to a session but not persisted to a database yet. It will be persisted to the database in the next session.commit().
+Persistent: an instance that has been persisted to the database and also included in a session. You can make a model object persistent by committing it to the database or query it from the database.
+Detached: an instance that has been persisted to the database but not included in any sessions.</p>
+<pre><code>&gt;&gt;&gt; from sqlalchemy import inspect
+&gt;&gt;&gt; david = User(name=&apos;David&apos;)
+&gt;&gt;&gt; ins = inspect(david)
+&gt;&gt;&gt; print(&apos;Transient: {0}; Pending: {1}; Persistent: {2}; Detached: {3}&apos;.format(ins.transient, ins.pending, ins.persistent, ins.detached))
+Transient: True; Pending: False; Persistent: False; Detached: False
+&gt;&gt;&gt; s.add(david)
+&gt;&gt;&gt; print(&apos;Transient: {0}; Pending: {1}; Persistent: {2}; Detached: {3}&apos;.format(ins.transient, ins.pending, ins.persistent, ins.detached))
+Transient: False; Pending: True; Persistent: False; Detached: False
+&gt;&gt;&gt; s.commit()
+&gt;&gt;&gt; print(&apos;Transient: {0}; Pending: {1}; Persistent: {2}; Detached: {3}&apos;.format(ins.transient, ins.pending, ins.persistent, ins.detached))
+Transient: False; Pending: False; Persistent: True; Detached: False
+&gt;&gt;&gt; s.close()
+&gt;&gt;&gt; print(&apos;Transient: {0}; Pending: {1}; Persistent: {2}; Detached: {3}&apos;.format(ins.transient, ins.pending, ins.persistent, ins.detached))
+Transient: False; Pending: False; Persistent: False; Detached: True
+</code></pre>
                     
                     </section>
                 

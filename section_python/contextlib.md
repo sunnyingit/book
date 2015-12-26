@@ -2,23 +2,48 @@
 
 标签（空格分隔）： python
 
-contextlib 是一个上下文管理模块, 那什么是上下文管理，什么时候需要用到上下文管理。
+contextlib 是一个上下文管理模块
+那什么是上下文管理，什么时候需要用到上下文管理?
 
-我的理解就是，比如你打开文件的时候，最终你需要改变这个打开的文件资源，如果在关闭文件资源之前，你的代码发生了错误，很有可能导致文件不会被改变，所以遇到这种“资源问题”，我们需要一个上下文管理器，保证打开的资源都会被释放，这里不得不提到`with`
+我的理解就是，比如你打开文件的时候，最终你需要改变这个打开的文件资源，如果在关闭文件资源之前，你的代码发生了错误，很有可能导致文件不会被关闭，这会导致“资源泄露”
+
+在这种情况下，我们需要一个上下文管理器，保证无论代码是否出错，打开的'资源'最终都会被释放
+
+所以，当你自定义了一个`资源`,那你就需要使用到`contextclib`去管理这个资源
+
+
 
 ```python
 with file('test,'r') as f:
     print f.readline()
 
-# 代码执行完毕之后，程序会“自动”改变打开的资源
+# 代码执行完毕之后，不管是在哪种情况下，程序都会“自动关闭文件
 ```
-想文件这种资源，在使用`with`修辞，资源在引用完成之后，python会自动关闭这个资源，但是，我们自定义的一些特殊资源，就需要我们“手动去关闭”了
 
-怎么去实现这一套“上下文管理机制”，这就需要我们知道`with`的原理了
+使用`with`修辞，资源在引用完成之后，python会自动关闭这个资源
+`with` 可以自动关闭打开的资源，但是，我们自定义的一些特殊资源，怎么关闭，我们可以这样做:
+```
+import contextlib
 
-### with
+@contextlib.contextmanager
+def session_stack():
+    if not hasattr(db_ctx, 'session_stack'):
+        db_ctx.session_stack = 0
+    try:
+        db_ctx.session_stack += 1
+        yield # 注意yield的使用
+    finally:
+        db_ctx.session_stack -= 1
 
-with修饰一个可执行对象，我们需要理解什么是可执行对象，在python中，常见的有函数，类，类的实例化对象，类方法，实例化对象方法等，所以with可以修饰以上几类对象
+# 使用with调用这个函数
+with session_stack():
+    pass
+# 这个函数首先会执行`yield`之前的代码，给资源`session_stack=1`, 然后会执行`session_stack -= 1`
+
+```
+`with`修饰一个可执行对象，我们需要理解什么是可执行对象，在python中，常见的有函数，类，类的实例化对象，类方法，实例化对象方法等，所以with可以修饰以上几类对象
+
+`with`到底做了什么事情, 请看下面：
 
 ```python
 
@@ -99,5 +124,59 @@ with context_lib as f:
 # done
 
 ```
+下面是`python contextlib` 的源代码：
+```
+class GeneratorContextManager(object):
+    """Helper for @contextmanager decorator."""
 
+    def __init__(self, gen):
+        self.gen = gen
+
+    def __enter__(self):
+        try:
+            return self.gen.next()
+        except StopIteration:
+            raise RuntimeError("generator didn't yield")
+
+    def __exit__(self, type, value, traceback):
+        if type is None:
+            try:
+                self.gen.next()
+            except StopIteration:
+                return
+            else:
+                raise RuntimeError("generator didn't stop")
+        else:
+            if value is None:
+                # Need to force instantiation so we can reliably
+                # tell if we get the same exception back
+                value = type()
+            try:
+                self.gen.throw(type, value, traceback)
+                raise RuntimeError("generator didn't stop after throw()")
+            except StopIteration, exc:
+                # Suppress the exception *unless* it's the same exception that
+                # was passed to throw().  This prevents a StopIteration
+                # raised inside the "with" statement from being suppressed
+                return exc is not value
+            except:
+                # only re-raise if it's *not* the exception that was
+                # passed to throw(), because __exit__() must not raise
+                # an exception unless __exit__() itself failed.  But throw()
+                # has to raise the exception to signal propagation, so this
+                # fixes the impedance mismatch between the throw() protocol
+                # and the __exit__() protocol.
+                #
+                if sys.exc_info()[1] is not value:
+                    raise
+
+
+def contextmanager(func):
+
+    @wraps(func)
+    def helper(*args, **kwds):
+        return GeneratorContextManager(func(*args, **kwds))
+    return helper
+```
+至此，我们搞清楚了上下文的两个关键字：`contextlib`, `with`, 也知道了什么时候该使用上下文管理
 
