@@ -1,0 +1,5 @@
+{
+  "functional/test_1.py::test_func": true, 
+  "functional/test_2.py::test_func": true, 
+  "functional/test_class.py::TestClass::()::test_two": true
+}
