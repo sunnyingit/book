@@ -1,1 +1,1 @@
-pytest_plugins = ("tests.fixtures", )
+pytest_plugins = ("tmpdoc/tests/fixtures", )
