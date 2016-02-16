@@ -6,7 +6,7 @@
 
  git checkout gh-pages
  
- [ $? != 0 ] && echo "fuck dog checkout gh-pages failed" && exit
+ [ $? != 0 ] && echo "fuck dog, !! checkout gh-pages failed!!!" && exit
 
  cp -r /tmp/_book/* .
 
