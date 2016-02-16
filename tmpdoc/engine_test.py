@@ -1,10 +1,21 @@
-# -*- conding: utf-8 -*-
+# -*- coding: utf-8 -*-
+
 from sqlalchemy import create_engine
 
-scheme = 'mysql+pymysql://root:123456@localhost:3306/dev_shopping?charset=utf8' # noqa
+scheme = 'mysql+pymysql://root:123456@localhost:3306/dev_shopping?charset=utf8'  # noqa
 engine = create_engine(scheme, pool_size=10)
+
 connection = engine.connect()
-print type(connection)
+result = connection.execute("select * from tmp")
+
+row = result.fetchone()
+print result.lastrowid
+print row[0]
+print row['id']
+print type(row) # sqlalchemy.engine.result.RowProxy
+
+
+
 
 
 # connection = engine.connect()
