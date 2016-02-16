@@ -1,4 +1,4 @@
-# Engine Configuration¶
+# Engine Configuration
 
 `Engine` 是访问数据库的入口，`Engine`引用`Connection Pool`和 `Dialect`实现了对数据库的访问, `Dialect`指定了具体的数据库类型 `MYSQL, SQLSERVER`等, 三者关系如图所示:
 ![file-list](http://docs.sqlalchemy.org/en/rel_1_0/_images/sqla_engine_arch.png)
