@@ -10,6 +10,8 @@ Options:
 import os
 import click
 
+test = 1
+
 
 # @click.command()
 # @click.option('--count', default=1, help='Number of greetings.')

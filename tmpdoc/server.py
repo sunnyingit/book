@@ -9,11 +9,9 @@ listen_socket.listen(1)
 print 'Serving HTTP on port %s ...' % PORT
 while True:
     client_connection, client_address = listen_socket.accept()
-    request = client_connection.recv(1024)
-    http_response = """\
-HTTP/1.1 200 OK
-
-Hello, World!
-"""
-    client_connection.sendall(http_response)
+    request = ''
+    while True:
+        data = client_connection.recv(5)
+        print "request data is" + data
+        client_connection.sendall(data)
     client_connection.close()

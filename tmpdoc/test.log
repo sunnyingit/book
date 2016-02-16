@@ -1,0 +1,9 @@
+test.log
+WARNING:package1.module1:This message comes from one module
+WARNING:package2.module2:And this message comes from another module
+WARNING:package1:This message comes from one module
+WARNING:package2.module2:And this message comes from another module
+WARNING:package1:This message comes from one module
+WARNING:package2:And this message comes from another module
+WARNING:package1:This message comes from one module
+WARNING:package2:And this message comes from another module
