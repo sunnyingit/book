@@ -3,7 +3,7 @@ import random
 import string
 
 from sqlalchemy import create_engine
-from sqlalchemy import inspect
+from sqlalchemy import inspect, func
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import (
@@ -32,6 +32,7 @@ class Blog(DeclarativeBase):
 
 
 # blog = Blog(name="Blog")
+# session.add(blog)
 # ins = inspect(blog)
 # print ins.transient
 # print ins.__dict__
@@ -43,17 +44,19 @@ class Blog(DeclarativeBase):
 # print b.name
 # b = session.query(Blog).filter(Blog.name == 'test').delete(synchronize_session='evaluate')
 # session.commit()
-# b = session.query(Blog).filter(Blog.name == 'test').first()
-# print b
-# print b.name
-
-i = 200000
-blogs = []
-while i:
-    chars = string.ascii_uppercase + string.digits
-    name = 'name'.join(random.choice(chars) for _ in range(5))
-    title = 'title'.join(random.choice(chars) for _ in range(5))
-    blogs.append(Blog(name=name, title=title))
-    i -= 1
-session.add_all(blogs)
+blog = session.query(Blog).filter(Blog.name == 'Blog').first()
+session.query(Blog).filter(Blog.name == 'Blog').update({Blog.name: Blog.name + 'x'}, synchronize_session=False)
+print blog.name
 session.commit()
+print blog.name
+
+# i = 200000
+# blogs = []
+# while i:
+#     chars = string.ascii_uppercase + string.digits
+#     name = 'name'.join(random.choice(chars) for _ in range(5))
+#     title = 'title'.join(random.choice(chars) for _ in range(5))
+#     blogs.append(Blog(name=name, title=title))
+#     i -= 1
+# session.add_all(blogs)
+# session.commit()

@@ -16,6 +16,7 @@ bui# Summary
     * [pytest](section_python/pytest.md)
     * [SQLalchemy-session](section_python/SQLalchemy-session.md)
     * [SQLalchemy-engine](section_python/SQLalchemy-engine.md)
+    * [SQLalchemy-orm](section_python/SQLalchemy-orm.md)
 * [GO](section_go/README.md)
 * [JAVASCRIPT](section_javascript/README.md)
 * [LUA](section_lua/README.md)
