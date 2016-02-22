@@ -7,10 +7,10 @@ Options:
     --help  Show this message and exit.
 """
 
-import os
-import click
+# import os
+# import click
 
-test = 1
+# test = 1
 
 
 # @click.command()
@@ -55,3 +55,20 @@ test = 1
 # if __name__ == '__main__':
 #     # pylint: disable=E1120
 #     run()
+
+
+class C(object):
+    def __init__(self, x):
+        self.x = x
+
+    def getx(self):
+        print 'get x from c'
+        return self.x
+
+    # 添加一个属性'y'
+    y = property(getx)
+
+
+c = C(1)
+
+print c.y
