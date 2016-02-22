@@ -136,6 +136,7 @@ thriftSyntax: thrfit文件语法高亮
 DocBlockr: 输入/** 然后按下tab键，你会有所发现
 
 atuopep8: python格式化插件
+python atuo pep8: python格式化插件, 自定义相关标准，提供自动格式化快捷键
 
 jedi: 安装好之后，可以自动补全python代码
 
