@@ -28,7 +28,7 @@ def yield_func(i):
     yield i
     print 'after yield'
 
-# 调用yield_func的时候, 函数里面的代码还没有执行 只是返回了一个generator，所以输出before yield, 理解这一点非常重要
+# 调用yield_func的时候, 函数里面的代码还没有执行 只是返回了一个generator,没有输出任何内容，理解这一点非常重要
 a = yield_func(1)
 
 print type(a)
@@ -37,6 +37,7 @@ print type(a)
 
 # 执行yield_func的代码，直到遇到关键字yield之后，中断代码执行，返回i
 a.next()
+# before yield
 # outputs:
 # 1
 
@@ -62,6 +63,8 @@ for i in a:
 ```
 
 ### Mutli Yield
+
+yield 后面的值，就是每次迭代需要返回的值
 ```python
 def city_generator():
     yield("London")
