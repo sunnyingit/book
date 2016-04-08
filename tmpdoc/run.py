@@ -57,18 +57,33 @@ Options:
 #     run()
 
 
-class C(object):
-    def __init__(self, x):
-        self.x = x
+# class C(object):
+#     def __init__(self, x):
+#         self.x = x
 
-    def getx(self):
-        print 'get x from c'
-        return self.x
+#     def getx(self):
+#         print 'get x from c'
+#         return self.x
 
-    # 添加一个属性'y'
-    y = property(getx)
+#     # 添加一个属性'y'
+#     y = property(getx)
 
 
-c = C(1)
+# c = C(1)
 
-print c.y
+# print c.y
+# P   A   H   N
+# A P L S I I G
+# Y   I   R
+
+# Definition for singly-linked list.
+def bulbswitch(n):
+    cnt = 0
+    i = 1
+    while i * i <= n:
+        cnt += 1
+        i += 1
+
+    return cnt
+
+print bulbswitch(10)
