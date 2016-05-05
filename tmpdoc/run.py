@@ -77,13 +77,40 @@ Options:
 # Y   I   R
 
 # Definition for singly-linked list.
-def bulbswitch(n):
-    cnt = 0
-    i = 1
-    while i * i <= n:
-        cnt += 1
-        i += 1
+# def findrepeateddnasequences(s):
+#     print s
+#     s_len = len(s) - 10
+#     if s_len < 0:
+#         return []
+#     data = dict()
+#     rdata = set()
+#     i = 0
+#     while i <= s_len:
+#         item = s[i:10 + i]
+#         if not data.has_key(item):
+#             data.update({item: 1})
+#         else:
+#             rdata.add(item)
+#         i += 1
+#     return list(rdata)
+# s = "AAAAAAAAAAA"
+# print findrepeateddnasequences(s)
+def longestincreasingpath(nums):
+    vertical = len(nums)
+    y = vertical
+    item = dict()
+    for num in nums:
+        length = len(num)
+        for k, v in enumerate(num):
+            item["val"] = num[k]
+            if k - 1 > 0 and num[k] > num[k + 1]:
 
-    return cnt
 
-print bulbswitch(10)
+            if k + 1 < length:
+            if y + 1 < vertical:
+            if y - 1 > 0:
+            items.append(item)
+        y -= 1
+    return items
+
+print longestincreasingpath([[1, 2, 3]])
