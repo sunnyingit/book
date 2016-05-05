@@ -24,7 +24,7 @@ bui# Summary
     * [用户管理](section_linux/user.md)
     * [ssh梳理](section_linux/ssh.md)
     * [进程管理](section_linux/proccess.md)
-    * [文本处理](section_linux/README.md)
+    * [文本处理](section_linux/text.md)
     * [内存管理](section_linux/memmory.md)
     * [网络管理](section_linux/network.md)
     * [shell](section_linux/shell.md)
