@@ -7,10 +7,10 @@ Options:
     --help  Show this message and exit.
 """
 
-import os
-import click
+# import os
+# import click
 
-test = 1
+# test = 1
 
 
 # @click.command()
@@ -55,3 +55,62 @@ test = 1
 # if __name__ == '__main__':
 #     # pylint: disable=E1120
 #     run()
+
+
+# class C(object):
+#     def __init__(self, x):
+#         self.x = x
+
+#     def getx(self):
+#         print 'get x from c'
+#         return self.x
+
+#     # 添加一个属性'y'
+#     y = property(getx)
+
+
+# c = C(1)
+
+# print c.y
+# P   A   H   N
+# A P L S I I G
+# Y   I   R
+
+# Definition for singly-linked list.
+# def findrepeateddnasequences(s):
+#     print s
+#     s_len = len(s) - 10
+#     if s_len < 0:
+#         return []
+#     data = dict()
+#     rdata = set()
+#     i = 0
+#     while i <= s_len:
+#         item = s[i:10 + i]
+#         if not data.has_key(item):
+#             data.update({item: 1})
+#         else:
+#             rdata.add(item)
+#         i += 1
+#     return list(rdata)
+# s = "AAAAAAAAAAA"
+# print findrepeateddnasequences(s)
+def longestincreasingpath(nums):
+    vertical = len(nums)
+    y = vertical
+    item = dict()
+    for num in nums:
+        length = len(num)
+        for k, v in enumerate(num):
+            item["val"] = num[k]
+            if k - 1 > 0 and num[k] > num[k + 1]:
+
+
+            if k + 1 < length:
+            if y + 1 < vertical:
+            if y - 1 > 0:
+            items.append(item)
+        y -= 1
+    return items
+
+print longestincreasingpath([[1, 2, 3]])
