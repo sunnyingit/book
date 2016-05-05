@@ -94,7 +94,7 @@ sed "s/my/Hao/g" pets.txt
 
 #### 使用i直接修改源文件
 ```
-sed -i "/s/my/Hao/g" pets.txt
+sed -i "s/my/Hao/g" pets.txt
 ```
 
 #### 添加新内容
