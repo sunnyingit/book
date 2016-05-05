@@ -1,4 +1,4 @@
-# sublime 配置
+# awk 配置
 
 ------
 ### 常用说明
@@ -50,12 +50,6 @@ awk 'length>80' file
 
 #按连接数查看客户端IP
 netstat -ntu | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -nr
-```
-
-### awk 正则匹配
-
-```
-awk '$1 ~ /J/' inventory-shipped
 ```
 
 ### 正则表达式字符说明
