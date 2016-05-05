@@ -100,11 +100,11 @@ sed -i "/s/my/Hao/g" pets.txt
 #### 添加新内容
 在每一行最前面加点东西
 ```
-sed -i "/s/^/##/g" pets.txt
+sed -i "s/^/##/g" pets.txt
 ```
 在每一行最后面加点东西
 ```
-sed -i "/s/$/----/g" pets.txt
+sed -i "s/$/----/g" pets.txt
 ```
 
 #### 指定需要替换的内容
