@@ -29,6 +29,7 @@ bui# Summary
     * [网络管理](section_linux/network.md)
     * [shell](section_linux/shell.md)
     * [正则](section_linux/regex.md)
+    * [CPU性能](section_linux/cpu.md)
 * [代码设计](section_design/README.md)
     * [TCP Server](section_design/tcp.md)
     * [HTTP Server](section_design/http.md)
