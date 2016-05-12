@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>vim | 飘来飘去</title>
+        <title>CPU性能 | 飘来飘去</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.4.3">
@@ -33,10 +33,10 @@
         
     
     
-    <link rel="next" href="../section_tool/zsh.html" />
+    <link rel="next" href="../section_design/index.html" />
     
     
-    <link rel="prev" href="../section_tool/sublime.html" />
+    <link rel="prev" href="../section_linux/regex.html" />
     
 
         
@@ -44,7 +44,7 @@
     <body>
         
         
-    <div class="book" data-level="8.2" data-basepath=".." data-revision="Thu May 12 2016 15:15:24 GMT+0800 (CST)">
+    <div class="book" data-level="6.9" data-basepath=".." data-revision="Thu May 12 2016 15:15:24 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -539,7 +539,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.9" data-path="section_linux/cpu.html">
+        <li class="chapter active" data-level="6.9" data-path="section_linux/cpu.html">
             
                 
                     <a href="../section_linux/cpu.html">
@@ -671,7 +671,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="8.2" data-path="section_tool/vim.html">
+        <li class="chapter " data-level="8.2" data-path="section_tool/vim.html">
             
                 
                     <a href="../section_tool/vim.html">
@@ -1007,70 +1007,97 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="vim">vim</h1>
-<p>&#x9009;&#x62E9;vim,&#x8FD8;&#x662F;&#x9009;&#x62E9;sublime, &#x4E24;&#x4E2A;&#x90FD;&#x53EF;&#x4EE5;&#x6709;</p>
-<h3 id="%E9%85%8D%E7%BD%AE">&#x914D;&#x7F6E;</h3>
-<p>&#x5F00;&#x542F;&#x8BED;&#x6CD5;&#x68C0;&#x6D4B;, vim&#x4F1A;&#x9AD8;&#x4EAE;</p>
-<pre><code>syntax on
-</code></pre><h4 id="%E7%A7%BB%E5%8A%A8">&#x79FB;&#x52A8;</h4>
-<pre><code>gg: &#x79FB;&#x52A8;&#x5230;&#x6587;&#x4EF6;&#x7B2C;&#x4E00;&#x884C;
-G &#x79FB;&#x52A8;&#x5230;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4E00;&#x884C;
-ngg: &#x79FB;&#x52A8;&#x5230;&#x6587;&#x4EF6;&#x7B2C;N&#x884C;
-L : &#x5C4F;&#x5E55;&#x7684;&#x6700;&#x4E0B;&#x65B9;
-M &#x4E2D;&#x95F4;&#x5C4F;&#x5E55;
-H &#x5C4F;&#x5E55;&#x7684;&#x6700;&#x4E0A;&#x65B9;
-w &#x79FB;&#x52A8;&#x5230;&#x4E0B;&#x4E00;&#x4E2A;&#x5B57;&#x6BCD;
-b &#x79FB;&#x52A8;&#x5230;&#x4E0A;&#x4E00;&#x4E2A;&#x5B57;&#x6BCD;
-e &#x8C03;&#x5230;&#x4E00;&#x4E2A;&#x5355;&#x8BCD;&#x7684;&#x7ED3;&#x675F;
-$ &#x79FB;&#x52A8;&#x5230;&#x884C;&#x672B;&#x5C3E;
-^ &#x79FB;&#x52A8;&#x5230;&#x884C;&#x9996;&#x5B57;&#x6BCD;
-0 &#x79FB;&#x52A8;&#x5230;&#x884C;&#x9996;
-</code></pre><h4 id="%E7%BC%96%E8%BE%91">&#x7F16;&#x8F91;</h4>
-<pre><code>y:&#x590D;&#x5236;&#x9009;&#x4E2D;&#x533A;&#x57DF;
-yy: &#x590D;&#x5236;&#x4E00;&#x884C;
-nyy: &#x590D;&#x5236;n&#x884C;
-x: &#x526A;&#x5207;(&#x5220;&#x9664;)&#x4E00;&#x4E2A;&#x5B57;&#x7B26;
-dd: &#x5220;&#x9664;&#x4E00;&#x884C;
-ndd: &#x5220;&#x9664;N&#x884C;
-D:&#x5220;&#x9664;&#x5149;&#x6807;&#x6240;&#x5728;&#x7684;&#x4F4D;&#x7F6E;&#x5230;&#x884C;&#x672B;&#x5C3E;
-X: &#x5220;&#x9664;&#x5149;&#x6807;&#x4E4B;&#x524D;&#x5B57;&#x7B26;
-p: &#x7C98;&#x8D34;
-ndd p: &#x79FB;&#x52A8;n&#x884C;&#x5230;&#x4E0B;&#x4E00;&#x884C;
-J:  &#x628A;&#x5149;&#x6807;&#x6240;&#x5728;&#x7684;&#x884C;&#x5408;&#x5E76;&#x5230;&#x4E0A;&#x4E00;&#x884C;
-r: &#x66FF;&#x6362;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;
-R: &#x4E00;&#x76F4;&#x66FF;&#x6362;
-</code></pre><h4 id="%E9%80%89%E4%B8%AD">&#x9009;&#x4E2D;</h4>
-<pre><code>v&#xFF0C;&#x4F7F;&#x7528;&#x4E0A;&#x4E0B;&#x5DE6;&#x53F3;&#x952E;&#x79FB;&#x52A8;&#xFF0C;&#x53EF;&#x4EE5;&#x9009;&#x4E2D;&#x5149;&#x6807;&#x7ECF;&#x8FC7;&#x7684;&#x5730;&#x65B9;
-vi} &#x9009;&#x4E2D;{}&#x4E2D;&#x95F4;&#x7684;&#x5185;&#x5BB9;,&#x4E0D;&#x5305;&#x62EC;{}
-va} &#x9009;&#x4E2D;{}&#x4E2D;&#x95F4;&#x5185;&#x5BB9;&#xFF0C;&#x5305;&#x62EC;{}
-vi( &#x9009;&#x4E2D;()&#x4E2D;&#x95F4;&#x5185;&#x5BB9;
-vi&lt; &#x9009;&#x4E2D;&lt;&gt;&#x4E2D;&#x95F4;&#x5185;&#x5BB9;
-vi[ &#x9009;&#x4E2D;[]&#x4E2D;&#x95F4;&#x5185;&#x5BB9;
-vit &#x9009;&#x4E2D;&#x4E2D;&#x95F4;&#x7684;&#x5185;&#x5BB9;
-vi&#x201D; &#x9009;&#x4E2D;&#x201D;&quot;&#x4E2D;&#x95F4;&#x5185;&#x5BB9;
-vi&#x2019; &#x9009;&#x4E2D;&#x201D;&#x4E2D;&#x95F4;&#x7684;&#x5185;&#x5BB9;
-vis &#x9009;&#x4E2D;&#x4E00;&#x4E2A;&#x53E5;&#x5B50;
-vib &#x9009;&#x4E2D;&#x4E00;&#x4E2A;block
-viw&#x9009;&#x4E2D;&#x4E00;&#x4E2A;&#x5355;&#x8BCD;
-vip &#x9009;&#x4E2D;&#x4E00;&#x4E2A;&#x6BB5;&#x843D;
-ctrl+v &#x9009;&#x4E2D;&#x4E00;&#x4E2A;&#x5757;
-</code></pre><h4 id="%E5%85%B6%E4%BB%96%E5%B8%B8%E7%94%A8">&#x5176;&#x4ED6;&#x5E38;&#x7528;</h4>
-<pre><code>/(?) &#x641C;&#x7D22; n &#x5411;&#x4E0B;&#x67E5;&#x627E; N&#x60F3;&#x4E0A;&#x67E5;&#x627E;
+                        <h1 id="cpu%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7">CPU&#x6027;&#x80FD;&#x76D1;&#x63A7;</h1>
+<p><a href="http://www.vpsee.com/2009/11/linux-system-performance-monitoring-cpu/" target="_blank">&#x8F6C;&#x8F7D;&#x795E;&#x6587;</a></p>
+<h3 id="cpu%E6%80%A7%E8%83%BD%E7%90%86%E8%A7%A3">CPU&#x6027;&#x80FD;&#x7406;&#x89E3;</h3>
+<p>&#x8981;&#x7406;&#x89E3;CPU&#x7684;&#x6027;&#x80FD;&#xFF0C;&#x5C31;&#x5FC5;&#x987B;&#x7406;&#x89E3;CPU&#x505A;&#x4E86;&#x54EA;&#x4E9B;&#x4E8B;&#x60C5;</p>
+<p>&#x5DE5;&#x4F5C;&#x65F6;&#x95F4;&#xFF1A;CPU&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x6267;&#x884C;&#x8005;&#xFF0C;&#x4ED6;&#x7EF4;&#x62A4;&#x7740;&#x4E00;&#x4E2A;&#x53EF;&#x8FD0;&#x884C;&#x961F;&#x5217;&#xFF0C;&#x6BCF;&#x65F6;&#x6BCF;&#x523B;&#x90FD;&#x4F1A;&#x6709;&#x8FDB;&#x7A0B;(&#x7EBF;&#x7A0B;)&#x5728;&#x4E0A;&#x9762;&#x8FD0;&#x884C;&#xFF0C;&#x8FDB;&#x7A0B;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x5C31;&#x662F;CPU&#x7684;&#x5DE5;&#x4F5C;&#x65F6;&#x95F4;</p>
+<p>&#x4E2D;&#x65AD;&#x65F6;&#x95F4;(Interrupt Number)&#xFF1A;CPU&#x9700;&#x8981;&#x77E5;&#x9053;&#x4EC0;&#x4E48;&#x65F6;&#x95F4;&#x8FD0;&#x884C;&#x4EC0;&#x4E48;&#x8FDB;&#x7A0B;&#xFF0C;&#x8FD9;&#x9700;&#x8981;CPU&#x548C;&#x8FDB;&#x7A0B;&#x8C03;&#x5EA6;&#x5668;&#x534F;&#x5546;&#x6C9F;&#x901A;&#xFF0C;&#x8FDB;&#x7A0B;&#x8C03;&#x5EA6;&#x5668;&#x7BA1;&#x7406;CPU, &#x544A;&#x8BC9;CPU&#x5230;&#x5E95;&#x8FD0;&#x884C;&#x54EA;&#x4E2A;&#x8FDB;&#x7A0B;&#xFF0C;&#x8FD9;&#x82B1;&#x8D39;&#x7684;&#x65F6;&#x95F4;&#x5C31;&#x662F;&#x4E2D;&#x65AD;&#x65F6;&#x95F4;&#xFF0C; &#x540C;&#x65F6;&#xFF0C;&#x6B63;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7EBF;&#x7A0B;&#x8981;&#x4E48;&#x5728;&#x7761;&#x7720;&#x72B6;&#x6001;&#xFF08;blocked &#x6B63;&#x5728;&#x7B49;&#x5F85; IO&#xFF0C;&#x8C03;&#x7528;sleep&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x8BA9;&#x8FDB;&#x7A0B;&#x7761;&#x7720;&#xFF0C;&#x8BA9;&#x51FA;cpu&#xFF09;&#x8981;&#x4E48;&#x5728;&#x53EF;&#x8FD0;&#x884C;&#x72B6;&#x6001;</p>
+<p>&#x4E2D;&#x65AD;&#x4F18;&#x5148;&#x7EA7;(&#x786C;&#x4EF6;&#x4E2D;&#x65AD;&gt;&#x5185;&#x6838;&#x4E2D;&#x65AD;&gt;&#x7528;&#x6237;&#x4E2D;&#x65AD;)</p>
+<p>&#x4E0A;&#x4E0B;&#x6587;&#x5207;&#x6362;&#x65F6;&#x95F4;(context switch)&#xFF1A;A&#x8FDB;&#x7A0B;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x5DF2;&#x7ECF;&#x5230;&#x4E86;&#xFF0C;&#x73B0;&#x5728;CPU&#x9700;&#x8981;&#x5207;&#x6362;&#x5230;B&#x8FDB;&#x7A0B;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x95F4;&#x5C31;&#x662F;&#x4E0A;&#x4E0B;&#x6587;&#x5207;&#x6362;&#x65F6;&#x95F4;</p>
+<p>&#x5229;&#x7528;&#x7387;&#xFF1A;
+us (user cpu time)&#xFF1A;&#x7528;&#x6237;&#x8FDB;&#x7A0B;&#x5360;&#x7528;CPU&#x82B1;&#x8D39;&#x65F6;&#x95F4;&#x7684;&#x767E;&#x5206;&#x6BD4;
+sy(system cpu time)&#xFF1A;&#x5185;&#x6838;, &#x4E2D;&#x65AD;&#x5360;&#x7528;CPU&#x82B1;&#x8D39;&#x65F6;&#x95F4;&#x767E;&#x5206;&#x6BD4;</p>
+<p>CPU&#x7684;&#x6027;&#x80FD;&#x6307;&#x6807;&#xFF1A;&#x5229;&#x7528;&#x7387;&#xFF0C;&#x4E0A;&#x4E0B;&#x6587;&#x5207;&#x6362;&#x6B21;&#x6570;&#xFF0C;&#x4E2D;&#x65AD;&#x6D4B;&#x8BD5;&#xFF0C;&#x8FD0;&#x884C;&#x961F;&#x5217;&#x6765;&#x76D1;&#x63A7;cpu&#x6027;&#x80FD;</p>
+<h3 id="vmstat">vmstat</h3>
+<p>vmstat &#x662F;&#x4E2A;&#x67E5;&#x770B;&#x7CFB;&#x7EDF;&#x6574;&#x4F53;&#x6027;&#x80FD;&#x7684;&#x5C0F;&#x5DE5;&#x5177;&#xFF0C;&#x5C0F;&#x5DE7;&#x3001;&#x5373;&#x4F7F;&#x5728;&#x5F88; heavy &#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4E5F;&#x8FD0;&#x884C;&#x826F;&#x597D;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x7528;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x91C7;&#x96C6;&#x5F97;&#x5230;&#x8FDE;&#x7EED;&#x7684;&#x6027;&#x80FD;&#x6570;&#x636E;</p>
+<pre><code>2: &#x8868;&#x793A;&#x6BCF;&#x9694;2s
+[li.sun@d114-app-06 ~]$ vmstat 2
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 0  0      0 16963800   3440 8607132    0    0     5     8    8    4  2  0 98  0  0
+ 0  0      0 16964188   3440 8607132    0    0     0     4 2601 2123  0  0 100  0  0
+ 0  0      0 16964372   3440 8607132    0    0     0     2 3695 3146  1  0 99  0  0
 
-&#x81EA;&#x52A8;&#x63D0;&#x793A;&#xFF1A; &lt;C-n&gt; &#x548C; &lt;C-p&gt;
+ r (running): &#x53EF;&#x8FD0;&#x884C;&#x7684;&#x961F;&#x5217;
+ b (blocked): &#x963B;&#x585E;&#x7684;&#x8FDB;&#x7A0B;&#x6570;&#xFF0C;&#x8FC7;&#x591A;&#x8BF4;&#x660E;&#x7CFB;&#x7EDF;IO&#x901F;&#x5EA6;&#x6709;&#x95EE;&#x9898;
+ in (interrupt number): &#x4E2D;&#x65AD;&#x7684;&#x6B21;&#x6570;&#xFF0C;&#x4E2D;&#x7684;&#x6B21;&#x6570;&#x8D8A;&#x591A;&#x8BF4;&#x660E;cpu&#x4E0D;&#x505C;&#x7684;&#x9700;&#x8981;&#x8BF7;&#x6C42;&#x8D44;&#x6E90;
+ cs(contenxt switch): &#x4E0A;&#x4E0B;&#x6587;&#x5207;&#x6362;&#x7684;&#x6B21;&#x6570; &#x4E0A;&#x4E0B;&#x6587;&#x8FC7;&#x591A;&#xFF0C;&#x8BF4;&#x660E;&#x8FDB;&#x7A0B;&#x6570;&#x91CF;&#x8FC7;&#x591A;
+ us(user cpu time): &#x7528;&#x6237;&#x8FDB;&#x7A0B;&#x7684;cpu&#x5229;&#x7528;&#x7387;
+ sy(system cpu time): &#x5185;&#x6838;&#x8FDB;&#x7A0B;&#x7684;cpu&#x5229;&#x7528;&#x7387;
+ wa(io wait): &#x5F53;&#x53EF;&#x8FD0;&#x884C;&#x7684;&#x8FDB;&#x7A0B;&#x56E0;&#x4E3A;&#x7B49;&#x5F85;io&#x800C;&#x5904;&#x4E8E;blokced&#x72B6;&#x6001;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x95F4;&#x6240;&#x5360;&#x7684;&#x6BD4;&#x4F8B;
+ id(idle): cpu&#x5B8C;&#x5168;&#x7A7A;&#x95F2;&#x7684;&#x65F6;&#x95F4;&#x7684;&#x6BD4;&#x4F8B;
+</code></pre><h3 id="%E5%85%B7%E4%BD%93%E5%AE%9E%E4%BE%8B%E5%88%86%E6%9E%90">&#x5177;&#x4F53;&#x5B9E;&#x4F8B;&#x5206;&#x6790;</h3>
+<p>&#x7CFB;&#x7EDF;&#x7684;&#x67D0;&#x4E2A;&#x65F6;&#x95F4;&#x6BB5;&#xFF0C;cpu&#x7684;&#x5229;&#x7528;&#x7387;&#x5F88;&#x9AD8;&#xFF0C;&#x6392;&#x67E5;cpu&#x65F6;&#x95F4;&#x5230;&#x5E95;&#x82B1;&#x5728;&#x54EA;&#x91CC;&#x4E86;</p>
+<pre><code>$ vmstat 1
+procs -----------memory---------- ---swap-- -----io---- --system-- -----cpu------
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 4  0    140 2915476 341288 3951700  0    0     0     0 1057  523 19 81  0  0  0
+ 4  0    140 2915724 341296 3951700  0    0     0     0 1048  546 19 81  0  0  0
+ 4  0    140 2915848 341296 3951700  0    0     0     0 1044  514 18 82  0  0  0
+ 4  0    140 2915848 341296 3951700  0    0     0    24 1044  564 20 80  0  0  0
+ 4  0    140 2915848 341296 3951700  0    0     0     0 1060  546 18 82  0  0  0
+</code></pre><p>interrupts&#xFF08;in&#xFF09;&#x975E;&#x5E38;&#x9AD8;&#xFF0C;context switch&#xFF08;cs&#xFF09;&#x6BD4;&#x8F83;&#x4F4E;&#xFF0C;&#x8BF4;&#x660E;&#x8FD9;&#x4E2A; CPU &#x4E00;&#x76F4;&#x5728;&#x4E0D;&#x505C;&#x7684;&#x8BF7;&#x6C42;&#x8D44;&#x6E90;&#xFF1B;
+system time&#xFF08;sy&#xFF09;&#x4E00;&#x76F4;&#x4FDD;&#x6301;&#x5728; 80&#xFF05; &#x4EE5;&#x4E0A;&#xFF0C;&#x800C;&#x4E14;&#x4E0A;&#x4E0B;&#x6587;&#x5207;&#x6362;&#x8F83;&#x4F4E;&#xFF08;cs&#xFF09;&#xFF0C;&#x8BF4;&#x660E;&#x67D0;&#x4E2A;&#x8FDB;&#x7A0B;&#x53EF;&#x80FD;&#x4E00;&#x76F4;&#x9738;&#x5360;&#x7740; CPU&#xFF08;&#x4E0D;&#x65AD;&#x8BF7;&#x6C42;&#x8D44;&#x6E90;&#xFF09;&#xFF1B;
+run queue&#xFF08;r&#xFF09;&#x521A;&#x597D;&#x5728;4&#x4E2A;</p>
+<pre><code>vmstat 1
+procs -----------memory---------- ---swap-- -----io---- --system-- -----cpu------
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+14  0    140 2904316 341912 3952308  0    0     0   460 1106 9593 36 64  1  0  0
+17  0    140 2903492 341912 3951780  0    0     0     0 1037 9614 35 65  1  0  0
+20  0    140 2902016 341912 3952000  0    0     0     0 1046 9739 35 64  1  0  0
+17  0    140 2903904 341912 3951888  0    0     0    76 1044 9879 37 63  0  0  0
+16  0    140 2904580 341912 3952108  0    0     0     0 1055 9808 34 65  1  0  0
+</code></pre><p>&#x4E0A;&#x9762;&#x7684;&#x6570;&#x636E;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x51E0;&#x70B9;&#xFF1A;</p>
+<p>context switch&#xFF08;cs&#xFF09;&#x6BD4; interrupts&#xFF08;in&#xFF09;&#x8981;&#x9AD8;&#x5F97;&#x591A;&#xFF0C;&#x8BF4;&#x660E;&#x5185;&#x6838;&#x4E0D;&#x5F97;&#x4E0D;&#x6765;&#x56DE;&#x5207;&#x6362;&#x8FDB;&#x7A0B;&#xFF1B;
+&#x8FDB;&#x4E00;&#x6B65;&#x89C2;&#x5BDF;&#x53D1;&#x73B0; system time&#xFF08;sy&#xFF09;&#x5F88;&#x9AD8;&#x800C; user time&#xFF08;us&#xFF09;&#x5F88;&#x4F4E;&#xFF0C;&#x800C;&#x4E14;&#x52A0;&#x4E0A;&#x9AD8;&#x9891;&#x5EA6;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x5207;&#x6362;&#xFF08;cs&#xFF09;&#xFF0C;&#x8BF4;&#x660E;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8C03;&#x7528;&#x4E86;&#x5927;&#x91CF;&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#xFF08;system call&#xFF09;&#xFF1B;
+run queue&#xFF08;r&#xFF09;&#x5728;14&#x4E2A;&#x7EBF;&#x7A0B;&#x4EE5;&#x4E0A;&#xFF0C;&#x6309;&#x7167;&#x8FD9;&#x4E2A;&#x6D4B;&#x8BD5;&#x673A;&#x5668;&#x7684;&#x786C;&#x4EF6;&#x914D;&#x7F6E;&#xFF08;&#x56DB;&#x6838;&#xFF09;&#xFF0C;&#x5E94;&#x8BE5;&#x4FDD;&#x6301;&#x5728;12&#x4E2A;&#x4EE5;&#x5185;</p>
+<h3 id="mpstat">mpstat</h3>
+<p>mpstat &#x548C; vmstat &#x7C7B;&#x4F3C;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x662F; mpstat &#x53EF;&#x4EE5;&#x8F93;&#x51FA;&#x591A;&#x4E2A;&#x5904;&#x7406;&#x5668;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x8F93;&#x51FA;&#x663E;&#x793A; CPU1 &#x548C; CPU2 &#x57FA;&#x672C;&#x4E0A;&#x6CA1;&#x6709;&#x6D3E;&#x4E0A;&#x7528;&#x573A;&#xFF0C;&#x7CFB;&#x7EDF;&#x6709;&#x8DB3;&#x591F;&#x7684;&#x80FD;&#x529B;&#x5904;&#x7406;&#x66F4;&#x591A;&#x7684;&#x4EFB;&#x52A1;&#x3002;</p>
+<pre><code>Linux 3.10.0-123.el7.x86_64 (d114-app-06)   05/12/2016  _x86_64_    (24 CPU)
 
-:w !sudo tee %: &#x6CA1;&#x6709;sudo&#x6743;&#x9650;&#x7684;&#x4FDD;&#x5B58;
+02:55:54 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+02:55:54 PM  all    2.10    0.04    0.19    0.01    0.00    0.02    0.00    0.00    0.00   97.63
+02:55:54 PM    0    3.67    0.04    0.37    0.01    0.00    0.06    0.00    0.00    0.00   95.85
 
-&#x8F93;&#x5165;vim &#x8F93;&#x5165;E,&#x65E2;&#x53EF;&#x4EE5;&#x6D4F;&#x89C8;&#x5F53;&#x524D;&#x76EE;&#x5F55;
-</code></pre><h4 id="%E5%8D%8E%E4%B8%BD%E7%9A%84%E5%9D%97%E6%93%8D%E4%BD%9C">&#x534E;&#x4E3D;&#x7684;&#x5757;&#x64CD;&#x4F5C;</h4>
-<p>&#x5757;&#x64CD;&#x4F5C;&#x7684;&#x601D;&#x8DEF;&#x662F;&#x9009;&#x4E2D;&#x6709;&#x89C4;&#x5F8B;&#x7684;&#x4E00;&#x5757;&#x533A;&#x57DF;&#x8FDB;&#x884C;&#x7F16;&#x8F91;&#xFF0C;&#x6BD4;&#x5982;&#x63D2;&#x5165;&#xFF0C;&#x5220;&#x9664;&#xFF0C;&#x4FEE;&#x6539;&#x7B49;</p>
-<p>&#x5178;&#x578B;&#x7684;&#x64CD;&#x4F5C;&#xFF1A;<code>&lt;Ctrl+v&gt; hjkl I-- [ESC]</code></p>
-<pre><code>&lt;Ctrl+v&gt; &#x2192; &#x5F00;&#x59CB;&#x5757;&#x64CD;&#x4F5C;
-jkhl &#x2192; &#x4F7F;&#x7528;hjkl&#x6765;&#x79FB;&#x52A8;&#x5149;&#x6807;&#x9009;&#x62E9;&#x533A;&#x57DF;
-I (&#x8F93;&#x5165;&#x63D2;&#x5165;&#x7684;&#x5185;&#x5BB9;) [ESC]  I&#x662F;&#x63D2;&#x5165;&#xFF0C;&#x63D2;&#x5165;&#x5185;&#x5BB9;&#x201C;--&#x201D;&#xFF0C;&#x6309;ESC&#x952E;&#x6765;&#x4E3A;&#x6BCF;&#x4E00;&#x884C;&#x751F;&#x6548;
-</code></pre><p>&#x9664;&#x4E86;I&#x4EE5;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x5176;&#x4ED6;&#x547D;&#x4EE4;&#xFF0C;&#x6BD4;&#x5982;A&#x5728;&#x5149;&#x6807;&#x540E;&#x9762;&#x63D2;&#x5165;&#x6570;&#x636E;&#xFF0C;&#x6216;&#x8005;o,&#x5728;&#x5149;&#x6807;&#x4E0B;&#x9762;&#x63D2;&#x5165;&#x6570;&#x636E;&#xFF0C;&#x6216;&#x8005;&#x5176;&#x4ED6;&#x64CD;&#x4F5C;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;
-r &#x66FF;&#x6362;&#x6570;&#x636E;&#xFF0C; x&#x5220;&#x9664;&#x6570;&#x636E;</p>
+%user      &#x5728;internal&#x65F6;&#x95F4;&#x6BB5;&#x91CC;&#xFF0C;&#x7528;&#x6237;&#x6001;&#x7684;CPU&#x65F6;&#x95F4;(%)&#xFF0C;&#x4E0D;&#x5305;&#x542B;nice&#x503C;&#x4E3A;&#x8D1F;&#x8FDB;&#x7A0B;  (usr/total)*100
+%nice      &#x5728;internal&#x65F6;&#x95F4;&#x6BB5;&#x91CC;&#xFF0C;nice&#x503C;&#x4E3A;&#x8D1F;&#x8FDB;&#x7A0B;&#x7684;CPU&#x65F6;&#x95F4;(%)   (nice/total)*100
+%sys       &#x5728;internal&#x65F6;&#x95F4;&#x6BB5;&#x91CC;&#xFF0C;&#x5185;&#x6838;&#x65F6;&#x95F4;(%)       (system/total)*100
+%iowait    &#x5728;internal&#x65F6;&#x95F4;&#x6BB5;&#x91CC;&#xFF0C;&#x786C;&#x76D8;IO&#x7B49;&#x5F85;&#x65F6;&#x95F4;(%) (iowait/total)*100
+%irq       &#x5728;internal&#x65F6;&#x95F4;&#x6BB5;&#x91CC;&#xFF0C;&#x786C;&#x4E2D;&#x65AD;&#x65F6;&#x95F4;(%)     (irq/total)*100
+%soft      &#x5728;internal&#x65F6;&#x95F4;&#x6BB5;&#x91CC;&#xFF0C;&#x8F6F;&#x4E2D;&#x65AD;&#x65F6;&#x95F4;(%)     (softirq/total)*100
+%idle      &#x5728;internal&#x65F6;&#x95F4;&#x6BB5;&#x91CC;&#xFF0C;CPU&#x9664;&#x53BB;&#x7B49;&#x5F85;&#x78C1;&#x76D8;IO&#x64CD;&#x4F5C;&#x5916;&#x7684;&#x56E0;&#x4E3A;&#x4EFB;&#x4F55;&#x539F;&#x56E0;&#x800C;&#x7A7A;&#x95F2;&#x7684;&#x65F6;&#x95F4;&#x95F2;&#x7F6E;&#x65F6;&#x95F4;(%) (idle/total)*100
+</code></pre><h3 id="ps">ps</h3>
+<p>&#x5982;&#x679C;&#x53D1;&#x73B0;&#x67D0;&#x4E2A;&#x8FDB;&#x7A0B;&#x7279;&#x522B;&#x5360;&#x6709;cpu&#xFF0C;&#x67E5;&#x770B;&#x67D0;&#x4E2A;&#x8FDB;&#x7A0B;&#x7684;cpu&#x5229;&#x7528;&#x60C5;&#x51B5;</p>
+<pre><code>li.sun@xg-ppe-web:~$ ps aux | grep hhvm
+www-data  4113  0.3  2.9 1033992 238096 ?      Ssl  14:32   0:06 /usr/bin/hhvm --config /etc/hhvm/php.ini
 
+USER: &#x6267;&#x884C;&#x8FDB;&#x7A0B;&#x7684;&#x7528;&#x6237;
+PID: &#x8FDB;&#x7A0B;ID
+%CPU: CPU&#x7684;&#x5229;&#x7528;&#x7387;
+%MEMER: &#x5185;&#x5B58;&#x7684;&#x4F7F;&#x7528;&#x7387;
+VSZ: &#x865A;&#x62DF;&#x5185;&#x5B58;&#x7684;&#x4F7F;&#x7528;&#x60C5;&#x51B5;(kb)
+RSS: &#x8BE5; process &#x5360;&#x7528;&#x7684;&#x56FA;&#x5B9A;&#x7684;&#x5185;&#x5B58;&#x91CF; (Kbytes)
+TTY &#xFF1A;&#x8BE5; process &#x662F;&#x5728;&#x90A3;&#x4E2A;&#x7EC8;&#x7AEF;&#x673A;&#x4E0A;&#x9762;&#x8FD0;&#x4F5C;
+STAT&#xFF1A;&#x8BE5;&#x7A0B;&#x5E8F;&#x76EE;&#x524D;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x4E3B;&#x8981;&#x7684;&#x72B6;&#x6001;&#x6709;
+    R &#xFF1A;&#x8BE5;&#x7A0B;&#x5E8F;&#x76EE;&#x524D;&#x6B63;&#x5728;&#x8FD0;&#x4F5C;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x53EF;&#x88AB;&#x8FD0;&#x4F5C;
+    S &#xFF1A;&#x8BE5;&#x7A0B;&#x5E8F;&#x76EE;&#x524D;&#x6B63;&#x5728;&#x7761;&#x7720;&#x5F53;&#x4E2D; (&#x53EF;&#x8BF4;&#x662F; idle &#x72B6;&#x6001;)&#xFF0C;&#x4F46;&#x53EF;&#x88AB;&#x67D0;&#x4E9B;&#x8BAF;&#x53F7; (signal) &#x5524;&#x9192;&#x3002;
+    T &#xFF1A;&#x8BE5;&#x7A0B;&#x5E8F;&#x76EE;&#x524D;&#x6B63;&#x5728;&#x4FA6;&#x6D4B;&#x6216;&#x8005;&#x662F;&#x505C;&#x6B62;&#x4E86;
+    Z &#xFF1A;&#x8BE5;&#x7A0B;&#x5E8F;&#x5E94;&#x8BE5;&#x5DF2;&#x7ECF;&#x7EC8;&#x6B62;&#xFF0C;&#x4F46;&#x662F;&#x5176;&#x7236;&#x7A0B;&#x5E8F;&#x5374;&#x65E0;&#x6CD5;&#x6B63;&#x5E38;&#x7684;&#x7EC8;&#x6B62;&#x4ED6;&#xFF0C;&#x9020;&#x6210; zombie (&#x7586;&#x5C38;) &#x7A0B;&#x5E8F;&#x7684;&#x72B6;&#x6001;
+START&#xFF1A;&#x8BE5; process &#x88AB;&#x89E6;&#x53D1;&#x542F;&#x52A8;&#x7684;&#x65F6;&#x95F4;
+TIME &#xFF1A;&#x8BE5; process &#x5B9E;&#x9645;&#x4F7F;&#x7528; CPU &#x8FD0;&#x4F5C;&#x7684;&#x65F6;&#x95F4;
+COMMAND&#xFF1A;&#x8BE5;&#x7A0B;&#x5E8F;&#x7684;&#x5B9E;&#x9645;&#x6307;&#x4EE4;
+</code></pre>
                     
                     </section>
                 
@@ -1080,10 +1107,10 @@ r &#x66FF;&#x6362;&#x6570;&#x636E;&#xFF0C; x&#x5220;&#x9664;&#x6570;&#x636E;</p>
         </div>
 
         
-        <a href="../section_tool/sublime.html" class="navigation navigation-prev " aria-label="Previous page: sublime"><i class="fa fa-angle-left"></i></a>
+        <a href="../section_linux/regex.html" class="navigation navigation-prev " aria-label="Previous page: 正则"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../section_tool/zsh.html" class="navigation navigation-next " aria-label="Next page: zsh"><i class="fa fa-angle-right"></i></a>
+        <a href="../section_design/index.html" class="navigation navigation-next " aria-label="Next page: 代码设计"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
