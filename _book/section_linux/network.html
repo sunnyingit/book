@@ -44,7 +44,7 @@
     <body>
         
         
-    <div class="book" data-level="6.10" data-basepath=".." data-revision="Mon May 16 2016 13:00:25 GMT+0800 (CST)">
+    <div class="book" data-level="6.10" data-basepath=".." data-revision="Mon May 16 2016 14:55:57 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -1022,7 +1022,75 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86">&#x7F51;&#x7EDC;&#x7BA1;&#x7406;</h1>
+                        <h1 id="%E7%BD%91%E7%BB%9C%E6%80%A7%E8%83%BD">&#x7F51;&#x7EDC;&#x6027;&#x80FD;</h1>
+<h3 id="iptraf">iptraf</h3>
+<p>&#x6D4B;&#x8BD5;&#x4E24;&#x53F0;&#x4E3B;&#x673A;&#x4E4B;&#x95F4;&#x7684;&#x7F51;&#x7EDC;&#x6027;&#x80FD;&#x7684;&#x4E00;&#x4E2A;&#x529E;&#x6CD5;&#x5C31;&#x662F;&#x5728;&#x8FD9;&#x4E24;&#x4E2A;&#x7CFB;&#x7EDF;&#x4E4B;&#x95F4;&#x4E92;&#x53D1;&#x6570;&#x636E;&#x5E76;&#x7EDF;&#x8BA1;&#x7ED3;&#x679C;&#xFF0C;&#x770B;&#x770B;&#x541E;&#x5410;&#x91CF;&#x3001;&#x5EF6;&#x8FDF;&#x3001;&#x901F;&#x7387;&#x5982;&#x4F55;, iptraf &#x7528;&#x4E8E;&#x67E5;&#x770B;&#x672C;&#x673A;&#x7F51;&#x7EDC;&#x7684;&#x541E;&#x5410;&#x91CF;&#xFF0C;IO&#x901F;&#x7387;&#x7B49;&#x53C2;&#x6570;</p>
+<pre><code># install
+sudo apt-get install iptarf
+iptraf -d eth0
+</code></pre><h3 id="ping">ping</h3>
+<p>ping &#x4F7F;&#x7528;ICMP&#x534F;&#x8BAE;&#xFF0C;&#x6D4B;&#x8BD5;&#x4E24;&#x4E2A;&#x4E3B;&#x673A;&#x4E4B;&#x95F4;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;</p>
+<pre><code>ping [host|ip]
+</code></pre><h3 id="telnet">telnet</h3>
+<p>&#xFF0C;telnet&#x56E0;&#x4E3A;&#x91C7;&#x7528;&#x660E;&#x6587;&#x4F20;&#x9001;&#x62A5;&#x6587;&#xFF0C;&#x5B89;&#x5168;&#x6027;&#x4E0D;&#x597D;&#xFF0C;&#x5F88;&#x591A;Linux&#x670D;&#x52A1;&#x5668;&#x90FD;&#x4E0D;&#x5F00;&#x653E;telnet&#x670D;&#x52A1;&#xFF0C;&#x800C;&#x6539;&#x7528;&#x66F4;&#x5B89;&#x5168;&#x7684;ssh&#x65B9;&#x5F0F;&#x3002;</p>
+<p>&#x4F7F;&#x7528;<code>ping</code>&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x68C0;&#x6D4B;&#x4E24;&#x53F0;&#x4E3B;&#x673A;&#x662F;&#x5426;&#x53EF;&#x4EE5;connection, <code>telnet</code>&#x7528;&#x6765;&#x68C0;&#x6D4B;&#x4E3B;&#x673A;&#x7684;&#x67D0;&#x4E9B;&#x7AEF;&#x53E3;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;</p>
+<pre><code>telnet host [port]
+</code></pre><h3 id="netstat">netstat</h3>
+<p>netstat&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x67E5;&#x770B;TCP/IP&#x534F;&#x8BAE;&#x7684;&#x76F8;&#x5173;&#x6570;&#x636E;&#xFF0C;&#x5728;&#x5B9E;&#x9645;&#x4E1A;&#x52A1;&#x4E2D;&#xFF0C;&#x4F8B;&#x5982;&#x670D;&#x52A1;&#x8981;&#x8C03;&#x7528;&#x53E6;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x7684;&#x670D;&#x52A1;&#xFF0C;&#x6570;&#x636E;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;netstat&#x67E5;&#x770B;&#x4E24;&#x4E2A;&#x673A;&#x5668;&#x662F;&#x5426;&#x901A;&#x4FE1;&#xFF0C;&#x7AEF;&#x53E3;&#x662F;&#x5426;&#x88AB;&#x5360;&#x6709;&#xFF0C;TIME_WAIT&#x7684;&#x6570;&#x91CF;&#x7B49;</p>
+<pre><code>man netstat
+
+ netstat {--statistics|-s} [--tcp|-t] [--udp|-u] [--udplite|-U] [--raw|-w] [delay]
+
+  --wide , -W
+       Do not truncate IP addresses by using output as wide as needed. This is optional for now to not break existing scripts.
+
+   --numeric , -n
+       Show numerical addresses instead of trying to determine symbolic host, port or user names.
+
+   --numeric-hosts
+       shows numerical host addresses but does not affect the resolution of port or user names.
+
+   --numeric-ports
+       shows numerical port numbers but does not affect the resolution of host or user names.
+
+   --numeric-users
+       shows numerical user IDs but does not affect the resolution of host or port names.
+</code></pre><p> &#x5E38;&#x7528;&#x7EC4;&#x5408;</p>
+<pre><code> netstat -tupl | grep &apos;mysql&apos;
+ netstat -a | grep &apos;80&apos;
+ netstat -n | grep &apos;423.11.11.55&apos;
+</code></pre><h3 id="tcpdump">tcpdump</h3>
+<p>dump traffic on a network, &#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x8F93;&#x51FA;&#x7F51;&#x7EDC;&#x72B6;&#x51B5;, &#x5728;&#x5B9E;&#x9645;&#x4E1A;&#x52A1;&#x4E2D;&#xFF0C;&#x83B7;&#x53D6;&#x4E24;&#x53F0;&#x670D;&#x52A1;&#x5668;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;</p>
+<pre><code>&#x53EF;&#x4EE5;&#x6307;&#x5B9A;ip,&#x4F8B;&#x5982;&#x622A;&#x83B7;&#x6240;&#x6709;210.27.48.1 &#x7684;&#x4E3B;&#x673A;&#x6536;&#x5230;&#x7684;&#x548C;&#x53D1;&#x51FA;&#x7684;&#x6240;&#x6709;&#x7684;&#x6570;&#x636E;&#x5305;
+tcpdump host 210.27.48.1
+
+&#x6253;&#x5370;helios &#x4E0E; hot &#x6216;&#x8005;&#x4E0E; ace &#x4E4B;&#x95F4;&#x901A;&#x4FE1;&#x7684;&#x6570;&#x636E;&#x5305;
+tcpdump host helios and \( hot or ace \)
+
+&#x622A;&#x83B7;&#x4E3B;&#x673A;210.27.48.1 &#x548C;&#x4E3B;&#x673A;210.27.48.2 &#x6216;210.27.48.3&#x7684;&#x901A;&#x4FE1;
+tcpdump host 210.27.48.1 and \ (210.27.48.2 or 210.27.48.3 \)
+
+&#x76D1;&#x89C6;&#x6240;&#x6709;&#x9001;&#x5230;&#x4E3B;&#x673A;hostname&#x7684;&#x6570;&#x636E;&#x5305;
+tcpdump -i eth0 dst host hostname
+
+&#x5982;&#x679C;&#x60F3;&#x8981;&#x83B7;&#x53D6;&#x4E3B;&#x673A;210.27.48.1&#x63A5;&#x6536;&#x6216;&#x53D1;&#x51FA;&#x7684;telnet&#x5305;&#xFF0C;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x547D;&#x4EE4;
+tcpdump tcp port 23 and host 210.27.48.1
+
+&#x76D1;&#x89C6;&#x6307;&#x5B9A;&#x534F;&#x8BAE;&#x7684;&#x6570;&#x636E;&#x5305;
+tcpdump &apos;tcp[tcpflags] &amp; (tcp-syn|tcp-fin) != 0 and not src and dst net localnet&apos;
+</code></pre><h3 id="tcpdump-%E4%B8%8Ewireshark">tcpdump &#x4E0E;wireshark</h3>
+<pre><code>tcpdump tcp -i eth1 -t -s 0 -c 100 and dst port ! 22 and src net 192.168.1.0/24 -w ./target.cap
+
+(1)tcp: ip icmp arp rarp &#x548C; tcp&#x3001;udp&#x3001;icmp&#x8FD9;&#x4E9B;&#x9009;&#x9879;&#x7B49;&#x90FD;&#x8981;&#x653E;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x7528;&#x6765;&#x8FC7;&#x6EE4;&#x6570;&#x636E;&#x62A5;&#x7684;&#x7C7B;&#x578B;
+(2)-i eth1 : &#x53EA;&#x6293;&#x7ECF;&#x8FC7;&#x63A5;&#x53E3;eth1&#x7684;&#x5305;
+(3)-t : &#x4E0D;&#x663E;&#x793A;&#x65F6;&#x95F4;&#x6233;
+(4)-s 0 : &#x6293;&#x53D6;&#x6570;&#x636E;&#x5305;&#x65F6;&#x9ED8;&#x8BA4;&#x6293;&#x53D6;&#x957F;&#x5EA6;&#x4E3A;68&#x5B57;&#x8282;&#x3002;&#x52A0;&#x4E0A;-S 0 &#x540E;&#x53EF;&#x4EE5;&#x6293;&#x5230;&#x5B8C;&#x6574;&#x7684;&#x6570;&#x636E;&#x5305;
+(5)-c 100 : &#x53EA;&#x6293;&#x53D6;100&#x4E2A;&#x6570;&#x636E;&#x5305;
+(6)dst port ! 22 : &#x4E0D;&#x6293;&#x53D6;&#x76EE;&#x6807;&#x7AEF;&#x53E3;&#x662F;22&#x7684;&#x6570;&#x636E;&#x5305;
+(7)src net 192.168.1.0/24 : &#x6570;&#x636E;&#x5305;&#x7684;&#x6E90;&#x7F51;&#x7EDC;&#x5730;&#x5740;&#x4E3A;192.168.1.0/24
+(8)-w ./target.cap : &#x4FDD;&#x5B58;&#x6210;cap&#x6587;&#x4EF6;&#xFF0C;&#x65B9;&#x4FBF;&#x7528;ethereal(&#x5373;wireshark)&#x5206;&#x6790;
+</code></pre><p><a href="http://www.cnblogs.com/ggjucheng/archive/2012/01/14/2322659.html" target="_blank">Linux tcpdump&#x547D;&#x4EE4;&#x8BE6;&#x89E3;</a>
+<a href="http://www.bo56.com/tcpdump-%E5%92%8C-wireshark%E7%BB%84%E5%90%88%E6%8B%B3%EF%BC%8C%E6%8F%AA%E5%87%BA%E6%9C%89%E9%97%AE%E9%A2%98%E7%9A%84%E6%9C%BA%E5%99%A8/" target="_blank">tcpdump &#x548C; wireshark&#x7EC4;&#x5408;&#x62F3;&#xFF0C;&#x63EA;&#x51FA;&#x6709;&#x95EE;&#x9898;&#x7684;&#x673A;&#x5668;</a></p>
 
                     
                     </section>
