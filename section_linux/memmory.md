@@ -1,7 +1,5 @@
 # 内存监控
 
-[转载神文](http://www.vpsee.com/2009/11/linux-system-performance-monitoring-memory/)
-
 ### 虚拟内存理解
 
 虚拟内存是操作系统对进程地址空间进行管理而设计的逻辑内存空间概念，我们程序中的指针其实都是这个虚拟内存空间中的地址，因为程序还没有开始运行，所以根本就没有物理内存。
@@ -90,4 +88,7 @@ none            100M     0  100M   0% /run/user
 du的英文原义为“disk usage”，含义为显示磁盘空间的使用情况，统计目录（或文件）所占磁盘空间的大小。
 该命令的功能是逐级进入指定目录的每一个子目录并显示该目录占用文件系统数据块（1024字节）的情况
 1块 = 1kB
+
+[参考文章](http://www.vpsee.com/2009/11/linux-system-performance-monitoring-memory/)
+
 

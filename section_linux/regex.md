@@ -205,3 +205,5 @@ NFA 非确定型有穷自动机，支持回溯，它的特点主要是提供long
 
 
 理解了以上之后，基本上能应付大部分的正则表达式需求
+
+[参考文章](http://blog.csdn.net/lxcnn/article/details/4756030)

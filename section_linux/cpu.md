@@ -1,7 +1,5 @@
 # CPU性能监控
 
-[转载神文](http://www.vpsee.com/2009/11/linux-system-performance-monitoring-cpu/)
-
 ### CPU性能理解
 要理解CPU的性能，就必须理解CPU做了哪些事情
 
@@ -115,3 +113,5 @@ START：该 process 被触发启动的时间
 TIME ：该 process 实际使用 CPU 运作的时间
 COMMAND：该程序的实际指令
 ```
+
+[参考文章](http://www.vpsee.com/2009/11/linux-system-performance-monitoring-cpu/)
