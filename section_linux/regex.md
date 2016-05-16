@@ -1,6 +1,5 @@
 # 正则匹配原理
 
-[转载神文](http://blog.csdn.net/lxcnn/article/details/4756030)
 ------
 ### NFA匹配引擎基础
 NFA 非确定型有穷自动机，支持回溯，它的特点主要是提供longest-leftmost匹配，也就是在找到最左侧最长匹配之前，它将继续回溯
