@@ -1,1 +1,2 @@
-pytest_plugins = ("tmpdoc/tests/fixtures", )
+#pytest_plugins = ("tests.fixtures", )
+from tests.fixtures.scope_session import *

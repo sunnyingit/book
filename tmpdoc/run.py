@@ -239,4 +239,16 @@ def quick(nums, low, high):
     return nums
 
 
-print quick([3, 4, 11, 2], 0, 3)
+# print quick([3, 4, 11, 2], 0, 3)
+#
+
+class Tobj(object):
+
+    x = 100
+
+    @property
+    def x(self):
+        return 1000
+
+obj = Tobj()
+print obj.x
