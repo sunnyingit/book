@@ -242,13 +242,49 @@ def quick(nums, low, high):
 # print quick([3, 4, 11, 2], 0, 3)
 #
 
-class Tobj(object):
+# class Tobj(object):
 
-    x = 100
+#     x = 100
 
-    @property
-    def x(self):
-        return 1000
+#     @property
+#     def x(self):
+#         print 'do property'
+#         return 1000
 
-obj = Tobj()
-print obj.x
+# context = Tobj()
+
+
+# def a(context):
+#     print context.x
+#     print 'a method execute:', id(context)
+
+
+# def b(context):
+#     print context.x
+#     print 'b method execute:', id(context)
+
+
+# a(context)
+# b(context)
+
+# print context
+# print id(context)
+
+
+class A(dict):
+
+    def __getitem__(self, name):
+        return self[name]
+
+    def __getattr__(self, name):
+        try:
+            return self[name]
+        except KeyError:
+            raise AttributeError(name)
+
+    def __setattr__(self, attr, value):
+        print 'set by __getattr__ method attr is {}, value is {}'.format(attr, value)
+        super(A, self).__setattr__(attr, value)
+a = A()
+a.b = 2
+print a['b']

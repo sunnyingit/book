@@ -32,6 +32,7 @@ bui# Summary
     * [io](section_linux/io.md)
     * [network](section_linux/network.md)
 * [代码设计](section_design/README.md)
+    * [API自动熔断](section_design/health.md)
     * [TCP Server](section_design/tcp.md)
     * [HTTP Server](section_design/http.md)
     * [连接池设计](section_design/collection.md)
