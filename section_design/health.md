@@ -205,11 +205,12 @@ elif locked_status == MODE_RECOVER:
 ```
 
 ### 统计机制
-当目前位置，我们知道了然后判断一个API是否健康已经熔断的策略，现在需要关心的问题是，使用什么机制去统计API的`key_timeout key_sys_exc, key_unkwn_exc`的次数
+当目前位置，我们知道了然后判断一个API是否健康已经熔断的策略，现在需要关心的问题是，怎么去统计API的`key_timeout key_sys_exc, key_unkwn_exc`等指标的次数
 
 目前我们采用的是使用`blinker`模块的`signal`, 大致流程如下：
 
 ```
+# signal只罗列一部分，原理都一样的，类似一种回调机制
 def register_signals():
     signals.after_api_called.connect(
     on_signal_after_api_called)
