@@ -5,7 +5,9 @@
 
 API熔断后，可以保护数据库等基础服务不受`unhealth`的API的影响。
 
-### 判断API是否健康
+大致流程：收集API的相关指标 ----> 判断API是否健康 ----> 通过API的健康状态决定API是否需要自动熔断(恢复)
+
+### 收集API的相关指标
 我们在讨论API的健康状态，一定是指在某个时间段内请求的出错次数太多了，那这里就有两个问题我们需要理解：
 
 1，怎么定义"某个时间段"
@@ -110,7 +112,9 @@ def get(key, default=0):
         return counters[key].value()
     return default
 ```
+
 ### API状态检测算法
+
 ```
 def is_healthy(service, func):
     key_base = '{0}.{1}'.format(service.name, func.func_name)
