@@ -44,7 +44,7 @@
     <body>
         
         
-    <div class="book" data-level="7.2" data-basepath=".." data-revision="Mon Jul 11 2016 15:58:57 GMT+0800 (CST)">
+    <div class="book" data-level="7.2" data-basepath=".." data-revision="Wed Oct 26 2016 11:27:18 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -1037,7 +1037,145 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="tcp-server">TCP Server</h1>
+                        <h3 id="%E6%92%B8%E6%92%B8tcp">&#x64B8;&#x64B8;TCP</h3>
+<h3 id="%E9%A2%84%E6%9C%9F%E7%9B%AE%E7%9A%84">&#x9884;&#x671F;&#x76EE;&#x7684;</h3>
+<pre><code>&#x666E;&#x53CA;&#x548C;&#x68B3;&#x7406;socket&#x7684;&#x7EC6;&#x8282;&#x95EE;&#x9898;, tornado&#x7684;&#x6838;&#x5FC3;&#x6D41;&#x7A0B;&#x68B3;&#x7406;
+</code></pre><h3 id="1-%E5%9F%BA%E6%9C%ACtcp%E5%A5%97%E6%8E%A5%E5%AD%97%E7%BC%96%E7%A8%8B">1,&#x57FA;&#x672C;TCP&#x5957;&#x63A5;&#x5B57;&#x7F16;&#x7A0B;</h3>
+<ol>
+<li><p>socket</p>
+<ol>
+<li>&#x4F7F;&#x7528;socket(family, type, protocol) family AF_INET AF_INET6, SOCK_STREAM, SOCK_DGRAM</li>
+<li><p>bind &#x628A;&#x4E00;&#x4E2A;&#x4E00;&#x4E2A;&#x672C;&#x5730;&#x534F;&#x8BAE;&#x5730;&#x5740;&#x8D4B;&#x4E88;&#x4E00;&#x4E2A;socket, &#x534F;&#x8BAE;&#x5730;&#x5740;&#x662F;(addr, port)&#x7684;&#x7EC4;&#x5408; &#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6307;&#x5B9A;port, &#x5185;&#x6838;&#x4F1A;&#x968F;&#x673A;&#x5206;&#x914D;&#x4E00;&#x4E2A;</p>
+</li>
+<li><p>listen, &#x628A;&#x4E00;&#x4E2A;&#x5957;&#x63A5;&#x5B57;&#x53D8;&#x6210;&#x76D1;&#x542C;&#x5957;&#x63A5;&#x5B57;&#xFF0C;&#x5728;&#x670D;&#x52A1;&#x5668;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x5185;&#x90FD;&#x4E0D;&#x80FD;&#x5173;&#x95ED;&#x8FD9;&#x4E2A;&#x5957;&#x63A5;&#x5B57;&#xFF1B;&#x8FDE;&#x63A5;&#x961F;&#x5217;(&#x5DF2;&#x5B8C;&#x6210;&#xFF0C;&#x672A;&#x5B8C;&#x6210;)
+ &#x961F;&#x5217;&#x5DF2;&#x6EE1;&#xFF0C;TCP&#x5FFD;&#x7565;&#x8FD9;&#x4E2A;&#x5206;&#x8282;, client&#x4F1A;&#x91CD;&#x4F20;&#x4EE5;&#x671F;&#x671B;&#x4E0D;&#x4E45;&#x7684;&#x5C06;&#x6765;&#x80FD;&#x591F;&#x961F;&#x5217;&#x6709;&#x8DB3;&#x591F;&#x7684;&#x5BB9;&#x91CF;&#xFF0C; &#x4E09;&#x6B21;&#x63E1;&#x624B;&#x540E;&#xFF0C;
+ &#x5728;&#x8C03;&#x7528;accept&#x4E4B;&#x524D;&#xFF0C;&#x6570;&#x636E;&#x5DF2;&#x7ECF;&#x5F00;&#x59CB;&#x4F20;&#x8F93;&#xFF0C;&#x4F20;&#x8F93;&#x6570;&#x636E;&#x7684;&#x6700;&#x5927;&#x6570;&#x636E;&#x91CF;&#x4E3A;&#x8FDE;&#x63A5;&#x5957;&#x63A5;&#x5B57;&#x7684;&#x7F13;&#x51B2;&#x533A;&#x5927;&#x5C0F;</p>
+</li>
+<li>accept, &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x8FDE;&#x63A5;&#x7684;&#x5957;&#x63A5;&#x5B57;</li>
+<li>connect (socketfd, addr, port) &#x5FC5;&#x987B;&#x4F20;&#x9012;&#x670D;&#x52A1;&#x5668;&#x7684;&#x7AEF;&#x53E3;&#x53F7;&#x548C;ip&#x5730;&#x5740;<ol>
+<li>client&#x6CA1;&#x6709;&#x6536;&#x5230;SYN&#x7684;&#x54CD;&#x5E94;(ACK), &#x5219;&#x4F1A;&#x91CD;&#x4F20;&#x8FD9;&#x4E2A;&#x5206;&#x8282;&#xFF0C;&#x82E5;75s&#x540E;&#x8FD8;&#x662F;&#x6CA1;&#x6709;&#x6536;&#x5230;ACK&#x5E94;&#x7B54;&#x8FD9;&#x8FD4;&#x56DE;ETIMEDOUT&#x9519;&#x8BEF;</li>
+<li>client&#x6536;&#x5230;&#x7684;&#x662F;RST&#x5E94;&#x7B54;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x6CA1;&#x6709;&#x8FD0;&#x884C;&#xFF0C;&#x6216;&#x8005;&#x5BF9;&#x5E94;&#x7684;&#x7AEF;&#x53E3;&#x9519;&#x8BEF;(tcpdump&#x53EF;&#x4EE5;&#x6A21;&#x62DF;)</li>
+</ol>
+</li>
+<li>close&#xFF0C; &#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;close&#x4E5F;&#x8BB8;&#x4E0D;&#x4F1A;&#x7ACB;&#x5373;&#x89E6;&#x53D1;4&#x6B21;&#x63E1;&#x624B;&#xFF0C;&#x5728;&#x591A;&#x8FDB;&#x7A0B;&#x7684;TCP&#x670D;&#x52A1;&#x5668;&#x4E2D;&#xFF0C;&#x7236;&#x8FDB;&#x7A0B;&#x4F1A;&#x5173;&#x95ED;&#x5DF2;&#x7ECF;&#x8FDE;&#x63A5;&#x7684;&#x5957;&#x63A5;&#x5B57;&#xFF0C;&#x53EA;&#x662F;&#x628A;
+&#x8FD9;&#x4E2A;&#x5957;&#x63A5;&#x5B57;&#x7684;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x51CF;1&#xFF0C;&#x7B2C;&#x4E8C;&#x70B9;&#xFF0C;&#x8C03;&#x7528;close&#x4E4B;&#x540E;&#xFF0C;&#x8FD9;&#x4E2A;&#x5957;&#x63A5;&#x5B57;&#x4E0D;&#x80FD;&#x518D;&#x88AB;&#x8FDB;&#x7A0B;&#x4F7F;&#x7528;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E0D;&#x80FD;&#x4F5C;&#x4E3A;read&#x6216;write&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x4F46;&#x662F;TCP&#x5C06;&#x4F1A;&#x5DF2;&#x7ECF;&#x6392;&#x961F;&#x7B49;&#x5F85;&#x53D1;&#x9001;&#x7ED9;&#x5BF9;&#x7AEF;&#x7684;&#x6570;&#x636E;&#x53D1;&#x9001;&#x5B8C;&#x4E86;&#x4E4B;&#x540E;&#xFF0C;&#x624D;&#x4F1A;&#x53D1;&#x751F;&#x6B63;&#x5E38;&#x7684;TCP&#x7EC8;&#x6B62;&#x5E8F;&#x5217;</li>
+<li><p>getsockname &#x5728;&#x6CA1;&#x6709;&#x7ED1;&#x5B9A;addr&#x548C;port&#x7684;client&#x4E2D;&#xFF0C;&#x83B7;&#x53D6;&#x5185;&#x6838;&#x81EA;&#x52A8;&#x5206;&#x914D;&#x7684;&#x672C;&#x5730;ip&#x548C;&#x7AEF;&#x53E3;&#x53F7;&#x3002;</p>
+</li>
+<li><p>&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;tcp&#x670D;&#x52A1;&#x5668;&#x642D;&#x5EFA;</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="2-%E5%86%85%E6%A0%B8%E4%B8%8E%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%A5%97%E6%8E%A5%E5%AD%97%E5%9C%B0%E5%9D%80%E7%BB%93%E6%9E%84%E7%9A%84%E4%BC%A0%E9%80%92">2, &#x5185;&#x6838;&#x4E0E;&#x8FDB;&#x7A0B;&#x7684;&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;&#x7684;&#x4F20;&#x9012;</h3>
+<ol>
+<li>&#x5185;&#x6838;&#x4E0E;&#x8FDB;&#x7A0B;&#x7684;&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;&#x7684;&#x4F20;&#x9012;&#x90FD;&#x4F1A;&#x4F20;&#x9012;&#x5F15;&#x7528;<ol>
+<li>&#x4ECE;&#x8FDB;&#x7A0B;&#x5230;&#x5185;&#x6838;&#x4F20;&#x9012;&#x5957;&#x63A5;&#x5B57;&#xFF1A;bind, connnect, sendto&#x7B49;</li>
+<li>&#x4ECE;&#x5185;&#x6838;&#x5230;&#x8FDB;&#x7A0B;&#x7684;&#x4F20;&#x9012;&#x5957;&#x63A5;&#x5B57;: accpet, recv, getsocketname&#x7B49;</li>
+</ol>
+</li>
+<li>socket&#x8BFB;&#x7F13;&#x51B2;&#x533A;&#x548C;&#x5199;&#x7F13;&#x51B2;&#x533A; (UDP&#x6CA1;&#x6709;&#x7F13;&#x51B2;&#x533A;)
+ &#x5E94;&#x4E3A;&#x6709;&#x7F13;&#x51B2;&#x533A;&#x5927;&#x5C0F;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x5B57;&#x8282;&#x6D41;&#x5957;&#x63A5;&#x5B57;&#x7684;read&#x6216;write&#x8F93;&#x5165;&#x6216;&#x8005;&#x8F93;&#x51FA;&#x7684;&#x5B57;&#x8282;&#x6570;&#x53EF;&#x80FD;&#x6BD4;&#x8BF7;&#x6C42;&#x7684;&#x6570;&#x91CF;&#x5C11;</li>
+</ol>
+<h3 id="3-tcp%E7%9A%84%E7%8A%B6%E6%80%81">3, TCP&#x7684;&#x72B6;&#x6001;</h3>
+<p><a href="http://coolshell.cn/articles/1484.html" target="_blank">&#x53C2;&#x8003;&#x6587;&#x7AE0;</a></p>
+<ol>
+<li><p>&#x57FA;&#x7840;&#x6982;&#x5FF5;</p>
+<ol>
+<li>SYN(Synchronize Sequence numbers)&#xFF1A; &#x7528;&#x6765;&#x89E3;&#x51B3;&#x7F51;&#x7EDC;&#x4E71;&#x5E8F;&#x95EE;&#x9898;<ol>
+<li>SYN&#x8D85;&#x65F6;&#x5904;&#x7406;</li>
+<li>SYN&#x961F;&#x5217;(/proc/sys/net/ipv4/tcp<em>syn</em>*) tcp_max_syn_backlog &#x589E;&#x52A0;SYN&#x7684;&#x961F;&#x5217;&#x7684;&#x8FDE;&#x63A5;&#x6570;&#xFF0C;tcp_abort_on_overflow &#x4E0D;&#x5904;&#x7406;SYN
+3.ISN (Inital Sequence Number) &#x521D;&#x59CB;&#x5316;&#x7684;SYN&#x7684;&#x503C;&#xFF0C;&#x76EE;&#x524D;SYN&#x7684;&#x503C; = ISN + len(segment),&#x4E00;&#x4E2A;ISN&#x7684;&#x5468;&#x671F;&#x5927;&#x7EA6;&#x662F;4.55&#x4E2A;&#x5C0F;&#x65F6;</li>
+</ol>
+</li>
+<li>ACK(acknowledgment, number): &#x7528;&#x6765;&#x786E;&#x8BA4;&#x5DF2;&#x7ECF;&#x63A5;&#x53D7;&#x5230;&#x7684;&#x5305;&#xFF0C;&#x89E3;&#x51B3;&#x6389;&#x5305;&#x95EE;&#x9898;<ol>
+<li>ACK&#x53EA;&#x80FD;&#x786E;&#x8BA4;&#x9001;&#x5230;&#x7684;&#x6700;&#x5927;&#x7684;&#x8FDE;&#x7EED;&#x7684;&#x5305;</li>
+<li>&#x91CD;&#x4F20;&#x673A;&#x5236;&#xFF1A;
+ Fast Retransmit&#xFF1A;&#x4EC5;&#x4EC5;&#x91CD;&#x4F20;&#x8D85;&#x65F6;&#x7684;&#x5305;(&#x8282;&#x7701;&#x6D41;&#x91CF;)&#xFF0C;
+ Selective Acknowledgment&#xFF1A; ACK&#x5BF9;&#x7AEF;&#x5DF2;&#x7ECF;&#x63A5;&#x53D7;&#x5230;&#x7684;&#x5305; (/proc/sys/net/ipv4/tcp_sack), &#x5728;&#x53D1;&#x9001;&#x7AEF;&#x5C31;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x56DE;&#x4F20;&#x7684;SACK&#x6765;&#x77E5;&#x9053;&#x54EA;&#x4E9B;&#x6570;&#x636E;&#x5230;&#x4E86;&#xFF0C;&#x54EA;&#x4E9B;&#x6CA1;&#x6709;&#x5230;</li>
+</ol>
+</li>
+<li><p>WINDOW, &#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#xFF0C;&#x7528;&#x4E8E;&#x63A7;&#x5236;&#x6D41;&#x91CF;
+ &#x8FD9;&#x4E2A;&#x5B57;&#x6BB5;&#x662F;&#x63A5;&#x6536;&#x7AEF;&#x544A;&#x8BC9;&#x53D1;&#x9001;&#x7AEF;&#x81EA;&#x5DF1;&#x8FD8;&#x6709;&#x591A;&#x5C11;&#x7F13;&#x51B2;&#x533A;&#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x6570;&#x636E;&#x3002;&#x4E8E;&#x662F;&#x53D1;&#x9001;&#x7AEF;&#x5C31;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x8FD9;&#x4E2A;&#x63A5;&#x6536;&#x7AEF;&#x7684;&#x5904;&#x7406;&#x80FD;&#x529B;&#x6765;&#x53D1;&#x9001;&#x6570;&#x636E;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x5BFC;&#x81F4;&#x63A5;&#x6536;&#x7AEF;&#x5904;&#x7406;&#x4E0D;&#x8FC7;&#x6765;.</p>
+<p> &#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x8BBE;&#x5B9A;&#xFF1A;TCP&#x5F15;&#x5165;&#x4E86;RTT&#x2014;&#x2014;Round Trip Time&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5305;&#x4ECE;&#x53D1;&#x51FA;&#x53BB;&#x5230;&#x56DE;&#x6765;&#x7684;&#x65F6;&#x95F4;&#x3002;&#x8FD9;&#x6837;&#x53D1;&#x9001;&#x7AEF;&#x5C31;&#x5927;&#x7EA6;&#x77E5;&#x9053;&#x9700;&#x8981;&#x591A;&#x5C11;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x4ECE;&#x800C;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x5730;&#x8BBE;&#x7F6E;Timeout&#x2014;&#x2014;RTO&#xFF08;Retransmission TimeOut&#xFF09;&#xFF0C;&#x4EE5;&#x8BA9;&#x6211;&#x4EEC;&#x7684;&#x91CD;&#x4F20;&#x673A;&#x5236;&#x66F4;&#x9AD8;&#x6548;&#x3002; &#x542C;&#x8D77;&#x6765;&#x4F3C;&#x4E4E;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x597D;&#x50CF;&#x5C31;&#x662F;&#x5728;&#x53D1;&#x9001;&#x7AEF;&#x53D1;&#x5305;&#x65F6;&#x8BB0;&#x4E0B;t0&#xFF0C;&#x7136;&#x540E;&#x63A5;&#x6536;&#x7AEF;&#x518D;&#x628A;&#x8FD9;&#x4E2A;ack&#x56DE;&#x6765;&#x65F6;&#x518D;&#x8BB0;&#x4E00;&#x4E2A;t1&#xFF0C;&#x4E8E;&#x662F;RTT = t1 &#x2013; t0&#x3002;&#x6CA1;&#x90A3;&#x4E48;&#x7B80;&#x5355;&#xFF0C;&#x8FD9;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x91C7;&#x6837;&#xFF0C;&#x4E0D;&#x80FD;&#x4EE3;&#x8868;&#x666E;&#x904D;&#x60C5;&#x51B5;</p>
+<p> RTT&#x7684;&#x91C7;&#x6837;&#xFF0C;&#x662F;&#x5426;&#x5305;&#x62EC;&#x91CD;&#x4F20;&#x7684;&#x65F6;&#x95F4;</p>
+<p> &#x7F13;&#x5B58;&#x533A;&#x6EE1;&#x4E86;&#x5904;&#x7406;&#xFF0C;ack&#x7684;&#x65F6;&#x5019;window&#x7684;&#x5927;&#x5C0F;&#x662F;0&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#xFF0C;&#x53D1;&#x9001;&#x7AEF;&#x5C06;&#x4E0D;&#x4F1A;&#x53D1;&#x9001;&#x6570;&#x636E;&#x3002;&#x5982;&#x679C;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x7F13;&#x51B2;&#x533A;&#x53C8;&#x6709;&#x7A7A;&#x95F4;&#x4E86;&#xFF0C;&#x600E;&#x4E48;&#x901A;&#x77E5;&#x5BA2;&#x6237;&#x7AEF;&#x5462;&#xFF0C;TCP&#x4F7F;&#x7528;&#x4E86;Zero Window Probe&#x6280;&#x672F;&#xFF0C;&#x7F29;&#x5199;&#x4E3A;ZWP&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x53D1;&#x9001;&#x7AEF;&#x5728;&#x7A97;&#x53E3;&#x53D8;&#x6210;0&#x540E;&#xFF0C;&#x4F1A;&#x53D1;ZWP&#x7684;&#x5305;&#x7ED9;&#x63A5;&#x6536;&#x65B9;&#xFF0C;&#x8BA9;&#x63A5;&#x6536;&#x65B9;&#x6765;ack&#x4ED6;&#x7684;Window&#x5C3A;&#x5BF8;&#xFF0C;&#x4E00;&#x822C;&#x8FD9;&#x4E2A;&#x503C;&#x4F1A;&#x8BBE;&#x7F6E;&#x6210;3&#x6B21;&#xFF0C;&#x7B2C;&#x6B21;&#x5927;&#x7EA6;30-60&#x79D2;
+ &#x5982;&#x679C;3&#x6B21;&#x8FC7;&#x540E;&#x8FD8;&#x662F;0&#x7684;&#x8BDD;&#xFF0C;&#x6709;&#x7684;TCP&#x5B9E;&#x73B0;&#x5C31;&#x4F1A;&#x53D1;RST&#x628A;&#x94FE;&#x63A5;&#x65AD;&#x4E86;&#x3002;</p>
+<p> &#x5982;&#x679C;&#x4F60;&#x7684;&#x7F51;&#x7EDC;&#x5305;&#x53EF;&#x4EE5;&#x585E;&#x6EE1;MTU&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x53EF;&#x4EE5;&#x7528;&#x6EE1;&#x6574;&#x4E2A;&#x5E26;&#x5BBD;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x80FD;&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x5C31;&#x4F1A;&#x6D6A;&#x8D39;&#x5E26;&#x5BBD;
+ MTU: (Maximum Transmission Unit)
+ MSS: (Max Segment Size) &#x6700;&#x5927;&#x7684;&#x4F20;&#x8F93;&#x6570;&#x636E;
+ &#x5982;&#x679C;window&#x53D8;&#x5F97;&#x7279;&#x522B;&#x5C0F;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x6BCF;&#x6B21;&#x4F20;&#x8F93;&#x53EA;&#x4F1A;&#x4F7F;&#x7528;&#x5230;&#x4E00;&#x90E8;&#x5206;mtu&#x7684;&#x7A7A;&#x95F4;</p>
+</li>
+<li><p>FLAG&#xFF0C; &#x5305;&#x7684;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x6211;&#x4EEC;&#x5E38;&#x89C1;&#x7684;&#x6709;RST&#xFF0C; FIN
+ FIN&#xFF1A;&#x89E6;&#x53D1;&#x56DB;&#x6B21;&#x63E1;&#x624B;&#x7684;&#x65F6;&#x5019;&#x53D1;&#x9001;&#x6B64;&#x4FE1;&#x53F7;
+ RST: 1 &#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x53E3;&#x6CA1;&#x6709;&#x6253;&#x5F00;&#x7684;&#x670D;&#x52A1;&#xFF0C;</p>
+<pre><code>  2 &#x670D;&#x52A1;&#x7AEF;&#x63A5;&#x53D7;SYN&#x8D85;&#x65F6;&#xFF0C;&#x4F1A;&#x5411;&#x5BF9;&#x7AEF;&#x53D1;&#x9001;&#x4E00;&#x4E2A;RST,&#x8868;&#x793A;&#x62D2;&#x7EDD;&#x5411;&#x4F60;&#x670D;&#x52A1;&#xFF0C;&#x670D;&#x52A1;&#x5668;socket&#x914D;&#x7F6E;&#x4E86;SO_RCVTIMEO
+  3 &#x5BA2;&#x6237;&#x7AEF;&#x5728;&#x670D;&#x52A1;&#x7AEF;&#x5DF2;&#x7ECF;&#x5173;&#x95ED;&#x6389;socket&#x4E4B;&#x540E;&#xFF0C;&#x4ECD;&#x7136;&#x5728;&#x53D1;&#x9001;&#x6570;&#x636E;&#x3002;&#x8FD9;&#x65F6;&#x670D;&#x52A1;&#x7AEF;&#x4F1A;&#x4EA7;&#x751F;RST
+</code></pre></li>
+</ol>
+</li>
+</ol>
+<ol>
+<li><p>&#x4E09;&#x6B21;&#x63E1;&#x624B;&#x548C;&#x56DB;&#x6B21;&#x63E1;&#x624B;(tcpdump &#x67E5;&#x770B;&#x4E09;&#x6B21;&#x63E1;&#x624B;)</p>
+</li>
+<li><p>time_wait&#x7684;&#x72B6;&#x6001;&#xFF0C;reuseaddr&#x7684;&#x914D;&#x7F6E; (netstat -an | grep 8888)</p>
+<ol>
+<li>&#x670D;&#x52A1;&#x5668;&#x5C06;&#x91CD;&#x65B0;&#x53D1;&#x9001;&#x6700;&#x540E;&#x7684;&#x4E00;&#x4E2A;FIN&#xFF0C;&#x5BF9;&#x7AEF;&#x5FC5;&#x987B;&#x7EF4;&#x62A4;&#x72B6;&#x6001;&#x4FE1;&#x606F;&#xFF0C;&#x4EE5;&#x5141;&#x8BB8;&#x5B83;&#x53D1;&#x9001;&#x6700;&#x540E;&#x7684;ACK</li>
+<li>&#x6211;&#x4EEC;&#x4F1A;&#x5728;&#x76F8;&#x540C;&#x7684;&#x7AEF;&#x53E3;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x8FDE;&#x63A5;&#xFF0C;TCP&#x7684;&#x5FC5;&#x987B;&#x4FDD;&#x8BC1;&#x65B0;&#x8001;&#x7684;&#x6570;&#x636E;&#x4E0D;&#x4F1A;&#x4E32;&#xFF0C;TCP&#x5C06;&#x4E0D;&#x4F1A;&#x7ED9;&#x5904;&#x4E8E;TIME_WAIT&#x72B6;&#x6001;&#x7684;TCP&#x53D1;&#x8D77;&#x65B0;&#x7684;&#x5316;&#x8EAB;&#xFF0C;TIME_WAIT&#x7684;&#x65F6;&#x95F4;&#x662F;MSL&#x7684;2&#x500D;&#xFF0C;MSL &#x662F;Maximum Segment Lifetime&#x82F1;&#x6587;&#x7684;&#x7F29;&#x5199;&#xFF0C;&#x201C;&#x62A5;&#x6587;&#x6700;&#x5927;&#x751F;&#x5B58;&#x65F6;&#x95F4;&#x201D;</li>
+</ol>
+</li>
+<li>tcp&#x72B6;&#x6001;&#x8F6C;&#x79FB;&#x56FE;</li>
+</ol>
+<h3 id="5-%E9%98%BB%E5%A1%9E%E5%BC%8Fi-o%E5%92%8C%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%BC%8Fi-o">5, &#x963B;&#x585E;&#x5F0F;I/O&#x548C;&#x975E;&#x963B;&#x585E;&#x5F0F;I/O</h3>
+<p><a href="http://www.jianshu.com/p/55eb83d60ab1" target="_blank">I/O&#x6A21;&#x578B;</a></p>
+<ol>
+<li>I/O&#x6A21;&#x578B;&#xFF0C; &#x963B;&#x585E;&#x548C;&#x975E;&#x963B;&#x585E; &#x672F;&#x8BED;&#xFF1A;&#x540C;&#x6B65;&#xFF1A;&#x5BFC;&#x81F4;&#x8BF7;&#x6C42;&#x8FDB;&#x7A0B;&#x963B;&#x585E;&#xFF0C;&#x77E5;&#x9053;I/O&#x5B8C;&#x6210;&#xFF0C;&#x5F02;&#x6B65;&#xFF1A;&#x4E0D;&#x5BFC;&#x81F4;&#x963B;&#x585E;</li>
+<li>&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x4F1A;&#x53D1;&#x751F;&#x963B;&#x585E;</li>
+<li>&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x963B;&#x585E;</li>
+</ol>
+<h3 id="6-i-o%E5%A4%8D%E7%94%A8%EF%BC%9Aselect-epoll">6, I/O&#x590D;&#x7528;&#xFF1A;select/epoll</h3>
+<ol>
+<li>I/O&#x6A21;&#x578B;&#x4E4B;I/O&#x590D;&#x7528;&#xFF1A;&#x5185;&#x6838;&#x4E00;&#x65E6;&#x53D1;&#x73B0;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;I/O&#x6761;&#x4EF6;&#x5C31;&#x7EEA;(&#x53EF;&#x8BFB;&#xFF0C;&#x53EF;&#x5199;&#x6216;&#x8005;&#x5F02;&#x5E38;)&#x5C31;&#x901A;&#x77E5;&#x7528;&#x6237;&#x8FDB;&#x7A0B;&#x7684;&#x80FD;&#x529B;</li>
+<li><p>select&#x7684;&#x673A;&#x5236;&#x548C;&#x9650;&#x5236;
+ <code>select(int maxfdp1,*readset,*writeset,*exceptset, timeout)</code></p>
+<ol>
+<li>&#x6CE8;&#x518C;&#x53EF;&#x8BFB;&#xFF0C;&#x53EF;&#x5199;&#xFF0C;&#x5F02;&#x5E38;&#x7684;&#x76F8;&#x5173;&#x5957;&#x63A5;&#x5B57;</li>
+<li>timeout&#x53D6;&#x503C;: None: &#x4E00;&#x76F4;&#x963B;&#x585E;&#x77E5;&#x9053;&#x6570;&#x636E;&#x51C6;&#x5907;&#x597D;&#xFF0C;0: &#x4E0D;&#x963B;&#x585E;&#xFF0C;&#x7ACB;&#x5373;&#x8FD4;&#x56DE;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x8F6E;&#x8BE2;&#xFF0C; &gt;0: &#x963B;&#x585E;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x5F53;&#x8D85;&#x8FC7;&#x963B;&#x585E;&#x7684;&#x65F6;&#x95F4;&#x8FD8;&#x6CA1;&#x6709;&#x6570;&#x636E;&#x51C6;&#x5907;&#x597D;&#x5219;&#x8FD4;&#x56DE;&#x4E3A;&#x7A7A;&#x7684;&#x96C6;&#x5408;</li>
+<li><code>maxfdp1 = sockfd + 1</code> select&#x5728;&#x5185;&#x6838;&#x4E2D;&#x662F;&#x8F6E;&#x8BE2;&#x7684;&#xFF0C;&#x5185;&#x6838;&#x904D;&#x5386;&#x6240;&#x6709;&#x6CE8;&#x518C;&#x7684;fd&#xFF0C;&#x67E5;&#x770B;&#x662F;&#x5426;&#x6709;&#x51C6;&#x5907;&#x597D;&#x7684;fd&#xFF0C; &#x5957;&#x63A5;&#x5B57;&#x662F;&#x4ECE;0&#x5F00;&#x59CB;&#x7684;&#xFF0C;&#x6240;&#x6709;maxfd  = max(socket) + 1&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;select&#x7684;&#x9650;&#x5236;(&#x8F6E;&#x8BE2;&#x548C;&#x63CF;&#x8FF0;&#x7B26;&#x6570;&#x91CF;&#x9650;&#x5236;)</li>
+<li>&#x5982;&#x4F55;&#x7ED9;&#x8FD9;&#x4E09;&#x4E2A;&#x96C6;&#x5408;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x63CF;&#x8FF0;&#x7B26;&#x5E76;&#x8FD4;&#x56DE;&#x51C6;&#x5907;&#x597D;&#x7684;&#x63CF;&#x8FF0;&#x7B26;</li>
+<li><p>&#x4EC0;&#x4E48;&#x662F;&#x6570;&#x636E;&#x51C6;&#x5907;&#x597D;&#xFF0C;(&#x53EF;&#x8BFB;&#xFF1A;&#x7F13;&#x51B2;&#x533A;&#x6570;&#x636E;&#x5927;&#x4E8E;&#x4F4E;&#x6C34;&#x4F4D;&#xFF0C;&#x63A5;&#x53D7;&#x5230;FIN&#x7684;TCP&#x8FDE;&#x63A5;&#xFF0C;accpet, &#x5F02;&#x5E38;&#xFF0C; &#x53EF;&#x5199;: &#x7F13;&#x51B2;&#x533A;&#x5927;&#x4E8E;&#x53D1;&#x9001;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x4F4E;&#x6C34;&#x4F4D;&#xFF0C; connect, &#x6709;&#x9519;&#x8BEF;&#x5904;&#x7406;&#xFF0C;&#x5F02;&#x5E38;&#x6761;&#x4EF6;)
+6&#xFF0C;&#x591A;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x5904;&#x7406;</p>
+<pre><code>SO_RCVBUF: &#x63A5;&#x53D7;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x5927;&#x5C0F; (int)
+SO_SNDBUF: &#x53D1;&#x9001;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x5927;&#x5C0F; (int)
+SO_RCVLOWAT: &#x63A5;&#x53D7;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x4F4E;&#x6C34;&#x4F4D;&#x5927;&#x5C0F; (int=1)
+SO_SNDLOWAT: &#x53D1;&#x9001;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x4F4E;&#x6C34;&#x4F4D; (int=2048)
+</code></pre></li>
+</ol>
+</li>
+</ol>
+<ol>
+<li><p>epoll&#x7684;&#x6C34;&#x5E73;&#x89E6;&#x53D1;&#x548C;&#x8FB9;&#x6CBF;&#x89E6;&#x53D1;</p>
+<ol>
+<li>&#x6CA1;&#x6709;&#x63CF;&#x8FF0;&#x7B26;&#x6570;&#x91CF;&#x7684;&#x9650;&#x5236;</li>
+<li>&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x673A;&#x5236;&#x4E0D;&#x9700;&#x8981;&#x8F6E;&#x8BE2;</li>
+<li>&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x65B9;&#x5F0F;&#x66F4;&#x9AD8;&#x6548;(&#x4E0D;&#x9700;&#x8981;&#x590D;&#x5236;fd)</li>
+<li>&#x7ED9;&#x5957;&#x63A5;&#x5B57;&#x6CE8;&#x518C;&#x76F8;&#x5173;&#x7684;&#x4E8B;&#x4EF6;(&#x53EF;&#x8BFB;&#xFF0C;&#x53EF;&#x5199;&#xFF0C;&#x5F02;&#x5E38;)</li>
+<li><p>LT(level triggered) &#x662F;&#x9ED8;&#x8BA4;/&#x7F3A;&#x7701;&#x7684;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#xFF0C;&#x540C;&#x65F6;&#x652F;&#x6301; block&#x548C;no_block socket&#x3002;&#x8FD9;&#x79CD;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#x4E0B;&#xFF0C;&#x5185;&#x6838;&#x4F1A;&#x901A;&#x77E5;&#x4F60;&#x4E00;&#x4E2A;fd&#x662F;&#x5426;&#x5C31;&#x7EEA;&#xFF0C;&#x7136;&#x540E;&#x624D;&#x53EF;&#x4EE5;&#x5BF9;&#x8FD9;&#x4E2A;&#x5C31;&#x7EEA;&#x7684;fd&#x8FDB;&#x884C;I/O&#x64CD;&#x4F5C;&#x3002;&#x5C31;&#x7B97;&#x4F60;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x64CD;&#x4F5C;&#xFF0C;&#x7CFB;&#x7EDF;&#x8FD8;&#x662F;&#x4F1A;&#x7EE7;&#x7EED;&#x63D0;&#x793A;fd&#x5DF2;&#x7ECF;&#x5C31;&#x7EEA;&#xFF0C;&#x4E0D;&#x8FC7;&#x8FD9;&#x79CD;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#x51FA;&#x9519;&#x4F1A;&#x6BD4;&#x8F83;&#x5C0F;&#xFF0C;&#x4F20;&#x7EDF;&#x7684;select/poll&#x5C31;&#x662F;&#x8FD9;&#x79CD;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#x7684;&#x4EE3;&#x8868;&#x3002;</p>
+<p>ET(edge-triggered) &#x662F;&#x9AD8;&#x901F;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#xFF0C;&#x4EC5;&#x652F;&#x6301;no_block socket&#xFF0C;&#x8FD9;&#x79CD;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#x4E0B;&#xFF0C;&#x5F53;fd&#x4ECE;&#x672A;&#x5C31;&#x7EEA;&#x53D8;&#x4E3A;&#x5C31;&#x7EEA;&#x65F6;&#xFF0C;&#x5185;&#x6838;&#x4F1A;&#x901A;&#x77E5;fd&#x5DF2;&#x7ECF;&#x5C31;&#x7EEA;&#xFF0C;&#x5E76;&#x4E14;&#x5185;&#x6838;&#x8BA4;&#x4E3A;&#x4F60;&#x77E5;&#x9053;&#x8BE5;fd&#x5DF2;&#x7ECF;&#x5C31;&#x7EEA;&#xFF0C;&#x4E0D;&#x4F1A;&#x518D;&#x6B21;&#x901A;&#x77E5;&#x4E86;&#xFF0C;&#x9664;&#x975E;&#x56E0;&#x4E3A;&#x67D0;&#x4E9B;&#x64CD;&#x4F5C;&#x5BFC;&#x81F4;fd&#x5C31;&#x7EEA;&#x72B6;&#x6001;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x3002;&#x5982;&#x679C;&#x4E00;&#x76F4;&#x4E0D;&#x5BF9;&#x8FD9;&#x4E2A;fd&#x8FDB;&#x884C;I/O&#x64CD;&#x4F5C;&#xFF0C;&#x5BFC;&#x81F4;fd&#x53D8;&#x4E3A;&#x672A;&#x5C31;&#x7EEA;&#x65F6;&#xFF0C;&#x5185;&#x6838;&#x540C;&#x6837;&#x4E0D;&#x4F1A;&#x53D1;&#x9001;&#x66F4;&#x591A;&#x7684;&#x901A;&#x77E5;&#xFF0C;&#x56E0;&#x4E3A;only once&#x3002;&#x6240;&#x4EE5;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x4E0B;&#xFF0C;&#x51FA;&#x9519;&#x7387;&#x6BD4;&#x8F83;&#x9AD8;&#xFF0C;&#x9700;&#x8981;&#x589E;&#x52A0;&#x4E00;&#x4E9B;&#x68C0;&#x6D4B;&#x7A0B;&#x5E8F;&#x3002;</p>
+<p>LT&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x6C34;&#x5E73;&#x89E6;&#x53D1;&#xFF0C;&#x53EA;&#x8981;&#x6709;&#x6570;&#x636E;&#x53EF;&#x4EE5;&#x8BFB;&#xFF0C;&#x4E0D;&#x7BA1;&#x600E;&#x6837;&#x90FD;&#x4F1A;&#x901A;&#x77E5;&#x3002;&#x800C;ET&#x4E3A;&#x8FB9;&#x7F18;&#x89E6;&#x53D1;&#xFF0C;&#x53EA;&#x6709;&#x72B6;&#x6001;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x65F6;&#x624D;&#x4F1A;&#x901A;&#x77E5;&#xFF0C;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x7535;&#x5E73;&#x53D8;&#x5316;&#x3002;</p>
+<p>epoll&#x4E8B;&#x4EF6;&#xFF1A;</p>
+<pre><code>POLLIN: &#x53EF;&#x8BFB;&#x666E;&#x901A;&#x6216;&#x8005;&#x4F18;&#x5148;&#x4F18;&#x5148;&#x7EA7;
+POLLRDNROM: &#x666E;&#x901A;&#x4F18;&#x5148;&#x7EA7;
+POLLRNDAND: &#x4F18;&#x5148;&#x7EA7;
+POLLPRI: &#x9AD8;&#x4F18;&#x5148;&#x7EA7;
+
+POLLOUT: &#x666E;&#x901A;&#x6570;&#x636E;&#x53EF;&#x5199;
+POLLERR: &#x53D1;&#x9001;&#x9519;&#x8BEF;
+</code></pre><p>&#x6240;&#x4EE5;&#xFF0C;&#x5728;&#x8FB9;&#x7F18;&#x89E6;&#x53D1;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x5FC5;&#x987B;&#x6BCF;&#x6B21;&#x90FD;&#x5904;&#x7406;&#x5DF2;&#x7ECF;&#x51C6;&#x5907;&#x597D;&#x7684;fd</p>
+</li>
+</ol>
+</li>
+<li>tornado&#x7684;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x673A;&#x5236;&#xFF1A;&#x4E00;&#x4E2A;&#x5FAE;&#x578B;tcpserver&#x7684;&#x6784;&#x5EFA;</li>
+</ol>
 
                     
                     </section>
