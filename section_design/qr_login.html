@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>process | 飘来飘去</title>
+        <title>扫描登陆 | 飘来飘去</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.4.3">
@@ -33,10 +33,10 @@
         
     
     
-    <link rel="next" href="../section_linux/text.html" />
+    <link rel="next" href="../section_tool/index.html" />
     
     
-    <link rel="prev" href="../section_linux/ssh.html" />
+    <link rel="prev" href="../section_design/thread.html" />
     
 
         
@@ -44,7 +44,7 @@
     <body>
         
         
-    <div class="book" data-level="6.3" data-basepath=".." data-revision="Thu Mar 16 2017 16:28:38 GMT+0800 (CST)">
+    <div class="book" data-level="7.6" data-basepath=".." data-revision="Thu Mar 16 2017 16:28:38 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -449,7 +449,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="6.3" data-path="section_linux/proccess.html">
+        <li class="chapter " data-level="6.3" data-path="section_linux/proccess.html">
             
                 
                     <a href="../section_linux/proccess.html">
@@ -665,7 +665,7 @@
             
         </li>
     
-        <li class="chapter " data-level="7.6" data-path="section_design/qr_login.html">
+        <li class="chapter active" data-level="7.6" data-path="section_design/qr_login.html">
             
                 
                     <a href="../section_design/qr_login.html">
@@ -1052,7 +1052,206 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86">&#x8FDB;&#x7A0B;&#x7BA1;&#x7406;</h1>
+                        <h1 id="%E6%89%AB%E6%8F%8F%E7%99%BB%E9%99%86">&#x626B;&#x63CF;&#x767B;&#x9646;</h1>
+<h2 id="%E7%9B%AE%E5%BD%95">&#x76EE;&#x5F55;:</h2>
+<ol>
+<li><a href="#doc-1">&#x6D41;&#x7A0B;&#x89E3;&#x6790;</a></li>
+<li><a href="#doc-2">&#x6570;&#x636E;&#x5E93;&#x8BBE;&#x8BA1;</a></li>
+<li><a href="#doc-3">API&#x8BBE;&#x8BA1;</a></li>
+</ol>
+<h3 id="doc-1">&#x6D41;&#x7A0B;&#x89E3;&#x6790;</h3>
+
+
+<ol>
+<li><p>&#x7528;&#x6237;&#x8BF7;&#x6C42;&#x4E8C;&#x7EF4;&#x7801;&#x767B;&#x9646;&#x7684;&#x9875;&#x9762;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x6807;&#x8BC6;uuid&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;base64&#x52A0;&#x5BC6;&#xFF0C;&#x72B6;&#x6001;&#x4E3A;&#x672A;&#x7ED1;&#x5B9A;</p>
+</li>
+<li><p>&#x5728;APP&#x767B;&#x9646;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F7F;&#x7528;APP&#x626B;&#x63CF;&#x4E8C;&#x7EF4;&#x7801;&#x83B7;&#x53D6;&#x5230;uuid, &#x5E76;&#x63D0;&#x793A;&#x786E;&#x8BA4;&#x767B;&#x9646;</p>
+</li>
+<li><p>APP&#x70B9;&#x51FB;&#x786E;&#x8BA4;&#x767B;&#x9646;&#xFF0C;&#x628A;&#x4E4B;&#x524D;&#x5DF2;&#x7ECF;&#x767B;&#x9646;&#x7684;&#x7528;&#x6237;&#x4FE1;&#x606F;, uuid, timestamp&#xFF0C;&#x63D0;&#x4EA4;&#x5230;&#x670D;&#x52A1;&#x5668;</p>
+</li>
+<li><p>&#x670D;&#x52A1;&#x5668;&#x7ED1;&#x5B9A;&#x7528;&#x6237;&#x548C;uuid&#x7684;&#x4FE1;&#x606F;, &#x5E76;&#x6807;&#x793A;uuid&#x7684;&#x72B6;&#x6001;&#x4E3A;&#x5DF2;&#x7ED1;&#x5B9A;</p>
+</li>
+<li><p>&#x7F51;&#x9875;&#x6BCF;&#x9694;5s&#xFF0C;&#x8F6E;&#x8BE2;&#x5411;&#x670D;&#x52A1;&#x5668;&#x8BE2;&#x95EE;uuid&#x662F;&#x5426;&#x7ED1;&#x5B9A;&#x4E86;user&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x6C42;&#x53C2;&#x6570;&#xFF1A;uuid, timestamp, rand_id</p>
+</li>
+<li><p>&#x670D;&#x52A1;&#x5668;&#x9A8C;&#x8BC1;uuid&#x662F;&#x5426;&#x8FC7;&#x671F;&#xFF0C;uuid&#x8FC7;&#x671F;&#x5219;&#x63D0;&#x793A;&#x7528;&#x6237;&#x91CD;&#x65B0;&#x5237;&#x65B0;&#xFF0C;&#x83B7;&#x53D6;&#x65B0;&#x7684;uuid, &#x5982;&#x679C;uuid&#x6CA1;&#x6709;&#x8FC7;&#x671F;&#xFF0C;&#x4E14;APP&#x8FD8;&#x6CA1;&#x6709;&#x626B;&#x63CF;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;httpcode 408, &#x5982;&#x679C;uuid&#x7ED1;&#x5B9A;&#x4E86;&#x7528;&#x6237;&#xFF0C;&#x5219;&#x901A;&#x8FC7;uid, timestamp, rand_id &#x52A0;&#x5BC6;&#x751F;&#x6210;&#x4E00;&#x4E2A;access_token &#x5E76;&#x628A;access_token&#x8FD4;&#x56DE;&#x7ED9;&#x7F51;&#x9875;</p>
+</li>
+<li><p>&#x7F51;&#x9875;&#x901A;&#x8FC7;access_token, &#x83B7;&#x53D6;&#x7528;&#x6237;&#x4FE1;&#x606F;</p>
+</li>
+</ol>
+<h6 id="%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8access-token%EF%BC%8C%E8%80%8C%E4%B8%8D%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8uuid">&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x4F7F;&#x7528;access_token&#xFF0C;&#x800C;&#x4E0D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;uuid?</h6>
+<p>&#x56E0;&#x4E3A;uuid&#x5728;&#x672A;&#x767B;&#x5F55;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5DF2;&#x7ECF;&#x66B4;&#x9732;&#x51FA;&#x53BB;&#xFF0C;&#x8BD5;&#x60F3;&#x4E00;&#x4E0B;&#xFF0C;&#x5982;&#x679C;A&#x7528;&#x6237;&#x6253;&#x5F00;&#x4E86;&#x767B;&#x9646;&#x7F51;&#x9875;&#xFF0C;&#x5E76;&#x8BB0;&#x4E0B;&#x6765;uuid, &#x7136;&#x540E;&#x901A;&#x77E5;B&#x6765;&#x626B;&#x63CF;&#x767B;&#x9646;&#xFF0C;
+&#x5982;&#x679C;&#x7528;uuid&#x6765;&#x83B7;&#x53D6;&#x7528;&#x6237;&#x7684;&#x8BDD;&#xFF0C;A&#x7528;&#x6237;&#x5C31;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;B&#x7528;&#x6237;&#x7684;&#x4FE1;&#x606F;</p>
+<h3 id="doc-2">&#x6570;&#x636E;&#x5E93;&#x8BBE;&#x8BA1;</h3>
+
+<p><code>&#x4E8C;&#x7EF4;&#x7801;&#x8868; qr</code></p>
+<h6 id="%E5%AD%97%E6%AE%B5%E6%8F%8F%E8%BF%B0">&#x5B57;&#x6BB5;&#x63CF;&#x8FF0;</h6>
+<table>
+<thead>
+<tr>
+<th>&#x540D;&#x5B57;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x8BE6;&#x7EC6;&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INT</td>
+<td>auto</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>STRING</td>
+<td>&#x552F;&#x4E00;&#x6807;&#x8BC6;</td>
+</tr>
+<tr>
+<td>status</td>
+<td>TINYINT</td>
+<td>1 &#x672A;&#x7ED1;&#x5B9A;&#xFF0C; 2&#x5DF2;&#x7ED1;&#x5B9A;&#xFF0C; 3 &#x5DF2;&#x8FC7;&#x671F;</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>TIMESTAMP</td>
+<td>&#x521B;&#x5EFA;&#x65F6;&#x95F4;</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>TIMESTAMP</td>
+<td>&#x4FEE;&#x6539;&#x65F6;&#x95F4;</td>
+</tr>
+</tbody>
+</table>
+<p><code>&#x7528;&#x6237; user</code></p>
+<h6 id="%E5%AD%97%E6%AE%B5%E6%8F%8F%E8%BF%B0">&#x5B57;&#x6BB5;&#x63CF;&#x8FF0;</h6>
+<table>
+<thead>
+<tr>
+<th>&#x540D;&#x5B57;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x8BE6;&#x7EC6;&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td>STRING</td>
+<td>&#x552F;&#x4E00;&#x6807;&#x8BC6;</td>
+</tr>
+<tr>
+<td>access_token</td>
+<td>STRING</td>
+<td>&#x83B7;&#x53D6;&#x7528;&#x6237;&#x7684;&#x4FE1;&#x606F;&#x7684;&#x51ED;&#x8BC1;</td>
+</tr>
+<tr>
+<td>expired_at</td>
+<td>TIMESTAMP</td>
+<td>access_token &#x8FC7;&#x671F;&#x65F6;&#x95F4;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="doc-3">API&#x8BBE;&#x8BA1;</h3>
+
+
+<p><code>APP&#x626B;&#x63CF;&#x6388;&#x6743; POST /login/qrcode/auth</code></p>
+<h6 id="%E5%8F%82%E6%95%B0%E6%8F%8F%E8%BF%B0">&#x53C2;&#x6570;&#x63CF;&#x8FF0;</h6>
+<table>
+<thead>
+<tr>
+<th>&#x540D;&#x5B57;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x8BE6;&#x7EC6;&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td>STRING</td>
+<td>uuid</td>
+</tr>
+</tbody>
+</table>
+<h6 id="%E5%93%8D%E5%BA%94">&#x54CD;&#x5E94;</h6>
+<p><code>204</code></p>
+<p><code>&#x5224;&#x65AD;&#x662F;&#x5426;&#x6388;&#x6743; POST /login/qrcode</code></p>
+<h6 id="%E5%8F%82%E6%95%B0%E6%8F%8F%E8%BF%B0">&#x53C2;&#x6570;&#x63CF;&#x8FF0;</h6>
+<table>
+<thead>
+<tr>
+<th>&#x540D;&#x5B57;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x8BE6;&#x7EC6;&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td>STRING</td>
+<td>uuid</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>STRING</td>
+<td>&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x6233;</td>
+</tr>
+<tr>
+<td>rand_id</td>
+<td>STRING</td>
+<td>&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;, &#x53EF;&#x9009;</td>
+</tr>
+</tbody>
+</table>
+<h6 id="%E5%93%8D%E5%BA%94%E6%8F%8F%E8%BF%B0">&#x54CD;&#x5E94;&#x63CF;&#x8FF0;</h6>
+<table>
+<thead>
+<tr>
+<th>&#x540D;&#x5B57;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x8BE6;&#x7EC6;&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>STRING</td>
+<td>access_token&#xFF0C;&#x7528;&#x4E8E;&#x83B7;&#x53D6;&#x7528;&#x6237;&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td>expired_at</td>
+<td>STRING</td>
+<td>access_token&#x7684;&#x8FC7;&#x671F;&#x65F6;&#x95F4;</td>
+</tr>
+</tbody>
+</table>
+<h6 id="%E5%93%8D%E5%BA%94">&#x54CD;&#x5E94;</h6>
+<pre><code>{
+    &apos;access_token&apos;: &apos;token&apos;,
+    &apos;expired_at&apos;: 1313131312,
+}
+</code></pre><p><code>&#x901A;&#x8FC7;access_token &#x83B7;&#x53D6;&#x7528;&#x6237;&#x4FE1;&#x606F; GET /user</code></p>
+<h6 id="%E5%8F%82%E6%95%B0%E6%8F%8F%E8%BF%B0">&#x53C2;&#x6570;&#x63CF;&#x8FF0;</h6>
+<table>
+<thead>
+<tr>
+<th>&#x540D;&#x5B57;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x8BE6;&#x7EC6;&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uuid</td>
+<td>STRING</td>
+<td>uuid</td>
+</tr>
+<tr>
+<td>access_token</td>
+<td>STRING</td>
+<td>&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x6233;</td>
+</tr>
+</tbody>
+</table>
+<h6 id="%E5%93%8D%E5%BA%94">&#x54CD;&#x5E94;</h6>
+<p>&#x7528;&#x6237;&#x4FE1;&#x606F;</p>
 
                     
                     </section>
@@ -1063,10 +1262,10 @@
         </div>
 
         
-        <a href="../section_linux/ssh.html" class="navigation navigation-prev " aria-label="Previous page: ssh"><i class="fa fa-angle-left"></i></a>
+        <a href="../section_design/thread.html" class="navigation navigation-prev " aria-label="Previous page: 线程池设计"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../section_linux/text.html" class="navigation navigation-next " aria-label="Next page: text"><i class="fa fa-angle-right"></i></a>
+        <a href="../section_tool/index.html" class="navigation navigation-next " aria-label="Next page: 常用工具"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
