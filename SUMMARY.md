@@ -37,6 +37,7 @@ bui# Summary
     * [HTTP Server](section_design/http.md)
     * [连接池设计](section_design/collection.md)
     * [线程池设计](section_design/thread.md)
+    * [扫描登陆](section_design/qr_login.md)
 * [常用工具](section_tool/README.md)
     * [sublime](section_tool/sublime.md)
     * [vim](section_tool/vim.md)

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # 使用 gitbook init 初始化书籍目录
+# 修改json文件后，使用gitbook init 重新初始化
 # 使用 gitbook serve 编译书籍， 然后就可以本地在本地访问gitbook
 # 修改之后 首先使用git add . git commit 提交本地的修改内容，然后执行push.sh脚本提交到远程分支上
 
