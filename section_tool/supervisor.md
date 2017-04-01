@@ -1,5 +1,4 @@
 # supervisor
-[文章转载于烂笔头](http://dhq.me/mac-supervisor-install)
 
 supervisor 是一个类 unix 操作系统下的进程监控管理工具，比如安装了redis-server，就可以使用supervisor管理redis-server
 
@@ -43,18 +42,19 @@ files = /etc/supervisor/conf.d/*.ini
 
 /etc/supervisor/conf.d/mux.ugc.ini的配置如下
 ```
-[program:web.mux.ugc] ;进程名
-command=thrift-mux run /workspace/ele/mux-ugc ;执行命令
+[program:php] ;进程名
+directory = path/to/project/ves
+command = php -f start.php
 autostart=true ;自启动
 autorestart=unexpected
 startsecs=3
 startretries=3
 stopsignal=TERM
 stopwaitsecs=5
-user=www-data   ; 特别注意此用户权限问
-stopasgroup=true
+user=www-data   ; 用户需要对directory, start.php有所属组权限，否则会自动退出，code为127
+stopasgroup=true ; 关闭进程内的所有子进程
 killasgroup=true
-stdout_logfile=/tmp/mux.web.ugc.stdout.log ; 程序运行日志
+stdout_logfile=/tmp/mux.web.ugc.stdout.log ; 程序运行日志，需要事先生成
 stderr_logfile=/tmp/mux.web.ugc.stderr.log ; 程序错误日志
 ```
 #### 启动

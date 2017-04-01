@@ -6,7 +6,11 @@
 2. [数据库设计](#doc-2)
 3. [API设计](#doc-3)
 
+
+[流程图][http://upload-images.jianshu.io/upload_images/538-623026f12e28b0fa.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240]
+
 <h3 id="doc-1">流程解析</h3>
+
 
 
 1. 用户请求二维码登陆的页面，服务器生成一个唯一标识uuid，可以使用base64加密，状态为未绑定
