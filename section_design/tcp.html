@@ -1,1061 +1,917 @@
+
 <!DOCTYPE HTML>
-<html lang="en" >
-    
+<html lang="" >
     <head>
-        
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>TCP Server | 飘来飘去</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>TCP Server · 飘来飘去</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.4.3">
+        <meta name="generator" content="GitBook 3.2.2">
         
         
-        <meta name="HandheldFriendly" content="true"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
         
+    
     <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
     
         
-        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-prism/prism.css">
+    
         
     
         
-        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+    
         
     
+        
+    
+        
     
 
         
     
     
-    <link rel="next" href="../section_design/http.html" />
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="http.html" />
     
     
-    <link rel="prev" href="../section_design/health.html" />
+    <link rel="prev" href="health.html" />
     
 
-        
     </head>
     <body>
         
+<div class="book">
+    <div class="book-summary">
         
-    <div class="book" data-level="7.2" data-basepath=".." data-revision="Thu Mar 16 2017 16:47:58 GMT+0800 (CST)">
-    
-
-<div class="book-summary">
-    <div class="book-search" role="search">
-        <input type="text" placeholder="Type to search" class="form-control" />
-    </div>
-    <nav role="navigation">
-        <ul class="summary">
             
-            
-            
-                
-                <li>
-                    <a href="http://www.hellosunnyge.com/wordpress/" target="blank" class="custom-link">飘来飘去</a>
-                </li>
-            
-            
-
-            
-            <li class="divider"></li>
-            
-
-            
-    
-        <li class="chapter " data-level="0" data-path="index.html">
-            
-                
-                    <a href="../index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                        Introduction
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="1" data-path="section_php/index.html">
-            
-                
-                    <a href="../section_php/index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>1.</b>
-                        
-                        PHP
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2" data-path="section_python/index.html">
-            
-                
-                    <a href="../section_python/index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.</b>
-                        
-                        PYTHON
-                    </a>
-            
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="2.1" data-path="section_python/env.html">
-            
-                
-                    <a href="../section_python/env.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.1.</b>
-                        
-                        environment
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.2" data-path="section_python/pip.html">
-            
-                
-                    <a href="../section_python/pip.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.2.</b>
-                        
-                        pip
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3" data-path="section_python/struct.html">
-            
-                
-                    <a href="../section_python/struct.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.3.</b>
-                        
-                        data structures
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.4" data-path="section_python/import.html">
-            
-                
-                    <a href="../section_python/import.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.4.</b>
-                        
-                        import
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.5" data-path="section_python/decorator.html">
-            
-                
-                    <a href="../section_python/decorator.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.5.</b>
-                        
-                        decorator
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.6" data-path="section_python/yield.html">
-            
-                
-                    <a href="../section_python/yield.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.6.</b>
-                        
-                        yield
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.7" data-path="section_python/contextlib.html">
-            
-                
-                    <a href="../section_python/contextlib.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.7.</b>
-                        
-                        contextlib
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.8" data-path="section_python/collection.html">
-            
-                
-                    <a href="../section_python/collection.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.8.</b>
-                        
-                        collections
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.9" data-path="section_python/itertools.html">
-            
-                
-                    <a href="../section_python/itertools.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.9.</b>
-                        
-                        itertools
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.10" data-path="section_python/functools.html">
-            
-                
-                    <a href="../section_python/functools.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.10.</b>
-                        
-                        functools
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.11" data-path="section_python/logger.html">
-            
-                
-                    <a href="../section_python/logger.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.11.</b>
-                        
-                        logging
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.12" data-path="section_python/inpect.html">
-            
-                
-                    <a href="../section_python/inpect.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.12.</b>
-                        
-                        inspect
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.13" data-path="section_python/pytest.html">
-            
-                
-                    <a href="../section_python/pytest.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.13.</b>
-                        
-                        pytest
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.14" data-path="section_python/SQLalchemy-session.html">
-            
-                
-                    <a href="../section_python/SQLalchemy-session.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.14.</b>
-                        
-                        SQLalchemy-session
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.15" data-path="section_python/SQLalchemy-engine.html">
-            
-                
-                    <a href="../section_python/SQLalchemy-engine.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.15.</b>
-                        
-                        SQLalchemy-engine
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="2.16" data-path="section_python/SQLalchemy-orm.html">
-            
-                
-                    <a href="../section_python/SQLalchemy-orm.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.16.</b>
-                        
-                        SQLalchemy-orm
-                    </a>
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="3" data-path="section_go/index.html">
-            
-                
-                    <a href="../section_go/index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>3.</b>
-                        
-                        GO
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="4" data-path="section_javascript/index.html">
-            
-                
-                    <a href="../section_javascript/index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>4.</b>
-                        
-                        JAVASCRIPT
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="5" data-path="section_lua/index.html">
-            
-                
-                    <a href="../section_lua/index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>5.</b>
-                        
-                        LUA
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="6" data-path="section_linux/index.html">
-            
-                
-                    <a href="../section_linux/index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.</b>
-                        
-                        linux管理
-                    </a>
-            
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="6.1" data-path="section_linux/user.html">
-            
-                
-                    <a href="../section_linux/user.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.1.</b>
-                        
-                        用户管理
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="6.2" data-path="section_linux/ssh.html">
-            
-                
-                    <a href="../section_linux/ssh.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.2.</b>
-                        
-                        ssh
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="6.3" data-path="section_linux/proccess.html">
-            
-                
-                    <a href="../section_linux/proccess.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.3.</b>
-                        
-                        process
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="6.4" data-path="section_linux/text.html">
-            
-                
-                    <a href="../section_linux/text.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.4.</b>
-                        
-                        text
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="6.5" data-path="section_linux/shell.html">
-            
-                
-                    <a href="../section_linux/shell.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.5.</b>
-                        
-                        shell
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="6.6" data-path="section_linux/regex.html">
-            
-                
-                    <a href="../section_linux/regex.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.6.</b>
-                        
-                        regex
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="6.7" data-path="section_linux/cpu.html">
-            
-                
-                    <a href="../section_linux/cpu.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.7.</b>
-                        
-                        cpu
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="6.8" data-path="section_linux/memmory.html">
-            
-                
-                    <a href="../section_linux/memmory.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.8.</b>
-                        
-                        memory
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="6.9" data-path="section_linux/io.html">
-            
-                
-                    <a href="../section_linux/io.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.9.</b>
-                        
-                        io
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="6.10" data-path="section_linux/network.html">
-            
-                
-                    <a href="../section_linux/network.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>6.10.</b>
-                        
-                        network
-                    </a>
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="7" data-path="section_design/index.html">
-            
-                
-                    <a href="../section_design/index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>7.</b>
-                        
-                        代码设计
-                    </a>
-            
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="7.1" data-path="section_design/health.html">
-            
-                
-                    <a href="../section_design/health.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>7.1.</b>
-                        
-                        API自动熔断
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter active" data-level="7.2" data-path="section_design/tcp.html">
-            
-                
-                    <a href="../section_design/tcp.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>7.2.</b>
-                        
-                        TCP Server
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="7.3" data-path="section_design/http.html">
-            
-                
-                    <a href="../section_design/http.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>7.3.</b>
-                        
-                        HTTP Server
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="7.4" data-path="section_design/collection.html">
-            
-                
-                    <a href="../section_design/collection.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>7.4.</b>
-                        
-                        连接池设计
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="7.5" data-path="section_design/thread.html">
-            
-                
-                    <a href="../section_design/thread.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>7.5.</b>
-                        
-                        线程池设计
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="7.6" data-path="section_design/qr_login.html">
-            
-                
-                    <a href="../section_design/qr_login.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>7.6.</b>
-                        
-                        扫描登陆
-                    </a>
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="8" data-path="section_tool/index.html">
-            
-                
-                    <a href="../section_tool/index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.</b>
-                        
-                        常用工具
-                    </a>
-            
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="8.1" data-path="section_tool/sublime.html">
-            
-                
-                    <a href="../section_tool/sublime.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.1.</b>
-                        
-                        sublime
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="8.2" data-path="section_tool/vim.html">
-            
-                
-                    <a href="../section_tool/vim.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.2.</b>
-                        
-                        vim
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="8.3" data-path="section_tool/zsh.html">
-            
-                
-                    <a href="../section_tool/zsh.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.3.</b>
-                        
-                        zsh
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="8.4" data-path="section_tool/Iterm.html">
-            
-                
-                    <a href="../section_tool/Iterm.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.4.</b>
-                        
-                        Iterm
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="8.5" data-path="section_tool/Tmux.html">
-            
-                
-                    <a href="../section_tool/Tmux.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.5.</b>
-                        
-                        Tmux
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="8.6" data-path="section_tool/Powerline.html">
-            
-                
-                    <a href="../section_tool/Powerline.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.6.</b>
-                        
-                        Powerline
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="8.7" data-path="section_tool/brew.html">
-            
-                
-                    <a href="../section_tool/brew.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.7.</b>
-                        
-                        brew
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="8.8" data-path="section_tool/launchctl.html">
-            
-                
-                    <a href="../section_tool/launchctl.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.8.</b>
-                        
-                        launchctl
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="8.9" data-path="section_tool/lnmp.html">
-            
-                
-                    <a href="../section_tool/lnmp.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.9.</b>
-                        
-                        LNMP
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="8.10" data-path="section_tool/supervisor.html">
-            
-                
-                    <a href="../section_tool/supervisor.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.10.</b>
-                        
-                        supervisor
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="8.11" data-path="section_tool/vagrant.html">
-            
-                
-                    <a href="../section_tool/vagrant.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.11.</b>
-                        
-                        vagrant
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="8.12" data-path="section_tool/ansible.html">
-            
-                
-                    <a href="../section_tool/ansible.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>8.12.</b>
-                        
-                        ansible
-                    </a>
-            
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="9" data-path="section_mysql/index.html">
-            
-                
-                    <a href="../section_mysql/index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>9.</b>
-                        
-                        数据库
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="10" data-path="section_nginx/index.html">
-            
-                
-                    <a href="../section_nginx/index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>10.</b>
-                        
-                        NGINX
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="11" data-path="section_test/index.html">
-            
-                
-                    <a href="../section_test/index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>11.</b>
-                        
-                        测试
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="12" data-path="section_mind/index.html">
-            
-                
-                    <a href="../section_mind/index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>12.</b>
-                        
-                        随想
-                    </a>
-            
-            
-        </li>
-    
-
-
-            
-            <li class="divider"></li>
-            <li>
-                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-                    Published with GitBook
-                </a>
-            </li>
-            
-        </ul>
-    </nav>
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
 </div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://www.hellosunnyge.com/wordpress/" target="_blank" class="custom-link">飘来飘去</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../section_php/">
+            
+                <a href="../section_php/">
+            
+                    
+                    PHP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../section_python/">
+            
+                <a href="../section_python/">
+            
+                    
+                    PYTHON
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../section_python/env.html">
+            
+                <a href="../section_python/env.html">
+            
+                    
+                    environment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../section_python/pip.html">
+            
+                <a href="../section_python/pip.html">
+            
+                    
+                    pip
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../section_python/struct.html">
+            
+                <a href="../section_python/struct.html">
+            
+                    
+                    data structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../section_python/import.html">
+            
+                <a href="../section_python/import.html">
+            
+                    
+                    import
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../section_python/decorator.html">
+            
+                <a href="../section_python/decorator.html">
+            
+                    
+                    decorator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../section_python/yield.html">
+            
+                <a href="../section_python/yield.html">
+            
+                    
+                    yield
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../section_python/contextlib.html">
+            
+                <a href="../section_python/contextlib.html">
+            
+                    
+                    contextlib
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../section_python/collection.html">
+            
+                <a href="../section_python/collection.html">
+            
+                    
+                    collections
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../section_python/itertools.html">
+            
+                <a href="../section_python/itertools.html">
+            
+                    
+                    itertools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../section_python/functools.html">
+            
+                <a href="../section_python/functools.html">
+            
+                    
+                    functools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../section_python/logger.html">
+            
+                <a href="../section_python/logger.html">
+            
+                    
+                    logging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="../section_python/inpect.html">
+            
+                <a href="../section_python/inpect.html">
+            
+                    
+                    inspect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="../section_python/pytest.html">
+            
+                <a href="../section_python/pytest.html">
+            
+                    
+                    pytest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="../section_python/SQLalchemy-session.html">
+            
+                <a href="../section_python/SQLalchemy-session.html">
+            
+                    
+                    SQLalchemy-session
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.15" data-path="../section_python/SQLalchemy-engine.html">
+            
+                <a href="../section_python/SQLalchemy-engine.html">
+            
+                    
+                    SQLalchemy-engine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.16" data-path="../section_python/SQLalchemy-orm.html">
+            
+                <a href="../section_python/SQLalchemy-orm.html">
+            
+                    
+                    SQLalchemy-orm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../section_go/">
+            
+                <a href="../section_go/">
+            
+                    
+                    GO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../section_javascript/">
+            
+                <a href="../section_javascript/">
+            
+                    
+                    JAVASCRIPT
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../section_lua/">
+            
+                <a href="../section_lua/">
+            
+                    
+                    LUA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../section_linux/">
+            
+                <a href="../section_linux/">
+            
+                    
+                    linux管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../section_linux/user.html">
+            
+                <a href="../section_linux/user.html">
+            
+                    
+                    用户管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../section_linux/ssh.html">
+            
+                <a href="../section_linux/ssh.html">
+            
+                    
+                    ssh
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../section_linux/proccess.html">
+            
+                <a href="../section_linux/proccess.html">
+            
+                    
+                    process
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../section_linux/text.html">
+            
+                <a href="../section_linux/text.html">
+            
+                    
+                    text
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../section_linux/shell.html">
+            
+                <a href="../section_linux/shell.html">
+            
+                    
+                    shell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../section_linux/regex.html">
+            
+                <a href="../section_linux/regex.html">
+            
+                    
+                    regex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../section_linux/cpu.html">
+            
+                <a href="../section_linux/cpu.html">
+            
+                    
+                    cpu
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../section_linux/memmory.html">
+            
+                <a href="../section_linux/memmory.html">
+            
+                    
+                    memory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" data-path="../section_linux/io.html">
+            
+                <a href="../section_linux/io.html">
+            
+                    
+                    io
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.10" data-path="../section_linux/network.html">
+            
+                <a href="../section_linux/network.html">
+            
+                    
+                    network
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    代码设计
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="health.html">
+            
+                <a href="health.html">
+            
+                    
+                    API自动熔断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8.2" data-path="tcp.html">
+            
+                <a href="tcp.html">
+            
+                    
+                    TCP Server
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="http.html">
+            
+                <a href="http.html">
+            
+                    
+                    HTTP Server
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="collection.html">
+            
+                <a href="collection.html">
+            
+                    
+                    连接池设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="thread.html">
+            
+                <a href="thread.html">
+            
+                    
+                    线程池设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="qr_login.html">
+            
+                <a href="qr_login.html">
+            
+                    
+                    扫描登陆
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../section_tool/">
+            
+                <a href="../section_tool/">
+            
+                    
+                    常用工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../section_tool/sublime.html">
+            
+                <a href="../section_tool/sublime.html">
+            
+                    
+                    sublime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../section_tool/vim.html">
+            
+                <a href="../section_tool/vim.html">
+            
+                    
+                    vim
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../section_tool/zsh.html">
+            
+                <a href="../section_tool/zsh.html">
+            
+                    
+                    zsh
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../section_tool/Iterm.html">
+            
+                <a href="../section_tool/Iterm.html">
+            
+                    
+                    Iterm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../section_tool/Tmux.html">
+            
+                <a href="../section_tool/Tmux.html">
+            
+                    
+                    Tmux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../section_tool/Powerline.html">
+            
+                <a href="../section_tool/Powerline.html">
+            
+                    
+                    Powerline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../section_tool/brew.html">
+            
+                <a href="../section_tool/brew.html">
+            
+                    
+                    brew
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../section_tool/launchctl.html">
+            
+                <a href="../section_tool/launchctl.html">
+            
+                    
+                    launchctl
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../section_tool/lnmp.html">
+            
+                <a href="../section_tool/lnmp.html">
+            
+                    
+                    LNMP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="../section_tool/supervisor.html">
+            
+                <a href="../section_tool/supervisor.html">
+            
+                    
+                    supervisor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="../section_tool/vagrant.html">
+            
+                <a href="../section_tool/vagrant.html">
+            
+                    
+                    vagrant
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.12" data-path="../section_tool/ansible.html">
+            
+                <a href="../section_tool/ansible.html">
+            
+                    
+                    ansible
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../section_mysql/">
+            
+                <a href="../section_mysql/">
+            
+                    
+                    数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../section_nginx/">
+            
+                <a href="../section_nginx/">
+            
+                    
+                    NGINX
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../section_test/">
+            
+                <a href="../section_test/">
+            
+                    
+                    测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../section_mind/">
+            
+                <a href="../section_mind/">
+            
+                    
+                    随想
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
 
     <div class="book-body">
-        <div class="body-inner">
-            <div class="book-header" role="navigation">
-    <!-- Actions Left -->
-    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
-    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
-    
-    <div id="font-settings-wrapper" class="dropdown pull-left">
-        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
-        </a>
-        <div class="dropdown-menu font-settings">
-    <div class="dropdown-caret">
-        <span class="caret-outer"></span>
-        <span class="caret-inner"></span>
-    </div>
+        
+            <div class="body-inner">
+                
+                    
 
-    <div class="buttons">
-        <button type="button" id="reduce-font-size" class="button size-2">A</button>
-        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
-    </div>
-
-    <div class="buttons font-family-list">
-        <button type="button" data-font="0" class="button">Serif</button>
-        <button type="button" data-font="1" class="button">Sans</button>
-    </div>
-
-    <div class="buttons color-theme-list">
-        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
-        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
-        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
-    </div>
-</div>
-
-    </div>
-
-    <!-- Actions Right -->
+<div class="book-header" role="navigation">
     
-    <div class="dropdown pull-right">
-        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
-        </a>
-        <div class="dropdown-menu font-settings dropdown-left">
-            <div class="dropdown-caret">
-                <span class="caret-outer"></span>
-                <span class="caret-inner"></span>
-            </div>
-            <div class="buttons">
-                <button type="button" data-sharing="twitter" class="button">
-                    Share on Twitter
-                </button>
-                <button type="button" data-sharing="google-plus" class="button">
-                    Share on Google
-                </button>
-                <button type="button" data-sharing="facebook" class="button">
-                    Share on Facebook
-                </button>
-                <button type="button" data-sharing="weibo" class="button">
-                    Share on Weibo
-                </button>
-                <button type="button" data-sharing="instapaper" class="button">
-                    Share on Instapaper
-                </button>
-            </div>
-        </div>
-    </div>
-    
-
-    
-    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
-    
-    
-    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
-    
-    
-    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
-    
-    
-    
-
 
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >飘来飘去</a>
+        <a href=".." >TCP Server</a>
     </h1>
 </div>
 
-            <div class="page-wrapper" tabindex="-1" role="main">
-                <div class="page-inner">
-                
-                
-                    <section class="normal" id="section-">
-                    
-                        <h3 id="%E6%92%B8%E6%92%B8tcp">&#x64B8;&#x64B8;TCP</h3>
-<h3 id="%E9%A2%84%E6%9C%9F%E7%9B%AE%E7%9A%84">&#x9884;&#x671F;&#x76EE;&#x7684;</h3>
-<pre><code>&#x666E;&#x53CA;&#x548C;&#x68B3;&#x7406;socket&#x7684;&#x7EC6;&#x8282;&#x95EE;&#x9898;, tornado&#x7684;&#x6838;&#x5FC3;&#x6D41;&#x7A0B;&#x68B3;&#x7406;
-</code></pre><h3 id="1-%E5%9F%BA%E6%9C%ACtcp%E5%A5%97%E6%8E%A5%E5%AD%97%E7%BC%96%E7%A8%8B">1,&#x57FA;&#x672C;TCP&#x5957;&#x63A5;&#x5B57;&#x7F16;&#x7A0B;</h3>
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="&#x64B8;&#x64B8;tcp">&#x64B8;&#x64B8;TCP</h3>
+<h3 id="&#x9884;&#x671F;&#x76EE;&#x7684;">&#x9884;&#x671F;&#x76EE;&#x7684;</h3>
+<pre class="language-"><code>&#x666E;&#x53CA;&#x548C;&#x68B3;&#x7406;socket&#x7684;&#x7EC6;&#x8282;&#x95EE;&#x9898;, tornado&#x7684;&#x6838;&#x5FC3;&#x6D41;&#x7A0B;&#x68B3;&#x7406;
+</code></pre><h3 id="1&#x57FA;&#x672C;tcp&#x5957;&#x63A5;&#x5B57;&#x7F16;&#x7A0B;">1,&#x57FA;&#x672C;TCP&#x5957;&#x63A5;&#x5B57;&#x7F16;&#x7A0B;</h3>
 <ol>
 <li><p>socket</p>
 <ol>
@@ -1081,7 +937,7 @@
 </ol>
 </li>
 </ol>
-<h3 id="2-%E5%86%85%E6%A0%B8%E4%B8%8E%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%A5%97%E6%8E%A5%E5%AD%97%E5%9C%B0%E5%9D%80%E7%BB%93%E6%9E%84%E7%9A%84%E4%BC%A0%E9%80%92">2, &#x5185;&#x6838;&#x4E0E;&#x8FDB;&#x7A0B;&#x7684;&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;&#x7684;&#x4F20;&#x9012;</h3>
+<h3 id="2-&#x5185;&#x6838;&#x4E0E;&#x8FDB;&#x7A0B;&#x7684;&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;&#x7684;&#x4F20;&#x9012;">2, &#x5185;&#x6838;&#x4E0E;&#x8FDB;&#x7A0B;&#x7684;&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;&#x7684;&#x4F20;&#x9012;</h3>
 <ol>
 <li>&#x5185;&#x6838;&#x4E0E;&#x8FDB;&#x7A0B;&#x7684;&#x5957;&#x63A5;&#x5B57;&#x5730;&#x5740;&#x7ED3;&#x6784;&#x7684;&#x4F20;&#x9012;&#x90FD;&#x4F1A;&#x4F20;&#x9012;&#x5F15;&#x7528;<ol>
 <li>&#x4ECE;&#x8FDB;&#x7A0B;&#x5230;&#x5185;&#x6838;&#x4F20;&#x9012;&#x5957;&#x63A5;&#x5B57;&#xFF1A;bind, connnect, sendto&#x7B49;</li>
@@ -1091,7 +947,7 @@
 <li>socket&#x8BFB;&#x7F13;&#x51B2;&#x533A;&#x548C;&#x5199;&#x7F13;&#x51B2;&#x533A; (UDP&#x6CA1;&#x6709;&#x7F13;&#x51B2;&#x533A;)
  &#x5E94;&#x4E3A;&#x6709;&#x7F13;&#x51B2;&#x533A;&#x5927;&#x5C0F;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x5B57;&#x8282;&#x6D41;&#x5957;&#x63A5;&#x5B57;&#x7684;read&#x6216;write&#x8F93;&#x5165;&#x6216;&#x8005;&#x8F93;&#x51FA;&#x7684;&#x5B57;&#x8282;&#x6570;&#x53EF;&#x80FD;&#x6BD4;&#x8BF7;&#x6C42;&#x7684;&#x6570;&#x91CF;&#x5C11;</li>
 </ol>
-<h3 id="3-tcp%E7%9A%84%E7%8A%B6%E6%80%81">3, TCP&#x7684;&#x72B6;&#x6001;</h3>
+<h3 id="3-tcp&#x7684;&#x72B6;&#x6001;">3, TCP&#x7684;&#x72B6;&#x6001;</h3>
 <p><a href="http://coolshell.cn/articles/1484.html" target="_blank">&#x53C2;&#x8003;&#x6587;&#x7AE0;</a></p>
 <ol>
 <li><p>&#x57FA;&#x7840;&#x6982;&#x5FF5;</p>
@@ -1123,7 +979,7 @@
 <li><p>FLAG&#xFF0C; &#x5305;&#x7684;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x6211;&#x4EEC;&#x5E38;&#x89C1;&#x7684;&#x6709;RST&#xFF0C; FIN
  FIN&#xFF1A;&#x89E6;&#x53D1;&#x56DB;&#x6B21;&#x63E1;&#x624B;&#x7684;&#x65F6;&#x5019;&#x53D1;&#x9001;&#x6B64;&#x4FE1;&#x53F7;
  RST: 1 &#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x53E3;&#x6CA1;&#x6709;&#x6253;&#x5F00;&#x7684;&#x670D;&#x52A1;&#xFF0C;</p>
-<pre><code>  2 &#x670D;&#x52A1;&#x7AEF;&#x63A5;&#x53D7;SYN&#x8D85;&#x65F6;&#xFF0C;&#x4F1A;&#x5411;&#x5BF9;&#x7AEF;&#x53D1;&#x9001;&#x4E00;&#x4E2A;RST,&#x8868;&#x793A;&#x62D2;&#x7EDD;&#x5411;&#x4F60;&#x670D;&#x52A1;&#xFF0C;&#x670D;&#x52A1;&#x5668;socket&#x914D;&#x7F6E;&#x4E86;SO_RCVTIMEO
+<pre class="language-"><code>  2 &#x670D;&#x52A1;&#x7AEF;&#x63A5;&#x53D7;SYN&#x8D85;&#x65F6;&#xFF0C;&#x4F1A;&#x5411;&#x5BF9;&#x7AEF;&#x53D1;&#x9001;&#x4E00;&#x4E2A;RST,&#x8868;&#x793A;&#x62D2;&#x7EDD;&#x5411;&#x4F60;&#x670D;&#x52A1;&#xFF0C;&#x670D;&#x52A1;&#x5668;socket&#x914D;&#x7F6E;&#x4E86;SO_RCVTIMEO
   3 &#x5BA2;&#x6237;&#x7AEF;&#x5728;&#x670D;&#x52A1;&#x7AEF;&#x5DF2;&#x7ECF;&#x5173;&#x95ED;&#x6389;socket&#x4E4B;&#x540E;&#xFF0C;&#x4ECD;&#x7136;&#x5728;&#x53D1;&#x9001;&#x6570;&#x636E;&#x3002;&#x8FD9;&#x65F6;&#x670D;&#x52A1;&#x7AEF;&#x4F1A;&#x4EA7;&#x751F;RST
 </code></pre></li>
 </ol>
@@ -1140,14 +996,14 @@
 </li>
 <li>tcp&#x72B6;&#x6001;&#x8F6C;&#x79FB;&#x56FE;</li>
 </ol>
-<h3 id="5-%E9%98%BB%E5%A1%9E%E5%BC%8Fi-o%E5%92%8C%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%BC%8Fi-o">5, &#x963B;&#x585E;&#x5F0F;I/O&#x548C;&#x975E;&#x963B;&#x585E;&#x5F0F;I/O</h3>
+<h3 id="5-&#x963B;&#x585E;&#x5F0F;io&#x548C;&#x975E;&#x963B;&#x585E;&#x5F0F;io">5, &#x963B;&#x585E;&#x5F0F;I/O&#x548C;&#x975E;&#x963B;&#x585E;&#x5F0F;I/O</h3>
 <p><a href="http://www.jianshu.com/p/55eb83d60ab1" target="_blank">I/O&#x6A21;&#x578B;</a></p>
 <ol>
 <li>I/O&#x6A21;&#x578B;&#xFF0C; &#x963B;&#x585E;&#x548C;&#x975E;&#x963B;&#x585E; &#x672F;&#x8BED;&#xFF1A;&#x540C;&#x6B65;&#xFF1A;&#x5BFC;&#x81F4;&#x8BF7;&#x6C42;&#x8FDB;&#x7A0B;&#x963B;&#x585E;&#xFF0C;&#x77E5;&#x9053;I/O&#x5B8C;&#x6210;&#xFF0C;&#x5F02;&#x6B65;&#xFF1A;&#x4E0D;&#x5BFC;&#x81F4;&#x963B;&#x585E;</li>
 <li>&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x4F1A;&#x53D1;&#x751F;&#x963B;&#x585E;</li>
 <li>&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x963B;&#x585E;</li>
 </ol>
-<h3 id="6-i-o%E5%A4%8D%E7%94%A8%EF%BC%9Aselect-epoll">6, I/O&#x590D;&#x7528;&#xFF1A;select/epoll</h3>
+<h3 id="6-io&#x590D;&#x7528;&#xFF1A;selectepoll">6, I/O&#x590D;&#x7528;&#xFF1A;select/epoll</h3>
 <ol>
 <li>I/O&#x6A21;&#x578B;&#x4E4B;I/O&#x590D;&#x7528;&#xFF1A;&#x5185;&#x6838;&#x4E00;&#x65E6;&#x53D1;&#x73B0;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;I/O&#x6761;&#x4EF6;&#x5C31;&#x7EEA;(&#x53EF;&#x8BFB;&#xFF0C;&#x53EF;&#x5199;&#x6216;&#x8005;&#x5F02;&#x5E38;)&#x5C31;&#x901A;&#x77E5;&#x7528;&#x6237;&#x8FDB;&#x7A0B;&#x7684;&#x80FD;&#x529B;</li>
 <li><p>select&#x7684;&#x673A;&#x5236;&#x548C;&#x9650;&#x5236;
@@ -1159,7 +1015,7 @@
 <li>&#x5982;&#x4F55;&#x7ED9;&#x8FD9;&#x4E09;&#x4E2A;&#x96C6;&#x5408;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x63CF;&#x8FF0;&#x7B26;&#x5E76;&#x8FD4;&#x56DE;&#x51C6;&#x5907;&#x597D;&#x7684;&#x63CF;&#x8FF0;&#x7B26;</li>
 <li><p>&#x4EC0;&#x4E48;&#x662F;&#x6570;&#x636E;&#x51C6;&#x5907;&#x597D;&#xFF0C;(&#x53EF;&#x8BFB;&#xFF1A;&#x7F13;&#x51B2;&#x533A;&#x6570;&#x636E;&#x5927;&#x4E8E;&#x4F4E;&#x6C34;&#x4F4D;&#xFF0C;&#x63A5;&#x53D7;&#x5230;FIN&#x7684;TCP&#x8FDE;&#x63A5;&#xFF0C;accpet, &#x5F02;&#x5E38;&#xFF0C; &#x53EF;&#x5199;: &#x7F13;&#x51B2;&#x533A;&#x5927;&#x4E8E;&#x53D1;&#x9001;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x4F4E;&#x6C34;&#x4F4D;&#xFF0C; connect, &#x6709;&#x9519;&#x8BEF;&#x5904;&#x7406;&#xFF0C;&#x5F02;&#x5E38;&#x6761;&#x4EF6;)
 6&#xFF0C;&#x591A;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x5904;&#x7406;</p>
-<pre><code>SO_RCVBUF: &#x63A5;&#x53D7;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x5927;&#x5C0F; (int)
+<pre class="language-"><code>SO_RCVBUF: &#x63A5;&#x53D7;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x5927;&#x5C0F; (int)
 SO_SNDBUF: &#x53D1;&#x9001;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x5927;&#x5C0F; (int)
 SO_RCVLOWAT: &#x63A5;&#x53D7;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x4F4E;&#x6C34;&#x4F4D;&#x5927;&#x5C0F; (int=1)
 SO_SNDLOWAT: &#x53D1;&#x9001;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x4F4E;&#x6C34;&#x4F4D; (int=2048)
@@ -1178,7 +1034,7 @@ SO_SNDLOWAT: &#x53D1;&#x9001;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x4F4E;&#x6C34;&#x
 <p>ET(edge-triggered) &#x662F;&#x9AD8;&#x901F;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#xFF0C;&#x4EC5;&#x652F;&#x6301;no_block socket&#xFF0C;&#x8FD9;&#x79CD;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#x4E0B;&#xFF0C;&#x5F53;fd&#x4ECE;&#x672A;&#x5C31;&#x7EEA;&#x53D8;&#x4E3A;&#x5C31;&#x7EEA;&#x65F6;&#xFF0C;&#x5185;&#x6838;&#x4F1A;&#x901A;&#x77E5;fd&#x5DF2;&#x7ECF;&#x5C31;&#x7EEA;&#xFF0C;&#x5E76;&#x4E14;&#x5185;&#x6838;&#x8BA4;&#x4E3A;&#x4F60;&#x77E5;&#x9053;&#x8BE5;fd&#x5DF2;&#x7ECF;&#x5C31;&#x7EEA;&#xFF0C;&#x4E0D;&#x4F1A;&#x518D;&#x6B21;&#x901A;&#x77E5;&#x4E86;&#xFF0C;&#x9664;&#x975E;&#x56E0;&#x4E3A;&#x67D0;&#x4E9B;&#x64CD;&#x4F5C;&#x5BFC;&#x81F4;fd&#x5C31;&#x7EEA;&#x72B6;&#x6001;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x3002;&#x5982;&#x679C;&#x4E00;&#x76F4;&#x4E0D;&#x5BF9;&#x8FD9;&#x4E2A;fd&#x8FDB;&#x884C;I/O&#x64CD;&#x4F5C;&#xFF0C;&#x5BFC;&#x81F4;fd&#x53D8;&#x4E3A;&#x672A;&#x5C31;&#x7EEA;&#x65F6;&#xFF0C;&#x5185;&#x6838;&#x540C;&#x6837;&#x4E0D;&#x4F1A;&#x53D1;&#x9001;&#x66F4;&#x591A;&#x7684;&#x901A;&#x77E5;&#xFF0C;&#x56E0;&#x4E3A;only once&#x3002;&#x6240;&#x4EE5;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x4E0B;&#xFF0C;&#x51FA;&#x9519;&#x7387;&#x6BD4;&#x8F83;&#x9AD8;&#xFF0C;&#x9700;&#x8981;&#x589E;&#x52A0;&#x4E00;&#x4E9B;&#x68C0;&#x6D4B;&#x7A0B;&#x5E8F;&#x3002;</p>
 <p>LT&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x6C34;&#x5E73;&#x89E6;&#x53D1;&#xFF0C;&#x53EA;&#x8981;&#x6709;&#x6570;&#x636E;&#x53EF;&#x4EE5;&#x8BFB;&#xFF0C;&#x4E0D;&#x7BA1;&#x600E;&#x6837;&#x90FD;&#x4F1A;&#x901A;&#x77E5;&#x3002;&#x800C;ET&#x4E3A;&#x8FB9;&#x7F18;&#x89E6;&#x53D1;&#xFF0C;&#x53EA;&#x6709;&#x72B6;&#x6001;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x65F6;&#x624D;&#x4F1A;&#x901A;&#x77E5;&#xFF0C;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x7535;&#x5E73;&#x53D8;&#x5316;&#x3002;</p>
 <p>epoll&#x4E8B;&#x4EF6;&#xFF1A;</p>
-<pre><code>POLLIN: &#x53EF;&#x8BFB;&#x666E;&#x901A;&#x6216;&#x8005;&#x4F18;&#x5148;&#x4F18;&#x5148;&#x7EA7;
+<pre class="language-"><code>POLLIN: &#x53EF;&#x8BFB;&#x666E;&#x901A;&#x6216;&#x8005;&#x4F18;&#x5148;&#x4F18;&#x5148;&#x7EA7;
 POLLRDNROM: &#x666E;&#x901A;&#x4F18;&#x5148;&#x7EA7;
 POLLRNDAND: &#x4F18;&#x5148;&#x7EA7;
 POLLPRI: &#x9AD8;&#x4F18;&#x5148;&#x7EA7;
@@ -1192,38 +1048,86 @@ POLLERR: &#x53D1;&#x9001;&#x9519;&#x8BEF;
 <li>tornado&#x7684;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x673A;&#x5236;&#xFF1A;&#x4E00;&#x4E2A;&#x5FAE;&#x578B;tcpserver&#x7684;&#x6784;&#x5EFA;</li>
 </ol>
 
-                    
-                    </section>
-                
-                
-                </div>
-            </div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
         </div>
-
-        
-        <a href="../section_design/health.html" class="navigation navigation-prev " aria-label="Previous page: API自动熔断"><i class="fa fa-angle-left"></i></a>
-        
-        
-        <a href="../section_design/http.html" class="navigation navigation-next " aria-label="Next page: HTTP Server"><i class="fa fa-angle-right"></i></a>
-        
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
     </div>
 </div>
 
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="health.html" class="navigation navigation-prev " aria-label="Previous page: API自动熔断">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="http.html" class="navigation navigation-next " aria-label="Next page: HTTP Server">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
         
-<script src="../gitbook/app.js"></script>
+    </div>
 
-    
-    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
-    
-
-<script>
-require(["gitbook"], function(gitbook) {
-    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
-    gitbook.start(config);
-});
-</script>
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"TCP Server","level":"1.8.2","depth":2,"next":{"title":"HTTP Server","level":"1.8.3","depth":2,"path":"section_design/http.md","ref":"section_design/http.md","articles":[]},"previous":{"title":"API自动熔断","level":"1.8.1","depth":2,"path":"section_design/health.md","ref":"section_design/health.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_design/tcp.md","mtime":"2017-07-03T06:34:27.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-04T03:54:21.123Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
 
         
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
     </body>
-    
 </html>
+
