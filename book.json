@@ -1,5 +1,5 @@
 {
-    "plugins": ["prism"],
+    "plugins": ["prism", "-highlight"],
     "title": "飘来飘去",
     "links": {
         "sidebar": {
@@ -12,5 +12,12 @@
             "weibo": null,
             "all": null
         }
+    },
+    "pluginsConfig": {
+      "prism": {
+        "css": [
+          "prismjs/themes/prism-okaidia.css"
+        ]
+      }
     }
 }
