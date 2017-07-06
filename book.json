@@ -1,5 +1,5 @@
 {
-    "plugins": ["prism", "-highlight"],
+    "plugins": ["prism", "-highlight", "toc2"],
     "title": "飘来飘去",
     "links": {
         "sidebar": {
@@ -18,6 +18,10 @@
         "css": [
           "prismjs/themes/prism-okaidia.css"
         ]
+      },
+      "toc2": {
+        "addClass": true,
+        "className": "toc"
       }
     }
 }
