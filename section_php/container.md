@@ -37,7 +37,7 @@ $container->bind('cache', function($container) {
 ```
 
 
-这里可以宣布，容器的使用二部曲:
+这里，我们可以把container理解成储存东西的器具，就像使用存钱罐一样使用它，先往存钱罐里面存钱，你可以储存硬币，纸币，在需要的时候再把它拿出来，使用步骤可以总结为2点:
 
 - **先往容器里绑定东西**
 
@@ -49,7 +49,8 @@ $container->bind('cache', function($container) {
 
 现在有三个问题
 
-1. 怎么绑
+1. 怎么绑定呢
+
 通过`abstract => value`方式赋值绑定， 然后通过abstract 去查找绑定的value.
 
 2. 可以支持绑定哪些类型
@@ -61,6 +62,7 @@ $container->bind('cache', function($container) {
 - array bindings,  匿名函数  binding
 
 - array methodBindings, 绑定一个method
+
 
 3. 有哪些函数可以实现绑定
 
@@ -289,7 +291,8 @@ $this->app->alias(
 
 ### extend: 修改容器里面已经bind的abstract的value
 
-如果这个abstract已经被bind了就修改bind的value，如果不存在则bind，这个函数估计用的不多
+这个函数类似于python的装饰器，可以修饰instance对象，第二个参数是一个匿名函数，
+匿名函数的第一个参数是需要修饰的instance对象，第二个参数是container
 
 ```php
 
