@@ -116,7 +116,7 @@ class_alias('Log', 'LogFacade');
  ```
 
 容器所有问题基本解答完毕，`static::$app`这个属性是什么使用初始化的呢，实在laravel启动的时候调用了
-```
+```php
 Facade::setFacadeApplication($this);
 
 public static function setFacadeApplication($app)
