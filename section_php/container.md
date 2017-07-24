@@ -49,11 +49,11 @@ $container->bind('cache', function($container) {
 
 现在有三个问题
 
-1. 怎么绑定呢
+1 怎么绑定呢
 
 通过`abstract => value`方式赋值绑定， 然后通过abstract 去查找绑定的value.
 
-2. 可以支持绑定哪些类型
+2 可以支持绑定哪些类型
 
 简单来说，value主要有如下几种常用类型:
 
@@ -63,8 +63,7 @@ $container->bind('cache', function($container) {
 
 - array methodBindings, 绑定一个method
 
-
-3. 有哪些函数可以实现绑定
+3 有哪些函数可以实现绑定
 
 - instance
 
@@ -273,7 +272,7 @@ class Container implements ArrayAccess, ContainerContract
 
 ```
 
-别名逻辑很简单，可是为什么要有别名的呢, 只是为了做一个精简的abstract么，我觉得不是，这个应该和契约编程有关系
+别名逻辑很简单，可是为什么要有别名的呢, 只是为了做一个精简的abstract么，我觉得不是，这个应该和**契约编程**有关系
 
 ```php
 
