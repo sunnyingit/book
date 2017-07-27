@@ -1255,30 +1255,81 @@ UnexpectedValueException
 </code></pre>
 <h2 id="exception-handler-&#x5BF9;&#x8C61;&#x8BBE;&#x8BA1;">Exception Handler &#x5BF9;&#x8C61;&#x8BBE;&#x8BA1;</h2>
 <p>&#x5F53;Exception Handler&#x62FF;&#x5230;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x540E;&#xFF0C;&#x4F1A;&#x600E;&#x4E48;&#x5904;&#x7406;&#x4E86;&#xFF0C;&#x5728;laravel Contracts&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x51E0;&#x4E2A;&#x65B9;&#x6CD5;</p>
-<pre class="language-"><code>shouldntReport&#xFF1A; &#x662F;&#x5426;&#x9700;&#x8981;&#x8BB0;&#x5F55;&#x8FD9;&#x4E2A;&#x9519;&#x8BEF;
-report: &#x8BB0;&#x5F55;&#x9519;&#x8BEF;&#x5230;&#x65E5;&#x5FD7;&#x4E2D;
-render: &#x8F93;&#x51FA;&#x5F02;&#x5E38;&#xFF0C;&#x628A;&#x5F02;&#x5E38;&#x8F93;&#x51FA;&#x5230;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;
-renderForConsole: &#x8F93;&#x51FA;&#x5F02;&#x5E38;&#xFF0C;&#x628A;&#x5F02;&#x5E38;&#x8F93;&#x51FA;&#x5230;&#x5C4F;&#x5E55;
+<pre class="language-"><code class="lang-php">
+shouldntReport&#xFF1A; &#x662F;&#x5426;&#x9700;&#x8981;&#x8BB0;&#x5F55;&#x8FD9;&#x4E2A;&#x9519;&#x8BEF;
+report<span class="token punctuation">:</span> &#x8BB0;&#x5F55;&#x9519;&#x8BEF;&#x5230;&#x65E5;&#x5FD7;&#x4E2D;
+render<span class="token punctuation">:</span> &#x8F93;&#x51FA;&#x5F02;&#x5E38;&#xFF0C;&#x628A;&#x5F02;&#x5E38;&#x8F93;&#x51FA;&#x5230;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;
+renderForConsole<span class="token punctuation">:</span> &#x8F93;&#x51FA;&#x5F02;&#x5E38;&#xFF0C;&#x628A;&#x5F02;&#x5E38;&#x8F93;&#x51FA;&#x5230;&#x5C4F;&#x5E55;
 
-public function report(Exception $e)
-{
-    if ($this-&gt;shouldntReport($e)) {
-        return;
-    }
-    try {
-        $logger = app(&apos;log&apos;);
-    } catch (Exception $ex) {
-        throw $e;
-    }
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">report</span><span class="token punctuation">(</span>Exception <span class="token variable">$e</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">shouldntReport</span><span class="token punctuation">(</span><span class="token variable">$e</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token variable">$logger</span> <span class="token operator">=</span> <span class="token function">app</span><span class="token punctuation">(</span><span class="token string">&apos;log&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> <span class="token variable">$ex</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token variable">$e</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    $logger-&gt;error($e);
-}
+    <span class="token variable">$logger</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token variable">$e</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-public function renderForConsole($output, Exception $e)
-{
-    (new ConsoleApplication)-&gt;renderException($e, $output);
-}
-</code></pre><p>&#x73B0;&#x5728;&#xFF0C;&#x5BF9;PHP&#x7684;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x5E94;&#x8BE5;&#x6709;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x7684;&#x4E86;&#x89E3;&#x4E86;&#xFF0C;&#x6700;&#x91CD;&#x8981;&#x7684;&#x662F;&#x5B66;&#x4E60;php&#x5F02;&#x5E38;&#x5904;&#x7406;&#x7684;&#x601D;&#x8DEF;&#xFF0C;&#x8BD5;&#x60F3;&#x4E00;&#x4E0B;&#xFF0C;&#x5982;&#x679C;&#x8BA9;&#x6211;&#x4EEC;&#x8BBE;&#x8BA1;&#x4E00;&#x4E2A;&#x5904;&#x7406;&#x5F02;&#x5E38;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x6211;&#x4EEC;&#x8BE5;&#x600E;&#x4E48;&#x8BBE;&#x8BA1;&#xFF1F;</p>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">renderForConsole</span><span class="token punctuation">(</span><span class="token variable">$output</span><span class="token punctuation">,</span> Exception <span class="token variable">$e</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ConsoleApplication</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">renderException</span><span class="token punctuation">(</span><span class="token variable">$e</span><span class="token punctuation">,</span> <span class="token variable">$output</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="&#x4E1A;&#x52A1;&#x5F02;&#x5E38;&#x5904;&#x7406;">&#x4E1A;&#x52A1;&#x5F02;&#x5E38;&#x5904;&#x7406;</h2>
+<p>&#x5728;&#x4E1A;&#x52A1;&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x629B;&#x51FA;&#x4E00;&#x4E9B;&#x4E1A;&#x52A1;&#x5F02;&#x5E38;&#xFF0C;&#x4F8B;&#x5982;&#x8BF7;&#x6C42;&#x53C2;&#x6570;&#x4E0D;&#x5408;&#x6CD5;&#xFF0C;&#x6216;&#x8005;&#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#x6709;&#x95EE;&#x9898;&#x6BD4;&#x5982;RPC&#x8BF7;&#x6C42;&#x8D85;&#x65F6;)</p>
+<p>&#x8FD9;&#x91CC;&#x53EF;&#x7279;&#x522B;&#x6CE8;&#x610F;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x8BF7;&#x6C42;&#x53C2;&#x6570;&#x4E0D;&#x5408;&#x6CD5;&#xFF0C;&#x629B;&#x51FA;Exception Code &#x4E3A;4xx</p>
+<p>&#x5982;&#x679C;&#x662F;&#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x629B;&#x51FA;Exception Code &#x4E3A;5xx</p>
+<p>&#x53EF;&#x4E25;&#x683C;&#x9075;&#x5B88;HTTP CODE &#x7684;&#x89C4;&#x8303;&#x6765;&#x5B9A;&#x4E49;Exception Code</p>
+<pre class="language-"><code class="lang-php"> <span class="token shell-comment comment"># &#x8BF7;&#x6C42;&#x9910;&#x5385;&#x7684;&#x53C2;&#x6570;&#x4E0D;&#x5408;&#x6CD5;&#xFF0C;&#x6240;&#x4EE5;&#x629B;&#x51FA;400</span>
+<span class="token variable">$restaurant</span> <span class="token operator">=</span> Restaurant<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token variable">$id</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span> <span class="token variable">$restaurant</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">AppException</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token string">&apos;NO_VALID_RESTAURANT&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token shell-comment comment"># &#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x629B;&#x51FA;&#x4E86;500</span>
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token variable">$response</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">sendHttpRequest</span><span class="token punctuation">(</span><span class="token variable">$url</span><span class="token punctuation">,</span> <span class="token variable">$params</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name"><span class="token punctuation">\</span>Exception</span> <span class="token variable">$e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">AppException</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">,</span> <span class="token string">&apos;SMS_SEND_FAILED&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x548C;&#x5F02;&#x5E38;CODE&#x7684;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x597D;&#x5904;&#xFF0C;&#x5C31;&#x662F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5F02;&#x5E38;&#x7684;CODE&#x91CD;&#x5199;HTTP CODE, &#x8FD9;&#x6837;&#x5BA2;&#x6237;&#x7AEF;&#x53EF;&#x4EE5;&#x6839;&#x636E;HTTP CODE &#x7684;&#x8FD4;&#x56DE;&#x503C;&#x505A;&#x76F8;&#x5E94;&#x7684;&#x903B;&#x8F91;&#x5224;&#x65AD;</p>
+<p>&#x5177;&#x4F53;&#x7684;&#x505A;&#x6CD5;&#x662F;&#xFF0C;catch&#x4F4F;&#x5F02;&#x5E38;&#x5E76;&#x83B7;&#x53D6;&#x5230;CODE&#xFF0C;&#x7136;&#x540E;&#x628A;CODE&#x8BBE;&#x7F6E;&#x7ED9;Response&#x5BF9;&#x8C61;&#xFF0C;&#x7531;response&#x5BF9;&#x8C61;&#x628A;code&#x8FD4;&#x56DE;&#x7ED9;client</p>
+<pre class="language-"><code class="lang-php"><span class="token shell-comment comment"># statusCode &#x5C31;&#x662F;http code</span>
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token function">sprintf</span><span class="token punctuation">(</span><span class="token string">&apos;HTTP/%s %s %s&apos;</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">version</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">statusCode</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">statusText</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">statusCode</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x5F53;&#x4E00;&#x6B21;&#x8BF7;&#x6C42;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x9700;&#x8981;&#x8BB0;&#x5F55;&#x6B64;&#x6B21;&#x8BBF;&#x95EE;&#x65E5;&#x5FD7;&#xFF0C;&#x4F7F;&#x7528;CODE&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x597D;&#x5904;&#x5C31;&#x662F;&#x6839;&#x636E;CODE &#x5224;&#x65AD;&#x65E5;&#x5FD7;&#x7684;&#x7EA7;&#x522B;</p>
+<pre class="language-"><code class="lang-php">App<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">finish</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$request</span><span class="token punctuation">,</span> <span class="token variable">$response</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">&quot;excute finish\n&quot;</span><span class="token punctuation">;</span>
+    <span class="token variable">$statusCode</span> <span class="token operator">=</span> <span class="token variable">$response</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getStatusCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$level</span> <span class="token operator">=</span> <span class="token string">&apos;info&apos;</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$statusCode</span> <span class="token operator">&gt;=</span> <span class="token number">500</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$level</span> <span class="token operator">=</span> <span class="token string">&apos;error&apos;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">elseif</span> <span class="token punctuation">(</span><span class="token variable">$statusCode</span> <span class="token operator">&gt;=</span> <span class="token number">400</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$level</span> <span class="token operator">=</span> <span class="token string">&apos;warning&apos;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token variable">$route</span> <span class="token operator">=</span> Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">current</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$actionName</span> <span class="token operator">=</span> <span class="token variable">$route</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getActionName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$actionTime</span> <span class="token operator">=</span> <span class="token function">intval</span><span class="token punctuation">(</span><span class="token function">microtime</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string">&apos;REQUEST_TIME_FLOAT&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$message</span> <span class="token operator">=</span>
+        <span class="token variable">$actionName</span>
+        <span class="token punctuation">.</span><span class="token string">&apos; &apos;</span><span class="token punctuation">.</span><span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token variable">$request</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getParameters</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token string">&apos; &apos;</span><span class="token punctuation">.</span><span class="token variable">$actionTime</span>
+        <span class="token punctuation">.</span><span class="token string">&apos; &apos;</span><span class="token punctuation">.</span><span class="token variable">$response</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getStatusCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    Log<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token variable">$level</span><span class="token punctuation">(</span><span class="token variable">$message</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x73B0;&#x5728;&#xFF0C;&#x5BF9;PHP&#x7684;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x5E94;&#x8BE5;&#x6709;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x7684;&#x4E86;&#x89E3;&#x4E86;&#xFF0C;&#x6700;&#x91CD;&#x8981;&#x7684;&#x662F;&#x5B66;&#x4E60;php&#x5F02;&#x5E38;&#x5904;&#x7406;&#x7684;&#x601D;&#x8DEF;.</p>
+<p>&#x8BD5;&#x60F3;&#x4E00;&#x4E0B;&#xFF0C;&#x5982;&#x679C;&#x8BA9;&#x6211;&#x4EEC;&#x8BBE;&#x8BA1;&#x4E00;&#x4E2A;&#x5904;&#x7406;&#x5F02;&#x5E38;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x6211;&#x4EEC;&#x8BE5;&#x600E;&#x4E48;&#x8BBE;&#x8BA1;&#xFF1F;</p>
 
                                 
                                 </section>
@@ -1322,7 +1373,7 @@ public function renderForConsole($output, Exception $e)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Laravel-Exception","level":"1.2.5","depth":2,"next":{"title":"Laravel-Middleware","level":"1.2.6","depth":2,"path":"section_php/mdiddleware.md","ref":"section_php/mdiddleware.md","articles":[]},"previous":{"title":"Laravel-ServiceProvider","level":"1.2.4","depth":2,"path":"section_php/sericeprovider.md","ref":"section_php/sericeprovider.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","toc2","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_php/exception.md","mtime":"2017-07-26T09:12:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-26T09:13:08.279Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Laravel-Exception","level":"1.2.5","depth":2,"next":{"title":"Laravel-Middleware","level":"1.2.6","depth":2,"path":"section_php/mdiddleware.md","ref":"section_php/mdiddleware.md","articles":[]},"previous":{"title":"Laravel-ServiceProvider","level":"1.2.4","depth":2,"path":"section_php/sericeprovider.md","ref":"section_php/sericeprovider.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","toc2","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_php/exception.md","mtime":"2017-07-27T03:40:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-27T03:40:24.491Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
