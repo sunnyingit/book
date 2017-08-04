@@ -1075,70 +1075,92 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="router-&#x8DEF;&#x7531;">Router (&#x8DEF;&#x7531;)</h1>
-<p>laravel&amp;lumen&#x8DEF;&#x7531;&#x8BBE;&#x8BA1;&#x975E;&#x5E38;&#x4F18;&#x96C5;&#xFF0C;&#x975E;&#x5E38;&#x5177;&#x6709;&#x501F;&#x9274;&#x610F;&#x4E49;&#x3002;</p>
-<p>&#x4E0B;&#x9762;&#x8BB2;&#x7684;&#x4E3B;&#x8981;&#x662F;laravel&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x3002;</p>
-<p>laravel &#x628A;&#x8DEF;&#x7531;&#x6A21;&#x578B;&#x5206;&#x6210;(Router,Route, RouteCollection)&#x4E09;&#x4E2A;&#x4E3B;&#x8981;&#x6A21;&#x578B;&#xFF0C;&#x6211;&#x8BA4;&#x4E3A;&#x8FD9;&#x662F;&#x9886;&#x57DF;&#x9A71;&#x52A8;&#x8BBE;&#x8BA1;&#x7ECF;&#x5178;&#x7684;&#x6848;&#x4F8B;&#x3002;</p>
-<p>&#x8FD9;&#x4E09;&#x4E2A;&#x7EC4;&#x4EF6;&#x7684;&#x804C;&#x8D23;&#xFF1A;
-Router: &#x6CE8;&#x518C;&#x548C;&#x5339;&#x914D;&#x8DEF;&#x7531;&#xFF0C;&#x5BF9;&#x5916;&#x66B4;&#x9732;&#x6240;&#x6709;&#x64CD;&#x4F5C;&#x8DEF;&#x7531;&#x7684;&#x63A5;&#x53E3;
-Route: &#x8DEF;&#x7531;&#x7684;&#x57FA;&#x7840;&#x7C7B;&#xFF0C;&#x5B9A;&#x4E49;&#x8DEF;&#x7531;&#x6A21;&#x578B;&#x6240;&#x6D89;&#x53CA;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x5BF9;&#x5E94;&#x65B9;&#x6CD5;
-RouteCollection: &#x8DEF;&#x7531;&#x7684;&#x96C6;&#x5408;</p>
-<p>&#x57FA;&#x672C;&#x7684;&#x903B;&#x8F91;&#x662F;:
-1 &#x6CE8;&#x518C;&#x8DEF;&#x7531;&#xFF1A;Router&#x628A;Route&#x6CE8;&#x518C;&#x5230;RouteCollection
-2 &#x8DEF;&#x7531;&#x8BF7;&#x6C42;&#xFF1A;Router&#x901A;&#x8FC7;Request&#x4FE1;&#x606F;&#x5728;RouteCollection&#x4E2D;&#x67E5;&#x627E;&#x5230;&#x5BF9;&#x5E94;&#x7684;Route,  &#x5E76;&#x6267;&#x884C;Route&#x7684;run&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;response</p>
+<p>Laravel Router&#x8BBE;&#x8BA1;&#x975E;&#x5E38;&#x4F18;&#x96C5;&#x548C;&#x7F8E;&#x5999;, &#x5B8C;&#x7F8E;&#x9002;&#x914D;&#x4E86;Restfull API &#x8BBE;&#x8BA1;&#x89C4;&#x5219;, &#x6A21;&#x5757;&#x804C;&#x80FD;&#x5212;&#x5206;&#x975E;&#x5E38;&#x6E05;&#x6670;&#xFF0C;</p>
+<p>&#x7B80;&#x76F4;&#x662F;&#x9886;&#x57DF;&#x9A71;&#x52A8;&#x8BBE;&#x8BA1;(DDD)&#x7ECF;&#x5178;&#x7684;&#x6848;&#x4F8B;&#x3002;</p>
+<p>&#x5766;&#x767D;&#x6765;&#x8BF4;&#xFF0C;Laravel Router &#x4EE3;&#x7801;&#x975E;&#x5E38;&#x96BE;&#x4EE5;&#x7406;&#x89E3;&#xFF0C;&#x4E3B;&#x8981;&#x539F;&#x56E0;&#x662F;&#x5BF9;&#x3010;&#x8DEF;&#x7531;&#x6A21;&#x578B;&#x3011;&#x7684;&#x6838;&#x5FC3;&#x673A;&#x5236;&#x4E0D;&#x591F;&#x7406;&#x89E3;</p>
+<p>&#x6240;&#x4EE5;&#xFF0C;&#x9605;&#x8BFB;Router API &#x611F;&#x89C9;&#x5230;&#x65E0;&#x6240;&#x9002;&#x4ECE;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x9996;&#x5148;&#x6765;&#x68B3;&#x7406;&#x3010;&#x8DEF;&#x7531;&#x6A21;&#x578B;&#x3011;</p>
+<p>&#x8DEF;&#x7531;&#x7684;&#x6838;&#x5FC3;&#x9700;&#x6C42;&#x6709;:</p>
+<ul>
+<li><p><code>Register Route</code> &#xFF08;&#x8DEF;&#x7531;&#x6CE8;&#x518C;&#xFF09;</p>
+</li>
+<li><p><code>Dispatch Request To Route</code> (&#x8DEF;&#x7531;&#x5206;&#x53D1;)</p>
+</li>
+</ul>
+<p>&#x6839;&#x636E;&#x9700;&#x6C42;&#x6211;&#x4EEC;&#x5212;&#x5206;&#x51FA;3&#x4E2A;&#x6A21;&#x578B;:</p>
+<ul>
+<li><p><code>Route</code>: &#x8DEF;&#x7531;Entity(&#x5B9E;&#x4F53;), &#x5B9A;&#x4E49;Route Entity &#x7684;&#x5C5E;&#x6027;&#x548C;&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;</p>
+</li>
+<li><p><code>RouteCollection</code>: &#x8DEF;&#x7531;Entity&#x7684;&#x96C6;&#x5408;, &#x804C;&#x8D23;&#x662F; &#x4FDD;&#x5B58; registered Route &#x548C;&#x5339;&#x914D; Route</p>
+</li>
+<li><p><code>Router</code>: Route Service(Route API &#x63D0;&#x4F9B;&#x8005;)&#xFF0C;Router&#x7684;&#x804C;&#x8D23;&#x662F;&#x63D0;&#x4F9B; register|find|dispatch &#x7B49;API</p>
+</li>
+</ul>
+<p><code>Router</code> &#x4F9D;&#x8D56; <code>Route</code> &#x548C; <code>RouterCollection</code></p>
+<p>&#x7406;&#x89E3;&#x4E86;&#x8FD9;&#x4E09;&#x4E2A;&#x6A21;&#x578B;&#xFF0C;&#x5C31;&#x7406;&#x89E3;&#x4E86;&#x8DEF;&#x7531;&#x4E86;&#x3002;</p>
 <h2 id="route">Route</h2>
-<p>&#x8DEF;&#x7531;&#x5B9A;&#x4E49;&#x662F;&#x3010;&#x8D1F;&#x8D23;&#x5E94;&#x7B54;URI&#x7684;&#x8BF7;&#x6C42;&#x3011;&#xFF0C;&#x628A;&#x5E94;&#x7B54;&#x7684;&#x65B9;&#x5F0F;&#x62BD;&#x8C61;&#x4E3A;Action&#xFF0C;&#x90A3;&#x4E48;&#x8DEF;&#x7531;&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F;&#x7531;URI&#x548C;&#x4E0E;&#x4E4B;&#x5BF9;&#x5E94;&#x7684;Action&#x4E24;&#x90E8;&#x5206;&#x7EC4;&#x6210;&#x3002;</p>
-<p>URI&#x597D;&#x7406;&#x89E3;&#xFF0C;&#x662F;&#x7EDF;&#x4E00;&#x8D44;&#x6E90;&#x6807;&#x8BC6;&#x7B26; &#x4F8B;&#x5982;:</p>
-<pre class="language-"><code class="lang-php"><span class="token constant">GET</span> <span class="token operator">/</span>v1<span class="token operator">/</span>users<span class="token operator">/</span><span class="token number">1</span>
+<p><code>Route</code> &#x901A;&#x4FD7;&#x6765;&#x8BB2;&#x662F;&#x3010;&#x54CD;&#x5E94;&#x4E00;&#x6B21;&#x7279;&#x5B9A;&#x7684;URI&#x8BF7;&#x6C42;&#x3011;&#xFF0C; &#x6240;&#x4EE5;<code>Route</code> &#x5305;&#x62EC;&#x3010;&#x8BF7;&#x6C42;&#x3011;&#x548C;&#x54CD;&#x5E94;&#x8BF7;&#x6C42;&#x7684;&#x3010;Action&#x3011;.</p>
+<p>&#x5728;Route&#x4E2D;&#x3010;&#x8BF7;&#x6C42;&#x3011;&#x7531;&#x4E24;&#x90E8;&#x5206;&#x6570;&#x636E;&#x7EC4;&#x6210;: &#x3010;HTTP Method&#x3011; &#x548C; &#x3010;URI&#x3011; &#x4F8B;&#x5982;:</p>
+<pre class="language-"><code class="lang-php">
+<span class="token constant">GET</span> <span class="token operator">/</span>v1<span class="token operator">/</span>users<span class="token operator">/</span><span class="token number">1</span>
 <span class="token constant">GET</span> <span class="token operator">/</span>v2<span class="token operator">/</span>users<span class="token operator">/</span><span class="token number">1</span><span class="token operator">/</span>comments<span class="token operator">/</span><span class="token number">2</span>
 <span class="token constant">GET</span> <span class="token operator">/</span>v3<span class="token operator">/</span>search<span class="token operator">/</span>
+
+<span class="token constant">POST</span> <span class="token operator">/</span>v1<span class="token operator">/</span>users
+
+<span class="token constant">DELETE</span> <span class="token operator">/</span>v1<span class="token operator">/</span>users<span class="token operator">/</span><span class="token punctuation">{</span>user_id<span class="token punctuation">}</span>
 </code></pre>
-<p>Action&#x662F;&#x4EC0;&#x4E48;&#x610F;&#x601D;&#x5462;</p>
-<p>Action&#x5C31;&#x662F;&#x5F53;&#x5339;&#x914D;&#x5230;&#x8DEF;&#x7531;&#x540E;&#x6267;&#x884C;&#x7684;&#x52A8;&#x4F5C;&#xFF0C;&#x5728;laravel&#x4E2D;&#xFF0C;Action&#x5B9A;&#x4E49;&#x4E3A;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x7ECF;&#x8FC7;parse&#x540E;&#xFF0C;&#x6700;&#x7EC8;&#x751F;&#x6210;&#x7684;&#x7684;action&#x7684;&#x683C;&#x5F0F;&#x5982;&#x4E0B;:</p>
-<pre class="language-"><code class="lang-php"><span class="token shell-comment comment"># action&#x662F;&#x63A7;&#x5236;&#x5668;&#x7684;&#x67D0;&#x4E2A;&#x65B9;&#x6CD5;</span>
+<p>&#x5728;Route&#x4E2D;&#xFF0C;&#x3010;Action&#x3011;&#x6709;&#x4E24;&#x7C7B;:&#x3010;&#x8C03;&#x7528;&#x63A7;&#x5236;&#x5668;&#x7684;&#x65B9;&#x6CD5;&#x3011;&#x548C; &#x3010;&#x8C03;&#x7528;&#x533F;&#x540D;&#x51FD;&#x6570;&#x3011;&#xFF0C;&#x3010;Action&#x3011;&#x8FD8;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x3010;&#x522B;&#x540D;&#x3011;
+&#x3010;Action&#x3011;&#x7684;&#x4FE1;&#x606F;&#x4FDD;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x4E2D;, &#x683C;&#x5F0F;&#x5982;&#x4E0B;:</p>
+<pre class="language-"><code class="lang-php">
+<span class="token shell-comment comment"># action&#x662F;&#x63A7;&#x5236;&#x5668;&#x7684;&#x67D0;&#x4E2A;&#x65B9;&#x6CD5;</span>
 action <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">Array</span><span class="token punctuation">(</span>
     <span class="token keyword">as</span> <span class="token operator">=</span><span class="token operator">&gt;</span> profile<span class="token punctuation">,</span>  <span class="token shell-comment comment"># &#x8DEF;&#x7531;&#x7684;&#x522B;&#x540D;</span>
-    uses <span class="token operator">=</span><span class="token operator">&gt;</span> ExampleController@index<span class="token punctuation">,</span>
+    uses <span class="token operator">=</span><span class="token operator">&gt;</span> ExampleController@index  <span class="token shell-comment comment"># &#x8C03;&#x7528;ExampleController &#x7684;index&#x65B9;&#x6CD5;</span>
 <span class="token punctuation">)</span>
 
 <span class="token shell-comment comment"># action &#x662F;&#x533F;&#x540D;&#x51FD;&#x6570;</span>
 action <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">Array</span><span class="token punctuation">(</span>
-    <span class="token keyword">as</span> <span class="token operator">=</span><span class="token operator">&gt;</span> profile<span class="token punctuation">,</span>  <span class="token shell-comment comment"># &#x8DEF;&#x7531;&#x7684;&#x522B;&#x540D;</span>
+    <span class="token keyword">as</span> <span class="token operator">=</span><span class="token operator">&gt;</span> profile
     uses <span class="token operator">=</span><span class="token operator">&gt;</span> Closure <span class="token function">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token shell-comment comment"># &#x6267;&#x884C;&#x4E00;&#x4E2A;&#x95ED;&#x5305;&#x51FD;&#x6570;, &#x8FD9;&#x91CC;&#x7559;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x95ED;&#x5305;&#x51FD;&#x6570;&#x652F;&#x6301;&#x4F20;&#x9012;&#x54EA;&#x4E9B;&#x53C2;&#x6570;</span>
 <span class="token punctuation">)</span>
 </code></pre>
-<p>&#x5982;&#x679C;&#x628A;URL&#x548C;Action&#x7EC4;&#x5408;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x4E00;&#x4E2A;&#x8DEF;&#x7531;&#x7684;&#x7ED3;&#x6784;&#x662F;&#x8FD9;&#x6837;</p>
+<p>&#x5982;&#x679C;&#x628A;&#x3010;&#x8BF7;&#x6C42;&#x3011;&#x548C;&#x3010;Action&#x3011;&#x7EC4;&#x5408;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x4E00;&#x4E2A;&#x8DEF;&#x7531;&#x5305;&#x542B;&#x7684;&#x4FE1;&#x606F;&#x5927;&#x6982;&#x662F;&#x8FD9;&#x6837;:</p>
 <pre class="language-"><code class="lang-php"><span class="token shell-comment comment"># action&#x662F;&#x6267;&#x884C;&#x63A7;&#x5236;&#x5668;&#x7684;&#x67D0;&#x4E2A;&#x65B9;&#x6CD5;</span>
 route <span class="token operator">=</span> <span class="token keyword">Array</span> <span class="token punctuation">(</span>
     <span class="token punctuation">[</span>method<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token constant">GET</span>  <span class="token shell-comment comment"># &#x5B9A;&#x4E49;&#x7684;&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;</span>
     <span class="token punctuation">[</span>uri<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token operator">/</span>v1<span class="token operator">/</span>profiles<span class="token operator">/</span><span class="token punctuation">{</span>id<span class="token punctuation">:</span> \<span class="token package">d</span><span class="token operator">+</span><span class="token punctuation">}</span> <span class="token shell-comment comment"># &#x5B9A;&#x4E49;&#x7684;URI</span>
-    <span class="token punctuation">[</span>action<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">Array</span>
-        <span class="token punctuation">(</span>
-            <span class="token punctuation">[</span><span class="token keyword">as</span><span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">&gt;</span> profile
-            <span class="token punctuation">[</span>uses<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">&gt;</span> App\<span class="token package">Http<span class="token punctuation">\</span>Controllers<span class="token punctuation">\</span>ExampleController</span>@index
-        <span class="token punctuation">)</span>
+    <span class="token punctuation">[</span>action<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">Array</span> <span class="token punctuation">(</span>
+        <span class="token punctuation">[</span><span class="token keyword">as</span><span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">&gt;</span> profile
+        <span class="token punctuation">[</span>uses<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">&gt;</span> ExampleController@index
+    <span class="token punctuation">)</span>
 <span class="token punctuation">)</span>
+
 <span class="token shell-comment comment"># action&#x662F;&#x6267;&#x884C;&#x95ED;&#x5305;&#x51FD;&#x6570;</span>
 route <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">Array</span>
 <span class="token punctuation">(</span>
     <span class="token punctuation">[</span>method<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token constant">GET</span>
     <span class="token punctuation">[</span>uri<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token operator">/</span>v1<span class="token operator">/</span>users<span class="token operator">/</span><span class="token punctuation">{</span>user_id<span class="token punctuation">}</span>
     <span class="token punctuation">[</span>action<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">Array</span> <span class="token punctuation">(</span>
-            <span class="token punctuation">[</span><span class="token keyword">as</span><span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">&gt;</span> profile
-            <span class="token punctuation">[</span>uses<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Closure Object <span class="token punctuation">(</span>
-                <span class="token punctuation">[</span>parameter<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">Array</span>
-                <span class="token punctuation">(</span>
-                    <span class="token punctuation">[</span><span class="token variable">$user_id</span><span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>required</span><span class="token punctuation">&gt;</span></span></span>
-                <span class="token punctuation">)</span>
+        <span class="token punctuation">[</span><span class="token keyword">as</span><span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">&gt;</span> profile
+        <span class="token punctuation">[</span>uses<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Closure Object <span class="token punctuation">(</span>
+            <span class="token punctuation">[</span>parameter<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">Array</span>
+            <span class="token punctuation">(</span>
+                <span class="token punctuation">[</span><span class="token variable">$user_id</span><span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>required</span><span class="token punctuation">&gt;</span></span></span>
             <span class="token punctuation">)</span>
         <span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
 <span class="token punctuation">)</span>
 </code></pre>
-<p><code>method</code>, <code>uri</code>, <code>action</code>&#x662F;Route&#x7684;&#x6838;&#x5FC3;&#x6982;&#x5FF5;</p>
-<p>Route&#x6240;&#x6709;&#x7684;&#x64CD;&#x4F5C;&#x5C31;&#x662F;&#x56F4;&#x7ED5;&#x8FD9;&#x4E09;&#x4E2A;&#x57FA;&#x7840;&#x5C5E;&#x6027;&#x5C55;&#x5F00;&#x7684;&#x3002;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;<code>Route</code>&#x7684;&#x65F6;&#x5019;&#x9700;&#x8981;&#x4F20;&#x9012;&#x8FD9;&#x4E09;&#x4E2A;&#x5143;&#x7D20;:</p>
+<p><code>Route</code> &#x7684;&#x64CD;&#x4F5C;&#x5C31;&#x662F;&#x56F4;&#x7ED5;<code>Method</code>, <code>URI</code>, <code>Action</code>&#x5C5E;&#x6027;&#x5C55;&#x5F00;&#x7684;&#x3002;</p>
+<p>&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;<code>Route</code>:</p>
 <pre class="language-"><code class="lang-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token variable">$methods</span><span class="token punctuation">,</span> <span class="token variable">$uri</span><span class="token punctuation">,</span> <span class="token variable">$action</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">uri</span> <span class="token operator">=</span> <span class="token variable">$uri</span><span class="token punctuation">;</span>
     <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">methods</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">array</span><span class="token punctuation">)</span> <span class="token variable">$methods</span><span class="token punctuation">;</span>
+
+    <span class="token shell-comment comment"># parseAction &#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x6784; [</span><span class="token string">&apos;as&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$as</span><span class="token punctuation">,</span> <span class="token string">&apos;uses&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$uses</span><span class="token punctuation">,</span> <span class="token string">&apos;controller&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$uses</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token shell-comment comment"># &#x7406;&#x89E3;Action&#x7684;&#x7ED3;&#x6784;&#x975E;&#x5E38;&#x91CD;&#x8981;</span>
     <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">action</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">parseAction</span><span class="token punctuation">(</span><span class="token variable">$action</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">in_array</span><span class="token punctuation">(</span><span class="token string">&apos;GET&apos;</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">methods</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span> <span class="token function">in_array</span><span class="token punctuation">(</span><span class="token string">&apos;HEAD&apos;</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">methods</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -1151,10 +1173,16 @@ route <span class="token operator">=</span><span class="token operator">&gt;</sp
 <span class="token punctuation">}</span>
 </code></pre>
 <h2 id="method">Method</h2>
-<p>Method &#x662F;&#x5BF9;&#x5E94;&#x7684;HTTP Request&#x7684;method&#xFF0C;&#x76EE;&#x524D;&#x652F;&#x6301;<code>GET POST PUT DELETE HEAD</code>&#x7B49;&#xFF0C;&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x7279;&#x522B;&#x6CE8;&#x610F;&#xFF0C;&#x4E00;&#x4E2A;URI&#x53EF;&#x4EE5;&#x5BF9;&#x5E94;&#x591A;&#x4E2A;Method.</p>
+<p><code>Method</code> &#x662F; HTTP &#x5B9A;&#x4E49;&#x7684; Method, &#x5728;Restfull&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#x4E2D;&#xFF0C;&#x4E00;&#x4E2A;&#x8D44;&#x6E90;&#x7684;&#x589E;&#x5220;&#x67E5;&#x6539;&#x90FD;&#x5BF9;&#x5E94;&#x6807;&#x51C6;&#x7684;HTTP Method</p>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;<code>Method</code> &#x548C; <code>Uri</code>&#x662F;&#x3010;&#x591A;&#x5BF9;&#x4E00;&#x3011;&#x7684;&#x5173;&#x7CFB;&#x3002;</p>
+<pre class="language-"><code class="lang-php"><span class="token shell-comment comment"># &#x591A;&#x4E2A;Method&#x5BF9;&#x5E94;&#x540C;&#x4E00;&#x4E2A;URI&#xFF0C; &#x8FD9;&#x6837;&#x505A;&#x662F;&#x56E0;&#x4E3A;&#x6709;&#x53EF;&#x80FD;&#x67D0;&#x4E9B;&#x5BA2;&#x6237;&#x7AEF;&#x4E0D;&#x652F;&#x6301;HEAD&#xFF0C;&#x53EA;&#x80FD;&#x4F20;&#x9012;GET&#x65B9;&#x6CD5;</span>
+<span class="token constant">GET</span> <span class="token operator">/</span>usrs<span class="token operator">/</span><span class="token punctuation">{</span>user_id<span class="token punctuation">}</span>
+<span class="token constant">HEAD</span> <span class="token operator">/</span>users<span class="token operator">/</span><span class="token punctuation">{</span>user_id<span class="token punctuation">}</span>
+</code></pre>
 <h2 id="uri">URI</h2>
-<p>URI&#x662F;&#x8DEF;&#x7531;&#x7684;&#x91CD;&#x70B9;&#x4E5F;&#x662F;&#x96BE;&#x70B9;&#xFF0C;</p>
-<p>URI&#x6709;prefix(&#x524D;&#x7F00;&#x7684;&#x6982;&#x5FF5;) &#x53EF;&#x4EE5;&#x628A;&#x7248;&#x672C;&#x4FE1;&#x606F;&#x52A0;&#x5165;&#x5230;&#x8DEF;&#x7531;&#x7684;&#x524D;&#x7F00;&#x4E2D;, &#x5728;Route&#x7C7B;&#x91CC;&#x9762;&#x6709;&#x4E2A;&#x65B9;&#x6CD5;<code>prefix</code>&#x53EF;&#x4EE5;&#x4E3A;<code>uri</code>&#x6DFB;&#x52A0;&#x524D;&#x7F00;</p>
+<p>URI&#x662F;&#x8DEF;&#x7531;&#x7684;&#x91CD;&#x70B9;&#x4E5F;&#x662F;&#x96BE;&#x70B9;&#x3002;</p>
+<p>&#x7B2C;&#x4E00;&#x4E2A;&#x6982;&#x5FF5;&#xFF0C;URI&#x6709;&#x524D;&#x7F00; (prefix), &#x53EF;&#x4EE5;&#x628A;URI&#x7684;&#x3010;&#x7248;&#x672C;&#x4FE1;&#x606F;&#x3011;&#x5F53;&#x4F5C;&#x3010;&#x524D;&#x7F00;&#x3011; &#x6DFB;&#x52A0;&#x5230; &#x3010;URI&#x3011;&#x4E2D;</p>
+<p>Route&#x7C7B;&#x91CC;&#x9762;&#x6709;&#x63D0;&#x4F9B;<code>prefix</code> &#x65B9;&#x6CD5; &#x53EF;&#x4EE5;&#x4E3A;<code>URI</code>&#x6DFB;&#x52A0;&#x524D;&#x7F00;:</p>
 <pre class="language-"><code class="lang-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">prefix</span><span class="token punctuation">(</span><span class="token variable">$prefix</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     <span class="token variable">$uri</span> <span class="token operator">=</span> <span class="token function">rtrim</span><span class="token punctuation">(</span><span class="token variable">$prefix</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token string">&apos;/&apos;</span><span class="token punctuation">.</span><span class="token function">ltrim</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">uri</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1164,39 +1192,56 @@ route <span class="token operator">=</span><span class="token operator">&gt;</sp
     <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>&#x5B9A;&#x4E49;URI&#x65F6;&#x53EF;&#x4EE5;&#x52A0;&#x5165;&#x53D8;&#x91CF;, &#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;uri&#x52A0;&#x5165;&#x4E86;<code>user_id</code>, <code>comment_id</code>&#x8FD9;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;</p>
+<p>&#x7B2C;&#x4E8C;&#x4E2A;&#x6982;&#x5FF5;, URI&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x3010;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x3011;&#xFF0C;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x89C4;&#x5219;&#x3002;</p>
 <pre class="language-"><code># &#x5339;&#x914D;&#x7684;url: /v2/users/1/comments/1
+# &#x4E0D;&#x80FD;&#x5339;&#x914D; /v2/users/a/coments/b &#x56E0;&#x4E3A;user_id, comment_id&#x5FC5;&#x987B;&#x662F;&#x6570;&#x5B57;
 /v2/users/{user_id}/comments/{comment_id}
-</code></pre><p>&#x5728;laravel &#x4E2D;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x7ED9;&#x8FD9;&#x4E9B;&#x53D8;&#x91CF;&#x5B9A;&#x4E49;&#x683C;&#x5F0F;, &#x4F7F;&#x7528;<code>Router</code>&#x4E2D;&#x7684;<code>pattern</code>&#x65B9;&#x6CD5;:</p>
-<pre class="language-"><code class="lang-php"><span class="token variable">$router</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token shell-comment comment"># user_id&#x5FC5;&#x987B;&#x662F;&#x6570;&#x5B57;</span>
-<span class="token variable">$router</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">pattern</span><span class="token punctuation">(</span><span class="token string">&quot;user_id&quot;</span><span class="token punctuation">,</span> `\<span class="token package">d</span><span class="token operator">+</span>`<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token shell-comment comment"># comment_id &#x5FC5;&#x987B;&#x662F;&#x6570;&#x5B57;</span>
-<span class="token variable">$router</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">pattern</span><span class="token punctuation">(</span><span class="token string">&quot;comment_id&quot;</span><span class="token punctuation">,</span> `\<span class="token package">d</span><span class="token operator">+</span>`<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p>&#x5728;lumen&#x4E2D;&#xFF0C;&#x8FD9;&#x4E2A;&#x89C4;&#x5219;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5B9A;&#x4E49;&#x5728;uri&#x91CC;&#x9762;:</p>
-<pre class="language-"><code class="lang-php"><span class="token operator">/</span>users<span class="token operator">/</span><span class="token punctuation">{</span>user_id<span class="token punctuation">:</span> \<span class="token package">d</span><span class="token operator">+</span><span class="token punctuation">}</span>
+
+$router = new Router()
+
+# user_id&#x5FC5;&#x987B;&#x662F;&#x6570;&#x5B57;
+$router-&gt;pattern(&quot;user_id&quot;, `\d+`);
+
+# comment_id &#x5FC5;&#x987B;&#x662F;&#x6570;&#x5B57;
+$router-&gt;pattern(&quot;comment_id&quot;, `\d+`);
+</code></pre><p>&#x7279;&#x522B;&#x63D0;&#x4E00;&#x53E5;&#xFF0C;&#x5728;lumen&#x4E2D;&#xFF0C;&#x8FD9;&#x4E2A;&#x89C4;&#x5219;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5B9A;&#x4E49;&#x5728;uri&#x91CC;&#x9762;:</p>
+<pre class="language-"><code class="lang-php">
+<span class="token operator">/</span>users<span class="token operator">/</span><span class="token punctuation">{</span>user_id<span class="token punctuation">:</span> \<span class="token package">d</span><span class="token operator">+</span><span class="token punctuation">}</span>
 <span class="token operator">/</span>v2<span class="token operator">/</span>users<span class="token operator">/</span><span class="token punctuation">{</span>user_id<span class="token punctuation">:</span> \<span class="token package">d</span><span class="token operator">+</span><span class="token punctuation">}</span><span class="token operator">/</span>comments<span class="token operator">/</span><span class="token punctuation">{</span>comment_id<span class="token punctuation">:</span> \<span class="token package">d</span><span class="token operator">+</span><span class="token punctuation">}</span>
 </code></pre>
-<p>&#x5728;laravel &#x4E2D; Route&#x4F1A;uri&#x91CC;&#x9762;&#x7684;&#x53D8;&#x91CF;&#x4EE5;&#x53CA;&#x4ECE;&#x53D8;&#x91CF;&#x4E2D;&#x5339;&#x914D;&#x5230;&#x7684;&#x503C;&#x4FDD;&#x5B58;&#x5728;<code>parameters</code> &#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x4E2D;.</p>
-<p>&#x89E3;&#x6790;&#x4E00;&#x4E2A;uri&#x5B8C;&#x6210;&#x540E;&#xFF0C;<code>parameters</code> &#x53EF;&#x80FD;&#x4E3A;:</p>
-<pre class="language-"><code> $parameters = [
+<p>&#x7B2C;&#x4E09;&#x4E2A;&#x6982;&#x5FF5;&#xFF1A;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x5339;&#x914D;&#x5230;&#x7684;&#x503C;&#x4F1A;&#x4FDD;&#x5B58;&#x5230;<code>parameters</code> &#x6570;&#x7EC4;&#x4E2D;</p>
+<pre class="language-"><code>uri: /v2/users/{user_id}/comments/{comment_id}
+reqeust: /v2/users/1/comments/1 &#x89E3;&#x6790;&#x540E; user_id = 1, comment_id = 1
+parameters = [
     &quot;user_id&quot;: 1,
     &quot;comment_id&quot;: 3
 ]
 </code></pre><p>&#x90A3;<code>parameters</code> &#x662F;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x88AB;&#x7528;&#x5230;&#x7684;&#x5462;&#xFF0C;&#x5148;&#x7559;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x5728;&#x8FD9;&#x91CC;&#x3002;</p>
-<p>&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;uri&#x662F;&#x600E;&#x4E48;&#x5339;&#x914D;&#x7684;&#x5462;&#xFF0C;
-uri&#x5339;&#x914D;&#x6211;&#x4EEC;&#x6700;&#x5173;&#x5FC3;&#x7684;&#x662F;&#xFF0C;&#x5339;&#x914D;url&#x91CC;&#x9762;&#x7684;&#x53D8;&#x91CF;</p>
-<p>laravel&#x7684;&#x505A;&#x6CD5;&#x662F;&#xFF0C;&#x9996;&#x5148;<code>complie</code>&#x7684;&#x8DEF;&#x7531;&#xFF0C;&#x751F;&#x6210;&#x4E00;&#x5957;&#x89C4;&#x5219;&#xFF0C;&#x7136;&#x540E;&#x6839;&#x636E;<code>reqeust</code>&#x7684;pathinfo &#x4FE1;&#x606F;&#x5339;&#x914D;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x8DEF;&#x7531;&#xFF0C;&#x5176;&#x4E2D;uri&#x7684;&#x53D8;&#x91CF;&#x5339;&#x914D;&#x6709;&#x4E2A;&#x4E00;&#x6BD4;&#x8F83;&#x91CD;&#x8981;&#x4EE3;&#x7801;</p>
+<p>&#x3010;URI&#x3011;&#x7684;&#x6982;&#x5FF5;&#x5DF2;&#x7ECF;&#x8BB2;&#x5B8C;&#x4E86;&#xFF0C;&#x600E;&#x4E48;&#x6839;&#x636E;&#x3010;request&#x3011;&#x5339;&#x914D;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x8DEF;&#x7531;&#x5462;&#xFF1F;</p>
+<p><code>Route</code> &#x63D0;&#x4F9B; <code>matches</code> &#x5B9E;&#x73B0;&#x4E86; &#x3010;&#x8DEF;&#x7531;&#x5339;&#x914D;&#x3011;</p>
 <pre class="language-"><code class="lang-php">
-<span class="token variable">$pattern</span> <span class="token operator">=</span> <span class="token variable">$uri</span> <span class="token shell-comment comment"># &#x5B9A;&#x4E49;&#x7684;uri</span>
-<span class="token function">preg_match_all</span><span class="token punctuation">(</span><span class="token string">&apos;#\{\w+\}#&apos;</span><span class="token punctuation">,</span> <span class="token variable">$pattern</span><span class="token punctuation">,</span> <span class="token variable">$matches</span><span class="token punctuation">,</span> <span class="token constant">PREG_OFFSET_CAPTURE</span> <span class="token operator">|</span> <span class="token constant">PREG_SET_ORDER</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token shell-comment comment"># &#x6838;&#x5FC3;&#x4EE3;&#x7801;&#x4E2D;&#x4F7F;&#x7528;&#x4E86;preg_match_all &#x51FD;&#x6570;</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">matches</span><span class="token punctuation">(</span>Request <span class="token variable">$request</span><span class="token punctuation">,</span> <span class="token variable">$includingMethod</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">compileRoute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getValidators</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token variable">$validator</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span> <span class="token variable">$includingMethod</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$validator</span> <span class="token keyword">instanceof</span> <span class="token class-name">MethodValidator</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">continue</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span> <span class="token variable">$validator</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">matches</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token punctuation">,</span> <span class="token variable">$request</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
-<p>&#x5177;&#x4F53;&#x7684;&#x7B97;&#x6CD5;&#x53EF;&#x81EA;&#x884C;&#x67E5;&#x770B;&#x4EE3;&#x7801;&#x3002;</p>
-<p>URI&#x5339;&#x914D;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x5C31;&#x5230;&#x4E86;&#x6267;&#x884C;URI&#x5BF9;&#x5E94;&#x7684;action&#x4E86;</p>
+<p>URI&#x5339;&#x914D;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x6267;&#x884C;URI&#x5BF9;&#x5E94;&#x7684;action</p>
 <h2 id="action">Action</h2>
-<p>&#x4E0A;&#x6587;&#x63D0;&#x5230; <code>Action</code>&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x63A7;&#x5236;&#x5668;&#x7684;&#x65B9;&#x6CD5; &#x683C;&#x5F0F;&#x4E3A;<code>controller@method</code>, &#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x662F;&#x95ED;&#x5305;&#x51FD;&#x6570;&#x3002;</p>
-<p>&#x5148;&#x8BA8;&#x8BBA;action&#x4E3A;&#x95ED;&#x5305;&#x51FD;&#x6570;</p>
+<p>&#x4E0A;&#x6587;&#x63D0;&#x5230; <code>Action</code>&#x6709;&#x4E24;&#x7C7B;&#xFF0C;&#x8C03;&#x7528;&#x63A7;&#x5236;&#x5668;&#x7684;&#x65B9;&#x6CD5;<code>controller@method</code>&#x548C;&#x8C03;&#x7528;&#x3010;&#x95ED;&#x5305;&#x51FD;&#x6570;&#x3011;&#x3002;</p>
+<p>[Action]&#x662F;&#x95ED;&#x5305;&#x51FD;&#x6570;&#xFF0C; <code>Route</code> &#x63D0;&#x4F9B; <code>runCallable</code></p>
 <pre class="language-"><code class="lang-php"><span class="token shell-comment comment"># &#x6BD4;&#x5982;&#x5B9A;&#x4E49;&#x8FD9;&#x6837;&#x7684;&#x4E00;&#x4E2A;&#x8DEF;&#x7531;</span>
 App<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&apos;/uses/{id}&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$id</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token variable">$id</span><span class="token punctuation">;</span>
@@ -1214,11 +1259,8 @@ action <span class="token operator">=</span> <span class="token keyword">array</
         <span class="token string">&quot;parameters&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$id</span><span class="token punctuation">,</span>
     <span class="token punctuation">)</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p>&#x6267;&#x884C;action &#x5C31;&#x662F;&#x6267;&#x884C;&#x8FD9;&#x4E2A;&#x95ED;&#x5305;&#x51FD;&#x6570;&#xFF0C;&#x6709;&#x4E2A;&#x95EE;&#x9898;&#x662F;<strong>&#x95ED;&#x5305;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x662F;&#x54EA;&#x91CC;&#x8D4B;&#x503C;&#x7684;</strong>&#xFF1F;</p>
-<p>&#x8FD8;&#x8BB0;&#x5F97;&#x4E0A;&#x6587;&#x63D0;&#x5230;&#x7684;Route&#x91CC;&#x9762;&#x6709;&#x4E00;&#x4E2A;<code>parameters</code>&#x6570;&#x7EC4;&#x4E48;&#xFF0C; &#x95ED;&#x5305;&#x51FD;&#x6570;&#x91CC;&#x9762;&#x7684;&#x53C2;&#x6570;&#x5C31;&#x662F;<code>parameters</code>&#x7684;&#x503C;&#x3002;</p>
-<p>&#x5927;&#x6982;&#x7684;&#x4EE3;&#x7801;&#x662F;&#x8FD9;&#x6837;:</p>
-<pre class="language-"><code class="lang-php">
+
+<span class="token shell-comment comment"># &#x7528;&#x5230;&#x4E86;&#x4E0A;&#x6587;&#x63D0;&#x5230;&#x4E86;parameters &#x5C5E;&#x6027;</span>
 <span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">runCallable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     <span class="token variable">$callable</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">action</span><span class="token punctuation">[</span><span class="token string">&apos;uses&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -1230,8 +1272,11 @@ action <span class="token operator">=</span> <span class="token keyword">array</
     <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>&#x73B0;&#x5728;&#x8BA8;&#x8BBA;action&#x662F;<code>Controller@method</code>&#x7684;</p>
-<pre class="language-"><code class="lang-php"> <span class="token shell-comment comment"># &#x5047;&#x8BBE;&#x5B9A;&#x4E49;&#x8FD9;&#x6837;&#x7684;&#x8DEF;&#x7531;</span>
+<p>&#x3010;Action&#x3011;&#x662F;<code>Controller@method</code>  <code>Route</code> &#x63D0;&#x4F9B; <code>runController</code>&#x5B9E;&#x73B0;&#x4E86;&#x8C03;&#x7528;&#xFF0C;
+&#x6267;&#x884C;&#x8FD9;&#x7C7B;action&#x7684;&#x903B;&#x8F91;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF0C;&#x627E;&#x5230;controller&#x5E76;&#x5B9E;&#x4F8B;&#x5316;controller&#x6267;&#x884C;controller&#x5BF9;&#x5E94;&#x7684;mehtod&#x3002;</p>
+<p>&#x548C;&#x95ED;&#x5305;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x4E00;&#x6837;&#xFF0C;controller&#x4E2D;method&#x7684;&#x53C2;&#x6570;&#x901A;&#x8FC7;<strong>&#x53CD;&#x5C04;</strong>&#x81EA;&#x52A8;&#x4ECE;<code>parametersWithoutNulls</code> &#x83B7;&#x53D6;&#x3002;</p>
+<pre class="language-"><code class="lang-php">
+ <span class="token shell-comment comment"># &#x5047;&#x8BBE;&#x5B9A;&#x4E49;&#x8FD9;&#x6837;&#x7684;&#x8DEF;&#x7531;</span>
  App<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&apos;/profiles/{id: \d+}&apos;</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">&quot;as&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;profile&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;uses&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;ExampleController@index&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
  <span class="token shell-comment comment"># &#x751F;&#x6210;&#x7684;action&#x662F;</span>
@@ -1239,28 +1284,430 @@ action <span class="token operator">=</span> <span class="token keyword">array</
     <span class="token string">&apos;as&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&apos;profile&apos;</span><span class="token punctuation">,</span>
     <span class="token string">&apos;uses&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;ExampleController@index&quot;</span><span class="token punctuation">,</span>
  <span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p>&#x6267;&#x884C;&#x8FD9;&#x7C7B;action&#x7684;&#x903B;&#x8F91;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF0C;&#x627E;&#x5230;controller&#x5E76;&#x5B9E;&#x4F8B;&#x5316;controller&#x6267;&#x884C;controller&#x5BF9;&#x5E94;&#x7684;mehtod&#x3002;</p>
-<p>&#x548C;&#x95ED;&#x5305;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x4E00;&#x6837;&#xFF0C;controller&#x4E2D;method&#x7684;&#x53C2;&#x6570;&#x4E5F;&#x901A;&#x8FC7;<strong>&#x53CD;&#x5C04;</strong>&#x81EA;&#x52A8;&#x4ECE;<code>parametersWithoutNulls</code> &#x83B7;&#x53D6;&#x3002;</p>
-<pre class="language-"><code class="lang-php"><span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">runController</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">runController</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ControllerDispatcher</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">container</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">dispatch</span><span class="token punctuation">(</span>
         <span class="token variable">$this</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getController</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getControllerMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>&#x6700;&#x540E;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x77E5;&#x8BC6;&#x70B9;&#xFF0C;&#x662F;action&#x7684;<code>as</code> &#x522B;&#x540D;&#x600E;&#x4E48;&#x4F7F;&#x7528;&#x3002;</p>
+<p>Route &#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;<code>run</code> &#x65B9;&#x6CD5;&#xFF0C;&#x5C01;&#x88C5;&#x6267;&#x884C;<code>Action</code>&#x7684;&#x52A8;&#x4F5C;</p>
+<pre class="language-"><code class="lang-php">
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">container</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">container</span> <span class="token operator">?</span><span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Container</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token shell-comment comment"># &#x6267;&#x884C;&#x63A7;&#x5236;&#x5668;&#x65B9;&#x6CD5;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">isControllerAction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">runController</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token shell-comment comment"># &#x6267;&#x884C;&#x95ED;&#x5305;&#x51FD;&#x6570;</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">runCallable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">HttpResponseException</span> <span class="token variable">$e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$e</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getResponse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x6700;&#x540E;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x77E5;&#x8BC6;&#x70B9;&#xFF0C;&#x662F;action&#x7684;<code>as</code> &#x6709;&#x4EC0;&#x4E48;&#x7528;&#x3002;</p>
 <p><strong>as&#x662F;&#x4E3A;&#x4E86;&#x652F;&#x6301;&#x8DEF;&#x7531;&#x91CD;&#x5B9A;&#x5411;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;nginx&#x7684;rewrite</strong> &#x662F;&#x7A0B;&#x5E8F;&#x5185;&#x90E8;&#x7684;&#x8DF3;&#x8F6C;&#xFF0C;&#x4E0D;&#x4F1A;&#x4FEE;&#x6539;&#x5230;uri&#x3002;</p>
-<p>&#x4F46;uri&#x5B9A;&#x5236;&#x4E86;&#x522B;&#x540D;&#x540E;&#xFF0C;RouteCollection&#x91CC;&#x9762;&#x6709;&#x4E2A;&#x6570;&#x7EC4;<code>nameList</code> &#x4F1A;&#x4FDD;&#x5B58;&#x522B;&#x540D;&#x5230;action&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#xFF0C;&#x90A3;&#x901A;&#x8FC7;&#x522B;&#x540D;&#x5C31;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x627E;&#x5230;action&#x4E86;,</p>
+<p><code>RouteCollection</code>&#x6709;&#x4E2A;&#x6570;&#x7EC4;<code>nameList</code> &#x4F1A;&#x4FDD;&#x5B58; <code>as</code>&#x5230;<code>Action</code>&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#xFF0C;&#x4E8E;&#x662F;&#xFF0C;&#x901A;&#x8FC7;<code>as</code>&#x5C31;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x627E;&#x5230;<code>Action</code>&#x4E86;</p>
 <p>laravel &#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;<code>route</code>&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x5BF9;&#x8DEF;&#x7531;&#x8F6C;&#x53D1;</p>
 <p>&#x6BD4;&#x5982;&#x8FD9;&#x6837;:</p>
-<pre class="language-"><code class="lang-php"><span class="token variable">$nameList</span><span class="token punctuation">[</span><span class="token string">&apos;profile&apos;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&apos;ExampleController@index&apos;</span>
+<pre class="language-"><code class="lang-php"><span class="token shell-comment comment"># &#x5728;Collection&#x4E2D;&#x4F1A;&#x4FDD;&#x5B58;&#x8FD9;&#x6837;&#x7684;&#x4E00;&#x4E2A;&#x6620;&#x5C04;&#x5173;&#x7CFB;</span>
+<span class="token variable">$nameList</span><span class="token punctuation">[</span><span class="token string">&apos;profile&apos;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&apos;ExampleController@index&apos;</span>
 
-<span class="token shell-comment comment"># &#x6267;&#x884C;route&#x5BF9;&#x5E94;&#x7684;action</span>
+<span class="token shell-comment comment"># &#x6267;&#x884C;route(profile) &#x6700;&#x7EC8;&#x4F1A;&#x6267;&#x884C;ExampleController-&gt;index()</span>
 <span class="token function">route</span><span class="token punctuation">(</span><span class="token string">&apos;profile&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>&#x5230;&#x76EE;&#x524D;&#x4E3A;&#x6B62;&#x8BB2;&#x6E05;&#x695A;<code>Route</code>&#x8BBE;&#x8BA1;&#x601D;&#x8DEF;&#x3002;</p>
+<p>&#x4EE5;&#x4E0A;&#x5C31;&#x662F; <code>Route</code>&#x8BBE;&#x8BA1;&#x601D;&#x8DEF;&#x3002;&#x641E;&#x6E05;&#x695A;&#x4E86;<code>Method</code>,  <code>Action</code>, <code>URI</code>,  <code>parameters</code>&#x5C31;&#x5F88;&#x81EA;&#x7136;&#x80FD;&#x60F3;&#x5230;&#x4EE5;&#x4E0B;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre class="language-"><code class="lang-php">
+methods<span class="token punctuation">:</span> Get the <span class="token constant">HTTP</span> verbs the route responds to
+
+getAction<span class="token punctuation">:</span> Get the action <span class="token keyword">array</span> <span class="token keyword">for</span> the route
+
+setAction<span class="token punctuation">:</span> Set the action <span class="token keyword">array</span> <span class="token keyword">for</span> the route<span class="token punctuation">.</span>
+
+getActionName<span class="token punctuation">:</span> Get the action name <span class="token keyword">for</span> the route <span class="token keyword">return</span> <span class="token string">&apos;ExampleController@index&apos;</span>
+
+getActionMethod<span class="token punctuation">:</span> Get the method name of the route action <span class="token keyword">return</span> <span class="token string">&apos;index&apos;</span>
+
+getController<span class="token punctuation">:</span> Get the controller instance <span class="token keyword">for</span> the route <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ExampleController</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+uri<span class="token punctuation">:</span> Get the <span class="token constant">URI</span> associated with the route
+setUri<span class="token punctuation">:</span> Set the <span class="token constant">URI</span> that the route responds to<span class="token punctuation">.</span>
+prefix<span class="token punctuation">:</span> Add a prefix to the route <span class="token constant">URI</span><span class="token punctuation">.</span>
+
+parameter<span class="token punctuation">:</span> Get a given parameter from the route
+parametersWithoutNulls<span class="token punctuation">:</span> Get the key <span class="token operator">/</span> value list of parameters without <span class="token keyword">null</span> values<span class="token punctuation">.</span>
+</code></pre>
 <h1 id="routecollection">RouteCollection</h1>
+<p>RouteCollection&#x7684;&#x8D1F;&#x8D23; &#x3010;&#x4FDD;&#x5B58;&#x3011; registered Route &#x548C; &#x3010;&#x5339;&#x914D;&#x3011; Route</p>
+<p>&#x7B2C;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;<code>RouteCollection</code>&#x600E;&#x4E48;&#x4FDD;&#x5B58;<code>Route</code>&#x3002;</p>
+<p><code>RouteCollection</code> &#x7528;&#x5230;&#x4E86;4&#x4E2A;&#x6570;&#x7EC4; <code>routes allRoutes nameList actionList</code>.</p>
+<pre class="language-"><code class="lang-php"><span class="token shell-comment comment"># routes&#x662F;&#x4E00;&#x4E2A;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#xFF0C;&#x4F7F;&#x7528;Method&#x4F5C;&#x4E3A;&#x7B2C;&#x4E00;&#x7EF4;&#x5EA6;key&#xFF0C;URL&#x4F5C;&#x4E3A;&#x7B2C;&#x4E8C;&#x7EF4;&#x5EA6;key</span>
+<span class="token variable">$routes</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token variable">$domainAndUri</span> <span class="token operator">=</span> <span class="token variable">$route</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">domain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token variable">$route</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">uri</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$route</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">methods</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token variable">$method</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">routes</span><span class="token punctuation">[</span><span class="token variable">$method</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token variable">$domainAndUri</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$route</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token shell-comment comment"># allRoutes&#x662F;&#x4E00;&#x7EF4;&#x6570;&#x7EC4;&#xFF0C;key&#x662F;Method &#x548C;URI&#x62FC;&#x63A5;&#x5728;&#x4E00;&#x8D77;</span>
+<span class="token variable">$allRoutes</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+<span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">allRoutes</span><span class="token punctuation">[</span><span class="token variable">$method</span><span class="token punctuation">.</span><span class="token variable">$domainAndUri</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$route</span><span class="token punctuation">;</span>
+
+<span class="token shell-comment comment"># &#x4E00;&#x7EF4;&#x6570;&#x7EC4;&#xFF0C;key&#x662F;Route&#x7684;Action&#x4E2D;&#x8BBE;&#x7F6E;&#x522B;&#x540D;</span>
+<span class="token variable">$nameList</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token variable">$action</span> <span class="token operator">=</span> <span class="token variable">$route</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getAction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$action</span><span class="token punctuation">[</span><span class="token string">&apos;as&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">nameList</span><span class="token punctuation">[</span><span class="token variable">$action</span><span class="token punctuation">[</span><span class="token string">&apos;as&apos;</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$route</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token shell-comment comment"># &#x4E00;&#x7EF4;&#x6570;&#x7EC4;&#xFF0C; key&#x662F;action&#x4E2D;&#x5B9A;&#x4E49;&#x7684;controller,</span>
+<span class="token shell-comment comment"># &#x5728;laravel&#x4E2D; $action[</span><span class="token string">&apos;controller&apos;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$action</span><span class="token punctuation">[</span><span class="token string">&apos;uses&apos;</span><span class="token punctuation">]</span>
+<span class="token variable">$actionList</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$action</span><span class="token punctuation">[</span><span class="token string">&apos;controller&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">addToActionList</span><span class="token punctuation">(</span><span class="token variable">$action</span><span class="token punctuation">,</span> <span class="token variable">$route</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">addToActionList</span><span class="token punctuation">(</span><span class="token variable">$action</span><span class="token punctuation">,</span> <span class="token variable">$route</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">actionList</span><span class="token punctuation">[</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token variable">$action</span><span class="token punctuation">[</span><span class="token string">&apos;controller&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&apos;\\&apos;</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$route</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><code>RouteCollection</code>&#x63D0;&#x4F9B;&#x4E86;<code>add</code>&#x65B9;&#x6CD5; &#x5B9E;&#x73B0;&#x4E86;&#x3010;&#x4FDD;&#x5B58;&#x8DEF;&#x7531;&#x3011;&#x3002;</p>
+<p>&#x7B2C;&#x4E8C;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x600E;&#x4E48;&#x5339;&#x914D;&#x5230;<code>Route</code>.</p>
+<p><code>RouteCollection</code>&#x7684;&#x5904;&#x7406;&#x903B;&#x8F91;&#x662F;&#xFF1A;</p>
+<ul>
+<li><p>&#x5148;&#x6839;&#x636E;request method &#x5728;routes &#x67E5;&#x627E;&#x5339;&#x914D;&#x5230;method&#x6620;&#x5C04;&#x7684;routes</p>
+</li>
+<li><p>&#x904D;&#x5386;&#x67E5;&#x627E;&#x5230;&#x7684;routes, &#x6839;&#x636E;request uri &#x5339;&#x914D;&#x6700;&#x7EC8;&#x7684;route</p>
+</li>
+</ul>
+<p>RouteCollection &#x63D0;&#x4F9B;&#x4E86; <code>match</code> &#x65B9;&#x6CD5; &#x5B9E;&#x73B0; &#x3010;&#x5339;&#x914D;&#x3011;</p>
+<pre class="language-"><code class="lang-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">match</span><span class="token punctuation">(</span>Request <span class="token variable">$request</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token shell-comment comment"># &#x5148;&#x901A;&#x8FC7;method &#x5339;&#x914D;</span>
+    <span class="token variable">$routes</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token variable">$request</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token shell-comment comment"># &#x904D;&#x5386;routes&#xFF0C; &#x5339;&#x914D;request pathinfo</span>
+    <span class="token variable">$route</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">matchAgainstRoutes</span><span class="token punctuation">(</span><span class="token variable">$routes</span><span class="token punctuation">,</span> <span class="token variable">$request</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token operator">!</span> <span class="token function">is_null</span><span class="token punctuation">(</span><span class="token variable">$route</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token shell-comment comment"># &#x5339;&#x914D;&#x5230;&#x4E4B;&#x540E;&#xFF0C;&#x628A;request&#x7ED1;&#x5B9A;&#x5230;route&#x4E2D;&#xFF0C;&#x5E76;&#x4F1A;&#x89E3;&#x6790;&#x51FA;parameters</span>
+        <span class="token keyword">return</span> <span class="token variable">$route</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token variable">$request</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token variable">$others</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">checkForAlternateVerbs</span><span class="token punctuation">(</span><span class="token variable">$request</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token variable">$others</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getOtherMethodsRoute</span><span class="token punctuation">(</span><span class="token variable">$request</span><span class="token punctuation">,</span> <span class="token variable">$others</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">NotFoundHttpException</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token shell-comment comment"># &#x6839;&#x636E;method&#x8FC7;&#x6EE4;</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token variable">$method</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">is_null</span><span class="token punctuation">(</span><span class="token variable">$method</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getRoutes</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> Arr<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">routes</span><span class="token punctuation">,</span> <span class="token variable">$method</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token shell-comment comment"># &#x904D;&#x5386;routes&#xFF0C;&#x8C03;&#x7528;&#x4E86;Route&#x7684;matches&#x51FD;&#x6570;&#x5339;&#x914D;</span>
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">matchAgainstRoutes</span><span class="token punctuation">(</span><span class="token keyword">array</span> <span class="token variable">$routes</span><span class="token punctuation">,</span> <span class="token variable">$request</span><span class="token punctuation">,</span> <span class="token variable">$includingMethod</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> Arr<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token variable">$routes</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$value</span><span class="token punctuation">)</span> <span class="token keyword">use</span> <span class="token punctuation">(</span><span class="token variable">$request</span><span class="token punctuation">,</span> <span class="token variable">$includingMethod</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token shell-comment comment"># &#x6700;&#x7EC8;&#x53C8;&#x8C03;&#x7528;&#x4E86;Route&#x63D0;&#x4F9B;&#x7684;matches&#x65B9;&#x6CD5;&#x5B8C;&#x6210;&#x5339;&#x914D;</span>
+        <span class="token keyword">return</span> <span class="token variable">$value</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">matches</span><span class="token punctuation">(</span><span class="token variable">$request</span><span class="token punctuation">,</span> <span class="token variable">$includingMethod</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x7406;&#x89E3;&#x4E0A;&#x9762;&#x7684;&#x903B;&#x8F91;&#x4E4B;&#x540E;&#xFF0C;&#x90A3;&#x4E0B;&#x9762;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x5F88;&#x597D;&#x7406;&#x89E3;&#x4E86;:</p>
+<pre class="language-"><code class="lang-php"><span class="token shell-comment comment"># lookups</span>
+
+getRoutes<span class="token punctuation">:</span> Get all of the routes in the collection<span class="token punctuation">.</span> &#x3010;&#x83B7;&#x53D6;&#x6240;&#x6709;routes&#x3011;
+getByAction<span class="token punctuation">:</span> Get a route instance by its controller action <span class="token punctuation">[</span>Action&#x67E5;&#x627E;<span class="token punctuation">]</span>
+getByName<span class="token punctuation">:</span>  Get a route instance by its name &#x3010;&#x522B;&#x540D;&#x67E5;&#x627E;&#x3011;
+
+<span class="token shell-comment comment"># &#x5237;&#x65B0;</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">refreshNameLookups</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">nameList</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">allRoutes</span> <span class="token keyword">as</span> <span class="token variable">$route</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$route</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">nameList</span><span class="token punctuation">[</span><span class="token variable">$route</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$route</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token shell-comment comment"># &#x5237;&#x9009;</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">refreshActionLookups</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">actionList</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">allRoutes</span> <span class="token keyword">as</span> <span class="token variable">$route</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$route</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getAction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">&apos;controller&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">addToActionList</span><span class="token punctuation">(</span><span class="token variable">$route</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getAction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token variable">$route</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token shell-comment comment"># &#x7EE7;&#x627F;&#x4E86;Countable, IteratorAggregate</span>
+<span class="token shell-comment comment"># &#x53EF;&#x4EE5;count&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getRoutes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token shell-comment comment"># &#x53EF;&#x4EE5;&#x904D;&#x5386;RouteCollection&#x5BF9;&#x8C61;</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getIterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">ArrayIterator</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getRoutes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>RouteCollection &#x6838;&#x5FC3;&#x6982;&#x5FF5;&#x8BB2;&#x5B8C;&#x3002;</p>
+<h2 id="router">Router</h2>
+<p>Router &#x4F5C;&#x4E3A;&#x3010;&#x9886;&#x57DF;&#x670D;&#x52A1;&#x3011;&#x89D2;&#x8272;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x63D0;&#x4F9B;&#x4E00;&#x7CFB;&#x5217;API &#x5B8C;&#x6210; &#x3010;&#x8DEF;&#x7531;&#x6A21;&#x578B;&#x3011;&#xFF0C;&#x4E3B;&#x8981;&#x64CD;&#x4F5C;&#x6709;:</p>
+<p>-. CreateRoute
+-. AddRoute
+-. Dispatch</p>
+<p>&#x9996;&#x5148;&#xFF0C;&#x641E;&#x6E05;&#x695A;&#x5982;&#x4F55;&#x3010;&#x5B9E;&#x4F8B;&#x5316;&#x3011; <code>Router</code>.</p>
+<pre class="language-"><code class="lang-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span>Dispatcher <span class="token variable">$events</span><span class="token punctuation">,</span> Container <span class="token variable">$container</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token shell-comment comment"># &#x5904;&#x7406;&#x4E8B;&#x4EF6;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">events</span> <span class="token operator">=</span> <span class="token variable">$events</span><span class="token punctuation">;</span>
+
+    <span class="token shell-comment comment"># &#x5B9E;&#x4F8B;&#x5316;RouteCollection&#xFF0C;&#x6DFB;&#x52A0;&#x548C;&#x67E5;&#x627E;Route&#x90FD;&#x9700;&#x8981;&#x4F9D;&#x8D56;RouteCollection&#x7684;&#x51FD;&#x6570;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">routes</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RouteCollection</span><span class="token punctuation">;</span>
+
+    <span class="token shell-comment comment"># &#x5BB9;&#x5668;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">container</span> <span class="token operator">=</span> <span class="token variable">$container</span> <span class="token operator">?</span><span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Container</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="createroute">CreateRoute</h2>
+<p>&#x5728;<code>Route</code>&#x90E8;&#x5206;&#xFF0C;&#x6211;&#x4EEC;&#x8BB2;&#x5230;&#x4E00;&#x4E2A;<code>Route</code>&#x6D89;&#x53CA;&#x5230;&#x4E09;&#x4E2A;&#x5C5E;&#x6027;:<code>method</code>, <code>URL</code>, <code>Action</code></p>
+<p>Router&#x5728;&#x5B9E;&#x4F8B;&#x5316;&#x4E4B;&#x524D;&#xFF0C;&#x4F1A;&#x5BF9;Route&#x7684;&#x4F1A;&#x5BF9;<code>URL</code>, <code>Action</code>&#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x5904;&#x7406;&#x3002;</p>
+<pre class="language-"><code class="lang-php"><span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">createRoute</span><span class="token punctuation">(</span><span class="token variable">$methods</span><span class="token punctuation">,</span> <span class="token variable">$uri</span><span class="token punctuation">,</span> <span class="token variable">$action</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token shell-comment comment"># &#x5982;&#x679C;action&#x662F;ReferencesController&#xFF0C;&#x4F1A;&#x5BF9;action&#x505A;&#x89E3;&#x6790;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">actionReferencesController</span><span class="token punctuation">(</span><span class="token variable">$action</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$action</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">convertToControllerAction</span><span class="token punctuation">(</span><span class="token variable">$action</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token shell-comment comment"># &#x4F1A;&#x5BF9;uri&#x52A0;&#x4E0A;&#x524D;&#x7F00;</span>
+    <span class="token variable">$route</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">newRoute</span><span class="token punctuation">(</span>
+        <span class="token variable">$methods</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">prefix</span><span class="token punctuation">(</span><span class="token variable">$uri</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token variable">$action</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token shell-comment comment"># &#x5BF9;action&#x4E3B;&#x8981;&#x7684;&#x5904;&#x7406;&#x662F;&#x6DFB;&#x52A0;controller&#x7684;namespace</span>
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">convertToControllerAction</span><span class="token punctuation">(</span><span class="token variable">$action</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">is_string</span><span class="token punctuation">(</span><span class="token variable">$action</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$action</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;uses&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$action</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span> <span class="token function">empty</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">groupStack</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$action</span><span class="token punctuation">[</span><span class="token string">&apos;uses&apos;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">prependGroupNamespace</span><span class="token punctuation">(</span><span class="token variable">$action</span><span class="token punctuation">[</span><span class="token string">&apos;uses&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token variable">$action</span><span class="token punctuation">[</span><span class="token string">&apos;controller&apos;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$action</span><span class="token punctuation">[</span><span class="token string">&apos;uses&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token variable">$action</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token shell-comment comment"># &#x5BF9;uri&#x7684;&#x5904;&#x7406;&#x4E3B;&#x8981;&#x662F;&#x6DFB;&#x52A0;prefix</span>
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">prefix</span><span class="token punctuation">(</span><span class="token variable">$uri</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">trim</span><span class="token punctuation">(</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getLastGroupPrefix</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token string">&apos;/&apos;</span><span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token variable">$uri</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span> <span class="token operator">?</span><span class="token punctuation">:</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Router&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>group</code>&#x51FD;&#x6570;&#x5BF9;uri&#x5206;&#x7EC4;</p>
+<pre class="language-"><code class="lang-php">Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">group</span><span class="token punctuation">(</span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">&apos;prefix&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&apos;/v1&apos;</span><span class="token punctuation">,</span> <span class="token keyword">namespace</span><span class="token operator">=</span><span class="token string">&quot;App/Http/Controller&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">group</span><span class="token punctuation">(</span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">&apos;prefix&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&apos;/user&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&apos;/password&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;UserProfileController@password&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token shell-comment comment"># &#x89E3;&#x6790;&#x540E;:</span>
+uri <span class="token operator">=</span> <span class="token operator">/</span>v1<span class="token operator">/</span>user<span class="token operator">/</span>password
+action <span class="token operator">=</span> App<span class="token operator">/</span>Http<span class="token operator">/</span>Controller<span class="token operator">/</span>UserProfileController@password
+</code></pre>
+<p>group&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x662F;&#x4F7F;&#x7528;<code>groupStack</code>&#x6570;&#x7EC4;&#x4FDD;&#x5B58;&#x4E86;&#x9884;&#x8BBE;&#x503C;&#x5C5E;&#x6027;</p>
+<pre class="language-"><code class="lang-php">
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">group</span><span class="token punctuation">(</span><span class="token keyword">array</span> <span class="token variable">$attributes</span><span class="token punctuation">,</span> <span class="token variable">$routes</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token shell-comment comment"># merge groupStack&#x7684;&#x5C5E;&#x6027;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">updateGroupStack</span><span class="token punctuation">(</span><span class="token variable">$attributes</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token shell-comment comment"># &#x6267;&#x884C;closure</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">loadRoutes</span><span class="token punctuation">(</span><span class="token variable">$routes</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token shell-comment comment"># &#x56DE;&#x9000;groupStack</span>
+    <span class="token function">array_pop</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">groupStack</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">updateGroupStack</span><span class="token punctuation">(</span><span class="token keyword">array</span> <span class="token variable">$attributes</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span> <span class="token function">empty</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">groupStack</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token shell-comment comment"># &#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x6784;&#x4E3A; array(</span><span class="token string">&quot;namespace&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$namespace</span><span class="token punctuation">,</span> <span class="token string">&quot;prefix&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$prefix</span><span class="token punctuation">,</span> <span class="token string">&quot;where&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$where</span><span class="token punctuation">,</span> <span class="token string">&quot;as&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$as</span><span class="token punctuation">)</span>
+
+        <span class="token variable">$attributes</span> <span class="token operator">=</span> RouteGroup<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">merge</span><span class="token punctuation">(</span><span class="token variable">$attributes</span><span class="token punctuation">,</span> <span class="token function">end</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">groupStack</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">groupStack</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$attributes</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">loadRoutes</span><span class="token punctuation">(</span><span class="token variable">$routes</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$routes</span> <span class="token keyword">instanceof</span> <span class="token class-name">Closure</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token shell-comment comment"># &#x6267;&#x884C;closure&#xFF0C;&#x4F20;&#x9012;router&#x5BF9;&#x8C61;</span>
+        <span class="token variable">$routes</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token variable">$router</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">require</span> <span class="token variable">$routes</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="addroute">addRoute</h2>
+<p><code>Router</code> &#x63D0;&#x4F9B;&#x4E86;HTTP verbs&#x6709;
+<code>$verbs = [&apos;GET&apos;, &apos;HEAD&apos;, &apos;POST&apos;, &apos;PUT&apos;, &apos;PATCH&apos;, &apos;DELETE&apos;, &apos;OPTIONS&apos;];</code></p>
+<p>&#x4F8B;&#x5982;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;<code>POST</code>:</p>
+<pre class="language-"><code class="lang-php">
+<span class="token shell-comment comment"># &#x6DFB;&#x52A0;&#x4E86;POST&#x65B9;&#x6CD5;</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">post</span><span class="token punctuation">(</span><span class="token variable">$uri</span><span class="token punctuation">,</span> <span class="token variable">$action</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">addRoute</span><span class="token punctuation">(</span><span class="token string">&apos;POST&apos;</span><span class="token punctuation">,</span> <span class="token variable">$uri</span><span class="token punctuation">,</span> <span class="token variable">$action</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token shell-comment comment"># routes&#x662F;RouteCollection&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;</span>
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">addRoute</span><span class="token punctuation">(</span><span class="token variable">$methods</span><span class="token punctuation">,</span> <span class="token variable">$uri</span><span class="token punctuation">,</span> <span class="token variable">$action</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">routes</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">createRoute</span><span class="token punctuation">(</span><span class="token variable">$methods</span><span class="token punctuation">,</span> <span class="token variable">$uri</span><span class="token punctuation">,</span> <span class="token variable">$action</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>laravel&#x5BF9;&#x6CE8;&#x518C;&#x3010;&#x8D44;&#x6E90;&#x3011;&#x7684;&#x8DEF;&#x7531;&#x505A;&#x4E86;&#x904D;&#x5386;&#x5904;&#x7406;&#xFF0C;&#x8FD9;&#x91CC;&#x7684;&#x3010;&#x8D44;&#x6E90;&#x3011;&#x5BF9;&#x5E94;&#x3010;restfull&#x3011;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#x4E2D;&#x7684;&#x3010;&#x8D44;&#x6E90;&#x3011;</p>
+<p>&#x5728;laravel&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x8D44;&#x6E90;&#x5904;&#x7406;&#x7684;actions&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x8D44;&#x6E90;&#x7684;controller&#x7C7B;&#x4E2D;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x4EE5;&#x4E0B;&#x7684;&#x65B9;&#x6CD5;, Router&#x63D0;&#x4F9B;&#x4E86;<code>resource</code>&#x51FD;&#x6570;&#x5904;&#x7406;&#x8FD9;&#x5757;&#x903B;&#x8F91;</p>
+<pre class="language-"><code class="lang-php"><span class="token variable">$resourceDefaults</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;index&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;create&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;store&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;show&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;edit&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;update&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;destroy&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+ <span class="token shell-comment comment"># &#x5B9A;&#x4E49;restaurants resource, only&#x8868;&#x793A;&#x53EA;&#x9700;&#x8981;&#x5B9E;&#x73B0;index, show, destroy&#x65B9;&#x6CD5;&#xFF0C;&#x9664;&#x4E86;only &#x8FD8;&#x652F;&#x6301;except</span>
+ Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">resource</span><span class="token punctuation">(</span><span class="token string">&apos;/favor/restaurants&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;RestaurantController&apos;</span><span class="token punctuation">,</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">&apos;only&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">&apos;index&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;show&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;destroy&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+<span class="token shell-comment comment"># &#x5B9E;&#x9645;&#x4E0A;&#x5B9A;&#x4E49;&#x4E86;&#x5982;&#x4E0B;&#x8DEF;&#x7531;:</span>
+<span class="token constant">GET</span> <span class="token operator">/</span>favor<span class="token operator">/</span>restaurants UserFavorRestaurantController@index
+<span class="token constant">GET</span> <span class="token operator">/</span>favor<span class="token operator">/</span>restaurants<span class="token operator">/</span><span class="token punctuation">{</span>id<span class="token punctuation">}</span> UserFavorRestaurantController@show
+<span class="token constant">DELETE</span> <span class="token operator">/</span>favor<span class="token operator">/</span>restaurants<span class="token operator">/</span><span class="token punctuation">{</span>id<span class="token punctuation">}</span> UserFavorRestaurantController@destroy
+</code></pre>
+<p><code>Router</code> &#x4E3B;&#x8981;&#x63D0;&#x4F9B;&#x4E86;<code>get post delete put patch resource</code> &#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x4E86;&#x3010;&#x6CE8;&#x518C;&#x8DEF;&#x7531;&#x3011;</p>
+<h2 id="dispatch">Dispatch</h2>
+<p>dispatch Route &#x662F;&#x76F8;&#x5BF9;&#x597D;&#x7406;&#x89E3;&#x7684;&#x6A21;&#x5757;&#xFF0C; <code>Router</code> &#x63D0;&#x4F9B;&#x3010;<code>dispatch</code>&#x3011;&#x51FD;&#x6570;&#x5B9E;&#x73B0;&#x6B64;&#x529F;&#x80FD;&#x3002;</p>
+<pre class="language-"><code class="lang-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">dispatch</span><span class="token punctuation">(</span>Request <span class="token variable">$request</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token shell-comment comment"># &#x4FDD;&#x5B58;&#x4E86;request&#x5BF9;&#x8C61;&#xFF0C;&#x5728;lavavel&#x4E2D;&#x901A;&#x5E38;&#x4F1A;&#x7528;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x4FDD;&#x5B58;&#x4F9D;&#x8D56;&#x7C7B;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">currentRequest</span> <span class="token operator">=</span> <span class="token variable">$request</span><span class="token punctuation">;</span>
+
+    <span class="token shell-comment comment"># disptch to route</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">dispatchToRoute</span><span class="token punctuation">(</span><span class="token variable">$request</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">dispatchToRoute</span><span class="token punctuation">(</span>Request <span class="token variable">$request</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token shell-comment comment"># Find the route matching a given request</span>
+    <span class="token variable">$route</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">findRoute</span><span class="token punctuation">(</span><span class="token variable">$request</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token shell-comment comment"># &#x5728;request&#x5BF9;&#x8C61;&#x4E2D;&#x4FDD;&#x5B58;&#x4E86;&#x4F9D;&#x8D56;&#x7684;route&#x5BF9;&#x8C61;</span>
+    <span class="token variable">$request</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">setRouteResolver</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">use</span> <span class="token punctuation">(</span><span class="token variable">$route</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$route</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token shell-comment comment"># fire event</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">events</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Events<span class="token punctuation">\</span>RouteMatched</span><span class="token punctuation">(</span><span class="token variable">$route</span><span class="token punctuation">,</span> <span class="token variable">$request</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token shell-comment comment"># Run the given Route within a Stack </span><span class="token string">&quot;onion&quot;</span>
+    <span class="token shell-comment comment"># &#x6D89;&#x53CA;&#x5230;&#x4E2D;&#x95F4;&#x4EF6;&#x77E5;&#x8BC6;</span>
+    <span class="token variable">$response</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">runRouteWithinStack</span><span class="token punctuation">(</span><span class="token variable">$route</span><span class="token punctuation">,</span> <span class="token variable">$request</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token shell-comment comment"># Create a response instance from the given value</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">prepareResponse</span><span class="token punctuation">(</span><span class="token variable">$request</span><span class="token punctuation">,</span> <span class="token variable">$response</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">findRoute</span><span class="token punctuation">(</span><span class="token variable">$request</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token shell-comment comment"># &#x4F9D;&#x8D56;RouteCollection&#x7684;match&#x51FD;&#x6570;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">current</span> <span class="token operator">=</span> <span class="token variable">$route</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">routes</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token variable">$request</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token shell-comment comment"># resiger mathed Route to Container</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">container</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">instance</span><span class="token punctuation">(</span>Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">,</span> <span class="token variable">$route</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token variable">$route</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><code>Router</code> &#x8FD8;&#x6D89;&#x53CA;&#x5230;&#x3010;&#x4E2D;&#x95F4;&#x4EF6;&#x3011;&#x7684;&#x77E5;&#x8BC6;&#xFF0C;&#x8FD9;&#x90E8;&#x5206;&#x5185;&#x5BB9;&#x4E0B;&#x6B21;&#x4F1A;&#x6709;&#x4E13;&#x95E8;&#x7684;&#x535A;&#x6587;&#x8BB2;&#x89E3;&#xFF0C;&#x73B0;&#x5728;&#xFF0C;&#x4F60;&#x7406;&#x89E3;&#x4E86;Router&#x4E86;&#x5417;</p>
+<pre class="language-"><code class="lang-php">group<span class="token punctuation">:</span> &#x8DEF;&#x7531;&#x5206;&#x7EC4;
+get<span class="token operator">/</span>post<span class="token operator">/</span>delete<span class="token operator">/</span>resource<span class="token punctuation">:</span> &#x6CE8;&#x518C;&#x8DEF;&#x7531;
+prefix<span class="token punctuation">:</span> &#x6DFB;&#x52A0;uri&#x524D;&#x7F00;
+pattern<span class="token punctuation">:</span> &#x6DFB;&#x52A0;uri&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x89C4;&#x5219;
+
+dispatch<span class="token punctuation">:</span>  Dispatch the request to the application<span class="token punctuation">.</span>
+dispatchToRoute Dispatch the request to a route <span class="token keyword">and</span> <span class="token keyword">return</span> the response<span class="token punctuation">.</span>
+</code></pre>
+<h2 id="&#x4E00;&#x6B21;http&#x8BF7;&#x6C42;&#x4E2D;&#x5B8C;&#x6574;&#x6D41;&#x7A0B;">&#x4E00;&#x6B21;HTTP&#x8BF7;&#x6C42;&#x4E2D;&#x5B8C;&#x6574;&#x6D41;&#x7A0B;</h2>
+<p>&#x5728;Illuminate\Foundation\Http\Http\Kernel&#x4E2D;&#x4F1A;&#x5B9E;&#x4F8B;&#x5316;Router</p>
+<pre class="language-"><code class="lang-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span>Application <span class="token variable">$app</span><span class="token punctuation">,</span> Router <span class="token variable">$router</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span> <span class="token operator">=</span> <span class="token variable">$app</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">router</span> <span class="token operator">=</span> <span class="token variable">$router</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token shell-comment comment"># &#x6838;&#x5FC3;&#x6267;&#x884C;&#x6D41;&#x7A0B;:</span>
+Http Kernel <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token function">handle</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token function">sendRequestThroughRouter</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token function">dispatchToRouter</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span>router<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">dispatch</span><span class="token punctuation">(</span>reqeust<span class="token punctuation">)</span><span class="token punctuation">]</span>
+</code></pre>
+<p>&#x3010;&#x8DEF;&#x7531;&#x6A21;&#x578B;&#x3011;&#x771F;&#x7684;&#x5F88;&#x5F3A;&#x5927;&#xFF0C;&#x8BBE;&#x8BA1;&#x5F88;&#x5B8C;&#x7F8E;&#xFF0C;&#x4F60;&#x4F1A;&#x7075;&#x6D3B;&#x4F7F;&#x7528;&#x4E86;&#x5417;</p>
+<h2 id="&#x4F7F;&#x7528;&#x6848;&#x4F8B;">&#x4F7F;&#x7528;&#x6848;&#x4F8B;</h2>
+<pre class="language-"><code class="lang-php">
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">group</span><span class="token punctuation">(</span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">&apos;prefix&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&apos;/v1&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">group</span><span class="token punctuation">(</span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">&apos;prefix&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&apos;/user&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">resource</span><span class="token punctuation">(</span><span class="token string">&apos;/&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;UserProfileController&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">&quot;only&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">&quot;index&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;show&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;destroy&quot;</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&apos;/password&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;UserProfileController@setPassword&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">group</span><span class="token punctuation">(</span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">&apos;prefix&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&apos;/v2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token string">&apos;/orders/{order_id}&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;OrderController@destroy&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token shell-comment comment"># &#x83B7;&#x53D6;action</span>
+<span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">container</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">make</span><span class="token punctuation">(</span>Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getAction</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token shell-comment comment"># &#x83B7;&#x53D6;Controller</span>
+<span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">container</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">make</span><span class="token punctuation">(</span>Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getController</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token shell-comment comment"># &#x83B7;&#x53D6;&#x6CE8;&#x518C;&#x7684;Routes</span>
+<span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">container</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">make</span><span class="token punctuation">(</span>Router<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getRoutes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getRoutes</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token shell-comment comment"># &#x83B7;&#x53D6;&#x6CE8;&#x518C;&#x7684;Routes&#x7684;&#x6570;&#x91CF;</span>
+<span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">container</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">make</span><span class="token punctuation">(</span>Router<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getRoutes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token shell-comment comment"># &#x83B7;&#x53D6;currentRequest</span>
+<span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">container</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">make</span><span class="token punctuation">(</span>Router<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getCurrentRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token shell-comment comment"># &#x83B7;&#x53D6;parameters</span>
+<span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">container</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">make</span><span class="token punctuation">(</span>Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">parametersWithoutNulls</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token shell-comment comment"># &#x6839;&#x636E;name&#x83B7;&#x53D6;parameter</span>
+<span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">container</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">make</span><span class="token punctuation">(</span>Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">user_id</span>
+</code></pre>
+<p>&#x4EFB;&#x4F55;&#x4F60;&#x60F3;&#x8981;&#x7684;&#x4FE1;&#x606F;&#x90FD;&#x53EF;&#x4EE5;&#x62FF;&#x5230;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;laravel&#x7684;&#x4F18;&#x96C5;&#x6240;&#x5728;&#xFF01;&#xFF01;&#xFF01;</p>
 
                                 
                                 </section>
@@ -1304,7 +1751,7 @@ action <span class="token operator">=</span> <span class="token keyword">array</
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Laravel-Route","level":"1.2.7","depth":2,"next":{"title":"Laravel-Middleware","level":"1.2.8","depth":2,"path":"section_php/mdiddleware.md","ref":"section_php/mdiddleware.md","articles":[]},"previous":{"title":"Laravel-Event","level":"1.2.6","depth":2,"path":"section_php/evnet.md","ref":"section_php/evnet.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","toc2","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_php/route.md","mtime":"2017-08-03T12:38:03.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-03T12:38:15.738Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Laravel-Route","level":"1.2.7","depth":2,"next":{"title":"Laravel-Middleware","level":"1.2.8","depth":2,"path":"section_php/mdiddleware.md","ref":"section_php/mdiddleware.md","articles":[]},"previous":{"title":"Laravel-Event","level":"1.2.6","depth":2,"path":"section_php/evnet.md","ref":"section_php/evnet.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","toc2","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_php/route.md","mtime":"2017-08-04T10:05:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-04T10:05:43.605Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
