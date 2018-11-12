@@ -135,7 +135,7 @@ public static function setFacadeApplication($app)
 ```
 
 
-那现在剩下最后一个问题 【什么容器还有什么好处】
+那现在剩下最后一个问题 【容器还有什么好处】
 
 答案是【便于单测】
 
