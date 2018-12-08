@@ -17,10 +17,6 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-okaidia.css">
-                
-            
-                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-toc2/toc2.css">
                 
             
@@ -304,9 +300,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../section_python/ob.md">
+        <li class="chapter " data-level="1.3.1" data-path="../section_python/ob.html">
             
-                <span>
+                <a href="../section_python/ob.html">
             
                     
                     python object
@@ -330,9 +326,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="../section_python/module.md">
+        <li class="chapter " data-level="1.3.3" data-path="../section_python/module.html">
             
-                <span>
+                <a href="../section_python/module.html">
             
                     
                     module
@@ -1075,7 +1071,7 @@ $CWD/etc/supervisord.conf
 <p>&#x751F;&#x6210;&#x4E00;&#x4EFD;&#x9ED8;&#x8BA4;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;
 <code>echo_supervisord_conf &gt; /etc/supervisord.conf</code>
 &#x8FD9;&#x91CC;&#x6709;&#x9009;&#x62E9;&#x7684;&#x8BBE;&#x7F6E;&#x4E86;&#x4E00;&#x4E9B;&#x914D;&#x7F6E;&#xFF0C;&#x57FA;&#x672C;&#x591F;&#x7528;&#xFF0C;&#x914D;&#x7F6E;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre class="language-"><code>[unix_http_server]
+<pre><code>[unix_http_server]
 file=/var/run//supervisor.sock   ; (the path to the socket file)
 chmod=0700                       ; sockef file mode (default 0700)
 
@@ -1093,7 +1089,7 @@ serverurl=unix:///var/run//supervisor.sock ; use a unix:// URL  for a unix socke
 [include]
 files = /etc/supervisor/conf.d/*.ini
 </code></pre><p>/etc/supervisor/conf.d/mux.ugc.ini&#x7684;&#x914D;&#x7F6E;&#x5982;&#x4E0B;</p>
-<pre class="language-"><code>[program:php] ;&#x8FDB;&#x7A0B;&#x540D;
+<pre><code>[program:php] ;&#x8FDB;&#x7A0B;&#x540D;
 directory = path/to/project/ves
 command = php -f start.php
 autostart=true ;&#x81EA;&#x542F;&#x52A8;
@@ -1110,28 +1106,28 @@ stderr_logfile=/tmp/mux.web.ugc.stderr.log ; &#x7A0B;&#x5E8F;&#x9519;&#x8BEF;&#x
 </code></pre><h4 id="&#x542F;&#x52A8;">&#x542F;&#x52A8;</h4>
 <p><code>supervisord -c /etc/supervisord.conf</code></p>
 <h4 id="&#x5F00;&#x673A;&#x81EA;&#x542F;&#x52A8;">&#x5F00;&#x673A;&#x81EA;&#x542F;&#x52A8;</h4>
-<pre class="language-"><code class="lang-php"><span class="token delimiter">&lt;?</span>xml version<span class="token operator">=</span><span class="token string">&quot;1.0&quot;</span> encoding<span class="token operator">=</span><span class="token string">&quot;UTF-8&quot;</span><span class="token delimiter">?&gt;</span>
-<span class="token markup"><span class="token doctype">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plist</span> <span class="token attr-name">version</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>1.0<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dict</span><span class="token punctuation">&gt;</span></span></span>
-    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>key</span><span class="token punctuation">&gt;</span></span></span>KeepAlive<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>key</span><span class="token punctuation">&gt;</span></span></span>
-    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dict</span><span class="token punctuation">&gt;</span></span></span>
-        <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>key</span><span class="token punctuation">&gt;</span></span></span>SuccessfulExit<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>key</span><span class="token punctuation">&gt;</span></span></span>
-        <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>false</span><span class="token punctuation">/&gt;</span></span></span>
-    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dict</span><span class="token punctuation">&gt;</span></span></span>
-    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>key</span><span class="token punctuation">&gt;</span></span></span>Label<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>key</span><span class="token punctuation">&gt;</span></span></span>
-    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>string</span><span class="token punctuation">&gt;</span></span></span>dengjoe<span class="token punctuation">.</span>supervisord<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>string</span><span class="token punctuation">&gt;</span></span></span>
-    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>key</span><span class="token punctuation">&gt;</span></span></span>ProgramArguments<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>key</span><span class="token punctuation">&gt;</span></span></span>
-    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>array</span><span class="token punctuation">&gt;</span></span></span>
-        <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>string</span><span class="token punctuation">&gt;</span></span></span><span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>bin<span class="token operator">/</span>supervisord<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>string</span><span class="token punctuation">&gt;</span></span></span>
-        <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>string</span><span class="token punctuation">&gt;</span></span></span><span class="token operator">-</span>n<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>string</span><span class="token punctuation">&gt;</span></span></span>
-        <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>string</span><span class="token punctuation">&gt;</span></span></span><span class="token operator">-</span>c<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>string</span><span class="token punctuation">&gt;</span></span></span>
-        <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>string</span><span class="token punctuation">&gt;</span></span></span><span class="token operator">/</span>etc<span class="token operator">/</span>supervisord<span class="token punctuation">.</span>conf<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>string</span><span class="token punctuation">&gt;</span></span></span>
-    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>array</span><span class="token punctuation">&gt;</span></span></span>
-    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>key</span><span class="token punctuation">&gt;</span></span></span>RunAtLoad<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>key</span><span class="token punctuation">&gt;</span></span></span>
-    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>true</span><span class="token punctuation">/&gt;</span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dict</span><span class="token punctuation">&gt;</span></span></span>
-<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plist</span><span class="token punctuation">&gt;</span></span></span>
+<pre><code class="lang-php">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+    &lt;key&gt;KeepAlive&lt;/key&gt;
+    &lt;dict&gt;
+        &lt;key&gt;SuccessfulExit&lt;/key&gt;
+        &lt;false/&gt;
+    &lt;/dict&gt;
+    &lt;key&gt;Label&lt;/key&gt;
+    &lt;string&gt;dengjoe.supervisord&lt;/string&gt;
+    &lt;key&gt;ProgramArguments&lt;/key&gt;
+    &lt;array&gt;
+        &lt;string&gt;/usr/local/bin/supervisord&lt;/string&gt;
+        &lt;string&gt;-n&lt;/string&gt;
+        &lt;string&gt;-c&lt;/string&gt;
+        &lt;string&gt;/etc/supervisord.conf&lt;/string&gt;
+    &lt;/array&gt;
+    &lt;key&gt;RunAtLoad&lt;/key&gt;
+    &lt;true/&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
 </code></pre>
 <p>&#x542F;&#x52A8; Supervisor &#x670D;&#x52A1;&#xFF1A;
 <code>launchctl load ~/Library/LaunchAgents/dengjoe.supervisord.plist</code>
@@ -1183,7 +1179,7 @@ supervisorctl &#x662F; Supervisor &#x81EA;&#x5E26;&#x7684;&#x540E;&#x53F0;&#x8FD
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"supervisor","level":"1.9.10","depth":2,"next":{"title":"vagrant","level":"1.9.11","depth":2,"path":"section_tool/vagrant.md","ref":"section_tool/vagrant.md","articles":[]},"previous":{"title":"LNMP","level":"1.9.9","depth":2,"path":"section_tool/lnmp.md","ref":"section_tool/lnmp.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_tool/supervisor.md","mtime":"2018-12-08T02:41:07.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T03:27:46.550Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"supervisor","level":"1.9.10","depth":2,"next":{"title":"vagrant","level":"1.9.11","depth":2,"path":"section_tool/vagrant.md","ref":"section_tool/vagrant.md","articles":[]},"previous":{"title":"LNMP","level":"1.9.9","depth":2,"path":"section_tool/lnmp.md","ref":"section_tool/lnmp.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_tool/supervisor.md","mtime":"2018-12-08T03:32:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T04:28:00.539Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -17,10 +17,6 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-okaidia.css">
-                
-            
-                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-toc2/toc2.css">
                 
             
@@ -304,9 +300,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../section_python/ob.md">
+        <li class="chapter " data-level="1.3.1" data-path="../section_python/ob.html">
             
-                <span>
+                <a href="../section_python/ob.html">
             
                     
                     python object
@@ -330,9 +326,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="../section_python/module.md">
+        <li class="chapter " data-level="1.3.3" data-path="../section_python/module.html">
             
-                <span>
+                <a href="../section_python/module.html">
             
                     
                     module
@@ -1066,44 +1062,44 @@
 <p><a href="https://github.com/robbyrussell/oh-my-zsh#the-manual-way" target="_blank">git&#x4E3B;&#x9875;</a></p>
 <h4 id="&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</h4>
 <p>&#x597D;&#x6D88;&#x606F;&#x662F;Mac,linux&#x81EA;&#x5E26;zsh, &#x67E5;&#x770B;shells</p>
-<pre class="language-"><code>cat /etc/shells
+<pre><code>cat /etc/shells
 /bin/bash
 /bin/zsh
 </code></pre><p>&#x67E5;&#x770B;&#x6B63;&#x5728;&#x4F7F;&#x7528;&#x7684;shell</p>
-<pre class="language-"><code>echo $SEHLL
+<pre><code>echo $SEHLL
 /bin/zsh
 </code></pre><p>&#x4FEE;&#x6539;shell</p>
-<pre class="language-"><code>chsh -s /bin/zsh
+<pre><code>chsh -s /bin/zsh
 </code></pre><p>&#x5B89;&#x88C5;shell</p>
-<pre class="language-"><code>brew install zsh
+<pre><code>brew install zsh
 </code></pre><p>&#x539F;&#x751F;zsh&#x8FC7;&#x4E8E;&#x96BE;&#x914D;&#x7F6E;&#xFF0C;&#x9700;&#x8981;&#x914D;&#x5408;<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank">oh my shell</a> &#x4F7F;&#x7528;&#xFF0C;&#x624D;&#x80FD;&#x9A7E;&#x9A6D;</p>
 <p>&#x5B89;&#x88C5;oh my shell&#xFF0C;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x547D;&#x4EE4;&#x4E4B;&#x540E;&#xFF0C;&#x91CD;&#x542F;&#x5207;&#x6362;&#x5230;zsh shell</p>
-<pre class="language-"><code class="lang-python">sh <span class="token operator">-</span>c <span class="token string">&quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span>
+<pre><code class="lang-python">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
 </code></pre>
 <h4 id="&#x914D;&#x7F6E;&#x6587;&#x4EF6;">&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h4>
-<pre class="language-"><code>~/.zhsrc
+<pre><code>~/.zhsrc
 </code></pre><h5 id="&#x81EA;&#x5B9A;&#x4E49;&#x914D;&#x7F6E;&#x731B;&#x51FB;"><a href="http://www.cnblogs.com/ma6174/archive/2012/05/08/2490921.html" target="_blank">&#x81EA;&#x5B9A;&#x4E49;&#x914D;&#x7F6E;&#x731B;&#x51FB;</a></h5>
 <h4 id="&#x4F7F;&#x7528;">&#x4F7F;&#x7528;</h4>
-<h5 id="&#x66F4;&#x667A;&#x80FD;&#x7684;&#x8865;&#x5168;-&#xFF0C;&#x8BD5;&#x7740;&#x591A;&#x6309;&#x51E0;&#x6B21;tab">&#x66F4;&#x667A;&#x80FD;&#x7684;&#x8865;&#x5168; &#xFF0C;&#x8BD5;&#x7740;&#x591A;&#x6309;&#x51E0;&#x6B21;<code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TAB</span><span class="token punctuation">&gt;</span></span></code></h5>
-<pre class="language-"><code> sunlili@eleme ~ ssh &#x6309;&#x4E0B;tab
+<h5 id="&#x66F4;&#x667A;&#x80FD;&#x7684;&#x8865;&#x5168;-&#xFF0C;&#x8BD5;&#x7740;&#x591A;&#x6309;&#x51E0;&#x6B21;tab">&#x66F4;&#x667A;&#x80FD;&#x7684;&#x8865;&#x5168; &#xFF0C;&#x8BD5;&#x7740;&#x591A;&#x6309;&#x51E0;&#x6B21;<code>&lt;TAB&gt;</code></h5>
+<pre><code> sunlili@eleme ~ ssh &#x6309;&#x4E0B;tab
 
  &#x5217;&#x51FA;&#x6240;&#x6709;&#x7684;ssh&#x8FDE;&#x63A5;&#x8FC7;&#x7684;&#x670D;&#x52A1;&#x5668;
 </code></pre><h5 id="&#x6309;d&#xFF0C;&#x8F93;&#x5165;&#x6570;&#x5B57;&#x5207;&#x5165;&#x76F8;&#x5E94;&#x5730;&#x76EE;&#x5F55;">&#x6309;<code>d</code>&#xFF0C;&#x8F93;&#x5165;&#x6570;&#x5B57;&#x5207;&#x5165;&#x76F8;&#x5E94;&#x5730;&#x76EE;&#x5F55;</h5>
-<pre class="language-"><code>&#x279C;  upload-ohsame-com git:(master) d
+<pre><code>&#x279C;  upload-ohsame-com git:(master) d
 0   ~/Desktop/workspace/upload-ohsame-com
 1   ~/Desktop/workspace/upload-ohsame-com/v2
 2   ~/Desktop/workspace
 3   ~/Desktop
 </code></pre><h5 id="&#x652F;&#x6301;&#x5168;&#x5C40;-alias-&#x548C;&#x540E;&#x7F00;&#x540D;-alias">&#x652F;&#x6301;&#x5168;&#x5C40; alias &#x548C;&#x540E;&#x7F00;&#x540D; alias</h5>
-<pre class="language-"><code>alias cp=&apos;cp -i&apos;
+<pre><code>alias cp=&apos;cp -i&apos;
 alias mv=&apos;mv -i&apos;
 alias rm=&apos;rm -i&apos;
 alias ls=&apos;ls -F --color=auto&apos;
 alias ll=&apos;ls -l&apos;
 </code></pre><h5 id="&#x5386;&#x53F2;&#x547D;&#x4EE4;&#x8BB0;&#x5FC6;">&#x5386;&#x53F2;&#x547D;&#x4EE4;&#x8BB0;&#x5FC6;</h5>
-<pre class="language-"><code>&#x8F93;&#x5165;git&#x4E4B;&#x540E;&#xFF0C;&#x6309;&#x4E0B;&#x4E0A;&#x4E0B;&#x65B9;&#x5411;&#x952E;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x641C;&#x7D22;&#x5230;&#x6240;&#x6709;&#x4F7F;&#x7528;&#x8FC7;&#x7684; git xxx &#x547D;&#x4EE4;,&#x4E0D;&#x559C;&#x6B22;&#x65B9;&#x5411;&#x952E;&#x6709;&#x6728;&#x6709;&#xFF0C;&#x4E0D;&#x8981;&#x7D27;&#x5B89;&#x88C5;vi-mode&#x63D2;&#x4EF6;&#xFF0C;&#x7EE7;&#x7EED;&#x5F80;&#x4E0B;&#x770B;
+<pre><code>&#x8F93;&#x5165;git&#x4E4B;&#x540E;&#xFF0C;&#x6309;&#x4E0B;&#x4E0A;&#x4E0B;&#x65B9;&#x5411;&#x952E;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x641C;&#x7D22;&#x5230;&#x6240;&#x6709;&#x4F7F;&#x7528;&#x8FC7;&#x7684; git xxx &#x547D;&#x4EE4;,&#x4E0D;&#x559C;&#x6B22;&#x65B9;&#x5411;&#x952E;&#x6709;&#x6728;&#x6709;&#xFF0C;&#x4E0D;&#x8981;&#x7D27;&#x5B89;&#x88C5;vi-mode&#x63D2;&#x4EF6;&#xFF0C;&#x7EE7;&#x7EED;&#x5F80;&#x4E0B;&#x770B;
 </code></pre><h5 id="zsh-&#x652F;&#x6301;&#x66F4;&#x52A0;&#x806A;&#x660E;&#x7684;&#x76EE;&#x5F55;&#x8865;&#x5168;">zsh &#x652F;&#x6301;&#x66F4;&#x52A0;&#x806A;&#x660E;&#x7684;&#x76EE;&#x5F55;&#x8865;&#x5168;</h5>
-<p> &#x53EA;&#x9700;&#x8981;&#x8F93;&#x5165;&#x6BCF;&#x4E2A;&#x8DEF;&#x5F84;&#x7684;&#x5934;&#x5B57;&#x6BCD;&#x7136;&#x540E; tab &#x4E00;&#x4E0B;&#xFF1A; <code>cd /u/p/a/j<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TAB</span><span class="token punctuation">&gt;</span></span></code></p>
+<p> &#x53EA;&#x9700;&#x8981;&#x8F93;&#x5165;&#x6BCF;&#x4E2A;&#x8DEF;&#x5F84;&#x7684;&#x5934;&#x5B57;&#x6BCD;&#x7136;&#x540E; tab &#x4E00;&#x4E0B;&#xFF1A; <code>cd /u/p/a/j&lt;TAB&gt;</code></p>
 <h4 id="&#x63D2;&#x4EF6;">&#x63D2;&#x4EF6;</h4>
 <p> &#x6240;&#x6709;&#x7684;&#x63D2;&#x4EF6;&#x90FD;&#x5728;<code>~/.oh-my-zsh/plugins</code>, <a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins" target="_blank">&#x63D2;&#x4EF6;wiki&#x5730;&#x5740;</a>,&#x6211;&#x5E38;&#x7528;&#x7684;&#x63D2;&#x4EF6;&#x5982;&#x4E0B;</p>
 <p> <code>git</code>: &#x4F60;&#x5FC5;&#x987B;&#x5DF2;&#x7ECF;&#x5B89;&#x88C5;&#x4E86;git&#xFF0C;&#x5728;git&#x4ED3;&#x5E93;&#x4E2D;&#x65F6;&#xFF0C;&#x8FD9;&#x4E2A;&#x63D2;&#x4EF6;&#x4F1A;&#x663E;&#x793A;&#x76EE;&#x524D;&#x6587;&#x4EF6;&#x6240;&#x5728;branch</p>
@@ -1164,7 +1160,7 @@ alias ll=&apos;ls -l&apos;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"zsh","level":"1.9.3","depth":2,"next":{"title":"Iterm","level":"1.9.4","depth":2,"path":"section_tool/Iterm.md","ref":"section_tool/Iterm.md","articles":[]},"previous":{"title":"vim","level":"1.9.2","depth":2,"path":"section_tool/vim.md","ref":"section_tool/vim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_tool/zsh.md","mtime":"2018-12-08T02:41:07.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T03:27:46.550Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"zsh","level":"1.9.3","depth":2,"next":{"title":"Iterm","level":"1.9.4","depth":2,"path":"section_tool/Iterm.md","ref":"section_tool/Iterm.md","articles":[]},"previous":{"title":"vim","level":"1.9.2","depth":2,"path":"section_tool/vim.md","ref":"section_tool/vim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_tool/zsh.md","mtime":"2018-12-08T03:32:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T04:28:00.539Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -17,10 +17,6 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-okaidia.css">
-                
-            
-                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-toc2/toc2.css">
                 
             
@@ -304,9 +300,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../section_python/ob.md">
+        <li class="chapter " data-level="1.3.1" data-path="../section_python/ob.html">
             
-                <span>
+                <a href="../section_python/ob.html">
             
                     
                     python object
@@ -330,9 +326,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="../section_python/module.md">
+        <li class="chapter " data-level="1.3.3" data-path="../section_python/module.html">
             
-                <span>
+                <a href="../section_python/module.html">
             
                     
                     module
@@ -1083,138 +1079,138 @@
 <li>&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#x7684;&#x4E3B;&#x4F53;(Someone)</li>
 </ul>
 <p>&#x4E8B;&#x4EF6;&#x6D41;&#x7A0B;&#x5C31;&#x662F;&#xFF1A;</p>
-<pre class="language-"><code>Listener &#x5411; EventDispatcher &#x6CE8;&#x518C;&#x4E86;&#x4E00;&#x4E2A;Event&#xFF0C;
+<pre><code>Listener &#x5411; EventDispatcher &#x6CE8;&#x518C;&#x4E86;&#x4E00;&#x4E2A;Event&#xFF0C;
 
 &#x5F53;Someone &#x5403;&#x996D;&#x65F6;&#xFF0C;&#x4E3B;&#x52A8;fire(&#x89E6;&#x53D1;)Event&#xFF0C;
 
 &#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x540E;Dispatcher&#x8C03;&#x7528;&#x6CE8;&#x518C;&#x7684;Listener&#x5904;&#x7406;Event&#x3002;
 </code></pre><p>&#x4E0B;&#x9762;&#x662F;&#x62BD;&#x8C61;&#x7684;&#x6570;&#x636E;&#x6A21;&#x578B;&#x3002;&#x6CE8;&#x610F;&#x53EA;&#x662F;&#x4F2A;&#x4EE3;&#x7801;&#x3002;</p>
-<pre class="language-"><code class="lang-php">
-<span class="token shell-comment comment"># &#x4E8B;&#x4EF6;</span>
-<span class="token keyword">class</span> <span class="token class-name">EatEvent</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token variable">$author</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">author</span> <span class="token operator">=</span> <span class="token variable">$author</span>
-    <span class="token punctuation">}</span>
+<pre><code class="lang-php">
+# &#x4E8B;&#x4EF6;
+class EatEvent
+{
+    public function __construct($author)
+    {
+        $this-&gt;author = $author
+    }
 
-    <span class="token shell-comment comment"># &#x8C01;&#x5728;&#x5403;</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">who</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">author</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    # &#x8C01;&#x5728;&#x5403;
+    public function who()
+    {
+        return $this-&gt;author-&gt;name();
+    }
 
-    <span class="token shell-comment comment"># &#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x5403;&#x7684;</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">time</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">author</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">timeToEat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    # &#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x5403;&#x7684;
+    public function time()
+    {
+        return $this-&gt;author-&gt;timeToEat();
+    }
 
-    <span class="token shell-comment comment"># &#x5403;&#x4EC0;&#x4E48;</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">menu</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">author</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">whatToEat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    # &#x5403;&#x4EC0;&#x4E48;
+    public function menu()
+    {
+        return $this-&gt;author-&gt;whatToEat();
+    }
+}
 
-<span class="token shell-comment comment"># &#x76D1;&#x542C;&#x8005;</span>
-<span class="token keyword">class</span>  <span class="token class-name">GrilFriendListener</span>
-<span class="token punctuation">{</span>
-    <span class="token shell-comment comment"># &#x83B7;&#x53D6;&#x5403;&#x996D;&#x53D1;&#x9001;&#x7684;&#x65F6;&#x95F4;&#x548C;&#x5403;&#x7684;&#x4E1C;&#x897F;</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span class="token punctuation">(</span>EatEvent <span class="token variable">$event</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">echo</span> <span class="token string">&quot;who: &quot;</span> <span class="token punctuation">.</span> <span class="token variable">$event</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">who</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+# &#x76D1;&#x542C;&#x8005;
+class  GrilFriendListener
+{
+    # &#x83B7;&#x53D6;&#x5403;&#x996D;&#x53D1;&#x9001;&#x7684;&#x65F6;&#x95F4;&#x548C;&#x5403;&#x7684;&#x4E1C;&#x897F;
+    public function handle(EatEvent $event)
+    {
+        echo &quot;who: &quot; . $event-&gt;who();
 
-        <span class="token keyword">echo</span> <span class="token string">&quot;eat time: &quot;</span> <span class="token punctuation">.</span> <span class="token variable">$event</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        echo &quot;eat time: &quot; . $event-&gt;time();
 
-        <span class="token keyword">echo</span> <span class="token string">&quot;eat: &quot;</span> <span class="token punctuation">.</span> <span class="token variable">$event</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">menu</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+        echo &quot;eat: &quot; . $event-&gt;menu();
+    }
+}
 
-<span class="token shell-comment comment"># &#x4E8B;&#x4EF6;&#x6CE8;&#x518C;&#x5206;&#x53D1;&#x4E2D;&#x5FC3;</span>
-<span class="token keyword">class</span> <span class="token class-name">static</span> EventDispatcher
-<span class="token punctuation">{</span>
-    <span class="token shell-comment comment"># &#x4E8B;&#x4EF6;&#x6CE8;&#x518C;&#xFF0C;event&#x662F;&#x5B9A;&#x4E49;&#x7684;eatEvent&#x5BF9;&#x8C61;&#x7684;&#x7C7B;&#x540D;</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">listen</span><span class="token punctuation">(</span><span class="token variable">$event</span><span class="token punctuation">,</span> listener<span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token shell-comment comment"># &#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x5F88;&#x53EF;&#x80FD;&#x6709;&#x591A;&#x4E2A;&#x76D1;&#x542C;&#x8005;</span>
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">listens</span><span class="token punctuation">[</span><span class="token variable">$event</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$listener</span>
-    <span class="token punctuation">}</span>
+# &#x4E8B;&#x4EF6;&#x6CE8;&#x518C;&#x5206;&#x53D1;&#x4E2D;&#x5FC3;
+class static EventDispatcher
+{
+    # &#x4E8B;&#x4EF6;&#x6CE8;&#x518C;&#xFF0C;event&#x662F;&#x5B9A;&#x4E49;&#x7684;eatEvent&#x5BF9;&#x8C61;&#x7684;&#x7C7B;&#x540D;
+    public static function listen($event, listener)
+    {
+        # &#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x5F88;&#x53EF;&#x80FD;&#x6709;&#x591A;&#x4E2A;&#x76D1;&#x542C;&#x8005;
+        $this-&gt;listens[$event][] = $listener
+    }
 
-    <span class="token shell-comment comment"># &#x89E6;&#x53D1;&#x4E8B;&#x4EF6;</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">fire</span><span class="token punctuation">(</span><span class="token variable">$event</span><span class="token punctuation">,</span> <span class="token variable">$payload</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token shell-comment comment"># &#x83B7;&#x53D6;&#x76D1;&#x542C;&#x8005;&#x5217;&#x8868;</span>
-        <span class="token variable">$listeners</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getListeners</span><span class="token punctuation">(</span><span class="token variable">$event</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    # &#x89E6;&#x53D1;&#x4E8B;&#x4EF6;
+    public static function fire($event, $payload = [])
+    {
+        # &#x83B7;&#x53D6;&#x76D1;&#x542C;&#x8005;&#x5217;&#x8868;
+        $listeners = $this-&gt;getListeners($event);
 
-        <span class="token shell-comment comment"># &#x76D1;&#x542C;&#x8005;&#x5904;&#x7406;&#x4E8B;&#x4EF6;</span>
-        <span class="token keyword">foreach</span><span class="token punctuation">(</span><span class="token variable">$listeners</span> <span class="token keyword">as</span> <span class="token variable">$listen</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">creatLisenter</span><span class="token punctuation">(</span><span class="token variable">$listen</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">handler</span><span class="token punctuation">(</span><span class="token variable">$event</span><span class="token punctuation">,</span> <span class="token variable">$payload</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+        # &#x76D1;&#x542C;&#x8005;&#x5904;&#x7406;&#x4E8B;&#x4EF6;
+        foreach($listeners as $listen) {
+            $this-&gt;creatLisenter($listen)-&gt;handler($event, $payload);
+        }
+    }
 
-    <span class="token shell-comment comment"># &#x6CE8;&#x518C;&#x65F6;&#x95F4;&#x8BA2;&#x9605;&#x8005;</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token variable">$subscriber</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token variable">$subscriber</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">resolveSubscriber</span><span class="token punctuation">(</span><span class="token variable">$subscriber</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    # &#x6CE8;&#x518C;&#x65F6;&#x95F4;&#x8BA2;&#x9605;&#x8005;
+    public function subscribe($subscriber)
+    {
+        $subscriber = $this-&gt;resolveSubscriber($subscriber);
 
-        <span class="token variable">$subscriber</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+        $subscriber-&gt;subscribe($this);
+    }
+}
 
-<span class="token shell-comment comment"># &#x4E8B;&#x4EF6;&#x6CE8;&#x518C;</span>
-EventDispatcher<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token string">&quot;EatEvent&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;GrilFriendListener&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+# &#x4E8B;&#x4EF6;&#x6CE8;&#x518C;
+EventDispatcher::listen(&quot;EatEvent&quot;, &quot;GrilFriendListener&quot;);
 
 
-<span class="token shell-comment comment"># &#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x8005;</span>
-<span class="token keyword">class</span> <span class="token class-name">Someone</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">eating</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token shell-comment comment"># &#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;, &#x6CE8;&#x610F;author&#x662F;this</span>
-        <span class="token variable">$event</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">contanier</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">makeWith</span><span class="token punctuation">(</span><span class="token string">&quot;EatEvent&quot;</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+# &#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x8005;
+class Someone
+{
+    public function eating()
+    {
+        # &#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;, &#x6CE8;&#x610F;author&#x662F;this
+        $event = $this-&gt;contanier-&gt;makeWith(&quot;EatEvent&quot;, $this);
 
-        <span class="token shell-comment comment"># &#x89E6;&#x53D1;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;</span>
-        EventDispatcher<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">fire</span><span class="token punctuation">(</span><span class="token variable">$event</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+        # &#x89E6;&#x53D1;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;
+        EventDispatcher::fire($event);
+    }
+}
 </code></pre>
 <p>&#x73B0;&#x5728;&#x4F60;&#x7406;&#x89E3;&#x4E86;&#x4E8B;&#x4EF6;&#x7684;&#x6574;&#x4E2A;&#x6A21;&#x578B;&#x4E86;&#x5427;&#x3002;</p>
 <p>&#x3010;&#x4E8B;&#x4EF6;&#x3011;&#x4E2D;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x89D2;&#x8272;&#x53EB;&#x505A;&#x3010;&#x8BA2;&#x9605;&#x8005;&#x3011;&#x3002;</p>
 <p>&#x8BA2;&#x9605;&#x8005;&#x5C31;&#x662F;&#x53EF;&#x4EE5;&#x3010;&#x8BA2;&#x9605;&#x3011;&#x3010;&#x5904;&#x7406;&#x3011;&#x591A;&#x4E2A;&#x4E8B;&#x4EF6;, &#x4ED6;&#x4E5F;&#x9700;&#x8981;&#x5411;&#x3010;EventDispatcher&#x3011;&#x6CE8;&#x518C;&#x4E00;&#x4E2A;&#x8BA2;&#x9605;&#x8005;</p>
-<pre class="language-"><code class="lang-php"><span class="token keyword">class</span> <span class="token class-name">UserEventSubscriber</span>
-<span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">/**
+<pre><code class="lang-php">class UserEventSubscriber
+{
+    /**
      * &#x5904;&#x7406;&#x7528;&#x6237;&#x767B;&#x5F55;&#x4E8B;&#x4EF6;&#x3002;
-     */</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">onUserLogin</span><span class="token punctuation">(</span><span class="token variable">$event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+     */
+    public function onUserLogin($event) {}
 
-    <span class="token comment" spellcheck="true">/**
+    /**
      * &#x5904;&#x7406;&#x7528;&#x6237;&#x6CE8;&#x9500;&#x4E8B;&#x4EF6;&#x3002;
-     */</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">onUserLogout</span><span class="token punctuation">(</span><span class="token variable">$event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+     */
+    public function onUserLogout($event) {}
 
-    <span class="token comment" spellcheck="true">/**
+    /**
      * &#x4E3A;&#x8BA2;&#x9605;&#x8005;&#x6CE8;&#x518C;&#x76D1;&#x542C;&#x5668;&#x3002;
      *
      * @param  Illuminate\Events\Dispatcher  $events
-     */</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token variable">$events</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token variable">$events</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">listen</span><span class="token punctuation">(</span>
-            <span class="token string">&apos;Illuminate\Auth\Events\Login&apos;</span><span class="token punctuation">,</span>
-            <span class="token string">&apos;App\Listeners\UserEventSubscriber@onUserLogin&apos;</span>
-        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+     */
+    public function subscribe($events)
+    {
+        $events-&gt;listen(
+            &apos;Illuminate\Auth\Events\Login&apos;,
+            &apos;App\Listeners\UserEventSubscriber@onUserLogin&apos;
+        );
 
-        <span class="token variable">$events</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">listen</span><span class="token punctuation">(</span>
-            <span class="token string">&apos;Illuminate\Auth\Events\Logout&apos;</span><span class="token punctuation">,</span>
-            <span class="token string">&apos;App\Listeners\UserEventSubscriber@onUserLogout&apos;</span>
-        <span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+        $events-&gt;listen(
+            &apos;Illuminate\Auth\Events\Logout&apos;,
+            &apos;App\Listeners\UserEventSubscriber@onUserLogout&apos;
+        );
+    }
 
-<span class="token punctuation">}</span>
-<span class="token shell-comment comment"># &#x5411;&#x6CE8;&#x518C;&#x4E2D;&#x5FC3;&#x6CE8;&#x518C;&#x8BA2;&#x9605;&#x8005;</span>
-EventDispatcher<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token string">&quot;UserEventSubscriber&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+}
+# &#x5411;&#x6CE8;&#x518C;&#x4E2D;&#x5FC3;&#x6CE8;&#x518C;&#x8BA2;&#x9605;&#x8005;
+EventDispatcher::subscribe(&quot;UserEventSubscriber&quot;);
 </code></pre>
 <h2 id="&#x4E8B;&#x4EF6;&#x6A21;&#x578B;&#x7684;&#x8FDB;&#x4E00;&#x6B65;&#x63A2;&#x7D22;">&#x4E8B;&#x4EF6;&#x6A21;&#x578B;&#x7684;&#x8FDB;&#x4E00;&#x6B65;&#x63A2;&#x7D22;</h2>
 <p>&#x4E0A;&#x6587;&#x6211;&#x4EEC;&#x63D0;&#x5230;&#xFF0C;&#x3010;&#x4E8B;&#x4EF6;&#x3011;&#x4E00;&#x4E2A;&#x662F;&#x3010;&#x7C7B;&#x3011;&#xFF0C;&#x8FD9;&#x4E2A;&#x3010;&#x7C7B;&#x3011;&#x8BB0;&#x5F55;&#x4E86;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x65F6;&#x7684;&#x76F8;&#x5173;&#x5185;&#x5BB9;&#x3002;</p>
@@ -1223,37 +1219,37 @@ EventDispatcher<span class="token punctuation">:</span><span class="token punctu
 <p>&#x6240;&#x4EE5; <strong>&#x7528;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x5C31;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x4E8B;&#x4EF6;</strong></p>
 <p>&#x4E8B;&#x4EF6;&#x7684;&#x76D1;&#x542C;&#x8005;&#xFF0C;&#x4E5F;&#x4E0D;&#x518D;&#x662F;&#x4E00;&#x4E2A;&#x3010;&#x7C7B;&#x3011;&#xFF0C;&#x800C;&#x662F;&#x53D8;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x3010;&#x533F;&#x540D;&#x51FD;&#x6570;&#x3011;</p>
 <p>&#x8FD9;&#x5C31;&#x662F;&#x3010;&#x4E8B;&#x4EF6;&#x6A21;&#x578B;&#x3011;&#x7684;&#x3010;&#x7CBE;&#x7B80;&#x7248;&#x3011;</p>
-<pre class="language-"><code class="lang-php">
-<span class="token shell-comment comment"># cart.create &#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x5C31;&#x662F;&#x521B;&#x5EFA;&#x8D2D;&#x7269;&#x8F66;&#xFF0C;</span>
-<span class="token shell-comment comment"># &#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x540E;&#xFF0C;&#x628A;&#x8D2D;&#x7269;&#x8F66;&#x4FE1;&#x606F;&#x653E;&#x5230;cookie&#x91CC;&#x9762;</span>
-EventDispatcher<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token string">&apos;cart.create&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$cartId</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    Cookie<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">queue</span><span class="token punctuation">(</span><span class="token string">&apos;cart&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CartStorage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">setId</span><span class="token punctuation">(</span><span class="token variable">$cartId</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-php">
+# cart.create &#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x5C31;&#x662F;&#x521B;&#x5EFA;&#x8D2D;&#x7269;&#x8F66;&#xFF0C;
+# &#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x540E;&#xFF0C;&#x628A;&#x8D2D;&#x7269;&#x8F66;&#x4FE1;&#x606F;&#x653E;&#x5230;cookie&#x91CC;&#x9762;
+EventDispatcher::listen(&apos;cart.create&apos;, function ($cartId) {
+    Cookie::queue(&apos;cart&apos;, (new CartStorage())-&gt;setId($cartId)-&gt;getString());
+});
 
-<span class="token keyword">class</span> <span class="token class-name">Cart</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">store</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token shell-comment comment"># &#x521B;&#x5EFA;&#x8D2D;&#x7269;&#x8F66;</span>
-        <span class="token variable">$cartId</span> <span class="token operator">=</span> Cart<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+class Cart
+{
+    public function store()
+    {
+        # &#x521B;&#x5EFA;&#x8D2D;&#x7269;&#x8F66;
+        $cartId = Cart::create();
 
-        <span class="token shell-comment comment"># &#x89E6;&#x53D1;&#x3010;&#x521B;&#x5EFA;&#x8D2D;&#x7269;&#x8F66;&#x3011;&#x4E8B;&#x4EF6;</span>
-        EventDispatcher<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">fire</span><span class="token punctuation">(</span><span class="token variable">$cartId</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+        # &#x89E6;&#x53D1;&#x3010;&#x521B;&#x5EFA;&#x8D2D;&#x7269;&#x8F66;&#x3011;&#x4E8B;&#x4EF6;
+        EventDispatcher::fire($cartId);
+    }
+}
 </code></pre>
 <p>&#x6240;&#x4EE5;&#xFF0C;laravel&#x4E2D;&#xFF0C;&#x3010;&#x4E8B;&#x4EF6;&#x3011;&#x4E0D;&#x4E00;&#x5B9A;&#x8981;&#x5F53;&#x6210;&#x4E00;&#x4E2A;&#x3010;&#x7C7B;&#x3011;&#x6765;&#x4F7F;&#x7528;&#x3002;</p>
 <h2 id="&#x4E8B;&#x4EF6;&#x901A;&#x914D;&#x7B26;">&#x4E8B;&#x4EF6;&#x901A;&#x914D;&#x7B26;</h2>
 <p>&#x6BD4;&#x5982;&#x6709;&#x4E09;&#x4E2A;&#x4E8B;&#x4EF6;&#x3010;&#x7761;&#x89C9;&#x3011;&#x3010;&#x5403;&#x996D;&#x3011;&#x3010;&#x770B;&#x7535;&#x5F71;&#x3011;&#x8FD9;&#x4E9B;&#x751F;&#x6D3B;&#x4E0A;&#x9762;&#x7684;&#x4E8B;&#x4EF6;&#xFF0C;&#x3010;&#x5973;&#x670B;&#x53CB;&#x3011;&#x8FD9;&#x4E2A;&#x76D1;&#x542C;&#x8005;&#x90FD;&#x8981;&#x76D1;&#x542C;</p>
 <p>&#x4E8E;&#x662F;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;</p>
-<pre class="language-"><code class="lang-php">
-<span class="token shell-comment comment"># &#x901A;&#x914D;&#x7B26;&#x4E8B;&#x4EF6;&#x7684;&#x76D1;&#x542C;&#x8005;&#x51FD;&#x6570;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E00;&#x5B9A;&#x662F;event&#x3002;</span>
-EventDispatcher<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token string">&apos;life.*&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$event</span><span class="token punctuation">,</span> <span class="token variable">$payload</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token shell-comment comment"># do something</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-php">
+# &#x901A;&#x914D;&#x7B26;&#x4E8B;&#x4EF6;&#x7684;&#x76D1;&#x542C;&#x8005;&#x51FD;&#x6570;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E00;&#x5B9A;&#x662F;event&#x3002;
+EventDispatcher::listen(&apos;life.*&apos;, function ($event, $payload) {
+    # do something
+});
 
-<span class="token shell-comment comment"># &#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;</span>
-EventDispatcher<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">fire</span><span class="token punctuation">(</span><span class="token string">&apos;life.sleep&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;sunli&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+# &#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;
+EventDispatcher::fire(&apos;life.sleep&apos;, &apos;sunli&apos;);
 </code></pre>
 <h2 id="&#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x8005;&#x961F;&#x5217;&#x5316;">&#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x8005;&#x961F;&#x5217;&#x5316;</h2>
 <p>&#x6BD4;&#x5982;&#x3010;&#x4E8B;&#x4EF6;&#x3011;&#x53D1;&#x751F;&#x540E;&#xFF0C; &#x3010;&#x76D1;&#x542C;&#x8005;&#x3011;&#x5904;&#x7406;&#x8FD9;&#x4E2A;&#x3010;&#x4E8B;&#x4EF6;&#x3011;&#x7279;&#x522B;&#x8017;&#x65F6;</p>
@@ -1275,7 +1271,7 @@ EventDispatcher<span class="token punctuation">:</span><span class="token punctu
 <p>&#x4E8B;&#x4EF6;&#x7C7B; (Event) &#x7C7B;&#x901A;&#x5E38;&#x4FDD;&#x5B58;&#x5728; app/Events &#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x800C;&#x5B83;&#x4EEC;&#x7684;&#x76D1;&#x542C;&#x7C7B; (Listener) &#x7C7B;&#x88AB;&#x4FDD;&#x5B58;&#x5728; app/Listeners &#x76EE;&#x5F55;&#x4E0B;&#x3002;</p>
 <p>&#x5982;&#x679C;&#x4F60;&#x5728;&#x5E94;&#x7528;&#x4E2D;&#x770B;&#x4E0D;&#x5230;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#x5939;&#x4E5F;&#x4E0D;&#x8981;&#x62C5;&#x5FC3;&#xFF0C;&#x56E0;&#x4E3A;&#x5F53;&#x4F60;&#x4F7F;&#x7528; Artisan &#x547D;&#x4EE4;&#x6765;&#x751F;&#x6210;&#x4E8B;&#x4EF6;&#x548C;&#x76D1;&#x542C;&#x5668;&#x65F6;&#x4ED6;&#x4EEC;&#x4F1A;&#x88AB;&#x81EA;&#x52A8;&#x521B;&#x5EFA;</p>
 <p>laravel&#x5728;&#x521D;&#x59CB;&#x5316;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6CE8;&#x518C;&#x4E86;EventServiceProvider</p>
-<pre class="language-"><code>public function registerBaseServiceProviders()
+<pre><code>public function registerBaseServiceProviders()
 {
     # Illuminate\Events\EventServiceProvider
     $this-&gt;register(new EventServiceProvider($this));
@@ -1298,113 +1294,113 @@ class EventServiceProvider extends ServiceProvider
 
 # &#x6240;&#x4EE5;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;Event::listen()&#x65B9;&#x5F0F;&#x53BB;&#x6CE8;&#x518C;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;
 </code></pre><p>&#x4E0B;&#x9762;&#x4E3B;&#x8981;&#x5206;&#x6790;<code>Dispatcher</code>&#x7684;&#x6E90;&#x7801;&#x3002;</p>
-<pre class="language-"><code class="lang-php">
-<span class="token shell-comment comment"># events&#x5FC5;&#x987B;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x7EC4;&#xFF0C;&#x6216;&#x8005;&#x5B57;&#x7B26;&#x4E32;</span>
-<span class="token shell-comment comment"># &#x90A3;&#x4E48;&#x8FD9;&#x4E2A;events&#x53EF;&#x80FD;&#x5C31;&#x662F;&#x3010;&#x4E8B;&#x4EF6;&#x7C7B;&#x3011;&#x7684;&#x7C7B;&#x540D;&#x96C6;&#x5408; &#x6216;&#x8005;&#x662F;&#x3010;&#x4E8B;&#x4EF6;&#x52A8;&#x4F5C;&#x3011;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x8868;&#x793A;&#x7684;&#x96C6;&#x5408;</span>
-<span class="token shell-comment comment"># listener&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x3010;&#x76D1;&#x542C;&#x8005;&#x7C7B;&#x540D;@&#x7C7B;&#x91CC;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x3011;&#x5982;&#x679C;&#x65B9;&#x6CD5;&#x4E0D;&#x5B58;&#x5728;&#x8BB2;&#x9ED8;&#x8BA4;&#x6267;&#x884C;&#x3010;handle&#x3011;&#x65B9;&#x6CD5;</span>
+<pre><code class="lang-php">
+# events&#x5FC5;&#x987B;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x7EC4;&#xFF0C;&#x6216;&#x8005;&#x5B57;&#x7B26;&#x4E32;
+# &#x90A3;&#x4E48;&#x8FD9;&#x4E2A;events&#x53EF;&#x80FD;&#x5C31;&#x662F;&#x3010;&#x4E8B;&#x4EF6;&#x7C7B;&#x3011;&#x7684;&#x7C7B;&#x540D;&#x96C6;&#x5408; &#x6216;&#x8005;&#x662F;&#x3010;&#x4E8B;&#x4EF6;&#x52A8;&#x4F5C;&#x3011;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x8868;&#x793A;&#x7684;&#x96C6;&#x5408;
+# listener&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x3010;&#x76D1;&#x542C;&#x8005;&#x7C7B;&#x540D;@&#x7C7B;&#x91CC;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x3011;&#x5982;&#x679C;&#x65B9;&#x6CD5;&#x4E0D;&#x5B58;&#x5728;&#x8BB2;&#x9ED8;&#x8BA4;&#x6267;&#x884C;&#x3010;handle&#x3011;&#x65B9;&#x6CD5;
 
-<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">listen</span><span class="token punctuation">(</span><span class="token variable">$events</span><span class="token punctuation">,</span> <span class="token variable">$listener</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">array</span><span class="token punctuation">)</span> <span class="token variable">$events</span> <span class="token keyword">as</span> <span class="token variable">$event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>Str<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token variable">$event</span><span class="token punctuation">,</span> <span class="token string">&apos;*&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">setupWildcardListen</span><span class="token punctuation">(</span><span class="token variable">$event</span><span class="token punctuation">,</span> <span class="token variable">$listener</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">listeners</span><span class="token punctuation">[</span><span class="token variable">$event</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">makeListener</span><span class="token punctuation">(</span><span class="token variable">$listener</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-
-<span class="token shell-comment comment"># &#x521B;&#x5EFA;&#x4E00;&#x4E2A;Listener</span>
-<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">makeListener</span><span class="token punctuation">(</span><span class="token variable">$listener</span><span class="token punctuation">,</span> <span class="token variable">$wildcard</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token shell-comment comment"># listener&#x662F;&#x3010;&#x76D1;&#x542C;&#x8005;&#x7C7B;&#x540D;@&#x7C7B;&#x91CC;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x3011;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">is_string</span><span class="token punctuation">(</span><span class="token variable">$listener</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">createClassListener</span><span class="token punctuation">(</span><span class="token variable">$listener</span><span class="token punctuation">,</span> <span class="token variable">$wildcard</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token shell-comment comment"># listener&#x662F;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570;&#xFF0C; &#x6CE8;&#x610F;&#x4E3A;&#x5565;&#x4E0D;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;listener&#x5462;&#xFF0C;&#x56E0;&#x4E3A;&#x9700;&#x8981;&#x4F20;&#x9012;&#x53C2;&#x6570;</span>
-    <span class="token shell-comment comment"># &#x6240;&#x4EE5;&#x5728;wrapper&#x4E86;listener, &#x7C7B;&#x4F3C;&#x4E8E;python&#x7684;&#x88C5;&#x9970;&#x5668;</span>
-    <span class="token shell-comment comment"># &#x6CE8;&#x610F;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x4E8B;&#x4EF6;&#x662F;&#x901A;&#x914D;&#x7B26;&#xFF0C;&#x90A3;&#x4E48;&#x533F;&#x540D;&#x51FD;&#x6570;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;event, &#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;payload</span>
-    <span class="token shell-comment comment"># payload&#x5FC5;&#x987B;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;</span>
-    <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$event</span><span class="token punctuation">,</span> <span class="token variable">$payload</span><span class="token punctuation">)</span> <span class="token keyword">use</span> <span class="token punctuation">(</span><span class="token variable">$listener</span><span class="token punctuation">,</span> <span class="token variable">$wildcard</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$wildcard</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token shell-comment comment"># &#x5982;&#x679C;&#x662F;&#x901A;&#x914D;&#x7B26;&#x7684;&#x8BDD;&#xFF0C;&#x4F1A;&#x591A;&#x4F20;&#x9012;&#x4E00;&#x4E2A;event&#x8FC7;&#x53BB;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;payload&#x6570;&#x7EC4;</span>
-            <span class="token keyword">return</span> <span class="token variable">$listener</span><span class="token punctuation">(</span><span class="token variable">$event</span><span class="token punctuation">,</span> <span class="token variable">$payload</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            <span class="token shell-comment comment"># &#x6700;&#x540E;&#x8C03;&#x7528;&#x7684;&#x533F;&#x540D;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x662F;payload&#x6570;&#x7EC4;&#x7684;values</span>
-            <span class="token keyword">return</span> <span class="token variable">$listener</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token function">array_values</span><span class="token punctuation">(</span><span class="token variable">$payload</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token shell-comment comment"># &#x89E3;&#x6790;&#x3010;&#x76D1;&#x542C;&#x8005;&#x7C7B;&#x540D;@&#x7C7B;&#x91CC;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x3011;&#xFF0C;&#x4E5F;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x95ED;&#x5305;&#x51FD;&#x6570;&#x3002;</span>
-<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">createClassListener</span><span class="token punctuation">(</span><span class="token variable">$listener</span><span class="token punctuation">,</span> <span class="token variable">$wildcard</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$event</span><span class="token punctuation">,</span> <span class="token variable">$payload</span><span class="token punctuation">)</span> <span class="token keyword">use</span> <span class="token punctuation">(</span><span class="token variable">$listener</span><span class="token punctuation">,</span> <span class="token variable">$wildcard</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$wildcard</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token shell-comment comment"># &#x5982;&#x679C;&#x662F;&#x901A;&#x914D;&#x7B26;&#xFF0C;&#x53C2;&#x6570;&#x4F1A;&#x591A;&#x4F20;&#x9012;&#x4E00;&#x4E2A;event&#x8FC7;&#x53BB;</span>
-            <span class="token keyword">return</span> <span class="token function">call_user_func</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">createClassCallable</span><span class="token punctuation">(</span><span class="token variable">$listener</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token variable">$event</span><span class="token punctuation">,</span> <span class="token variable">$payload</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            <span class="token shell-comment comment"># payload&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x8BF7;&#x67E5;&#x770B;call_user_func_array&#x7684;&#x7528;&#x6CD5;</span>
-            <span class="token keyword">return</span> <span class="token function">call_user_func_array</span><span class="token punctuation">(</span>
-                <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">createClassCallable</span><span class="token punctuation">(</span><span class="token variable">$listener</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token variable">$payload</span>
-            <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token shell-comment comment"># &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x53EF;callable&#x7684;Class&#x7684;&#x5BF9;&#x8C61;</span>
-<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">createClassCallable</span><span class="token punctuation">(</span><span class="token variable">$listener</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token function">list</span><span class="token punctuation">(</span><span class="token variable">$class</span><span class="token punctuation">,</span> <span class="token variable">$method</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">parseClassCallable</span><span class="token punctuation">(</span><span class="token variable">$listener</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token shell-comment comment"># &#x8BF7;&#x7279;&#x522B;&#x5B66;&#x4E60;&#x4E00;&#x4E0B;&#xFF0C;&#x600E;&#x4E48;&#x5224;&#x65AD;&#x662F;&#x4E0D;&#x662F;&#x9700;&#x8981;&#x961F;&#x5217;&#x5316;&#x7684;&#x903B;&#x8F91;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">handlerShouldBeQueued</span><span class="token punctuation">(</span><span class="token variable">$class</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token shell-comment comment"># &#x5982;&#x679C;&#x662F;&#x9700;&#x8981;&#x961F;&#x5217;&#xFF0C;&#x5219;&#x52A0;&#x5165;&#x5230;&#x961F;&#x5217;&#x91CC;&#x9762;</span>
-        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">createQueuedHandlerCallable</span><span class="token punctuation">(</span><span class="token variable">$class</span><span class="token punctuation">,</span> <span class="token variable">$method</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">container</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">make</span><span class="token punctuation">(</span><span class="token variable">$class</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token variable">$method</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+public function listen($events, $listener)
+{
+    foreach ((array) $events as $event) {
+        if (Str::contains($event, &apos;*&apos;)) {
+            $this-&gt;setupWildcardListen($event, $listener);
+        } else {
+            $this-&gt;listeners[$event][] = $this-&gt;makeListener($listener);
+        }
+    }
+}
 
 
-<span class="token shell-comment comment"># &#x89E6;&#x53D1;&#x4E8B;&#x4EF6;</span>
+# &#x521B;&#x5EFA;&#x4E00;&#x4E2A;Listener
+public function makeListener($listener, $wildcard = false)
+{
+    # listener&#x662F;&#x3010;&#x76D1;&#x542C;&#x8005;&#x7C7B;&#x540D;@&#x7C7B;&#x91CC;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x3011;
+    if (is_string($listener)) {
+        return $this-&gt;createClassListener($listener, $wildcard);
+    }
 
-<span class="token shell-comment comment"># event &#x5FC5;&#x987B;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x8005;&#x662F;&#x4E00;&#x4E2A;&#x3010;&#x4E8B;&#x4EF6;&#x7C7B;&#x3011;&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;</span>
-<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token variable">$event</span><span class="token punctuation">,</span> <span class="token variable">$payload</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$halt</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token shell-comment comment"># &#x7ECF;&#x8FC7;&#x8FD9;&#x4E00;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x5982;&#x679C;event&#x662F;&#x4E00;&#x4E2A;object,</span>
-    <span class="token shell-comment comment"># &#x90A3;&#x4E48;payload = [event]&#xFF0C;event = get_class($event),</span>
-    <span class="token function">list</span><span class="token punctuation">(</span><span class="token variable">$event</span><span class="token punctuation">,</span> <span class="token variable">$payload</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">parseEventAndPayload</span><span class="token punctuation">(</span>
-        <span class="token variable">$event</span><span class="token punctuation">,</span> <span class="token variable">$payload</span>
-    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    # listener&#x662F;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570;&#xFF0C; &#x6CE8;&#x610F;&#x4E3A;&#x5565;&#x4E0D;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;listener&#x5462;&#xFF0C;&#x56E0;&#x4E3A;&#x9700;&#x8981;&#x4F20;&#x9012;&#x53C2;&#x6570;
+    # &#x6240;&#x4EE5;&#x5728;wrapper&#x4E86;listener, &#x7C7B;&#x4F3C;&#x4E8E;python&#x7684;&#x88C5;&#x9970;&#x5668;
+    # &#x6CE8;&#x610F;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x4E8B;&#x4EF6;&#x662F;&#x901A;&#x914D;&#x7B26;&#xFF0C;&#x90A3;&#x4E48;&#x533F;&#x540D;&#x51FD;&#x6570;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;event, &#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;payload
+    # payload&#x5FC5;&#x987B;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;
+    return function ($event, $payload) use ($listener, $wildcard) {
+        if ($wildcard) {
+            # &#x5982;&#x679C;&#x662F;&#x901A;&#x914D;&#x7B26;&#x7684;&#x8BDD;&#xFF0C;&#x4F1A;&#x591A;&#x4F20;&#x9012;&#x4E00;&#x4E2A;event&#x8FC7;&#x53BB;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;payload&#x6570;&#x7EC4;
+            return $listener($event, $payload);
+        } else {
+            # &#x6700;&#x540E;&#x8C03;&#x7528;&#x7684;&#x533F;&#x540D;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x662F;payload&#x6570;&#x7EC4;&#x7684;values
+            return $listener(...array_values($payload));
+        }
+    };
+}
 
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">shouldBroadcast</span><span class="token punctuation">(</span><span class="token variable">$payload</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">broadcastEvent</span><span class="token punctuation">(</span><span class="token variable">$payload</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+# &#x89E3;&#x6790;&#x3010;&#x76D1;&#x542C;&#x8005;&#x7C7B;&#x540D;@&#x7C7B;&#x91CC;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x3011;&#xFF0C;&#x4E5F;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x95ED;&#x5305;&#x51FD;&#x6570;&#x3002;
+public function createClassListener($listener, $wildcard = false)
+{
+    return function ($event, $payload) use ($listener, $wildcard) {
+        if ($wildcard) {
+            # &#x5982;&#x679C;&#x662F;&#x901A;&#x914D;&#x7B26;&#xFF0C;&#x53C2;&#x6570;&#x4F1A;&#x591A;&#x4F20;&#x9012;&#x4E00;&#x4E2A;event&#x8FC7;&#x53BB;
+            return call_user_func($this-&gt;createClassCallable($listener), $event, $payload);
+        } else {
+            # payload&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x8BF7;&#x67E5;&#x770B;call_user_func_array&#x7684;&#x7528;&#x6CD5;
+            return call_user_func_array(
+                $this-&gt;createClassCallable($listener), $payload
+            );
+        }
+    };
+}
 
-    <span class="token variable">$responses</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+# &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x53EF;callable&#x7684;Class&#x7684;&#x5BF9;&#x8C61;
+protected function createClassCallable($listener)
+{
+    list($class, $method) = $this-&gt;parseClassCallable($listener);
 
-    <span class="token shell-comment comment"># &#x6839;&#x636E;event &#x83B7;&#x53D6;Listeners</span>
-    <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getListeners</span><span class="token punctuation">(</span><span class="token variable">$event</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token variable">$listener</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    # &#x8BF7;&#x7279;&#x522B;&#x5B66;&#x4E60;&#x4E00;&#x4E0B;&#xFF0C;&#x600E;&#x4E48;&#x5224;&#x65AD;&#x662F;&#x4E0D;&#x662F;&#x9700;&#x8981;&#x961F;&#x5217;&#x5316;&#x7684;&#x903B;&#x8F91;
+    if ($this-&gt;handlerShouldBeQueued($class)) {
+        # &#x5982;&#x679C;&#x662F;&#x9700;&#x8981;&#x961F;&#x5217;&#xFF0C;&#x5219;&#x52A0;&#x5165;&#x5230;&#x961F;&#x5217;&#x91CC;&#x9762;
+        return $this-&gt;createQueuedHandlerCallable($class, $method);
+    } else {
+        return [$this-&gt;container-&gt;make($class), $method];
+    }
+}
 
-        <span class="token shell-comment comment"># &#x6CE8;&#x610F;&#x8C03;&#x7528;$listener&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x4E00;&#x4E2A;event, &#x4E00;&#x4E2A;&#x662F;payload</span>
-        <span class="token shell-comment comment"># &#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x770B;&#x4E00;&#x4E0B;makeListener&#x7684;&#x751F;&#x6210;&#x95ED;&#x5305;&#x51FD;&#x6570;</span>
-        <span class="token variable">$response</span> <span class="token operator">=</span> <span class="token variable">$listener</span><span class="token punctuation">(</span><span class="token variable">$event</span><span class="token punctuation">,</span> <span class="token variable">$payload</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$halt</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span> <span class="token function">is_null</span><span class="token punctuation">(</span><span class="token variable">$response</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token variable">$response</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$response</span> <span class="token operator">===</span> <span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">break</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+# &#x89E6;&#x53D1;&#x4E8B;&#x4EF6;
 
-        <span class="token variable">$responses</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$response</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+# event &#x5FC5;&#x987B;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x8005;&#x662F;&#x4E00;&#x4E2A;&#x3010;&#x4E8B;&#x4EF6;&#x7C7B;&#x3011;&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;
+public function dispatch($event, $payload = [], $halt = false)
+{
+    # &#x7ECF;&#x8FC7;&#x8FD9;&#x4E00;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x5982;&#x679C;event&#x662F;&#x4E00;&#x4E2A;object,
+    # &#x90A3;&#x4E48;payload = [event]&#xFF0C;event = get_class($event),
+    list($event, $payload) = $this-&gt;parseEventAndPayload(
+        $event, $payload
+    );
 
-    <span class="token keyword">return</span> <span class="token variable">$halt</span> <span class="token operator">?</span> <span class="token keyword">null</span> <span class="token punctuation">:</span> <span class="token variable">$responses</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+    if ($this-&gt;shouldBroadcast($payload)) {
+        $this-&gt;broadcastEvent($payload[0]);
+    }
+
+    $responses = [];
+
+    # &#x6839;&#x636E;event &#x83B7;&#x53D6;Listeners
+    foreach ($this-&gt;getListeners($event) as $listener) {
+
+        # &#x6CE8;&#x610F;&#x8C03;&#x7528;$listener&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x4E00;&#x4E2A;event, &#x4E00;&#x4E2A;&#x662F;payload
+        # &#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x770B;&#x4E00;&#x4E0B;makeListener&#x7684;&#x751F;&#x6210;&#x95ED;&#x5305;&#x51FD;&#x6570;
+        $response = $listener($event, $payload);
+
+        if ($halt &amp;&amp; ! is_null($response)) {
+            return $response;
+        }
+        if ($response === false) {
+            break;
+        }
+
+        $responses[] = $response;
+    }
+
+    return $halt ? null : $responses;
+}
 </code></pre>
 <p>&#x5230;&#x8FD9;&#x91CC;&#xFF0C; &#x3010;&#x4E8B;&#x4EF6;&#x6A21;&#x578B;&#x3011;&#x548C;&#x3010;laravel&#x5904;&#x7406;&#x4E8B;&#x4EF6;&#x3011;&#x90FD;&#x8BB2;&#x5B8C;&#x5566;&#xFF0C;&#x4F60;&#x4F1A;&#x4F7F;&#x7528;&#x3010;&#x4E8B;&#x4EF6;&#x3011;&#x4E86;&#x5417;</p>
 
@@ -1450,7 +1446,7 @@ class EventServiceProvider extends ServiceProvider
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Laravel-Event","level":"1.2.6","depth":2,"next":{"title":"Laravel-Route","level":"1.2.7","depth":2,"path":"section_php/route.md","ref":"section_php/route.md","articles":[]},"previous":{"title":"Laravel-Exception","level":"1.2.5","depth":2,"path":"section_php/exception.md","ref":"section_php/exception.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_php/evnet.md","mtime":"2018-12-08T02:41:07.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T03:27:46.550Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Laravel-Event","level":"1.2.6","depth":2,"next":{"title":"Laravel-Route","level":"1.2.7","depth":2,"path":"section_php/route.md","ref":"section_php/route.md","articles":[]},"previous":{"title":"Laravel-Exception","level":"1.2.5","depth":2,"path":"section_php/exception.md","ref":"section_php/exception.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_php/evnet.md","mtime":"2018-12-08T03:32:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T04:28:00.539Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

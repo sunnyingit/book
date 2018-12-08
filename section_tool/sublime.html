@@ -17,10 +17,6 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-okaidia.css">
-                
-            
-                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-toc2/toc2.css">
                 
             
@@ -304,9 +300,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../section_python/ob.md">
+        <li class="chapter " data-level="1.3.1" data-path="../section_python/ob.html">
             
-                <span>
+                <a href="../section_python/ob.html">
             
                     
                     python object
@@ -330,9 +326,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="../section_python/module.md">
+        <li class="chapter " data-level="1.3.3" data-path="../section_python/module.html">
             
-                <span>
+                <a href="../section_python/module.html">
             
                     
                     module
@@ -1086,83 +1082,83 @@
 <p>3 &#x5173;&#x6389; <code>command +q</code> &#x518D;&#x6253;&#x5F00;</p>
 <p>4 &#x4F7F;&#x7528; <code>command + shift + p</code> &#x8C03;&#x51FA;&#x547D;&#x4EE4;&#x677F;&#xFF0C;&#x8F93;&#x5165;install packages</p>
 <h3 id="4-&#x7528;&#x6237;&#x914D;&#x7F6E;">4 &#x7528;&#x6237;&#x914D;&#x7F6E;</h3>
-<pre class="language-"><code class="lang-python"><span class="token punctuation">{</span>
-    <span class="token string">&quot;always_show_minimap_viewport&quot;</span><span class="token punctuation">:</span> false<span class="token punctuation">,</span>
-    <span class="token string">&quot;auto_match_enabled&quot;</span><span class="token punctuation">:</span> true<span class="token punctuation">,</span>
-    <span class="token string">&quot;bold_folder_labels&quot;</span><span class="token punctuation">:</span> true<span class="token punctuation">,</span>
-    <span class="token operator">//</span> &#x9700;&#x8981;&#x5B89;&#x88C5;material &#x4E3B;&#x9898;&#x63D2;&#x4EF6;
-    <span class="token string">&quot;color_scheme&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;Packages/User/Material-Theme (Flake8Lint).tmTheme&quot;</span><span class="token punctuation">,</span>
-    <span class="token string">&quot;draw_white_space&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;all&quot;</span><span class="token punctuation">,</span>
-    <span class="token string">&quot;ensure_newline_at_eof_on_save&quot;</span><span class="token punctuation">:</span> true<span class="token punctuation">,</span>
-    <span class="token string">&quot;font_size&quot;</span><span class="token punctuation">:</span> <span class="token number">14</span><span class="token punctuation">,</span>
-    <span class="token string">&quot;highlight_line&quot;</span><span class="token punctuation">:</span> true<span class="token punctuation">,</span>
-    <span class="token string">&quot;highlight_modified_tabs&quot;</span><span class="token punctuation">:</span> true<span class="token punctuation">,</span>
-    <span class="token operator">//</span> sublime &#x9ED8;&#x8BA4;ignore&#x4E86;vim&#x6A21;&#x5F0F;&#xFF0C;&#x6309;ESC&#x8FDB;&#x5165;vim&#x6A21;&#x5F0F;
-    <span class="token string">&quot;ignored_packages&quot;</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token string">&quot;line_padding_bottom&quot;</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
-    <span class="token string">&quot;line_padding_top&quot;</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
-    <span class="token string">&quot;material_theme_accent_lime&quot;</span><span class="token punctuation">:</span> true<span class="token punctuation">,</span>
-    <span class="token string">&quot;material_theme_bold_tab&quot;</span><span class="token punctuation">:</span> true<span class="token punctuation">,</span>
-    <span class="token string">&quot;material_theme_disable_fileicons&quot;</span><span class="token punctuation">:</span> true<span class="token punctuation">,</span>
-    <span class="token string">&quot;material_theme_panel_separator&quot;</span><span class="token punctuation">:</span> true<span class="token punctuation">,</span>
-    <span class="token string">&quot;material_theme_small_tab&quot;</span><span class="token punctuation">:</span> true<span class="token punctuation">,</span>
-    <span class="token string">&quot;material_theme_tabs_autowidth&quot;</span><span class="token punctuation">:</span> true<span class="token punctuation">,</span>
-    <span class="token string">&quot;overlay_scroll_bars&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;enabled&quot;</span><span class="token punctuation">,</span>
-    <span class="token string">&quot;remember_full_screen&quot;</span><span class="token punctuation">:</span> true<span class="token punctuation">,</span>
-    <span class="token operator">//</span> &#x8BA9;&#x4F60;&#x7684;python&#x4EE3;&#x7801;&#x4E0D;&#x8981;&#x5199;&#x7684;&#x592A;&#x957F;&#x4E86;
-    <span class="token string">&quot;rulers&quot;</span><span class="token punctuation">:</span>
-    <span class="token punctuation">[</span>
-        <span class="token number">80</span><span class="token punctuation">,</span> <span class="token number">100</span>
-    <span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token operator">//</span> &#x9700;&#x8981;&#x5B89;&#x88C5;sublimelinter&#x63D2;&#x4EF6;
-    <span class="token string">&quot;sublimelinter_popup_errors_on_save&quot;</span><span class="token punctuation">:</span> true<span class="token punctuation">,</span>
-    <span class="token string">&quot;theme&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;Material-Theme.sublime-theme&quot;</span><span class="token punctuation">,</span>
-    <span class="token operator">//</span> &#x4E4B;&#x524D;&#x6211;&#x6CA1;&#x6709;&#x6253;&#x5F00;&#x8FD9;&#x4E2A;&#x9009;&#x9879;&#xFF0C;&#x5BFC;&#x81F4;&#x4EE3;&#x7801;&#x4E0A;&#x4F20;&#x5230;github &#x663E;&#x793A;&#x5168;&#x4E71;
-    <span class="token string">&quot;translate_tabs_to_spaces&quot;</span><span class="token punctuation">:</span> true<span class="token punctuation">,</span>
-    <span class="token operator">//</span> &#x4FDD;&#x5B58;&#x65F6;&#xFF0C;&#x53BB;&#x6389;&#x591A;&#x4F59;&#x7684;&#x7A7A;&#x683C;
-    <span class="token string">&quot;trim_trailing_white_space_on_save&quot;</span><span class="token punctuation">:</span> true
-    <span class="token operator">//</span> &#x4FDD;&#x5B58;&#x65F6;&#xFF0C;&#x5728;&#x6587;&#x4EF6;&#x672B;&#x5C3E;&#x589E;&#x52A0;&#x4E00;&#x7A7A;&#x884C;&#xFF0C;&#x89C4;&#x8303;
-    <span class="token string">&quot;ensure_newline_at_eof_on_save&quot;</span><span class="token punctuation">:</span> false<span class="token punctuation">,</span>
-<span class="token punctuation">}</span>
+<pre><code class="lang-python">{
+    &quot;always_show_minimap_viewport&quot;: false,
+    &quot;auto_match_enabled&quot;: true,
+    &quot;bold_folder_labels&quot;: true,
+    // &#x9700;&#x8981;&#x5B89;&#x88C5;material &#x4E3B;&#x9898;&#x63D2;&#x4EF6;
+    &quot;color_scheme&quot;: &quot;Packages/User/Material-Theme (Flake8Lint).tmTheme&quot;,
+    &quot;draw_white_space&quot;: &quot;all&quot;,
+    &quot;ensure_newline_at_eof_on_save&quot;: true,
+    &quot;font_size&quot;: 14,
+    &quot;highlight_line&quot;: true,
+    &quot;highlight_modified_tabs&quot;: true,
+    // sublime &#x9ED8;&#x8BA4;ignore&#x4E86;vim&#x6A21;&#x5F0F;&#xFF0C;&#x6309;ESC&#x8FDB;&#x5165;vim&#x6A21;&#x5F0F;
+    &quot;ignored_packages&quot;:[],
+    &quot;line_padding_bottom&quot;: 3,
+    &quot;line_padding_top&quot;: 3,
+    &quot;material_theme_accent_lime&quot;: true,
+    &quot;material_theme_bold_tab&quot;: true,
+    &quot;material_theme_disable_fileicons&quot;: true,
+    &quot;material_theme_panel_separator&quot;: true,
+    &quot;material_theme_small_tab&quot;: true,
+    &quot;material_theme_tabs_autowidth&quot;: true,
+    &quot;overlay_scroll_bars&quot;: &quot;enabled&quot;,
+    &quot;remember_full_screen&quot;: true,
+    // &#x8BA9;&#x4F60;&#x7684;python&#x4EE3;&#x7801;&#x4E0D;&#x8981;&#x5199;&#x7684;&#x592A;&#x957F;&#x4E86;
+    &quot;rulers&quot;:
+    [
+        80, 100
+    ],
+    // &#x9700;&#x8981;&#x5B89;&#x88C5;sublimelinter&#x63D2;&#x4EF6;
+    &quot;sublimelinter_popup_errors_on_save&quot;: true,
+    &quot;theme&quot;: &quot;Material-Theme.sublime-theme&quot;,
+    // &#x4E4B;&#x524D;&#x6211;&#x6CA1;&#x6709;&#x6253;&#x5F00;&#x8FD9;&#x4E2A;&#x9009;&#x9879;&#xFF0C;&#x5BFC;&#x81F4;&#x4EE3;&#x7801;&#x4E0A;&#x4F20;&#x5230;github &#x663E;&#x793A;&#x5168;&#x4E71;
+    &quot;translate_tabs_to_spaces&quot;: true,
+    // &#x4FDD;&#x5B58;&#x65F6;&#xFF0C;&#x53BB;&#x6389;&#x591A;&#x4F59;&#x7684;&#x7A7A;&#x683C;
+    &quot;trim_trailing_white_space_on_save&quot;: true
+    // &#x4FDD;&#x5B58;&#x65F6;&#xFF0C;&#x5728;&#x6587;&#x4EF6;&#x672B;&#x5C3E;&#x589E;&#x52A0;&#x4E00;&#x7A7A;&#x884C;&#xFF0C;&#x89C4;&#x8303;
+    &quot;ensure_newline_at_eof_on_save&quot;: false,
+}
 </code></pre>
 <h3 id="5-&#x5B9A;&#x5236;&#x5FEB;&#x6377;&#x952E;">5 &#x5B9A;&#x5236;&#x5FEB;&#x6377;&#x952E;</h3>
-<pre class="language-"><code class="lang-python">    <span class="token operator">//</span> &#x5BF9;&#x9F50;
-    <span class="token punctuation">{</span> <span class="token string">&quot;keys&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;ctrl+y&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;command&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;alignment&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token operator">//</span> &#x591A;&#x6B21;&#x6309;ctrl<span class="token operator">+</span>d&#xFF0C;&#x53EF;&#x4EE5;&#x9009;&#x4E2D;&#x591A;&#x4E2A;&#x7136;&#x540E;&#x591A;&#x6B21;&#x7F16;&#x8F91;<span class="token punctuation">,</span>&#x50CF;vim&#x5757;&#x64CD;&#x4F5C;&#x4E00;&#x6837;<span class="token number">6</span>
-    <span class="token punctuation">{</span> <span class="token string">&quot;keys&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;ctrl+d&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;command&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;duplicate_line&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token operator">//</span> &#x67E5;&#x627E;
-    <span class="token punctuation">{</span> <span class="token string">&quot;keys&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;ctrl+k&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;command&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;slurp_find_string&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token operator">//</span> &#x5220;&#x9664;&#x4E00;&#x884C;
-    <span class="token punctuation">{</span> <span class="token string">&quot;keys&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;ctrl+e&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;command&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;run_macro_file&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;args&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">&quot;file&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;Packages/Default/Delete Line.sublime-macro&quot;</span><span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token operator">//</span> &#x590D;&#x5236;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x81EA;&#x52A8;&#x7F29;&#x8FDB;
-    <span class="token punctuation">{</span> <span class="token string">&quot;keys&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;super+v&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;command&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;paste_and_indent&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token operator">//</span> &#x4F7F;&#x7528;super<span class="token operator">+</span>d&#x9009;&#x62E9;&#x533A;&#x57DF;&#xFF0C;&#x6309;&#x4E0B;super<span class="token operator">+</span>l&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x5982;&#x679C;&#x76F4;&#x63A5;&#x8F93;&#x5165;&#xFF0C;&#x5219;&#x4F1A;&#x5220;&#x9664;&#x539F;&#x6765;&#x9009;&#x62E9;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;replace&#x6548;&#x679C;
-    <span class="token operator">//</span> &#x5982;&#x679C;&#x60F3;&#x518D;&#x9009;&#x4E2D;&#x4E00;&#x5757;&#x533A;&#x57DF;&#x524D;&#x9762;&#x63D2;&#x5165;&#x6570;&#x636E;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x79FB;&#x52A8;&#x65B9;&#x5411;&#x952E;&#xFF0C;&#x8FD9;&#x4E5F;&#x5149;&#x6807;&#x5C31;&#x4F1A;&#x53D8;&#x6210;&#x63D2;&#x5165;&#x72B6;&#x6001;&#xFF0C;&#x8BD5;&#x4E00;&#x8BD5;&#x4F60;&#x5C31;&#x77E5;&#x9053;&#xFF0C;
-    <span class="token punctuation">{</span> <span class="token string">&quot;keys&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;super+l&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;command&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;split_selection_into_lines&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token operator">//</span> &#x9009;&#x4E2D;&#x4E00;&#x5757;&#x533A;&#x57DF;&#xFF0C; &#x6309;&#x4E0B;&#x5FEB;&#x6377;&#x952E;&#xFF0C;&#x628A;&#x591A;&#x884C;&#x53D8;&#x6210;&#x4E00;&#x884C;
-    <span class="token punctuation">{</span> <span class="token string">&quot;keys&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;super+j&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;command&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;join_lines&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token operator">//</span>  &#x5168;&#x5C4F;
-    <span class="token punctuation">{</span> <span class="token string">&quot;keys&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;super+m&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;command&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;toggle_full_screen&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token operator">//</span> &#x66FF;&#x6362;
-    <span class="token punctuation">{</span> <span class="token string">&quot;keys&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;super+h&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;command&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;show_panel&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;args&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">&quot;panel&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;replace&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;reverse&quot;</span><span class="token punctuation">:</span> false<span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token operator">//</span> &#x628A;&#x884C;&#x79FB;&#x52D5;&#x5230;&#x4E0A;&#x9762;
-    <span class="token punctuation">{</span> <span class="token string">&quot;keys&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;super+up&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;command&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;swap_line_up&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token operator">//</span> &#x79FB;&#x52D5;&#x884C;&#x5230;&#x4E0B;&#x9762;
-    <span class="token punctuation">{</span> <span class="token string">&quot;keys&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;super+down&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;command&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;swap_line_down&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token operator">//</span> &#x95DC;&#x9589;&#x53F3;&#x908A;&#x7684;&#x6587;&#x4EF6;&#x593E;
-    <span class="token punctuation">{</span> <span class="token string">&quot;keys&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;super+b&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;command&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;toggle_side_bar&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token operator">//</span> &#x6253;&#x958B;&#x547D;&#x4EE4;&#x884C;
-    <span class="token punctuation">{</span> <span class="token string">&quot;keys&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;super+shift+p&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;command&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;show_overlay&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;args&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">&quot;overlay&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;command_palette&quot;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token operator">//</span> &#x5927;&#x5199;
-    <span class="token punctuation">{</span> <span class="token string">&quot;keys&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;super+u&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;command&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;upper_case&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token operator">//</span> &#x5C0F;&#x5199;
-    <span class="token punctuation">{</span> <span class="token string">&quot;keys&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;super+l&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;command&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;lower_case&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token operator">//</span> &#x9009;&#x4E2D;&#x51FD;&#x6570;&#x8DF3;&#x8F6C;&#x5230;&#x8C03;&#x7528;&#x7684;&#x5730;&#x65B9;
-    <span class="token punctuation">{</span> <span class="token string">&quot;keys&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;super+g&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;command&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;goto_definition&quot;</span> <span class="token punctuation">}</span>
+<pre><code class="lang-python">    // &#x5BF9;&#x9F50;
+    { &quot;keys&quot;: [&quot;ctrl+y&quot;], &quot;command&quot;: &quot;alignment&quot; },
+    // &#x591A;&#x6B21;&#x6309;ctrl+d&#xFF0C;&#x53EF;&#x4EE5;&#x9009;&#x4E2D;&#x591A;&#x4E2A;&#x7136;&#x540E;&#x591A;&#x6B21;&#x7F16;&#x8F91;,&#x50CF;vim&#x5757;&#x64CD;&#x4F5C;&#x4E00;&#x6837;6
+    { &quot;keys&quot;: [&quot;ctrl+d&quot;], &quot;command&quot;: &quot;duplicate_line&quot; },
+    // &#x67E5;&#x627E;
+    { &quot;keys&quot;: [&quot;ctrl+k&quot;], &quot;command&quot;: &quot;slurp_find_string&quot; },
+    // &#x5220;&#x9664;&#x4E00;&#x884C;
+    { &quot;keys&quot;: [&quot;ctrl+e&quot;], &quot;command&quot;: &quot;run_macro_file&quot;, &quot;args&quot;: {&quot;file&quot;: &quot;Packages/Default/Delete Line.sublime-macro&quot;} },
+    // &#x590D;&#x5236;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x81EA;&#x52A8;&#x7F29;&#x8FDB;
+    { &quot;keys&quot;: [&quot;super+v&quot;], &quot;command&quot;: &quot;paste_and_indent&quot; },
+    // &#x4F7F;&#x7528;super+d&#x9009;&#x62E9;&#x533A;&#x57DF;&#xFF0C;&#x6309;&#x4E0B;super+l&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x5982;&#x679C;&#x76F4;&#x63A5;&#x8F93;&#x5165;&#xFF0C;&#x5219;&#x4F1A;&#x5220;&#x9664;&#x539F;&#x6765;&#x9009;&#x62E9;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;replace&#x6548;&#x679C;
+    // &#x5982;&#x679C;&#x60F3;&#x518D;&#x9009;&#x4E2D;&#x4E00;&#x5757;&#x533A;&#x57DF;&#x524D;&#x9762;&#x63D2;&#x5165;&#x6570;&#x636E;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x79FB;&#x52A8;&#x65B9;&#x5411;&#x952E;&#xFF0C;&#x8FD9;&#x4E5F;&#x5149;&#x6807;&#x5C31;&#x4F1A;&#x53D8;&#x6210;&#x63D2;&#x5165;&#x72B6;&#x6001;&#xFF0C;&#x8BD5;&#x4E00;&#x8BD5;&#x4F60;&#x5C31;&#x77E5;&#x9053;&#xFF0C;
+    { &quot;keys&quot;: [&quot;super+l&quot;], &quot;command&quot;: &quot;split_selection_into_lines&quot; },
+    // &#x9009;&#x4E2D;&#x4E00;&#x5757;&#x533A;&#x57DF;&#xFF0C; &#x6309;&#x4E0B;&#x5FEB;&#x6377;&#x952E;&#xFF0C;&#x628A;&#x591A;&#x884C;&#x53D8;&#x6210;&#x4E00;&#x884C;
+    { &quot;keys&quot;: [&quot;super+j&quot;], &quot;command&quot;: &quot;join_lines&quot; },
+    //  &#x5168;&#x5C4F;
+    { &quot;keys&quot;: [&quot;super+m&quot;], &quot;command&quot;: &quot;toggle_full_screen&quot; },
+    // &#x66FF;&#x6362;
+    { &quot;keys&quot;: [&quot;super+h&quot;], &quot;command&quot;: &quot;show_panel&quot;, &quot;args&quot;: {&quot;panel&quot;: &quot;replace&quot;, &quot;reverse&quot;: false} },
+    // &#x628A;&#x884C;&#x79FB;&#x52D5;&#x5230;&#x4E0A;&#x9762;
+    { &quot;keys&quot;: [&quot;super+up&quot;], &quot;command&quot;: &quot;swap_line_up&quot; },
+    // &#x79FB;&#x52D5;&#x884C;&#x5230;&#x4E0B;&#x9762;
+    { &quot;keys&quot;: [&quot;super+down&quot;], &quot;command&quot;: &quot;swap_line_down&quot; },
+    // &#x95DC;&#x9589;&#x53F3;&#x908A;&#x7684;&#x6587;&#x4EF6;&#x593E;
+    { &quot;keys&quot;: [&quot;super+b&quot;], &quot;command&quot;: &quot;toggle_side_bar&quot; },
+    // &#x6253;&#x958B;&#x547D;&#x4EE4;&#x884C;
+    { &quot;keys&quot;: [&quot;super+shift+p&quot;], &quot;command&quot;: &quot;show_overlay&quot;, &quot;args&quot;: {&quot;overlay&quot;: &quot;command_palette&quot;}},
+    // &#x5927;&#x5199;
+    { &quot;keys&quot;: [&quot;super+u&quot;], &quot;command&quot;: &quot;upper_case&quot; },
+    // &#x5C0F;&#x5199;
+    { &quot;keys&quot;: [&quot;super+l&quot;], &quot;command&quot;: &quot;lower_case&quot; },
+    // &#x9009;&#x4E2D;&#x51FD;&#x6570;&#x8DF3;&#x8F6C;&#x5230;&#x8C03;&#x7528;&#x7684;&#x5730;&#x65B9;
+    { &quot;keys&quot;: [&quot;super+g&quot;], &quot;command&quot;: &quot;goto_definition&quot; }
 </code></pre>
 <h3 id="6-web&#x5F00;&#x53D1;&#x63D2;&#x4EF6;">6 Web&#x5F00;&#x53D1;&#x63D2;&#x4EF6;</h3>
 <p>&#x5B66;&#x4E60;&#x63D2;&#x4EF6;&#x6700;&#x597D;&#x7684;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x81EA;&#x5DF1;&#x52A8;&#x624B;&#xFF0C;&#x4F7F;&#x7528; command+shift+p &#x67E5;&#x770B;&#x63D2;&#x4EF6;&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x5FEB;&#x6377;&#x952E;</p>
-<pre class="language-"><code>Bracket Highlighter:  &#x8BED;&#x6CD5;&#x9AD8;&#x4EAE;
+<pre><code>Bracket Highlighter:  &#x8BED;&#x6CD5;&#x9AD8;&#x4EAE;
 
 alignment: &#x4F7F;&#x9009;&#x4E2D;&#x4E00;&#x5757;&#x533A;&#x57DF;&#x6309;&#x7167;&#x201C;=&#x201D;&#x5BF9;&#x9F50;&#xFF0C;&#x53EF;&#x4EE5;&#x5FEB;&#x901F;&#x7F8E;&#x5316;&#x4EE3;&#x7801;
 
@@ -1204,12 +1200,12 @@ Material Theme: &#x4E3B;&#x9898;&#x63D2;&#x4EF6;&#xFF0C;&#x5FC5;&#x88C5;
 <p>&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x4EE5;&#x60F3;&#x600E;&#x4E48;&#x624D;&#x80FD;&#x66F4;&#x5FEB;&#x4F7F;&#x7528;sublime,&#x5206;&#x5C4F;&#x64CD;&#x4F5C;&#xFF0C;&#x6700;&#x5927;&#x5316;&#xFF0C;&#x9690;&#x85CF;&#x5404;&#x79CD;status bar</p>
 <p>&#x600E;&#x4E48;&#x6700;&#x5FEB;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x521B;&#x5EFA;&#x65B0;&#x6587;&#x4EF6;&#xFF0C;&#x641C;&#x7D22;&#xFF0C;&#x66FF;&#x6362;&#xFF0C;&#x5404;&#x79CD;&#x79FB;&#x52A8;&#xFF0C;&#x5404;&#x79CD;&#x5220;&#x9664;&#xFF0C;&#x5FEB;&#x64CD;&#x4F5C;&#xFF0C;sublime&#x53EF;&#x4EE5;&#x7684;&#x548C;vim&#x4E00;&#x6837;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x9F20;&#x6807;&#x5C31;&#x53EF;&#x4EE5;&#x64CD;&#x4F5C;</p>
 <p>&#x8FBE;&#x5230;&#x8FD9;&#x79CD;&#x5883;&#x754C;&#xFF0C;&#x53EA;&#x6709;&#x591A;&#x770B;sublime&#x7684;tools&#xFF0C;files, views, edit&#x63D0;&#x4F9B;&#x7684;&#x64CD;&#x4F5C;&#x952E;</p>
-<pre class="language-"><code class="lang-python">command<span class="token operator">+</span>q &#x9000;&#x51FA;
-command<span class="token operator">+</span>r &#x67E5;&#x627E;&#x6587;&#x4EF6;&#x91CC;&#x9762;&#x7684;&#x6240;&#x6709;&#x7684;&#x51FD;&#x6570;
-command<span class="token operator">+</span>p &#x8F93;&#x5165;&#x6240;&#x5728;&#x76EE;&#x5F55;<span class="token punctuation">,</span>&#x6216;&#x8005;&#x6587;&#x4EF6;&#x540D;&#xFF0C;sublime&#x4F1A;&#x6A21;&#x7CCA;&#x5339;&#x914D;
-command<span class="token operator">+</span>n &#x521B;&#x5EFA;&#x65B0;&#x6587;&#x4EF6;
-commadn<span class="token operator">+</span>w &#x5173;&#x95ED;&#x4E00;&#x4E2A;tab
-command<span class="token operator">+</span>alt<span class="token operator">+</span><span class="token number">2</span> &#x5206;&#x6210;&#x4E24;&#x5C4F;
+<pre><code class="lang-python">command+q &#x9000;&#x51FA;
+command+r &#x67E5;&#x627E;&#x6587;&#x4EF6;&#x91CC;&#x9762;&#x7684;&#x6240;&#x6709;&#x7684;&#x51FD;&#x6570;
+command+p &#x8F93;&#x5165;&#x6240;&#x5728;&#x76EE;&#x5F55;,&#x6216;&#x8005;&#x6587;&#x4EF6;&#x540D;&#xFF0C;sublime&#x4F1A;&#x6A21;&#x7CCA;&#x5339;&#x914D;
+command+n &#x521B;&#x5EFA;&#x65B0;&#x6587;&#x4EF6;
+commadn+w &#x5173;&#x95ED;&#x4E00;&#x4E2A;tab
+command+alt+2 &#x5206;&#x6210;&#x4E24;&#x5C4F;
 </code></pre>
 
                                 
@@ -1254,7 +1250,7 @@ command<span class="token operator">+</span>alt<span class="token operator">+</s
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"sublime","level":"1.9.1","depth":2,"next":{"title":"vim","level":"1.9.2","depth":2,"path":"section_tool/vim.md","ref":"section_tool/vim.md","articles":[]},"previous":{"title":"常用工具","level":"1.9","depth":1,"path":"section_tool/README.md","ref":"section_tool/README.md","articles":[{"title":"sublime","level":"1.9.1","depth":2,"path":"section_tool/sublime.md","ref":"section_tool/sublime.md","articles":[]},{"title":"vim","level":"1.9.2","depth":2,"path":"section_tool/vim.md","ref":"section_tool/vim.md","articles":[]},{"title":"zsh","level":"1.9.3","depth":2,"path":"section_tool/zsh.md","ref":"section_tool/zsh.md","articles":[]},{"title":"Iterm","level":"1.9.4","depth":2,"path":"section_tool/Iterm.md","ref":"section_tool/Iterm.md","articles":[]},{"title":"Tmux","level":"1.9.5","depth":2,"path":"section_tool/Tmux.md","ref":"section_tool/Tmux.md","articles":[]},{"title":"Powerline","level":"1.9.6","depth":2,"path":"section_tool/Powerline.md","ref":"section_tool/Powerline.md","articles":[]},{"title":"brew","level":"1.9.7","depth":2,"path":"section_tool/brew.md","ref":"section_tool/brew.md","articles":[]},{"title":"launchctl","level":"1.9.8","depth":2,"path":"section_tool/launchctl.md","ref":"section_tool/launchctl.md","articles":[]},{"title":"LNMP","level":"1.9.9","depth":2,"path":"section_tool/lnmp.md","ref":"section_tool/lnmp.md","articles":[]},{"title":"supervisor","level":"1.9.10","depth":2,"path":"section_tool/supervisor.md","ref":"section_tool/supervisor.md","articles":[]},{"title":"vagrant","level":"1.9.11","depth":2,"path":"section_tool/vagrant.md","ref":"section_tool/vagrant.md","articles":[]},{"title":"ansible","level":"1.9.12","depth":2,"path":"section_tool/ansible.md","ref":"section_tool/ansible.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_tool/sublime.md","mtime":"2018-12-08T02:41:07.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T03:27:46.550Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"sublime","level":"1.9.1","depth":2,"next":{"title":"vim","level":"1.9.2","depth":2,"path":"section_tool/vim.md","ref":"section_tool/vim.md","articles":[]},"previous":{"title":"常用工具","level":"1.9","depth":1,"path":"section_tool/README.md","ref":"section_tool/README.md","articles":[{"title":"sublime","level":"1.9.1","depth":2,"path":"section_tool/sublime.md","ref":"section_tool/sublime.md","articles":[]},{"title":"vim","level":"1.9.2","depth":2,"path":"section_tool/vim.md","ref":"section_tool/vim.md","articles":[]},{"title":"zsh","level":"1.9.3","depth":2,"path":"section_tool/zsh.md","ref":"section_tool/zsh.md","articles":[]},{"title":"Iterm","level":"1.9.4","depth":2,"path":"section_tool/Iterm.md","ref":"section_tool/Iterm.md","articles":[]},{"title":"Tmux","level":"1.9.5","depth":2,"path":"section_tool/Tmux.md","ref":"section_tool/Tmux.md","articles":[]},{"title":"Powerline","level":"1.9.6","depth":2,"path":"section_tool/Powerline.md","ref":"section_tool/Powerline.md","articles":[]},{"title":"brew","level":"1.9.7","depth":2,"path":"section_tool/brew.md","ref":"section_tool/brew.md","articles":[]},{"title":"launchctl","level":"1.9.8","depth":2,"path":"section_tool/launchctl.md","ref":"section_tool/launchctl.md","articles":[]},{"title":"LNMP","level":"1.9.9","depth":2,"path":"section_tool/lnmp.md","ref":"section_tool/lnmp.md","articles":[]},{"title":"supervisor","level":"1.9.10","depth":2,"path":"section_tool/supervisor.md","ref":"section_tool/supervisor.md","articles":[]},{"title":"vagrant","level":"1.9.11","depth":2,"path":"section_tool/vagrant.md","ref":"section_tool/vagrant.md","articles":[]},{"title":"ansible","level":"1.9.12","depth":2,"path":"section_tool/ansible.md","ref":"section_tool/ansible.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_tool/sublime.md","mtime":"2018-12-08T03:32:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T04:28:00.539Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -17,10 +17,6 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-okaidia.css">
-                
-            
-                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-toc2/toc2.css">
                 
             
@@ -304,9 +300,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../section_python/ob.md">
+        <li class="chapter " data-level="1.3.1" data-path="../section_python/ob.html">
             
-                <span>
+                <a href="../section_python/ob.html">
             
                     
                     python object
@@ -330,9 +326,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="../section_python/module.md">
+        <li class="chapter " data-level="1.3.3" data-path="../section_python/module.html">
             
-                <span>
+                <a href="../section_python/module.html">
             
                     
                     module
@@ -1095,23 +1091,23 @@
 <p>&#x8BD5;&#x60F3;&#x4E00;&#x4E0B;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x4EC5;&#x4EC5;&#x9700;&#x8981;&#x8BB0;&#x5F55;message.</p>
 <p>&#x8FD8;&#x9700;&#x8981;&#x8BB0;&#x5F55;&#x4E00;&#x4E9B;&#x5176;&#x4ED6;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x6BD4;&#x5982;&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;&#x7684;&#x65F6;&#x95F4;&#x7B49;&#x3002;</p>
 <p>&#x5728;laravel&#x4E2D;&#x9664;&#x4E86;<code>message</code>&#x4EE5;&#x5916;&#xFF0C;laravel&#x8FD8;&#x4F1A;&#x81EA;&#x52A8;&#x8BB0;&#x5F55; datetime, channel, level&#x7B49;&#x4FE1;&#x606F;&#xFF1A;</p>
-<pre class="language-"><code class="lang-php">
-<span class="token variable">$record</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
-    <span class="token string">&apos;message&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span>string<span class="token punctuation">)</span> <span class="token variable">$message</span><span class="token punctuation">,</span> <span class="token shell-comment comment"># &#x4FE1;&#x606F;&#x7684;&#x4E3B;&#x4F53;</span>
-    <span class="token string">&apos;context&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$context</span><span class="token punctuation">,</span>
-    <span class="token string">&apos;level&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$level</span><span class="token punctuation">,</span> <span class="token shell-comment comment"># &#x4FE1;&#x606F;&#x7684;&#x7EA7;&#x522B;</span>
-    <span class="token string">&apos;level_name&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$levelName</span><span class="token punctuation">,</span>
-    <span class="token string">&apos;channel&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">name</span><span class="token punctuation">,</span>  <span class="token shell-comment comment"># &#x8868;&#x793A;&#x662F;&#x7531;&#x54EA;&#x4E2A;&#x5E94;&#x7528;&#x53D1;&#x9001;&#x7684;</span>
-    <span class="token string">&apos;datetime&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token variable">$ts</span><span class="token punctuation">,</span>
-    <span class="token string">&apos;extra&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-php">
+$record = array(
+    &apos;message&apos; =&gt; (string) $message, # &#x4FE1;&#x606F;&#x7684;&#x4E3B;&#x4F53;
+    &apos;context&apos; =&gt; $context,
+    &apos;level&apos; =&gt; $level, # &#x4FE1;&#x606F;&#x7684;&#x7EA7;&#x522B;
+    &apos;level_name&apos; =&gt; $levelName,
+    &apos;channel&apos; =&gt; $this-&gt;name,  # &#x8868;&#x793A;&#x662F;&#x7531;&#x54EA;&#x4E2A;&#x5E94;&#x7528;&#x53D1;&#x9001;&#x7684;
+    &apos;datetime&apos; =&gt; $ts,
+    &apos;extra&apos; =&gt; array(),
+);
 </code></pre>
 <p>&#x5982;&#x679C;&#x8FD8;&#x9700;&#x8981;&#x8BB0;&#x5F55;&#x8BF7;&#x6C42;&#x7684;ip&#x4FE1;&#x606F; &#x6240;&#x4EE5;&#x5C31;&#x9700;&#x8981;&#x6709;&#x4E2A;&#x5904;&#x7406;&#x5668;&#x628A;&#x3010;&#x8BF7;&#x6C42;ip&#x3011;&#x4F20;&#x9012;&#x7ED9;record,&#x8FBE;&#x5230;&#x7684;&#x6548;&#x679C;&#x7C7B;&#x4F3C;&#x4E8E;:</p>
-<pre class="language-"><code class="lang-php"><span class="token variable">$record</span><span class="token punctuation">[</span><span class="token string">&apos;request_id&apos;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$ip</span><span class="token punctuation">;</span>
+<pre><code class="lang-php">$record[&apos;request_id&apos;] = $ip;
 </code></pre>
 <p><strong>&#x6269;&#x5145;record&#x4FE1;&#x606F;</strong>&#x7684;&#x89D2;&#x8272;&#xFF0C;&#x6211;&#x4EEC;&#x62BD;&#x8C61;&#x4E3A;<code>Processor</code>&#x3002;</p>
 <p>&#x7B80;&#x5355;&#x7406;&#x89E3;&#xFF0C;<code>Processor</code>&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570;&#xFF0C;&#x6269;&#x5C55;<code>record</code>&#x7684;&#x4FE1;&#x606F;</p>
-<pre class="language-"><code>processor = function (array $record) {
+<pre><code>processor = function (array $record) {
     $record[&apos;now&apos;] = substr($record[&apos;datetime&apos;]-&gt;format(&apos;Y-m-d H:i:s.u&apos;), 0, -3);
     $record[&apos;ip&apos;] = getIp();
     return $record;
@@ -1151,135 +1147,135 @@
 <p>&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x4F7F;&#x7528; <strong>FileHandler</strong></p>
 <p>&apos;FileHandler&#x2018;&#x6709;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684;&#x529F;&#x80FD;&#x662F;&#x3010;&#x6587;&#x4EF6;&#x5206;&#x5272;&#x3011;&#xFF0C;&#x6BD4;&#x5982;&#x53EF;&#x4EE5;&#x4EE5;&#x5929;&#x5206;&#x5272;&#xFF0C;&#x4E00;&#x5929;&#x4E00;&#x4E2A;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x3002;</p>
 <p>&#x53EF;&#x4EE5;&#x770B;&#x4E00;&#x4E0B;<code>LogServiceProvider</code>&#x7684;&#x6E90;&#x4EE3;&#x7801;</p>
-<pre class="language-"><code class="lang-php">
-<span class="token keyword">class</span> <span class="token class-name">LogServiceProvider</span> <span class="token keyword">extends</span> <span class="token class-name">ServiceProvider</span>
-<span class="token punctuation">{</span>
-   <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">register</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">singleton</span><span class="token punctuation">(</span><span class="token string">&apos;log&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">createLogger</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+<pre><code class="lang-php">
+class LogServiceProvider extends ServiceProvider
+{
+   public function register()
+    {
+        $this-&gt;app-&gt;singleton(&apos;log&apos;, function () {
+            return $this-&gt;createLogger();
+        });
+    }
 
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">createLogger</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token variable">$monolog</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Monolog</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">channel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$log</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Writer</span><span class="token punctuation">(</span><span class="token variable">$monolog</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token punctuation">[</span><span class="token string">&apos;events&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    public function createLogger()
+    {
+        $monolog = new Monolog($this-&gt;channel());
+        $log = new Writer($monolog, $this-&gt;app[&apos;events&apos;])
 
-        <span class="token shell-comment comment"># &#x521D;&#x59CB;&#x5316;Handler</span>
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">configureHandler</span><span class="token punctuation">(</span><span class="token variable">$log</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        # &#x521D;&#x59CB;&#x5316;Handler
+        $this-&gt;configureHandler($log);
 
-        <span class="token keyword">return</span> <span class="token variable">$log</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+        return $log;
+    }
 
-    <span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">configureHandler</span><span class="token punctuation">(</span>Writer <span class="token variable">$log</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token shell-comment comment"># handler()&#x8FD4;&#x56DE;&#x4ECE;config&#x5BF9;&#x8C61;&#x7684;app.log&#x8BFB;&#x53D6;&#x5230;&#x7684;&#x914D;&#x7F6E;</span>
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token string">&apos;configure&apos;</span><span class="token punctuation">.</span><span class="token function">ucfirst</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">handler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token string">&apos;Handler&apos;</span><span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token variable">$log</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    protected function configureHandler(Writer $log)
+    {
+        # handler()&#x8FD4;&#x56DE;&#x4ECE;config&#x5BF9;&#x8C61;&#x7684;app.log&#x8BFB;&#x53D6;&#x5230;&#x7684;&#x914D;&#x7F6E;
+        $this-&gt;{&apos;configure&apos;.ucfirst($this-&gt;handler()).&apos;Handler&apos;}($log);
+    }
 
-    <span class="token shell-comment comment"># &#x4EE5;&#x5929;&#x5206;&#x5272;&#x65E5;&#x5FD7;</span>
-    <span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">configureDailyHandler</span><span class="token punctuation">(</span>Writer <span class="token variable">$log</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token variable">$log</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">useDailyFiles</span><span class="token punctuation">(</span>
-            <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">storagePath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token string">&apos;/logs/laravel.log&apos;</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">maxFiles</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">logLevel</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    # &#x4EE5;&#x5929;&#x5206;&#x5272;&#x65E5;&#x5FD7;
+    protected function configureDailyHandler(Writer $log)
+    {
+        $log-&gt;useDailyFiles(
+            $this-&gt;app-&gt;storagePath().&apos;/logs/laravel.log&apos;, $this-&gt;maxFiles(),
+            $this-&gt;logLevel()
+        );
+    }
 
-<span class="token punctuation">}</span>
+}
 
-<span class="token keyword">class</span> <span class="token class-name">Writer</span>
-<span class="token punctuation">{</span>
-    <span class="token shell-comment comment"># &#x53EF;&#x4EE5;&#x770B;&#x5230;monolog&#x901A;&#x8FC7;&#x6CE8;&#x5165;&#x7684;&#x65B9;&#x5F0F;&#x6CE8;&#x5165;&#x5230;&#x4E86;Writer</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span>MonologLogger <span class="token variable">$monolog</span><span class="token punctuation">,</span> Dispatcher <span class="token variable">$dispatcher</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">monolog</span> <span class="token operator">=</span> <span class="token variable">$monolog</span><span class="token punctuation">;</span>
+class Writer
+{
+    # &#x53EF;&#x4EE5;&#x770B;&#x5230;monolog&#x901A;&#x8FC7;&#x6CE8;&#x5165;&#x7684;&#x65B9;&#x5F0F;&#x6CE8;&#x5165;&#x5230;&#x4E86;Writer
+    public function __construct(MonologLogger $monolog, Dispatcher $dispatcher = null)
+    {
+        $this-&gt;monolog = $monolog;
 
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$dispatcher</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">dispatcher</span> <span class="token operator">=</span> <span class="token variable">$dispatcher</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+        if (isset($dispatcher)) {
+            $this-&gt;dispatcher = $dispatcher;
+        }
+    }
 
-    <span class="token shell-comment comment"># &#x8BB0;&#x5F55;info &#x7EA7;&#x522B;&#x7684;&#x65E5;&#x5FD7;</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">info</span><span class="token punctuation">(</span><span class="token variable">$message</span><span class="token punctuation">,</span> <span class="token keyword">array</span> <span class="token variable">$context</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">writeLog</span><span class="token punctuation">(</span><span class="token constant">__FUNCTION__</span><span class="token punctuation">,</span> <span class="token variable">$message</span><span class="token punctuation">,</span> <span class="token variable">$context</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    # &#x8BB0;&#x5F55;info &#x7EA7;&#x522B;&#x7684;&#x65E5;&#x5FD7;
+    public function info($message, array $context = [])
+    {
+        $this-&gt;writeLog(__FUNCTION__, $message, $context);
+    }
 
 
-    <span class="token shell-comment comment"># &#x52A0;&#x5165;&#x4E8B;&#x4EF6;&#x673A;&#x5236;</span>
-    <span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">writeLog</span><span class="token punctuation">(</span><span class="token variable">$level</span><span class="token punctuation">,</span> <span class="token variable">$message</span><span class="token punctuation">,</span> <span class="token variable">$context</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">fireLogEvent</span><span class="token punctuation">(</span><span class="token variable">$level</span><span class="token punctuation">,</span> <span class="token variable">$message</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">formatMessage</span><span class="token punctuation">(</span><span class="token variable">$message</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token variable">$context</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    # &#x52A0;&#x5165;&#x4E8B;&#x4EF6;&#x673A;&#x5236;
+    protected function writeLog($level, $message, $context)
+    {
+        $this-&gt;fireLogEvent($level, $message = $this-&gt;formatMessage($message), $context);
 
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">monolog</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token variable">$level</span><span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token variable">$message</span><span class="token punctuation">,</span> <span class="token variable">$context</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+        $this-&gt;monolog-&gt;{$level}($message, $context);
+    }
 
-    <span class="token shell-comment comment"># path&#x5C31;&#x662F;&#x65E5;&#x5FD7;&#x4FDD;&#x5B58;&#x7684;&#x6587;&#x4EF6;&#xFF0C;days&#x662F;&#x4FDD;&#x5B58;&#x65E5;&#x5FD7;&#x7684;&#x6570;&#x91CF;&#xFF0C;0&#x8868;&#x793A;&#x65E5;&#x5FD7;&#x6570;&#x91CF;&#x6CA1;&#x6709;&#x9650;&#x5236;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x81EA;&#x52A8;&#x5220;&#x9664;&#x76F8;&#x5173;&#x65E5;&#x5FD7;</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">useDailyFiles</span><span class="token punctuation">(</span><span class="token variable">$path</span><span class="token punctuation">,</span> <span class="token variable">$days</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token variable">$level</span> <span class="token operator">=</span> <span class="token string">&apos;debug&apos;</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token shell-comment comment"># &#x6CE8;&#x610F;hanlder&#x662F;RotatingFileHandler&#xFF0C;&#x8FD9;&#x91CC;&#x4F1A;&#x81EA;&#x52A8;&#x5B9E;&#x73B0;&#x65E5;&#x5FD7;&#x5206;&#x5272;</span>
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">monolog</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">pushHandler</span><span class="token punctuation">(</span>
-            <span class="token variable">$handler</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RotatingFileHandler</span><span class="token punctuation">(</span><span class="token variable">$path</span><span class="token punctuation">,</span> <span class="token variable">$days</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">parseLevel</span><span class="token punctuation">(</span><span class="token variable">$level</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    # path&#x5C31;&#x662F;&#x65E5;&#x5FD7;&#x4FDD;&#x5B58;&#x7684;&#x6587;&#x4EF6;&#xFF0C;days&#x662F;&#x4FDD;&#x5B58;&#x65E5;&#x5FD7;&#x7684;&#x6570;&#x91CF;&#xFF0C;0&#x8868;&#x793A;&#x65E5;&#x5FD7;&#x6570;&#x91CF;&#x6CA1;&#x6709;&#x9650;&#x5236;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x81EA;&#x52A8;&#x5220;&#x9664;&#x76F8;&#x5173;&#x65E5;&#x5FD7;
+    public function useDailyFiles($path, $days = 0, $level = &apos;debug&apos;)
+    {
+        # &#x6CE8;&#x610F;hanlder&#x662F;RotatingFileHandler&#xFF0C;&#x8FD9;&#x91CC;&#x4F1A;&#x81EA;&#x52A8;&#x5B9E;&#x73B0;&#x65E5;&#x5FD7;&#x5206;&#x5272;
+        $this-&gt;monolog-&gt;pushHandler(
+            $handler = new RotatingFileHandler($path, $days, $this-&gt;parseLevel($level))
+        );
 
-        <span class="token shell-comment comment"># handler&#x91CC;&#x9762;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;Formatter</span>
-        <span class="token variable">$handler</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">setFormatter</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getDefaultFormatter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+        # handler&#x91CC;&#x9762;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;Formatter
+        $handler-&gt;setFormatter($this-&gt;getDefaultFormatter());
+    }
 
-    <span class="token shell-comment comment"># &#x914D;&#x7F6E;Formatter &#x600E;&#x4E48;&#x81EA;&#x5B9A;&#x4E49;Formatter&#x5462;&#xFF0C;</span>
-    <span class="token shell-comment comment"># &#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;`UserDefineWriter`&#x7C7B;&#x7EE7;&#x627F;`Writer`, &#x6539;&#x5199;getDefaultFormatter &#x65B9;&#x6CD5;</span>
-    <span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">getDefaultFormatter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">LineFormatter</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    # &#x914D;&#x7F6E;Formatter &#x600E;&#x4E48;&#x81EA;&#x5B9A;&#x4E49;Formatter&#x5462;&#xFF0C;
+    # &#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;`UserDefineWriter`&#x7C7B;&#x7EE7;&#x627F;`Writer`, &#x6539;&#x5199;getDefaultFormatter &#x65B9;&#x6CD5;
+    protected function getDefaultFormatter()
+    {
+        return new LineFormatter(null, null, true, true);
+    }
+}
 </code></pre>
 <h2 id="&#x81EA;&#x5B9A;&#x4E49;processor">&#x81EA;&#x5B9A;&#x4E49;processor</h2>
 <p>&#x5230;&#x76EE;&#x524D;&#x4E3A;&#x6B62;&#xFF0C;&#x6211;&#x4EEC;&#x77E5;&#x9053;laravel&#x600E;&#x4E48;&#x8BBE;&#x7F6E;<code>handler</code>, &#x600E;&#x4E48;&#x91CD;&#x5199;<code>Formatter</code>, &#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x6700;&#x91CD;&#x8981;&#x7684;&#x95EE;&#x9898;&#x6CA1;&#x6709;&#x8BF4;&#x660E;&#xFF0C;&#x90A3;&#x5C31;&#x662F;&#x600E;&#x4E48;&#x6CE8;&#x5165;processor</p>
 <p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;<code>Monolog</code>&#x7C7B;&#x91CC;&#x9762;&#x6709;&#x4E00;&#x4E2A;<code>pushProcessor</code>&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x6CE8;&#x5165;&#x81EA;&#x5B9A;&#x4E49;&#x7684;<code>Processor</code>, <code>Writer</code>&#x7C7B;&#x91CC;&#x9762;&#x6709;&#x4E00;&#x4E2A;<code>getMonolog</code>&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;<code>Monolog</code>&#x5BF9;&#x8C61;</p>
-<pre class="language-"><code class="lang-php"><span class="token shell-comment comment"># &#x6CE8;&#x5165;&#x81EA;&#x5B9A;&#x4E49;&#x7684;`processor`</span>
-Log<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">getMonolog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">pushProcessor</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token keyword">array</span> <span class="token variable">$record</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token variable">$record</span><span class="token punctuation">[</span><span class="token string">&apos;now&apos;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">substr</span><span class="token punctuation">(</span><span class="token variable">$record</span><span class="token punctuation">[</span><span class="token string">&apos;datetime&apos;</span><span class="token punctuation">]</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">&apos;Y-m-d H:i:s.u&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$record</span><span class="token punctuation">[</span><span class="token string">&apos;pid&apos;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">getmypid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$record</span><span class="token punctuation">[</span><span class="token string">&apos;session_id&apos;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">session_id</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">?</span><span class="token punctuation">:</span> <span class="token string">&apos;null&apos;</span><span class="token punctuation">;</span>
-    <span class="token variable">$record</span><span class="token punctuation">[</span><span class="token string">&apos;ip&apos;</span><span class="token punctuation">]</span> <span class="token operator">=</span> Request<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">ip</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token variable">$record</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-php"># &#x6CE8;&#x5165;&#x81EA;&#x5B9A;&#x4E49;&#x7684;`processor`
+Log::getMonolog()-&gt;pushProcessor(function (array $record) {
+    $record[&apos;now&apos;] = substr($record[&apos;datetime&apos;]-&gt;format(&apos;Y-m-d H:i:s.u&apos;), 0, -3);
+    $record[&apos;pid&apos;] = getmypid();
+    $record[&apos;session_id&apos;] = session_id() ?: &apos;null&apos;;
+    $record[&apos;ip&apos;] = Request::ip();
+    return $record;
+});
 </code></pre>
 <p>&#x540C;&#x6837;&#x7684;&#x9053;&#x7406;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x4F7F;&#x7528;<code>Monolog</code>&#x63D0;&#x4F9B;&#x7684;<code>SyslogHandler</code>&#xFF0C;&#x90A3;&#x4E48;&#x53EA;&#x9700;&#x8981;&#x8FD9;&#x6837;</p>
-<pre class="language-"><code class="lang-php">    <span class="token shell-comment comment"># ident &#x4E00;&#x822C;&#x662F;&#x7A0B;&#x5E8F;&#x7684;&#x6807;&#x793A;&#x7C7B;&#x4F3C;&#x4E8E;channel</span>
-    <span class="token shell-comment comment"># facility &#x662F;&#x7CFB;&#x7EDF;syslog&#x63D0;&#x4F9B;&#x7684;&#xFF0C;&#x4E00;&#x822C;&#x4F7F;&#x7528;LOG_USER</span>
-    Log<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">getMonolog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">pushHandler</span><span class="token punctuation">(</span><span class="token function">SyslogHandler</span><span class="token punctuation">(</span><span class="token variable">$ident</span><span class="token punctuation">,</span> <span class="token variable">$facility</span><span class="token punctuation">,</span> <span class="token variable">$level</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-php">    # ident &#x4E00;&#x822C;&#x662F;&#x7A0B;&#x5E8F;&#x7684;&#x6807;&#x793A;&#x7C7B;&#x4F3C;&#x4E8E;channel
+    # facility &#x662F;&#x7CFB;&#x7EDF;syslog&#x63D0;&#x4F9B;&#x7684;&#xFF0C;&#x4E00;&#x822C;&#x4F7F;&#x7528;LOG_USER
+    Log::getMonolog()-&gt;pushHandler(SyslogHandler($ident, $facility, $level));
 </code></pre>
 <p>&#x5230;&#x76EE;&#x524D;&#x4E3A;&#x6B62;&#xFF0C;<code>Writer</code>&#x7684;&#x4F7F;&#x7528;&#x5957;&#x8DEF;&#x5C31;&#x8BB2;&#x5B8C;&#x4E86;&#x3002;</p>
 <h2 id="&#x81EA;&#x5B9A;&#x4E49;&#x65E5;&#x5FD7;&#x683C;&#x5F0F;">&#x81EA;&#x5B9A;&#x4E49;&#x65E5;&#x5FD7;&#x683C;&#x5F0F;</h2>
 <p>&#x6807;&#x51C6;&#x7684;&#x683C;&#x5F0F;&quot;&#x65F6;&#x95F4; &#x7EA7;&#x522B; pid [&#x901A;&#x9053; seq_id request_id] ip session_id message context&quot;</p>
-<pre class="language-"><code class="lang-php">
-<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Log<span class="token punctuation">\</span>Writer</span> <span class="token keyword">as</span> BaseWriter<span class="token punctuation">;</span>
-<span class="token keyword">use</span> <span class="token package">Monolog<span class="token punctuation">\</span>Formatter<span class="token punctuation">\</span>LineFormatter</span><span class="token punctuation">;</span>
+<pre><code class="lang-php">
+use Illuminate\Log\Writer as BaseWriter;
+use Monolog\Formatter\LineFormatter;
 
-<span class="token keyword">class</span> <span class="token class-name">Writer</span> <span class="token keyword">extends</span> <span class="token class-name">BaseWriter</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">getDefaultFormatter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">LineFormatter</span><span class="token punctuation">(</span><span class="token string">&quot;%now% %level_name% %[%pid%]: [%channel% %seq_id% %request_id%] %ip% %session_id% ## %message% %context%\n&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Y-m-d H:i:s.u&quot;</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+class Writer extends BaseWriter
+{
+    protected function getDefaultFormatter()
+    {
+        return new LineFormatter(&quot;%now% %level_name% %[%pid%]: [%channel% %seq_id% %request_id%] %ip% %session_id% ## %message% %context%\n&quot;, &quot;Y-m-d H:i:s.u&quot;, true);
+    }
+}
 </code></pre>
 <h2 id="error&#x548C;access&#x65E5;&#x5FD7;&#x5206;&#x79BB;">error&#x548C;access&#x65E5;&#x5FD7;&#x5206;&#x79BB;</h2>
 <p>laravel&#x9ED8;&#x8BA4;&#x6CA1;&#x6709;&#x5B9E;&#x73B0; access&#x548C;error&#x65E5;&#x5FD7;&#x7684;&#x5206;&#x79BB;&#x3002;</p>
 <p>&#x6240;&#x6709;&#x7684;&#x65E5;&#x5FD7;&#x90FD;&#x5B9A;&#x4E49;&#x5728; <code>$this-&gt;app-&gt;storagePath().&apos;/logs/laravel.log&apos;</code></p>
 <p>&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5B9E;&#x73B0;&#x5206;&#x79BB;&#x5462;&#xFF0C;&#x6BD4;&#x5982;&#x53EF;&#x4EE5;&#x4FBF;&#x4E8E;&#x65E5;&#x5FD7;&#x76D1;&#x63A7;&#x3002;</p>
 <p>&#x600E;&#x4E48;&#x5B9E;&#x73B0;&#x5206;&#x79BB;&#x5462;, &#x5B9A;&#x4E49;&#x4E24;&#x4E2A;handler</p>
-<pre class="language-"><code class="lang-php"><span class="token shell-comment comment">#level The minimum logging level at which this handler will be triggered</span>
-<span class="token shell-comment comment"># &#x4F1A;&#x8BB0;&#x5F55;info&#xFF0C;warning, error&#x4FE1;&#x606F;</span>
-<span class="token variable">$logger</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">useDailyFiles</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token punctuation">[</span><span class="token string">&apos;config&apos;</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">&apos;log.file&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">&apos;info&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-php">#level The minimum logging level at which this handler will be triggered
+# &#x4F1A;&#x8BB0;&#x5F55;info&#xFF0C;warning, error&#x4FE1;&#x606F;
+$logger-&gt;useDailyFiles($this-&gt;app[&apos;config&apos;][&apos;log.file&apos;], 0, &apos;info&apos;);
 
 
-<span class="token shell-comment comment"># &#x53EA;&#x4F1A;&#x8BB0;&#x5F55;error&#x4FE1;&#x606F;</span>
-<span class="token variable">$logger</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">useDailyFiles</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token punctuation">[</span><span class="token string">&apos;config&apos;</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">&apos;log.error&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">&apos;error&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+# &#x53EA;&#x4F1A;&#x8BB0;&#x5F55;error&#x4FE1;&#x606F;
+$logger-&gt;useDailyFiles($this-&gt;app[&apos;config&apos;][&apos;log.error&apos;], 0, &apos;error&apos;);
 </code></pre>
 
                                 
@@ -1324,7 +1320,7 @@ Log<span class="token punctuation">:</span><span class="token punctuation">:</sp
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Laravel-Log","level":"1.2.9","depth":2,"next":{"title":"Laravel-Request","level":"1.2.10","depth":2,"path":"section_php/reqeust.md","ref":"section_php/reqeust.md","articles":[]},"previous":{"title":"Laravel-Middleware","level":"1.2.8","depth":2,"path":"section_php/mdiddleware.md","ref":"section_php/mdiddleware.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_php/log.md","mtime":"2018-12-08T02:41:07.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T03:27:46.550Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Laravel-Log","level":"1.2.9","depth":2,"next":{"title":"Laravel-Request","level":"1.2.10","depth":2,"path":"section_php/reqeust.md","ref":"section_php/reqeust.md","articles":[]},"previous":{"title":"Laravel-Middleware","level":"1.2.8","depth":2,"path":"section_php/mdiddleware.md","ref":"section_php/mdiddleware.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_php/log.md","mtime":"2018-12-08T03:32:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T04:28:00.539Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -17,10 +17,6 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-okaidia.css">
-                
-            
-                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-toc2/toc2.css">
                 
             
@@ -304,9 +300,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="ob.md">
+        <li class="chapter " data-level="1.3.1" data-path="ob.html">
             
-                <span>
+                <a href="ob.html">
             
                     
                     python object
@@ -330,9 +326,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="module.md">
+        <li class="chapter " data-level="1.3.3" data-path="module.html">
             
-                <span>
+                <a href="module.html">
             
                     
                     module
@@ -1068,14 +1064,14 @@
 <p>&#x6211;&#x7684;&#x7406;&#x89E3;&#x5C31;&#x662F;&#xFF0C;&#x6BD4;&#x5982;&#x4F60;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6700;&#x7EC8;&#x4F60;&#x9700;&#x8981;&#x6539;&#x53D8;&#x8FD9;&#x4E2A;&#x6253;&#x5F00;&#x7684;&#x6587;&#x4EF6;&#x8D44;&#x6E90;&#xFF0C;&#x5982;&#x679C;&#x5728;&#x5173;&#x95ED;&#x6587;&#x4EF6;&#x8D44;&#x6E90;&#x4E4B;&#x524D;&#xFF0C;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#x53D1;&#x751F;&#x4E86;&#x9519;&#x8BEF;&#xFF0C;&#x5F88;&#x6709;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x6587;&#x4EF6;&#x4E0D;&#x4F1A;&#x88AB;&#x5173;&#x95ED;&#xFF0C;&#x8FD9;&#x4F1A;&#x5BFC;&#x81F4;&#x201C;&#x8D44;&#x6E90;&#x6CC4;&#x9732;&#x201D;</p>
 <p>&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#xFF0C;&#x4FDD;&#x8BC1;&#x65E0;&#x8BBA;&#x4EE3;&#x7801;&#x662F;&#x5426;&#x51FA;&#x9519;&#xFF0C;&#x6253;&#x5F00;&#x7684;&apos;&#x8D44;&#x6E90;&apos;&#x6700;&#x7EC8;&#x90FD;&#x4F1A;&#x88AB;&#x91CA;&#x653E;</p>
 <p>&#x6240;&#x4EE5;&#xFF0C;&#x5F53;&#x4F60;&#x81EA;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;<code>&#x8D44;&#x6E90;</code>,&#x90A3;&#x4F60;&#x5C31;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5230;<code>contextclib</code>&#x53BB;&#x7BA1;&#x7406;&#x8FD9;&#x4E2A;&#x8D44;&#x6E90;</p>
-<pre class="language-"><code class="lang-python"><span class="token keyword">with</span> file<span class="token punctuation">(</span><span class="token string">&apos;test,&apos;</span>r&apos;<span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-    <span class="token keyword">print</span> f<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<pre><code class="lang-python">with file(&apos;test,&apos;r&apos;) as f:
+    print f.readline()
 
-<span class="token comment" spellcheck="true"># &#x4EE3;&#x7801;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x4E4B;&#x540E;&#xFF0C;&#x4E0D;&#x7BA1;&#x662F;&#x5728;&#x54EA;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7A0B;&#x5E8F;&#x90FD;&#x4F1A;&#x201C;&#x81EA;&#x52A8;&#x5173;&#x95ED;&#x6587;&#x4EF6;</span>
+# &#x4EE3;&#x7801;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x4E4B;&#x540E;&#xFF0C;&#x4E0D;&#x7BA1;&#x662F;&#x5728;&#x54EA;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7A0B;&#x5E8F;&#x90FD;&#x4F1A;&#x201C;&#x81EA;&#x52A8;&#x5173;&#x95ED;&#x6587;&#x4EF6;
 </code></pre>
 <p>&#x4F7F;&#x7528;<code>with</code>&#x4FEE;&#x8F9E;&#xFF0C;&#x8D44;&#x6E90;&#x5728;&#x5F15;&#x7528;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF0C;python&#x4F1A;&#x81EA;&#x52A8;&#x5173;&#x95ED;&#x8FD9;&#x4E2A;&#x8D44;&#x6E90;
 <code>with</code> &#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x5173;&#x95ED;&#x6253;&#x5F00;&#x7684;&#x8D44;&#x6E90;&#xFF0C;&#x4F46;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x8D44;&#x6E90;&#xFF0C;&#x600E;&#x4E48;&#x5173;&#x95ED;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x505A;:</p>
-<pre class="language-"><code>import contextlib
+<pre><code>import contextlib
 
 @contextlib.contextmanager
 def session_stack():
@@ -1093,82 +1089,82 @@ with session_stack():
 # &#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x9996;&#x5148;&#x4F1A;&#x6267;&#x884C;`yield`&#x4E4B;&#x524D;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x7ED9;&#x8D44;&#x6E90;`session_stack=1`, &#x7136;&#x540E;&#x4F1A;&#x6267;&#x884C;`session_stack -= 1`
 </code></pre><p><code>with</code>&#x4FEE;&#x9970;&#x4E00;&#x4E2A;&#x53EF;&#x6267;&#x884C;&#x5BF9;&#x8C61;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7406;&#x89E3;&#x4EC0;&#x4E48;&#x662F;&#x53EF;&#x6267;&#x884C;&#x5BF9;&#x8C61;&#xFF0C;&#x5728;python&#x4E2D;&#xFF0C;&#x5E38;&#x89C1;&#x7684;&#x6709;&#x51FD;&#x6570;&#xFF0C;&#x7C7B;&#xFF0C;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#xFF0C;&#x7C7B;&#x65B9;&#x6CD5;&#xFF0C;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#x65B9;&#x6CD5;&#x7B49;&#xFF0C;&#x6240;&#x4EE5;with&#x53EF;&#x4EE5;&#x4FEE;&#x9970;&#x4EE5;&#x4E0A;&#x51E0;&#x7C7B;&#x5BF9;&#x8C61;</p>
 <p><code>with</code>&#x5230;&#x5E95;&#x505A;&#x4E86;&#x4EC0;&#x4E48;&#x4E8B;&#x60C5;, &#x8BF7;&#x770B;&#x4E0B;&#x9762;&#xFF1A;</p>
-<pre class="language-"><code class="lang-python">
-<span class="token keyword">class</span> <span class="token class-name">Context</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<pre><code class="lang-python">
+class Context(object):
 
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span> <span class="token string">&apos;execute __init__ ...&apos;</span>
+    def __init__(self):
+        print &apos;execute __init__ ...&apos;
 
-    <span class="token keyword">def</span> <span class="token function">__enter__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span> <span class="token string">&apos;execute __enter__ ...&apos;</span>
-        <span class="token keyword">return</span> <span class="token string">&apos;hello&apos;</span>
+    def __enter__(self):
+        print &apos;execute __enter__ ...&apos;
+        return &apos;hello&apos;
 
-    <span class="token keyword">def</span> <span class="token function">__exit__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span> <span class="token string">&apos;execute __exit__ ...&apos;</span>
+    def __exit__(self, *args):
+        print &apos;execute __exit__ ...&apos;
 
-<span class="token comment" spellcheck="true"># with &#x4FEE;&#x9970;&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;</span>
-<span class="token keyword">with</span> Context<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> e<span class="token punctuation">:</span>
-    <span class="token keyword">print</span> <span class="token string">&apos;execute with code&apos;</span>
-    <span class="token comment" spellcheck="true"># e&#x5C31;&#x662F;__entry__&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;</span>
-    <span class="token keyword">print</span> e
+# with &#x4FEE;&#x9970;&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;
+with Context() as e:
+    print &apos;execute with code&apos;
+    # e&#x5C31;&#x662F;__entry__&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;
+    print e
 
-<span class="token comment" spellcheck="true"># &#x5FC5;&#x987B;&#x5F97;&#x641E;&#x6E05;&#x695A;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x7684;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#xFF1A;</span>
-<span class="token comment" spellcheck="true"># outputs:</span>
-<span class="token comment" spellcheck="true"># execute __init__ ...</span>
-<span class="token comment" spellcheck="true"># execute __enter__ ...</span>
-<span class="token comment" spellcheck="true"># execute with code</span>
-<span class="token comment" spellcheck="true"># hello</span>
-<span class="token comment" spellcheck="true"># execute __exit__ ...</span>
+# &#x5FC5;&#x987B;&#x5F97;&#x641E;&#x6E05;&#x695A;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x7684;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#xFF1A;
+# outputs:
+# execute __init__ ...
+# execute __enter__ ...
+# execute with code
+# hello
+# execute __exit__ ...
 </code></pre>
 <p>&#x901A;&#x8FC7;&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#xFF0C;&#x8C03;&#x7528;with&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x4F9D;&#x6B21;&#x6267;&#x884C;&#x4E86;&#x88AB;with&#x4FEE;&#x9970;&#x7684;&#x5BF9;&#x8C61;&#x7684;<code>__init__</code>, <code>__entry__</code> <code>__exit__</code>  &#x51FD;&#x6570;</p>
 <p>&#x8BD5;&#x60F3;&#x4E00;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x7C7B;&#xFF0C;&#x5728;<code>__entry__</code>&#x51FD;&#x6570;&#x4E2D;<code>&#x6253;&#x5F00;&#x8D44;&#x6E90;</code>, &#x5728;<code>__exit__</code>&#x51FD;&#x6570;&#x4E2D;<code>&#x5173;&#x95ED;&#x8D44;&#x6E90;</code>, &#x7136;&#x540E;&#x5728;&#x7528;&#x7C7B;&#x53BB;&#x88C5;&#x9970;&#x67D0;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x7528;&#x8FD9;&#x4E2A;&#x7C7B;&#x53BB;&#x7BA1;&#x7406;&#x51FD;&#x6570;&#x6267;&#x884C;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4E86;</p>
-<pre class="language-"><code class="lang-python"><span class="token keyword">class</span> <span class="token class-name">Contextlib</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> func<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span> <span class="token string">&apos;init decoration class&apos;</span>
-        <span class="token comment" spellcheck="true"># &#x751F;&#x6210;generation</span>
-        self<span class="token punctuation">.</span>gen <span class="token operator">=</span> func<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<pre><code class="lang-python">class Contextlib(object):
+    def __init__(self, func):
+        print &apos;init decoration class&apos;
+        # &#x751F;&#x6210;generation
+        self.gen = func()
 
-    <span class="token keyword">def</span> <span class="token function">__enter__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span> <span class="token string">&apos;excute code  before yield&apos;</span>
-        self<span class="token punctuation">.</span>gen<span class="token punctuation">.</span>next<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    def __enter__(self):
+        print &apos;excute code  before yield&apos;
+        self.gen.next()
 
-    <span class="token keyword">def</span> <span class="token function">__exit__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> <span class="token operator">*</span>agrs<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span> <span class="token string">&apos;excute code after yield&apos;</span>
-        <span class="token keyword">try</span><span class="token punctuation">:</span>
-            self<span class="token punctuation">.</span>gen<span class="token punctuation">.</span>next<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">except</span> <span class="token punctuation">(</span>StopIteration<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">print</span> <span class="token string">&apos;done&apos;</span>
+    def __exit__(self, *agrs):
+        print &apos;excute code after yield&apos;
+        try:
+            self.gen.next()
+        except (StopIteration):
+            print &apos;done&apos;
 @Contextlib
-<span class="token keyword">def</span> <span class="token function">context_lib</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span> <span class="token string">&apos;outputs  before run into yield&apos;</span>
-    <span class="token keyword">yield</span> <span class="token string">&apos;yield return value&apos;</span>
-    <span class="token keyword">print</span> <span class="token string">&apos;outputs after excute yield&apos;</span>
+def context_lib(*args):
+    print &apos;outputs  before run into yield&apos;
+    yield &apos;yield return value&apos;
+    print &apos;outputs after excute yield&apos;
 
-<span class="token comment" spellcheck="true"># &#x8BF7;&#x6CE8;&#x610F;&#x8FD9;&#x4E2A;&#x7EC6;&#x8282;, &#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x88AB;&#x7C7B;&#x88C5;&#x9970;&#x4E4B;&#x540E;&#xFF0C;&#x7C7B;&#x578B;&#x5C31;&#x53D8;&#x6210;&#x4E00;&#x4E2A;&#x7C7B;</span>
-<span class="token keyword">print</span> type<span class="token punctuation">(</span>context_lib<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># outputs:</span>
-<span class="token comment" spellcheck="true"># &lt;class &apos;__main__.Contextlib&apos;&gt;</span>
+# &#x8BF7;&#x6CE8;&#x610F;&#x8FD9;&#x4E2A;&#x7EC6;&#x8282;, &#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x88AB;&#x7C7B;&#x88C5;&#x9970;&#x4E4B;&#x540E;&#xFF0C;&#x7C7B;&#x578B;&#x5C31;&#x53D8;&#x6210;&#x4E00;&#x4E2A;&#x7C7B;
+print type(context_lib)
+# outputs:
+# &lt;class &apos;__main__.Contextlib&apos;&gt;
 
-<span class="token keyword">print</span> type<span class="token punctuation">(</span>context_lib<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># outputs:</span>
-<span class="token comment" spellcheck="true"># &lt;type &apos;generator&apos;&gt;</span>
+print type(context_lib())
+# outputs:
+# &lt;type &apos;generator&apos;&gt;
 
-<span class="token comment" spellcheck="true"># &#x6CE8;&#x610F;context_lib&#x88AB;Contextlib&#x5BF9;&#x8C61;&#x88C5;&#x9970;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#x662F;Contextlib&#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x8C03;&#x7528;Contextlib&#x7684;__entry__&#x65B9;&#x6CD5;</span>
+# &#x6CE8;&#x610F;context_lib&#x88AB;Contextlib&#x5BF9;&#x8C61;&#x88C5;&#x9970;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#x662F;Contextlib&#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x8C03;&#x7528;Contextlib&#x7684;__entry__&#x65B9;&#x6CD5;
 
-<span class="token comment" spellcheck="true"># &#x4E0D;&#x8981;&#x4F7F;&#x7528;with context_lib() as f , &#x56E0;&#x4E3A;context_lib()&#x6267;&#x884C;&#x4E4B;&#x540E;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A;generator,generator&#x53EF;&#x6CA1;&#x6709;__entry__&#x65B9;&#x6CD5;&#xFF0C;&#x56E0;&#x800C;&#x4F1A;&#x62A5;&#x9519;</span>
-<span class="token keyword">with</span> context_lib <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-    <span class="token keyword">print</span> f
-<span class="token comment" spellcheck="true"># outputs:</span>
-<span class="token comment" spellcheck="true"># init decoration class</span>
-<span class="token comment" spellcheck="true"># excute code  before yield</span>
-<span class="token comment" spellcheck="true"># first called</span>
-<span class="token comment" spellcheck="true"># yield return value  &quot;f&quot; &#x5C31;&#x662F;yielf&#x7684;&#x8FD4;&#x56DE;&#x503C;</span>
-<span class="token comment" spellcheck="true"># excute code after yield</span>
-<span class="token comment" spellcheck="true"># last called</span>
-<span class="token comment" spellcheck="true"># done</span>
+# &#x4E0D;&#x8981;&#x4F7F;&#x7528;with context_lib() as f , &#x56E0;&#x4E3A;context_lib()&#x6267;&#x884C;&#x4E4B;&#x540E;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A;generator,generator&#x53EF;&#x6CA1;&#x6709;__entry__&#x65B9;&#x6CD5;&#xFF0C;&#x56E0;&#x800C;&#x4F1A;&#x62A5;&#x9519;
+with context_lib as f:
+    print f
+# outputs:
+# init decoration class
+# excute code  before yield
+# first called
+# yield return value  &quot;f&quot; &#x5C31;&#x662F;yielf&#x7684;&#x8FD4;&#x56DE;&#x503C;
+# excute code after yield
+# last called
+# done
 </code></pre>
 <p>&#x4E0B;&#x9762;&#x662F;<code>python contextlib</code> &#x7684;&#x6E90;&#x4EE3;&#x7801;&#xFF1A;</p>
-<pre class="language-"><code>class GeneratorContextManager(object):
+<pre><code>class GeneratorContextManager(object):
     &quot;&quot;&quot;Helper for @contextmanager decorator.&quot;&quot;&quot;
 
     def __init__(self, gen):
@@ -1263,7 +1259,7 @@ def contextmanager(func):
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"contextlib","level":"1.3.6","depth":2,"next":{"title":"collections","level":"1.3.7","depth":2,"path":"section_python/collection.md","ref":"section_python/collection.md","articles":[]},"previous":{"title":"yield","level":"1.3.5","depth":2,"path":"section_python/yield.md","ref":"section_python/yield.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_python/contextlib.md","mtime":"2018-12-08T02:41:07.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T03:27:46.550Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"contextlib","level":"1.3.6","depth":2,"next":{"title":"collections","level":"1.3.7","depth":2,"path":"section_python/collection.md","ref":"section_python/collection.md","articles":[]},"previous":{"title":"yield","level":"1.3.5","depth":2,"path":"section_python/yield.md","ref":"section_python/yield.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_python/contextlib.md","mtime":"2018-12-08T03:32:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T04:28:00.539Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

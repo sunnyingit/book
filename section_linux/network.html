@@ -17,10 +17,6 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-okaidia.css">
-                
-            
-                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-toc2/toc2.css">
                 
             
@@ -304,9 +300,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../section_python/ob.md">
+        <li class="chapter " data-level="1.3.1" data-path="../section_python/ob.html">
             
-                <span>
+                <a href="../section_python/ob.html">
             
                     
                     python object
@@ -330,9 +326,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="../section_python/module.md">
+        <li class="chapter " data-level="1.3.3" data-path="../section_python/module.html">
             
-                <span>
+                <a href="../section_python/module.html">
             
                     
                     module
@@ -1064,19 +1060,19 @@
                                 <h1 id="&#x7F51;&#x7EDC;&#x6027;&#x80FD;">&#x7F51;&#x7EDC;&#x6027;&#x80FD;</h1>
 <h3 id="iptraf">iptraf</h3>
 <p>&#x6D4B;&#x8BD5;&#x4E24;&#x53F0;&#x4E3B;&#x673A;&#x4E4B;&#x95F4;&#x7684;&#x7F51;&#x7EDC;&#x6027;&#x80FD;&#x7684;&#x4E00;&#x4E2A;&#x529E;&#x6CD5;&#x5C31;&#x662F;&#x5728;&#x8FD9;&#x4E24;&#x4E2A;&#x7CFB;&#x7EDF;&#x4E4B;&#x95F4;&#x4E92;&#x53D1;&#x6570;&#x636E;&#x5E76;&#x7EDF;&#x8BA1;&#x7ED3;&#x679C;&#xFF0C;&#x770B;&#x770B;&#x541E;&#x5410;&#x91CF;&#x3001;&#x5EF6;&#x8FDF;&#x3001;&#x901F;&#x7387;&#x5982;&#x4F55;, iptraf &#x7528;&#x4E8E;&#x67E5;&#x770B;&#x672C;&#x673A;&#x7F51;&#x7EDC;&#x7684;&#x541E;&#x5410;&#x91CF;&#xFF0C;IO&#x901F;&#x7387;&#x7B49;&#x53C2;&#x6570;</p>
-<pre class="language-"><code># install
+<pre><code># install
 sudo apt-get install iptarf
 iptraf -d eth0
 </code></pre><h3 id="ping">ping</h3>
 <p>ping &#x4F7F;&#x7528;ICMP&#x534F;&#x8BAE;&#xFF0C;&#x6D4B;&#x8BD5;&#x4E24;&#x4E2A;&#x4E3B;&#x673A;&#x4E4B;&#x95F4;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;</p>
-<pre class="language-"><code>ping [host|ip]
+<pre><code>ping [host|ip]
 </code></pre><h3 id="telnet">telnet</h3>
 <p>&#xFF0C;telnet&#x56E0;&#x4E3A;&#x91C7;&#x7528;&#x660E;&#x6587;&#x4F20;&#x9001;&#x62A5;&#x6587;&#xFF0C;&#x5B89;&#x5168;&#x6027;&#x4E0D;&#x597D;&#xFF0C;&#x5F88;&#x591A;Linux&#x670D;&#x52A1;&#x5668;&#x90FD;&#x4E0D;&#x5F00;&#x653E;telnet&#x670D;&#x52A1;&#xFF0C;&#x800C;&#x6539;&#x7528;&#x66F4;&#x5B89;&#x5168;&#x7684;ssh&#x65B9;&#x5F0F;&#x3002;</p>
 <p>&#x4F7F;&#x7528;<code>ping</code>&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x68C0;&#x6D4B;&#x4E24;&#x53F0;&#x4E3B;&#x673A;&#x662F;&#x5426;&#x53EF;&#x4EE5;connection, <code>telnet</code>&#x7528;&#x6765;&#x68C0;&#x6D4B;&#x4E3B;&#x673A;&#x7684;&#x67D0;&#x4E9B;&#x7AEF;&#x53E3;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;</p>
-<pre class="language-"><code>telnet host [port]
+<pre><code>telnet host [port]
 </code></pre><h3 id="netstat">netstat</h3>
 <p>netstat&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x67E5;&#x770B;TCP/IP&#x534F;&#x8BAE;&#x7684;&#x76F8;&#x5173;&#x6570;&#x636E;&#xFF0C;&#x5728;&#x5B9E;&#x9645;&#x4E1A;&#x52A1;&#x4E2D;&#xFF0C;&#x4F8B;&#x5982;&#x670D;&#x52A1;&#x8981;&#x8C03;&#x7528;&#x53E6;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x7684;&#x670D;&#x52A1;&#xFF0C;&#x6570;&#x636E;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;netstat&#x67E5;&#x770B;&#x4E24;&#x4E2A;&#x673A;&#x5668;&#x662F;&#x5426;&#x901A;&#x4FE1;&#xFF0C;&#x7AEF;&#x53E3;&#x662F;&#x5426;&#x88AB;&#x5360;&#x6709;&#xFF0C;TIME_WAIT&#x7684;&#x6570;&#x91CF;&#x7B49;</p>
-<pre class="language-"><code>man netstat
+<pre><code>man netstat
 
  netstat {--statistics|-s} [--tcp|-t] [--udp|-u] [--udplite|-U] [--raw|-w] [delay]
 
@@ -1095,12 +1091,12 @@ iptraf -d eth0
    --numeric-users
        shows numerical user IDs but does not affect the resolution of host or port names.
 </code></pre><p> &#x5E38;&#x7528;&#x7EC4;&#x5408;</p>
-<pre class="language-"><code> netstat -tupl | grep &apos;mysql&apos;
+<pre><code> netstat -tupl | grep &apos;mysql&apos;
  netstat -a | grep &apos;80&apos;
  netstat -n | grep &apos;423.11.11.55&apos;
 </code></pre><h3 id="tcpdump">tcpdump</h3>
 <p>dump traffic on a network, &#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x8F93;&#x51FA;&#x7F51;&#x7EDC;&#x72B6;&#x51B5;, &#x5728;&#x5B9E;&#x9645;&#x4E1A;&#x52A1;&#x4E2D;&#xFF0C;&#x83B7;&#x53D6;&#x4E24;&#x53F0;&#x670D;&#x52A1;&#x5668;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;</p>
-<pre class="language-"><code>&#x53EF;&#x4EE5;&#x6307;&#x5B9A;ip,&#x4F8B;&#x5982;&#x622A;&#x83B7;&#x6240;&#x6709;210.27.48.1 &#x7684;&#x4E3B;&#x673A;&#x6536;&#x5230;&#x7684;&#x548C;&#x53D1;&#x51FA;&#x7684;&#x6240;&#x6709;&#x7684;&#x6570;&#x636E;&#x5305;
+<pre><code>&#x53EF;&#x4EE5;&#x6307;&#x5B9A;ip,&#x4F8B;&#x5982;&#x622A;&#x83B7;&#x6240;&#x6709;210.27.48.1 &#x7684;&#x4E3B;&#x673A;&#x6536;&#x5230;&#x7684;&#x548C;&#x53D1;&#x51FA;&#x7684;&#x6240;&#x6709;&#x7684;&#x6570;&#x636E;&#x5305;
 tcpdump host 210.27.48.1
 
 &#x6253;&#x5370;helios &#x4E0E; hot &#x6216;&#x8005;&#x4E0E; ace &#x4E4B;&#x95F4;&#x901A;&#x4FE1;&#x7684;&#x6570;&#x636E;&#x5305;
@@ -1118,7 +1114,7 @@ tcpdump tcp port 23 and host 210.27.48.1
 &#x76D1;&#x89C6;&#x6307;&#x5B9A;&#x534F;&#x8BAE;&#x7684;&#x6570;&#x636E;&#x5305;
 tcpdump &apos;tcp[tcpflags] &amp; (tcp-syn|tcp-fin) != 0 and not src and dst net localnet&apos;
 </code></pre><h3 id="tcpdump-&#x4E0E;wireshark">tcpdump &#x4E0E;wireshark</h3>
-<pre class="language-"><code>tcpdump tcp -i eth1 -t -s 0 -c 100 and dst port ! 22 and src net 192.168.1.0/24 -w ./target.cap
+<pre><code>tcpdump tcp -i eth1 -t -s 0 -c 100 and dst port ! 22 and src net 192.168.1.0/24 -w ./target.cap
 
 (1)tcp: ip icmp arp rarp &#x548C; tcp&#x3001;udp&#x3001;icmp&#x8FD9;&#x4E9B;&#x9009;&#x9879;&#x7B49;&#x90FD;&#x8981;&#x653E;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x7528;&#x6765;&#x8FC7;&#x6EE4;&#x6570;&#x636E;&#x62A5;&#x7684;&#x7C7B;&#x578B;
 (2)-i eth1 : &#x53EA;&#x6293;&#x7ECF;&#x8FC7;&#x63A5;&#x53E3;eth1&#x7684;&#x5305;
@@ -1173,7 +1169,7 @@ tcpdump &apos;tcp[tcpflags] &amp; (tcp-syn|tcp-fin) != 0 and not src and dst net
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"network","level":"1.7.10","depth":2,"next":{"title":"代码设计","level":"1.8","depth":1,"path":"section_design/README.md","ref":"section_design/README.md","articles":[{"title":"API自动熔断","level":"1.8.1","depth":2,"path":"section_design/health.md","ref":"section_design/health.md","articles":[]},{"title":"TCP Server","level":"1.8.2","depth":2,"path":"section_design/tcp.md","ref":"section_design/tcp.md","articles":[]},{"title":"HTTP Server","level":"1.8.3","depth":2,"path":"section_design/http.md","ref":"section_design/http.md","articles":[]},{"title":"连接池设计","level":"1.8.4","depth":2,"path":"section_design/collection.md","ref":"section_design/collection.md","articles":[]},{"title":"线程池设计","level":"1.8.5","depth":2,"path":"section_design/thread.md","ref":"section_design/thread.md","articles":[]},{"title":"扫描登陆","level":"1.8.6","depth":2,"path":"section_design/qr_login.md","ref":"section_design/qr_login.md","articles":[]}]},"previous":{"title":"io","level":"1.7.9","depth":2,"path":"section_linux/io.md","ref":"section_linux/io.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_linux/network.md","mtime":"2018-12-08T02:41:07.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T03:27:46.550Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"network","level":"1.7.10","depth":2,"next":{"title":"代码设计","level":"1.8","depth":1,"path":"section_design/README.md","ref":"section_design/README.md","articles":[{"title":"API自动熔断","level":"1.8.1","depth":2,"path":"section_design/health.md","ref":"section_design/health.md","articles":[]},{"title":"TCP Server","level":"1.8.2","depth":2,"path":"section_design/tcp.md","ref":"section_design/tcp.md","articles":[]},{"title":"HTTP Server","level":"1.8.3","depth":2,"path":"section_design/http.md","ref":"section_design/http.md","articles":[]},{"title":"连接池设计","level":"1.8.4","depth":2,"path":"section_design/collection.md","ref":"section_design/collection.md","articles":[]},{"title":"线程池设计","level":"1.8.5","depth":2,"path":"section_design/thread.md","ref":"section_design/thread.md","articles":[]},{"title":"扫描登陆","level":"1.8.6","depth":2,"path":"section_design/qr_login.md","ref":"section_design/qr_login.md","articles":[]}]},"previous":{"title":"io","level":"1.7.9","depth":2,"path":"section_linux/io.md","ref":"section_linux/io.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_linux/network.md","mtime":"2018-12-08T03:32:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T04:28:00.539Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

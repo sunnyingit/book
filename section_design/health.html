@@ -17,10 +17,6 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-okaidia.css">
-                
-            
-                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-toc2/toc2.css">
                 
             
@@ -304,9 +300,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../section_python/ob.md">
+        <li class="chapter " data-level="1.3.1" data-path="../section_python/ob.html">
             
-                <span>
+                <a href="../section_python/ob.html">
             
                     
                     python object
@@ -330,9 +326,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="../section_python/module.md">
+        <li class="chapter " data-level="1.3.3" data-path="../section_python/module.html">
             
-                <span>
+                <a href="../section_python/module.html">
             
                     
                     module
@@ -1079,7 +1075,7 @@
 <p>&#x66F4;&#x51C6;&#x786E;&#x7684;&#x7B97;&#x6CD5;&#x662F; <code>20+4 / 10+100</code>, &#x4E5F;&#x5C31;&#x662F;&#x9700;&#x8981;&#x8003;&#x8651;&#x4E4B;&#x524D;&#x7684;&#x8BBF;&#x95EE;&#x72B6;&#x6001;&#x3002;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x4E0D;&#x80FD;&#x4E00;&#x76F4;&#x7D2F;&#x8BA1;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#xFF0C;&#x6570;&#x636E;&#x7684;&#x4F53;&#x91CF;&#x5C31;&#x4F1A;&#x592A;&#x5927;&#x4E86;&#xFF0C;&#x4E5F;&#x4E0D;&#x5229;&#x4E8E;&#x7EDF;&#x8BA1;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x8BBE;&#x8BA1;&#x53E6;&#x4E00;&#x4E2A;&#x6307;&#x6807;
 <code>metrics_rollingsize</code></p>
 <p>&#x5177;&#x4F53;&#x7B97;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre class="language-"><code>&#x8BBE;&#x5B9A;metrics_rollingsize=5&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;
+<pre><code>&#x8BBE;&#x5B9A;metrics_rollingsize=5&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;
 [0, 0, 0, 0, 0]
 &#x6BCF;&#x4E00;&#x4F4D;&#x4EE3;&#x8868;&#x5728;metrics_granularity&#x5185;&#x51FA;&#x9519;&#x7684;&#x6B21;&#x6570;
 [0, 0, 0, 0, 11]
@@ -1090,7 +1086,7 @@
 [11, 123, 99, 11, 0]
 </code></pre><p>&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x7C7B;&#x4F3C;&#x4E8E;&#x4E00;&#x4E2A;&#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#xFF0C;&#x6BCF;&#x8FC7;<code>metrics_granularity</code>&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x7A97;&#x53E3;&#x5411;&#x524D;&#x6ED1;&#x52A8;&#x4E00;&#x683C;&#x3002;</p>
 <p>&#x53C2;&#x8003;&#x4EE3;&#x7801;&#xFF1A;</p>
-<pre class="language-"><code>class RollingNumber(object):
+<pre><code>class RollingNumber(object):
 
     def __init__(self, rolling_size, granularity=1):
         self.rolling_size = rolling_size
@@ -1128,7 +1124,7 @@
         return sum(self._values)
 
     def __repr__(self):
-        return &apos;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rolling</span> <span class="token attr-name">number</span> <span class="token attr-name">{0}</span> <span class="token attr-name">{1}</span><span class="token punctuation">&gt;</span></span>&apos;.format(self.value(), self._values)
+        return &apos;&lt;rolling number {0} {1}&gt;&apos;.format(self.value(), self._values)
 
 if __name__ == &apos;__main__&apos;:
     rolling = RollingNumber(9, 3)
@@ -1137,7 +1133,7 @@ if __name__ == &apos;__main__&apos;:
         rolling.incr(1)
         print repr(rolling)
 </code></pre><p>&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x7684;dict&#x4FDD;&#x5B58;&#x6BCF;&#x4E2A;API&#x8BBF;&#x95EE;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x53C2;&#x8003;&#x4EE3;&#x7801;&#xFF1A;</p>
-<pre class="language-"><code>counters = {}
+<pre><code>counters = {}
 
 
 def incr(key, value=1):
@@ -1155,7 +1151,7 @@ def get(key, default=0):
         return counters[key].value()
     return default
 </code></pre><h3 id="api&#x72B6;&#x6001;&#x68C0;&#x6D4B;&#x7B97;&#x6CD5;">API&#x72B6;&#x6001;&#x68C0;&#x6D4B;&#x7B97;&#x6CD5;</h3>
-<pre class="language-"><code>def is_healthy(service, func):
+<pre><code>def is_healthy(service, func):
     key_base = &apos;{0}.{1}&apos;.format(service.name, func.func_name)
     key_request = &apos;{0}&apos;.format(key_base)
     key_timeout = &apos;{0}.timeout&apos;.format(key_base)
@@ -1181,7 +1177,7 @@ def get(key, default=0):
 <p>3&#xFF0C;&#x5982;&#x679C;API&#x5904;&#x4E8E;<code>recovery</code>&#x72B6;&#x6001;&#xFF0C;&#x5982;&#x679C;&#x6700;&#x65B0;&#x7684;&#x4E00;&#x6B21;API&#x662F;<code>unlock</code>&#x72B6;&#x6001;&#xFF0C;API&#x4F1A;&#x4EE5;&#x6982;&#x7387;&#x503C;&#x6062;&#x590D;&#x5230;&#x72B6;&#x6001;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x662F;<code>unlock</code>&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x8F6C;&#x53D8;&#x4E3A;<code>lock</code></p>
 <p>4&#xFF0C;&#x5982;&#x679C;API&#x7684;<code>lock</code>&#x72B6;&#x6001;&#x6301;&#x7EED;&#x65F6;&#x95F4;&#x5927;&#x4E8E;<code>MAX_RECOVERY_TIME</code>,&#x5219;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x5230;<code>unlock</code></p>
 <p>&#x53C2;&#x8003;&#x4EE3;&#x7801;&#xFF1A;</p>
-<pre class="language-"><code>locks = defaultdict(dict)
+<pre><code>locks = defaultdict(dict)
 # &#x4F7F;&#x7528;&#x670D;&#x52A1;&#x540D;&#x548C;&#x51FD;&#x6570;&#x540D;&#x6765;&#x786E;&#x5B9A;&#x552F;&#x4E00;&#x7684;API
 key = &apos;{0}.{1}&apos;.format(service.name, func.func_name)
 
@@ -1235,7 +1231,7 @@ elif locked_status == MODE_RECOVER:
 </code></pre><h3 id="&#x7EDF;&#x8BA1;&#x673A;&#x5236;">&#x7EDF;&#x8BA1;&#x673A;&#x5236;</h3>
 <p>&#x5F53;&#x76EE;&#x524D;&#x4F4D;&#x7F6E;&#xFF0C;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x4E86;&#x7136;&#x540E;&#x5224;&#x65AD;&#x4E00;&#x4E2A;API&#x662F;&#x5426;&#x5065;&#x5EB7;&#x5DF2;&#x7ECF;&#x7194;&#x65AD;&#x7684;&#x7B56;&#x7565;&#xFF0C;&#x73B0;&#x5728;&#x9700;&#x8981;&#x5173;&#x5FC3;&#x7684;&#x95EE;&#x9898;&#x662F;&#xFF0C;&#x600E;&#x4E48;&#x53BB;&#x7EDF;&#x8BA1;API&#x7684;<code>key_timeout key_sys_exc, key_unkwn_exc</code>&#x7B49;&#x6307;&#x6807;&#x7684;&#x6B21;&#x6570;</p>
 <p>&#x76EE;&#x524D;&#x6211;&#x4EEC;&#x91C7;&#x7528;&#x7684;&#x662F;&#x4F7F;&#x7528;<code>blinker</code>&#x6A21;&#x5757;&#x7684;<code>signal</code>, &#x5927;&#x81F4;&#x6D41;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre class="language-"><code># signal&#x53EA;&#x7F57;&#x5217;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x539F;&#x7406;&#x90FD;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E00;&#x79CD;&#x56DE;&#x8C03;&#x673A;&#x5236;
+<pre><code># signal&#x53EA;&#x7F57;&#x5217;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x539F;&#x7406;&#x90FD;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E00;&#x79CD;&#x56DE;&#x8C03;&#x673A;&#x5236;
 def register_signals():
     signals.after_api_called.connect(
     on_signal_after_api_called)
@@ -1310,7 +1306,7 @@ class service(object):
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"API自动熔断","level":"1.8.1","depth":2,"next":{"title":"TCP Server","level":"1.8.2","depth":2,"path":"section_design/tcp.md","ref":"section_design/tcp.md","articles":[]},"previous":{"title":"代码设计","level":"1.8","depth":1,"path":"section_design/README.md","ref":"section_design/README.md","articles":[{"title":"API自动熔断","level":"1.8.1","depth":2,"path":"section_design/health.md","ref":"section_design/health.md","articles":[]},{"title":"TCP Server","level":"1.8.2","depth":2,"path":"section_design/tcp.md","ref":"section_design/tcp.md","articles":[]},{"title":"HTTP Server","level":"1.8.3","depth":2,"path":"section_design/http.md","ref":"section_design/http.md","articles":[]},{"title":"连接池设计","level":"1.8.4","depth":2,"path":"section_design/collection.md","ref":"section_design/collection.md","articles":[]},{"title":"线程池设计","level":"1.8.5","depth":2,"path":"section_design/thread.md","ref":"section_design/thread.md","articles":[]},{"title":"扫描登陆","level":"1.8.6","depth":2,"path":"section_design/qr_login.md","ref":"section_design/qr_login.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_design/health.md","mtime":"2018-12-08T02:41:07.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T03:27:46.550Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"API自动熔断","level":"1.8.1","depth":2,"next":{"title":"TCP Server","level":"1.8.2","depth":2,"path":"section_design/tcp.md","ref":"section_design/tcp.md","articles":[]},"previous":{"title":"代码设计","level":"1.8","depth":1,"path":"section_design/README.md","ref":"section_design/README.md","articles":[{"title":"API自动熔断","level":"1.8.1","depth":2,"path":"section_design/health.md","ref":"section_design/health.md","articles":[]},{"title":"TCP Server","level":"1.8.2","depth":2,"path":"section_design/tcp.md","ref":"section_design/tcp.md","articles":[]},{"title":"HTTP Server","level":"1.8.3","depth":2,"path":"section_design/http.md","ref":"section_design/http.md","articles":[]},{"title":"连接池设计","level":"1.8.4","depth":2,"path":"section_design/collection.md","ref":"section_design/collection.md","articles":[]},{"title":"线程池设计","level":"1.8.5","depth":2,"path":"section_design/thread.md","ref":"section_design/thread.md","articles":[]},{"title":"扫描登陆","level":"1.8.6","depth":2,"path":"section_design/qr_login.md","ref":"section_design/qr_login.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_design/health.md","mtime":"2018-12-08T03:32:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T04:28:00.539Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

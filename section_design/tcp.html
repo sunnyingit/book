@@ -17,10 +17,6 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-okaidia.css">
-                
-            
-                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-toc2/toc2.css">
                 
             
@@ -304,9 +300,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../section_python/ob.md">
+        <li class="chapter " data-level="1.3.1" data-path="../section_python/ob.html">
             
-                <span>
+                <a href="../section_python/ob.html">
             
                     
                     python object
@@ -330,9 +326,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="../section_python/module.md">
+        <li class="chapter " data-level="1.3.3" data-path="../section_python/module.html">
             
-                <span>
+                <a href="../section_python/module.html">
             
                     
                     module
@@ -1063,7 +1059,7 @@
                                 
                                 <h3 id="&#x64B8;&#x64B8;tcp">&#x64B8;&#x64B8;TCP</h3>
 <h3 id="&#x9884;&#x671F;&#x76EE;&#x7684;">&#x9884;&#x671F;&#x76EE;&#x7684;</h3>
-<pre class="language-"><code>&#x666E;&#x53CA;&#x548C;&#x68B3;&#x7406;socket&#x7684;&#x7EC6;&#x8282;&#x95EE;&#x9898;, tornado&#x7684;&#x6838;&#x5FC3;&#x6D41;&#x7A0B;&#x68B3;&#x7406;
+<pre><code>&#x666E;&#x53CA;&#x548C;&#x68B3;&#x7406;socket&#x7684;&#x7EC6;&#x8282;&#x95EE;&#x9898;, tornado&#x7684;&#x6838;&#x5FC3;&#x6D41;&#x7A0B;&#x68B3;&#x7406;
 </code></pre><h3 id="1&#x57FA;&#x672C;tcp&#x5957;&#x63A5;&#x5B57;&#x7F16;&#x7A0B;">1,&#x57FA;&#x672C;TCP&#x5957;&#x63A5;&#x5B57;&#x7F16;&#x7A0B;</h3>
 <ol>
 <li><p>socket</p>
@@ -1132,7 +1128,7 @@
 <li><p>FLAG&#xFF0C; &#x5305;&#x7684;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x6211;&#x4EEC;&#x5E38;&#x89C1;&#x7684;&#x6709;RST&#xFF0C; FIN
  FIN&#xFF1A;&#x89E6;&#x53D1;&#x56DB;&#x6B21;&#x63E1;&#x624B;&#x7684;&#x65F6;&#x5019;&#x53D1;&#x9001;&#x6B64;&#x4FE1;&#x53F7;
  RST: 1 &#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x53E3;&#x6CA1;&#x6709;&#x6253;&#x5F00;&#x7684;&#x670D;&#x52A1;&#xFF0C;</p>
-<pre class="language-"><code>  2 &#x670D;&#x52A1;&#x7AEF;&#x63A5;&#x53D7;SYN&#x8D85;&#x65F6;&#xFF0C;&#x4F1A;&#x5411;&#x5BF9;&#x7AEF;&#x53D1;&#x9001;&#x4E00;&#x4E2A;RST,&#x8868;&#x793A;&#x62D2;&#x7EDD;&#x5411;&#x4F60;&#x670D;&#x52A1;&#xFF0C;&#x670D;&#x52A1;&#x5668;socket&#x914D;&#x7F6E;&#x4E86;SO_RCVTIMEO
+<pre><code>  2 &#x670D;&#x52A1;&#x7AEF;&#x63A5;&#x53D7;SYN&#x8D85;&#x65F6;&#xFF0C;&#x4F1A;&#x5411;&#x5BF9;&#x7AEF;&#x53D1;&#x9001;&#x4E00;&#x4E2A;RST,&#x8868;&#x793A;&#x62D2;&#x7EDD;&#x5411;&#x4F60;&#x670D;&#x52A1;&#xFF0C;&#x670D;&#x52A1;&#x5668;socket&#x914D;&#x7F6E;&#x4E86;SO_RCVTIMEO
   3 &#x5BA2;&#x6237;&#x7AEF;&#x5728;&#x670D;&#x52A1;&#x7AEF;&#x5DF2;&#x7ECF;&#x5173;&#x95ED;&#x6389;socket&#x4E4B;&#x540E;&#xFF0C;&#x4ECD;&#x7136;&#x5728;&#x53D1;&#x9001;&#x6570;&#x636E;&#x3002;&#x8FD9;&#x65F6;&#x670D;&#x52A1;&#x7AEF;&#x4F1A;&#x4EA7;&#x751F;RST
 </code></pre></li>
 </ol>
@@ -1168,7 +1164,7 @@
 <li>&#x5982;&#x4F55;&#x7ED9;&#x8FD9;&#x4E09;&#x4E2A;&#x96C6;&#x5408;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x63CF;&#x8FF0;&#x7B26;&#x5E76;&#x8FD4;&#x56DE;&#x51C6;&#x5907;&#x597D;&#x7684;&#x63CF;&#x8FF0;&#x7B26;</li>
 <li><p>&#x4EC0;&#x4E48;&#x662F;&#x6570;&#x636E;&#x51C6;&#x5907;&#x597D;&#xFF0C;(&#x53EF;&#x8BFB;&#xFF1A;&#x7F13;&#x51B2;&#x533A;&#x6570;&#x636E;&#x5927;&#x4E8E;&#x4F4E;&#x6C34;&#x4F4D;&#xFF0C;&#x63A5;&#x53D7;&#x5230;FIN&#x7684;TCP&#x8FDE;&#x63A5;&#xFF0C;accpet, &#x5F02;&#x5E38;&#xFF0C; &#x53EF;&#x5199;: &#x7F13;&#x51B2;&#x533A;&#x5927;&#x4E8E;&#x53D1;&#x9001;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x4F4E;&#x6C34;&#x4F4D;&#xFF0C; connect, &#x6709;&#x9519;&#x8BEF;&#x5904;&#x7406;&#xFF0C;&#x5F02;&#x5E38;&#x6761;&#x4EF6;)
 6&#xFF0C;&#x591A;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x5904;&#x7406;</p>
-<pre class="language-"><code>SO_RCVBUF: &#x63A5;&#x53D7;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x5927;&#x5C0F; (int)
+<pre><code>SO_RCVBUF: &#x63A5;&#x53D7;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x5927;&#x5C0F; (int)
 SO_SNDBUF: &#x53D1;&#x9001;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x5927;&#x5C0F; (int)
 SO_RCVLOWAT: &#x63A5;&#x53D7;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x4F4E;&#x6C34;&#x4F4D;&#x5927;&#x5C0F; (int=1)
 SO_SNDLOWAT: &#x53D1;&#x9001;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x4F4E;&#x6C34;&#x4F4D; (int=2048)
@@ -1187,7 +1183,7 @@ SO_SNDLOWAT: &#x53D1;&#x9001;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x4F4E;&#x6C34;&#x
 <p>ET(edge-triggered) &#x662F;&#x9AD8;&#x901F;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#xFF0C;&#x4EC5;&#x652F;&#x6301;no_block socket&#xFF0C;&#x8FD9;&#x79CD;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#x4E0B;&#xFF0C;&#x5F53;fd&#x4ECE;&#x672A;&#x5C31;&#x7EEA;&#x53D8;&#x4E3A;&#x5C31;&#x7EEA;&#x65F6;&#xFF0C;&#x5185;&#x6838;&#x4F1A;&#x901A;&#x77E5;fd&#x5DF2;&#x7ECF;&#x5C31;&#x7EEA;&#xFF0C;&#x5E76;&#x4E14;&#x5185;&#x6838;&#x8BA4;&#x4E3A;&#x4F60;&#x77E5;&#x9053;&#x8BE5;fd&#x5DF2;&#x7ECF;&#x5C31;&#x7EEA;&#xFF0C;&#x4E0D;&#x4F1A;&#x518D;&#x6B21;&#x901A;&#x77E5;&#x4E86;&#xFF0C;&#x9664;&#x975E;&#x56E0;&#x4E3A;&#x67D0;&#x4E9B;&#x64CD;&#x4F5C;&#x5BFC;&#x81F4;fd&#x5C31;&#x7EEA;&#x72B6;&#x6001;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x3002;&#x5982;&#x679C;&#x4E00;&#x76F4;&#x4E0D;&#x5BF9;&#x8FD9;&#x4E2A;fd&#x8FDB;&#x884C;I/O&#x64CD;&#x4F5C;&#xFF0C;&#x5BFC;&#x81F4;fd&#x53D8;&#x4E3A;&#x672A;&#x5C31;&#x7EEA;&#x65F6;&#xFF0C;&#x5185;&#x6838;&#x540C;&#x6837;&#x4E0D;&#x4F1A;&#x53D1;&#x9001;&#x66F4;&#x591A;&#x7684;&#x901A;&#x77E5;&#xFF0C;&#x56E0;&#x4E3A;only once&#x3002;&#x6240;&#x4EE5;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x4E0B;&#xFF0C;&#x51FA;&#x9519;&#x7387;&#x6BD4;&#x8F83;&#x9AD8;&#xFF0C;&#x9700;&#x8981;&#x589E;&#x52A0;&#x4E00;&#x4E9B;&#x68C0;&#x6D4B;&#x7A0B;&#x5E8F;&#x3002;</p>
 <p>LT&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x6C34;&#x5E73;&#x89E6;&#x53D1;&#xFF0C;&#x53EA;&#x8981;&#x6709;&#x6570;&#x636E;&#x53EF;&#x4EE5;&#x8BFB;&#xFF0C;&#x4E0D;&#x7BA1;&#x600E;&#x6837;&#x90FD;&#x4F1A;&#x901A;&#x77E5;&#x3002;&#x800C;ET&#x4E3A;&#x8FB9;&#x7F18;&#x89E6;&#x53D1;&#xFF0C;&#x53EA;&#x6709;&#x72B6;&#x6001;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x65F6;&#x624D;&#x4F1A;&#x901A;&#x77E5;&#xFF0C;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x7535;&#x5E73;&#x53D8;&#x5316;&#x3002;</p>
 <p>epoll&#x4E8B;&#x4EF6;&#xFF1A;</p>
-<pre class="language-"><code>POLLIN: &#x53EF;&#x8BFB;&#x666E;&#x901A;&#x6216;&#x8005;&#x4F18;&#x5148;&#x4F18;&#x5148;&#x7EA7;
+<pre><code>POLLIN: &#x53EF;&#x8BFB;&#x666E;&#x901A;&#x6216;&#x8005;&#x4F18;&#x5148;&#x4F18;&#x5148;&#x7EA7;
 POLLRDNROM: &#x666E;&#x901A;&#x4F18;&#x5148;&#x7EA7;
 POLLRNDAND: &#x4F18;&#x5148;&#x7EA7;
 POLLPRI: &#x9AD8;&#x4F18;&#x5148;&#x7EA7;
@@ -1243,7 +1239,7 @@ POLLERR: &#x53D1;&#x9001;&#x9519;&#x8BEF;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"TCP Server","level":"1.8.2","depth":2,"next":{"title":"HTTP Server","level":"1.8.3","depth":2,"path":"section_design/http.md","ref":"section_design/http.md","articles":[]},"previous":{"title":"API自动熔断","level":"1.8.1","depth":2,"path":"section_design/health.md","ref":"section_design/health.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_design/tcp.md","mtime":"2018-12-08T02:41:07.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T03:27:46.550Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"TCP Server","level":"1.8.2","depth":2,"next":{"title":"HTTP Server","level":"1.8.3","depth":2,"path":"section_design/http.md","ref":"section_design/http.md","articles":[]},"previous":{"title":"API自动熔断","level":"1.8.1","depth":2,"path":"section_design/health.md","ref":"section_design/health.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_design/tcp.md","mtime":"2018-12-08T03:32:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T04:28:00.539Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

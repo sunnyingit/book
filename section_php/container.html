@@ -17,10 +17,6 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-okaidia.css">
-                
-            
-                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-toc2/toc2.css">
                 
             
@@ -304,9 +300,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../section_python/ob.md">
+        <li class="chapter " data-level="1.3.1" data-path="../section_python/ob.html">
             
-                <span>
+                <a href="../section_python/ob.html">
             
                     
                     python object
@@ -330,9 +326,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="../section_python/module.md">
+        <li class="chapter " data-level="1.3.3" data-path="../section_python/module.html">
             
-                <span>
+                <a href="../section_python/module.html">
             
                     
                     module
@@ -1065,30 +1061,30 @@
 <h2 id="&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;&#x5BB9;&#x5668;">&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;&#x5BB9;&#x5668;</h2>
 <p>&#x5BB9;&#x5668;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;<strong>&#x63A7;&#x5236;&#x53CD;&#x8F6C;</strong>&#x3002; &#x4EC0;&#x4E48;&#x662F;&#x63A7;&#x5236;&#x53CD;&#x8F6C;&#x5462;&#xFF0C;&#x7B80;&#x5355;&#x6765;&#x8BF4;&#xFF0C;&#x628A;&#x64CD;&#x63A7;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x8C03;&#x7528;&#x6743;&#x4EA4;&#x7ED9;&#x5BB9;&#x5668;&#xFF0C;&#x901A;&#x8FC7;&#x5BB9;&#x5668;&#x6765;&#x5B9E;&#x73B0;&#x5BF9;&#x8C61;&#x7684;&#x7BA1;&#x7406;&#x3002;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;Cache&#x5BF9;&#x8C61;&#x4E0D;&#x7528;&#x64CD;&#x4F5C;Redis&#x5BF9;&#x8C61;&#xFF0C;&#x7531;Container&#x5BF9;&#x8C61;&#x8D1F;&#x8D23;Redis&#x5BF9;&#x8C61;&#x7684;&#x751F;&#x6210;&#x3002;</p>
 <p>&#x53EF;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x63A7;&#x5236;&#x53CD;&#x8F6C;&#x5462;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x51CF;&#x5C11;<strong>&#x7C7B;&#x7684;&#x8026;&#x5408;</strong>&#xFF0C; &#x8FD9;&#x6837;Cache&#x5BF9;&#x8C61;&#x4E0D;&#x9700;&#x8981;&#x4F9D;&#x8D56;Redis&#x5BF9;&#x8C61;&#xFF0C; &#x5982;&#x679C;&#x6709;&#x4E00;&#x5929;&#x4E0D;&#x4F7F;&#x7528;Redis&#x4F5C;&#x4E3A;&#x7F13;&#x5B58;&#xFF0C;&#x90A3;&#x4E5F;&#x4E0D;&#x9700;&#x8981;&#x6539;Cache&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
-<pre class="language-"><code class="lang-php">
-<span class="token shell-comment comment"># &#x4E0D;&#x53CD;&#x8F6C;&#x7684;&#x4F8B;&#x5B50; Cache&#x7C7B;&#x4F9D;&#x8D56;Redis</span>
-<span class="token keyword">class</span> <span class="token class-name">Cache</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">store</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Redis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<pre><code class="lang-php">
+# &#x4E0D;&#x53CD;&#x8F6C;&#x7684;&#x4F8B;&#x5B50; Cache&#x7C7B;&#x4F9D;&#x8D56;Redis
+class Cache {
+    public function __construct()
+    {
+        $this-&gt;store = new Redis();
+    }
+}
 
-<span class="token shell-comment comment"># &#x53CD;&#x8F6C;&#x4F7F;&#x7528;&#x5BB9;&#x5668;, &#x7531;&#x5BB9;&#x5668;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x5E94;&#x7684;&#x7C7B;&#xFF0C;&#x628A;&#x63A7;&#x5236;&#x6743;&#x7ED9;&#x4E86;&#x5BB9;&#x5668;</span>
-<span class="token keyword">class</span> <span class="token class-name">Cache</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span>Container <span class="token variable">$container</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token variable">$container</span> <span class="token operator">=</span> <span class="token variable">$container</span><span class="token punctuation">;</span>
+# &#x53CD;&#x8F6C;&#x4F7F;&#x7528;&#x5BB9;&#x5668;, &#x7531;&#x5BB9;&#x5668;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x5E94;&#x7684;&#x7C7B;&#xFF0C;&#x628A;&#x63A7;&#x5236;&#x6743;&#x7ED9;&#x4E86;&#x5BB9;&#x5668;
+class Cache {
+    public function __construct(Container $container)
+    {
+        $this-&gt;$container = $container;
 
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">store</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">container</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">make</span><span class="token punctuation">(</span><span class="token string">&apos;cache&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+        $this-&gt;store = $this-&gt;container-&gt;make(&apos;cache&apos;);
+    }
+}
 </code></pre>
 <p>&#x53EF;&#x4E3A;&#x4EC0;&#x4E48;<code>make(&apos;cache&apos;)</code> &#x53EF;&#x4EE5;&#x5F97;&#x5230;Redis&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#x5462;&#xFF0C;&#x90A3;&#x662F;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x4E4B;&#x524D;&#x5DF2;&#x7ECF;&#x5148;&#x5411;&#x5BB9;&#x5668;&#x91CC;&#x9762;<strong>&#x7ED1;&#x5B9A;</strong>Redis&#x5BF9;&#x8C61;&#xFF0C;&#x4F2A;&#x4EE3;&#x7801;&#xFF1A;</p>
-<pre class="language-"><code class="lang-php">
-<span class="token variable">$container</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token string">&apos;cache&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$container</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Redis</span><span class="token punctuation">(</span><span class="token variable">$container</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-php">
+$container-&gt;bind(&apos;cache&apos;, function($container) {
+    return new Redis($container);
+});
 </code></pre>
 <p>&#x8FD9;&#x91CC;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A;container&#x7406;&#x89E3;&#x6210;&#x50A8;&#x5B58;&#x4E1C;&#x897F;&#x7684;&#x5668;&#x5177;&#xFF0C;&#x5C31;&#x50CF;&#x4F7F;&#x7528;&#x5B58;&#x94B1;&#x7F50;&#x4E00;&#x6837;&#x4F7F;&#x7528;&#x5B83;&#xFF0C;&#x5148;&#x5F80;&#x5B58;&#x94B1;&#x7F50;&#x91CC;&#x9762;&#x5B58;&#x94B1;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x50A8;&#x5B58;&#x786C;&#x5E01;&#xFF0C;&#x7EB8;&#x5E01;&#xFF0C;&#x5728;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#x518D;&#x628A;&#x5B83;&#x62FF;&#x51FA;&#x6765;&#xFF0C;&#x4F7F;&#x7528;&#x6B65;&#x9AA4;&#x53EF;&#x4EE5;&#x603B;&#x7ED3;&#x4E3A;2&#x70B9;:</p>
 <ul>
@@ -1125,43 +1121,43 @@
 <li><p>singleton</p>
 </li>
 </ul>
-<pre class="language-"><code class="lang-php"><span class="token keyword">class</span> <span class="token class-name">Container</span> <span class="token punctuation">{</span>
+<pre><code class="lang-php">class Container {
 
-    <span class="token shell-comment comment"># &#x5224;&#x5B9A;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x5316;&#x7684;&#x5BF9;&#x8C61;</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">instance</span><span class="token punctuation">(</span><span class="token variable">$abstract</span><span class="token punctuation">,</span> <span class="token variable">$instance</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">instances</span><span class="token punctuation">[</span><span class="token variable">$abstract</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$instance</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    # &#x5224;&#x5B9A;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x5316;&#x7684;&#x5BF9;&#x8C61;
+    public function instance($abstract, $instance)
+    {
+        $this-&gt;instances[$abstract] = $instance;
+    }
 
-    <span class="token shell-comment comment"># &#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570;&#xFF0C;&#x5982;&#x679C;$concrete&#x4F20;&#x5165;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x7C7B;&#x540D;&#xFF0C;&#x5BB9;&#x5668;&#x4F1A;&#x81EA;&#x52A8;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x6267;&#x884C;&#x540E;&#x8FD4;&#x56DE;&#x7C7B;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">bind</span><span class="token punctuation">(</span><span class="token variable">$abstract</span><span class="token punctuation">,</span> <span class="token variable">$concrete</span><span class="token punctuation">,</span> <span class="token variable">$shared</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token shell-comment comment"># &#x52A0;&#x5165;shared&#x662F;&#x4E3A;&#x4E86;&#x5224;&#x65AD;&#x751F;&#x6210;&#x7684;&#x5BF9;&#x8C61;&#x662F;&#x4E0D;&#x662F;&#x5355;&#x4F8B;&#x7684;&#x3002;</span>
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">bindings</span><span class="token punctuation">[</span><span class="token variable">$abstract</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">compact</span><span class="token punctuation">(</span><span class="token string">&apos;concrete&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;shared&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    # &#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570;&#xFF0C;&#x5982;&#x679C;$concrete&#x4F20;&#x5165;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x7C7B;&#x540D;&#xFF0C;&#x5BB9;&#x5668;&#x4F1A;&#x81EA;&#x52A8;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x6267;&#x884C;&#x540E;&#x8FD4;&#x56DE;&#x7C7B;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;
+    public function bind($abstract, $concrete, $shared = false)
+    {
+        # &#x52A0;&#x5165;shared&#x662F;&#x4E3A;&#x4E86;&#x5224;&#x65AD;&#x751F;&#x6210;&#x7684;&#x5BF9;&#x8C61;&#x662F;&#x4E0D;&#x662F;&#x5355;&#x4F8B;&#x7684;&#x3002;
+        $this-&gt;bindings[$abstract] = compact(&apos;concrete&apos;, &apos;shared&apos;);
+    }
 
-    <span class="token shell-comment comment"># &#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x65B9;&#x6CD5;</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">bindMethod</span><span class="token punctuation">(</span><span class="token variable">$method</span><span class="token punctuation">,</span> <span class="token variable">$callback</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">methodbindings</span><span class="token punctuation">[</span><span class="token variable">$method</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$callback</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    # &#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x65B9;&#x6CD5;
+    public function bindMethod($method, $callback)
+    {
+        $this-&gt;methodbindings[$method] = $callback;
+    }
 
-    <span class="token shell-comment comment"># &#x53EA;&#x5728;&#x6CA1;&#x6709;&#x7ED1;&#x5B9A;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x7ED1;&#x5B9A;</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">bindIf</span><span class="token punctuation">(</span><span class="token variable">$abstract</span><span class="token punctuation">,</span> <span class="token variable">$concrete</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token variable">$shared</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bound</span><span class="token punctuation">(</span><span class="token variable">$abstract</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token variable">$abstract</span><span class="token punctuation">,</span> <span class="token variable">$concrete</span><span class="token punctuation">,</span> <span class="token variable">$shared</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+    # &#x53EA;&#x5728;&#x6CA1;&#x6709;&#x7ED1;&#x5B9A;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x7ED1;&#x5B9A;
+    public function bindIf($abstract, $concrete = null, $shared = false)
+    {
+        if (! $this-&gt;bound($abstract)) {
+            $this-&gt;bind($abstract, $concrete, $shared);
+        }
+    }
 
-    <span class="token shell-comment comment">#  &#x5171;&#x4EAB;&#x7ED1;&#x5B9A;&#xFF0C;&#x751F;&#x6210;&#x7684;&#x5BF9;&#x8C61;&#x662F;&#x5355;&#x4F8B;&#x7684;</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">singleton</span><span class="token punctuation">(</span><span class="token variable">$abstract</span><span class="token punctuation">,</span> <span class="token variable">$concrete</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token variable">$abstract</span><span class="token punctuation">,</span> <span class="token variable">$concrete</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    #  &#x5171;&#x4EAB;&#x7ED1;&#x5B9A;&#xFF0C;&#x751F;&#x6210;&#x7684;&#x5BF9;&#x8C61;&#x662F;&#x5355;&#x4F8B;&#x7684;
+    public function singleton($abstract, $concrete = null)
+    {
+        $this-&gt;bind($abstract, $concrete, true);
+    }
 
 
-<span class="token punctuation">}</span>
+}
 </code></pre>
 <h2 id="bind&#x4E4B;&#x540E;&#x600E;&#x4E48;&#x53D6;&#x4E1C;&#x897F;">bind&#x4E4B;&#x540E;&#x600E;&#x4E48;&#x53D6;&#x4E1C;&#x897F;</h2>
 <p>&#x73B0;&#x5728;&#x6709;&#x4E00;&#x4E2A;&#x95EE;&#x9898;</p>
@@ -1174,82 +1170,82 @@
 <p>3&#xFF0C;&#x6700;&#x540E; &#x6CE8;&#x610F;&#x5566;&#xFF0C;&#x7B2C;&#x4E09;&#x6B65;&#x5F88;&#x91CD;&#x8981;&#xFF0C;&#x524D;&#x4E24;&#x6B65;&#x90FD;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x7684;&#x8BDD;&#xFF0C;&#x90A3;laravel&#x4F1A;&#x628A;abstract&#x5F53;&#x4F5C;&#x4E00;&#x4E2A;&#x7C7B;&#x540D;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;<strong>&#x53CD;&#x5C04;</strong> &#x6784;&#x5EFA;&#x8FD9;&#x4E2A;&#x7C7B;&#x540D;&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#x3002;</p>
 <p><strong>&#x6240;&#x4EE5;&#x4E0D;&#x9700;&#x8981;&#x4E8B;&#x5148;&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x7C7B;&#xFF0C; &#x901A;&#x8FC7;Make&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5B9E;&#x4F8B;&#x5316;&#x7C7B;</strong> &#x5F53;&#x7136;&#x9700;&#x8981;&#x53EF;&#x81EA;&#x52A8;&#x52A0;&#x8F7D;&#x8FD9;&#x4E2A;&#x7C7B;&#x3002;</p>
 <p>&#x4F2A;&#x4EE3;&#x7801;&#xFF1A;</p>
-<pre class="language-"><code class="lang-php"><span class="token shell-comment comment"># resolve &#x662F;&#x652F;&#x6301;&#x4F20;&#x9012;&#x53C2;&#x6570;&#x7684;</span>
-<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token variable">$abstract</span><span class="token punctuation">,</span> <span class="token variable">$parameters</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-   <span class="token shell-comment comment"># &#x5148;&#x67E5;&#x627E;instances</span>
-   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">instances</span><span class="token punctuation">[</span><span class="token variable">$abstract</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span> <span class="token variable">$needsContextualBuild</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">instances</span><span class="token punctuation">[</span><span class="token variable">$abstract</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+<pre><code class="lang-php"># resolve &#x662F;&#x652F;&#x6301;&#x4F20;&#x9012;&#x53C2;&#x6570;&#x7684;
+protected function resolve($abstract, $parameters = [])
+{
+   # &#x5148;&#x67E5;&#x627E;instances
+   if (isset($this-&gt;instances[$abstract]) &amp;&amp; ! $needsContextualBuild) {
+        return $this-&gt;instances[$abstract];
+    }
 
-    <span class="token shell-comment comment"># &#x628A;&#x53C2;&#x6570;&#x4FDD;&#x5B58;&#x8D77;&#x6765;</span>
-    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">with</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$parameters</span><span class="token punctuation">;</span>
+    # &#x628A;&#x53C2;&#x6570;&#x4FDD;&#x5B58;&#x8D77;&#x6765;
+    $this-&gt;with[] = $parameters;
 
-    <span class="token shell-comment comment"># &#x5728;&#x67E5;&#x627E;bindings</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">bindings</span><span class="token punctuation">[</span><span class="token variable">$abstract</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token variable">$concrete</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">bindings</span><span class="token punctuation">[</span><span class="token variable">$abstract</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">&apos;concrete&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    # &#x5728;&#x67E5;&#x627E;bindings
+    if (isset($this-&gt;bindings[$abstract])) {
+        $concrete = $this-&gt;bindings[$abstract][&apos;concrete&apos;];
+    }
 
-    <span class="token shell-comment comment"># &#x5982;&#x679C;&#x5728;bindings&#x627E;&#x5230;&#x4E86;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x6267;&#x884C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$concrete</span> <span class="token keyword">instanceof</span> <span class="token class-name">Closure</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token variable">$concrete</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token punctuation">,</span> <span class="token function">end</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">with</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    # &#x5982;&#x679C;&#x5728;bindings&#x627E;&#x5230;&#x4E86;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x6267;&#x884C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;
+    if ($concrete instanceof Closure) {
+        return $concrete($this, end($this-&gt;with));
+    }
 
-    <span class="token shell-comment comment"># &#x7136;&#x540E;&#x53CD;&#x5C04;abstarct</span>
-    <span class="token variable">$reflector</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ReflectionClass</span><span class="token punctuation">(</span><span class="token variable">$abstract</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    # &#x7136;&#x540E;&#x53CD;&#x5C04;abstarct
+    $reflector = new ReflectionClass($abstract);
 
-    <span class="token shell-comment comment"># &#x6807;&#x8BB0;&#x5DF2;&#x7ECF;resolved&#x8FC7;&#x4E86;</span>
-    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">resolved</span><span class="token punctuation">[</span><span class="token variable">$abstract</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    # &#x6807;&#x8BB0;&#x5DF2;&#x7ECF;resolved&#x8FC7;&#x4E86;
+    $this-&gt;resolved[$abstract] = true;
 
-    <span class="token shell-comment comment"># &#x628A;&#x53C2;&#x6570;&#x5410;&#x51FA;&#x6765;</span>
-    <span class="token function">array_pop</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">with</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    # &#x628A;&#x53C2;&#x6570;&#x5410;&#x51FA;&#x6765;
+    array_pop($this-&gt;with);
 
-    <span class="token keyword">return</span> <span class="token variable">$reflector</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">newInstanceArgs</span><span class="token punctuation">(</span><span class="token variable">$instances</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+    return $reflector-&gt;newInstanceArgs($instances);
+}
 </code></pre>
 <p>laravel &#x63D0;&#x4F9B;&#x4E86;&apos;make&apos; &#x65B9;&#x6CD5;&#x53BB;&#x83B7;&#x53D6;bind&#x7684;&#x5185;&#x5BB9;</p>
-<pre class="language-"><code class="lang-php">
-    <span class="token shell-comment comment"># &#x6CE8;&#x610F; make &#x662F;&#x4E0D;&#x80FD;&#x4F20;&#x9012;&#x53C2;&#x6570;&#x7684;</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token variable">$abstract</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token variable">$abstract</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+<pre><code class="lang-php">
+    # &#x6CE8;&#x610F; make &#x662F;&#x4E0D;&#x80FD;&#x4F20;&#x9012;&#x53C2;&#x6570;&#x7684;
+    public function make($abstract)
+    {
+        return $this-&gt;resolve($abstract);
+    }
 </code></pre>
 <p>&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x600E;&#x4E48;&#x89E6;&#x53D1;bind&#x7684;methodBindings&#x7C7B;&#x578B;&#x5462;, &#x901A;&#x8FC7;callMethodBinding&#x5C31;&#x53EF;&#x4EE5;&#x5566;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
-<pre class="language-"><code class="lang-php">
-<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">callMethodBinding</span><span class="token punctuation">(</span><span class="token variable">$method</span><span class="token punctuation">,</span> <span class="token variable">$instance</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token shell-comment comment"># &#x8C03;&#x7528;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x9700;&#x8981;&#x4F20;&#x9012;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x548C;container, &#x7531;&#x8C03;&#x7528;&#x65B9;&#x5F0F;&#x53EF;&#x77E5;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x53EF;&#x8BBF;&#x95EE;intance&#xFF0C;&#x53EF;&#x4EE5;&#x64CD;&#x4F5C;&#x7BA1;&#x7406;intance</span>
-    <span class="token shell-comment comment"># &#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x7BA1;&#x7406;&#x4E00;&#x4E2A;&#x7C7B;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;</span>
-    <span class="token keyword">return</span> <span class="token function">call_user_func</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">methodBindings</span><span class="token punctuation">[</span><span class="token variable">$method</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$instance</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<pre><code class="lang-php">
+public function callMethodBinding($method, $instance)
+{
+    # &#x8C03;&#x7528;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x9700;&#x8981;&#x4F20;&#x9012;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x548C;container, &#x7531;&#x8C03;&#x7528;&#x65B9;&#x5F0F;&#x53EF;&#x77E5;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x53EF;&#x8BBF;&#x95EE;intance&#xFF0C;&#x53EF;&#x4EE5;&#x64CD;&#x4F5C;&#x7BA1;&#x7406;intance
+    # &#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x7BA1;&#x7406;&#x4E00;&#x4E2A;&#x7C7B;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;
+    return call_user_func($this-&gt;methodBindings[$method], $instance, $this);
+}
 </code></pre>
 <h3 id="&#x66F4;&#x7B80;&#x6D01;&#x7684;&#x8BBF;&#x95EE;&#x653E;&#x65B9;&#x5F0F;">&#x66F4;&#x7B80;&#x6D01;&#x7684;&#x8BBF;&#x95EE;&#x653E;&#x65B9;&#x5F0F;</h3>
 <p>&#x5230;&#x76EE;&#x524D;&#x4E3A;&#x4E86;&#xFF0C;&#x5BB9;&#x5668;&#x7684;&#x57FA;&#x672C;&#x67B6;&#x6784;&#x5DF2;&#x7ECF;&#x5F88;&#x660E;&#x663E;&#x5566;&#xFF0C;&#x5927;&#x5BB6;&#x90FD;&#x53EF;&#x4EE5;&#x968F;&#x5FC3;&#x6240;&#x6B32;&#x7684;&#x53BB;bind&#x548C;make&#x4E86;&#xFF0C;
 &#x4F46;&#x662F;&#x8FD8;&#x6CA1;&#x6709;&#x5B8C;&#xFF0C;&#x6BCF;&#x6B21;&#x53D6;&#x4E00;&#x4E2A;&#x4E1C;&#x897F;&#x90FD;&#x8981;make&#x4E00;&#x4E0B;&#x592A;&#x9EBB;&#x70E6;&#x4E86;&#xFF0C;&#x4E8E;&#x662F;laravel&#x5B9E;&#x73B0;&#x4E86;arrayAccess&#x7684;&#x673A;&#x5236;</p>
 <p>&#x8BF7;&#x770B;&#x4F2A;&#x4EE3;&#x7801;&#xFF1A;</p>
-<pre class="language-"><code class="lang-php"><span class="token shell-comment comment"># &#x5B9E;&#x73B0;&#x4E86;ArrayAccess&#x5566;</span>
-<span class="token keyword">class</span> <span class="token class-name">Container</span> <span class="token keyword">implements</span> <span class="token class-name">ArrayAccess</span><span class="token punctuation">,</span> ContainerContract
-<span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">offsetGet</span><span class="token punctuation">(</span><span class="token variable">$key</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">make</span><span class="token punctuation">(</span><span class="token variable">$key</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+<pre><code class="lang-php"># &#x5B9E;&#x73B0;&#x4E86;ArrayAccess&#x5566;
+class Container implements ArrayAccess, ContainerContract
+{
+    public function offsetGet($key)
+    {
+        return $this-&gt;make($key);
+    }
 
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">offsetSet</span><span class="token punctuation">(</span><span class="token variable">$key</span><span class="token punctuation">,</span> <span class="token variable">$value</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token variable">$key</span><span class="token punctuation">,</span> <span class="token variable">$value</span> <span class="token keyword">instanceof</span> <span class="token class-name">Closure</span> <span class="token operator">?</span> <span class="token variable">$value</span> <span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">use</span> <span class="token punctuation">(</span><span class="token variable">$value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token variable">$value</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    public function offsetSet($key, $value)
+    {
+        $this-&gt;bind($key, $value instanceof Closure ? $value : function () use ($value) {
+            return $value;
+        });
+    }
+}
 
-<span class="token shell-comment comment"># &#x4E8E;&#x662F;&#x6211;&#x4EEC;&#x5B58;&#x548C;&#x53D6;&#x59FF;&#x52BF;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;:</span>
-&#x5B58;&#x4E00;&#x4E2A;&#x4E1C;&#x897F;&#xFF0C;<span class="token variable">$container</span><span class="token punctuation">[</span><span class="token string">&apos;cache&apos;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Redis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-&#x53D6;&#x4E00;&#x4E2A;&#x4E1C;&#x897F;&#xFF0C;<span class="token variable">$redis</span> <span class="token operator">=</span> <span class="token variable">$container</span><span class="token punctuation">[</span><span class="token string">&apos;cache&apos;</span><span class="token punctuation">]</span>
+# &#x4E8E;&#x662F;&#x6211;&#x4EEC;&#x5B58;&#x548C;&#x53D6;&#x59FF;&#x52BF;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;:
+&#x5B58;&#x4E00;&#x4E2A;&#x4E1C;&#x897F;&#xFF0C;$container[&apos;cache&apos;] = new Redis();
+&#x53D6;&#x4E00;&#x4E2A;&#x4E1C;&#x897F;&#xFF0C;$redis = $container[&apos;cache&apos;]
 
-&#x5B58;&#x4E00;&#x4E2A;&#x4E1C;&#x897F;&#xFF1A; <span class="token variable">$container</span><span class="token punctuation">[</span><span class="token string">&apos;key&apos;</span><span class="token punctuation">]</span> <span class="token operator">=</span> value
-&#x53D6;&#x4E00;&#x4E2A;&#x4E1C;&#x897F;&#xFF1A; <span class="token variable">$value</span> <span class="token operator">=</span> <span class="token variable">$container</span><span class="token punctuation">[</span><span class="token string">&apos;key&apos;</span><span class="token punctuation">]</span>
+&#x5B58;&#x4E00;&#x4E2A;&#x4E1C;&#x897F;&#xFF1A; $container[&apos;key&apos;] = value
+&#x53D6;&#x4E00;&#x4E2A;&#x4E1C;&#x897F;&#xFF1A; $value = $container[&apos;key&apos;]
 </code></pre>
 <p>&#x4F7F;&#x7528;&#x5FC3;&#x5F97;:</p>
 <blockquote>
@@ -1259,62 +1255,62 @@
 <p>&#x8FD8;&#x6709;&#x5F88;&#x591A;&#x54E6;&#xFF0C;&#x63A5;&#x7740;&#x73A9;&#x4E0B;&#x770B;</p>
 <h3 id="callbacks-&#x56DE;&#x8C03;&#x51FD;&#x6570;">callbacks &#x56DE;&#x8C03;&#x51FD;&#x6570;</h3>
 <p>&#x5728;&#x5F00;&#x59CB;resolve, revolve&#x4E4B;&#x540E;&#xFF0C;&#x91CD;&#x65B0;rebound&#x8FD9;&#x4E9B;&#x65F6;&#x523B;&#x53EF;&#x4EE5;&#x89E6;&#x53D1;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6709;&#x5168;&#x5C40;&#x7684;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x67D0;&#x4E00;&#x4E2A;abstract&#x7684;&#x7279;&#x5B9A;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;</p>
-<pre class="language-"><code class="lang-php">
-    <span class="token shell-comment comment"># &#x91CD;&#x65B0;bind&#x7684;&#x65F6;&#x5019;&#x89E6;&#x53D1;&#x7684;&#x51FD;&#x6570;</span>
-    <span class="token keyword">protected</span> <span class="token variable">$reboundCallbacks</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<pre><code class="lang-php">
+    # &#x91CD;&#x65B0;bind&#x7684;&#x65F6;&#x5019;&#x89E6;&#x53D1;&#x7684;&#x51FD;&#x6570;
+    protected $reboundCallbacks = [];
 
-    <span class="token keyword">protected</span> <span class="token variable">$globalResolvingCallbacks</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    protected $globalResolvingCallbacks = [];
 
-    <span class="token keyword">protected</span> <span class="token variable">$globalAfterResolvingCallbacks</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    protected $globalAfterResolvingCallbacks = [];
 
-    <span class="token keyword">protected</span> <span class="token variable">$resolvingCallbacks</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    protected $resolvingCallbacks = [];
 
-    <span class="token keyword">protected</span> <span class="token variable">$afterResolvingCallbacks</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    protected $afterResolvingCallbacks = [];
 
 `
 </code></pre>
 <p>&#x81EA;&#x884C;&#x67E5;&#x770B;&#x67E5;&#x770B;&#x5BF9;&#x5E94;&#x7684;&#x4EE3;&#x7801;</p>
 <h3 id="aliases-&#x522B;&#x540D;">aliases &#x522B;&#x540D;</h3>
-<pre class="language-"><code class="lang-php">
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">alias</span><span class="token punctuation">(</span><span class="token variable">$abstract</span><span class="token punctuation">,</span> <span class="token variable">$alias</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">aliases</span><span class="token punctuation">[</span><span class="token variable">$alias</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$abstract</span><span class="token punctuation">;</span>
+<pre><code class="lang-php">
+    public function alias($abstract, $alias)
+    {
+        $this-&gt;aliases[$alias] = $abstract;
 
-        <span class="token shell-comment comment"># &#x770B;&#x8FD9;&#x91CC;&#xFF0C;&#x53EF;&#x4EE5;&#x7ED9;&#x4E00;&#x4E2A;abstract &#x8BBE;&#x7F6E;&#x591A;&#x4E2A;&#x522B;&#x540D;&#x54E6;</span>
-        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">abstractAliases</span><span class="token punctuation">[</span><span class="token variable">$abstract</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$alias</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+        # &#x770B;&#x8FD9;&#x91CC;&#xFF0C;&#x53EF;&#x4EE5;&#x7ED9;&#x4E00;&#x4E2A;abstract &#x8BBE;&#x7F6E;&#x591A;&#x4E2A;&#x522B;&#x540D;&#x54E6;
+        $this-&gt;abstractAliases[$abstract][] = $alias;
+    }
 </code></pre>
 <p>&#x522B;&#x540D;&#x903B;&#x8F91;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x53EF;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x6709;&#x522B;&#x540D;&#x7684;&#x5462;, &#x53EA;&#x662F;&#x4E3A;&#x4E86;&#x505A;&#x4E00;&#x4E2A;&#x7CBE;&#x7B80;&#x7684;abstract&#x4E48;&#xFF0C;&#x6211;&#x89C9;&#x5F97;&#x4E0D;&#x662F;&#xFF0C;&#x8FD9;&#x4E2A;&#x5E94;&#x8BE5;&#x548C;<strong>&#x5951;&#x7EA6;&#x7F16;&#x7A0B;</strong>&#x6709;&#x5173;&#x7CFB;</p>
-<pre class="language-"><code class="lang-php">
-<span class="token shell-comment comment"># &#x4F7F;&#x7528;&#x522B;&#x540D;&#x4E4B;&#x540E;&#xFF0C;&#x5982;&#x679C;&#x5176;&#x4ED6;&#x7C7B;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5230;Dispatcher&#xFF0C;&#x90A3;&#x4E48;&#x90FD;&#x7EDF;&#x4E00;&#x901A;&#x8FC7;DispatcherContract::class &#x62FF;&#xFF0C;&#x8FD9;&#x6837;&#x5927;&#x5BB6;&#x90FD;&#x9075;&#x4ECE;DispatcherContract&#x5B9A;&#x4E49;&#x7684;&#x5951;&#x7EA6;</span>
-<span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">alias</span><span class="token punctuation">(</span>
-    Dispatcher<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">,</span> DispatcherContract<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-php">
+# &#x4F7F;&#x7528;&#x522B;&#x540D;&#x4E4B;&#x540E;&#xFF0C;&#x5982;&#x679C;&#x5176;&#x4ED6;&#x7C7B;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5230;Dispatcher&#xFF0C;&#x90A3;&#x4E48;&#x90FD;&#x7EDF;&#x4E00;&#x901A;&#x8FC7;DispatcherContract::class &#x62FF;&#xFF0C;&#x8FD9;&#x6837;&#x5927;&#x5BB6;&#x90FD;&#x9075;&#x4ECE;DispatcherContract&#x5B9A;&#x4E49;&#x7684;&#x5951;&#x7EA6;
+$this-&gt;app-&gt;alias(
+    Dispatcher::class, DispatcherContract::class
+);
 
-<span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">app</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">alias</span><span class="token punctuation">(</span>
-    Dispatcher<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">,</span> QueueingDispatcherContract<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+$this-&gt;app-&gt;alias(
+    Dispatcher::class, QueueingDispatcherContract::class
+);
 </code></pre>
 <h3 id="extend-&#x4FEE;&#x6539;&#x5BB9;&#x5668;&#x91CC;&#x9762;&#x5DF2;&#x7ECF;bind&#x7684;abstract&#x7684;value">extend: &#x4FEE;&#x6539;&#x5BB9;&#x5668;&#x91CC;&#x9762;&#x5DF2;&#x7ECF;bind&#x7684;abstract&#x7684;value</h3>
 <p>&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7C7B;&#x4F3C;&#x4E8E;python&#x7684;&#x88C5;&#x9970;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x4FEE;&#x9970;instance&#x5BF9;&#x8C61;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570;&#xFF0C;
 &#x533F;&#x540D;&#x51FD;&#x6570;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x9700;&#x8981;&#x4FEE;&#x9970;&#x7684;instance&#x5BF9;&#x8C61;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;container</p>
-<pre class="language-"><code class="lang-php">
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">extend</span><span class="token punctuation">(</span><span class="token variable">$abstract</span><span class="token punctuation">,</span> Closure <span class="token variable">$closure</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token variable">$abstract</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getAlias</span><span class="token punctuation">(</span><span class="token variable">$abstract</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-php">
+    public function extend($abstract, Closure $closure)
+    {
+        $abstract = $this-&gt;getAlias($abstract);
 
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">instances</span><span class="token punctuation">[</span><span class="token variable">$abstract</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">instances</span><span class="token punctuation">[</span><span class="token variable">$abstract</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$closure</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">instances</span><span class="token punctuation">[</span><span class="token variable">$abstract</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        if (isset($this-&gt;instances[$abstract])) {
+            $this-&gt;instances[$abstract] = $closure($this-&gt;instances[$abstract], $this);
 
-            <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">rebound</span><span class="token punctuation">(</span><span class="token variable">$abstract</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">extenders</span><span class="token punctuation">[</span><span class="token variable">$abstract</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$closure</span><span class="token punctuation">;</span>
+            $this-&gt;rebound($abstract);
+        } else {
+            $this-&gt;extenders[$abstract][] = $closure;
 
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">resolved</span><span class="token punctuation">(</span><span class="token variable">$abstract</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">rebound</span><span class="token punctuation">(</span><span class="token variable">$abstract</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+            if ($this-&gt;resolved($abstract)) {
+                $this-&gt;rebound($abstract);
+            }
+        }
+    }
 </code></pre>
 <h3 id="&#x5BB9;&#x5668;&#x6700;&#x590D;&#x6742;&#x662F;&#x4FDD;&#x5B58;&#x7C7B;&#x7684;&#x4E0A;&#x4E0B;&#x6587;">&#x5BB9;&#x5668;&#x6700;&#x590D;&#x6742;&#x662F;&#x4FDD;&#x5B58;&#x7C7B;&#x7684;&#x4E0A;&#x4E0B;&#x6587;</h3>
 <p>&#x7B80;&#x5355;&#x6765;&#x8BF4;&#xFF0C;&#x662F;make &#x53CD;&#x5C04;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x53C2;&#x6570;&#x4E4B;&#x4E00;&#x662F;&#x4E00;&#x4E2A;&#x5176;&#x4ED6;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#xFF0C;&#x90A3;&#x5FC5;&#x987B;&#x5F97;&#x5148;&#x5B9E;&#x4F8B;&#x5316;&#x5176;&#x4ED6;&#x7684;&#x7C7B;&#xFF0C;&#x8FD9;&#x4E2A;&#x5C31;&#x5F88;&#x590D;&#x6742;&#x5566;&#xFF0C;&#x5E78;&#x597D;&#x7528;&#x7684;&#x4E0D;&#x591A;&#xFF0C;&#x6709;&#x5174;&#x8DA3;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x9605;&#x8BFB;&#x3002;</p>
@@ -1362,7 +1358,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Laravel-Container","level":"1.2.2","depth":2,"next":{"title":"Laravel-Facade","level":"1.2.3","depth":2,"path":"section_php/Facade.md","ref":"section_php/Facade.md","articles":[]},"previous":{"title":"Laravel-Intro","level":"1.2.1","depth":2,"path":"section_php/intro.md","ref":"section_php/intro.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_php/container.md","mtime":"2018-12-08T02:41:07.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T03:27:46.550Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Laravel-Container","level":"1.2.2","depth":2,"next":{"title":"Laravel-Facade","level":"1.2.3","depth":2,"path":"section_php/Facade.md","ref":"section_php/Facade.md","articles":[]},"previous":{"title":"Laravel-Intro","level":"1.2.1","depth":2,"path":"section_php/intro.md","ref":"section_php/intro.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_php/container.md","mtime":"2018-12-08T03:32:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T04:28:00.539Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

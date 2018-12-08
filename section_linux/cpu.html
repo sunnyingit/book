@@ -17,10 +17,6 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-okaidia.css">
-                
-            
-                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-toc2/toc2.css">
                 
             
@@ -304,9 +300,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../section_python/ob.md">
+        <li class="chapter " data-level="1.3.1" data-path="../section_python/ob.html">
             
-                <span>
+                <a href="../section_python/ob.html">
             
                     
                     python object
@@ -330,9 +326,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="../section_python/module.md">
+        <li class="chapter " data-level="1.3.3" data-path="../section_python/module.html">
             
-                <span>
+                <a href="../section_python/module.html">
             
                     
                     module
@@ -1086,7 +1082,7 @@ us (user cpu time)&#xFF1A;&#x7528;&#x6237;&#x8FDB;&#x7A0B;&#x5360;&#x7528;CPU&#x
 <p>CPU&#x7684;&#x6027;&#x80FD;&#x6307;&#x6807;&#xFF1A;&#x5229;&#x7528;&#x7387;&#xFF0C;&#x4E0A;&#x4E0B;&#x6587;&#x5207;&#x6362;&#x6B21;&#x6570;&#xFF0C;&#x4E2D;&#x65AD;&#x6B21;&#x6570;&#xFF0C;&#x8FD0;&#x884C;&#x961F;&#x5217;&#x7B49;&#x6307;&#x6807;&#x6765;&#x76D1;&#x63A7;cpu&#x6027;&#x80FD;</p>
 <h3 id="vmstat">vmstat</h3>
 <p>vmstat &#x662F;&#x4E2A;&#x67E5;&#x770B;&#x7CFB;&#x7EDF;&#x6574;&#x4F53;&#x6027;&#x80FD;&#x7684;&#x5C0F;&#x5DE5;&#x5177;&#xFF0C;&#x5C0F;&#x5DE7;&#x3001;&#x5373;&#x4F7F;&#x5728;&#x5F88;heavy&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4E5F;&#x8FD0;&#x884C;&#x826F;&#x597D;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x7528;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x91C7;&#x96C6;&#x5F97;&#x5230;&#x8FDE;&#x7EED;&#x7684;&#x6027;&#x80FD;&#x6570;&#x636E;</p>
-<pre class="language-"><code>2: &#x8868;&#x793A;&#x6BCF;&#x9694;2s
+<pre><code>2: &#x8868;&#x793A;&#x6BCF;&#x9694;2s
 [li.sun@d114-app-06 ~]$ vmstat 2
 procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
@@ -1104,7 +1100,7 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  id(idle): cpu&#x5B8C;&#x5168;&#x7A7A;&#x95F2;&#x7684;&#x65F6;&#x95F4;&#x7684;&#x6BD4;&#x4F8B;
 </code></pre><h3 id="&#x5177;&#x4F53;&#x5B9E;&#x4F8B;&#x5206;&#x6790;">&#x5177;&#x4F53;&#x5B9E;&#x4F8B;&#x5206;&#x6790;</h3>
 <p>&#x7CFB;&#x7EDF;&#x7684;&#x67D0;&#x4E2A;&#x65F6;&#x95F4;&#x6BB5;&#xFF0C;cpu&#x7684;&#x5229;&#x7528;&#x7387;&#x5F88;&#x9AD8;&#xFF0C;&#x6392;&#x67E5;cpu&#x65F6;&#x95F4;&#x5230;&#x5E95;&#x82B1;&#x5728;&#x54EA;&#x91CC;&#x4E86;</p>
-<pre class="language-"><code>$ vmstat 1
+<pre><code>$ vmstat 1
 procs -----------memory---------- ---swap-- -----io---- --system-- -----cpu------
  r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
  4  0    140 2915476 341288 3951700  0    0     0     0 1057  523 19 81  0  0  0
@@ -1115,7 +1111,7 @@ procs -----------memory---------- ---swap-- -----io---- --system-- -----cpu-----
 </code></pre><p>interrupts&#xFF08;in&#xFF09;&#x975E;&#x5E38;&#x9AD8;&#xFF0C;context switch&#xFF08;cs&#xFF09;&#x6BD4;&#x8F83;&#x4F4E;&#xFF0C;&#x8BF4;&#x660E;&#x8FD9;&#x4E2A; CPU &#x4E00;&#x76F4;&#x5728;&#x4E0D;&#x505C;&#x7684;&#x8BF7;&#x6C42;&#x8D44;&#x6E90;&#xFF1B;
 system time&#xFF08;sy&#xFF09;&#x4E00;&#x76F4;&#x4FDD;&#x6301;&#x5728; 80&#xFF05; &#x4EE5;&#x4E0A;&#xFF0C;&#x800C;&#x4E14;&#x4E0A;&#x4E0B;&#x6587;&#x5207;&#x6362;&#x8F83;&#x4F4E;&#xFF08;cs&#xFF09;&#xFF0C;&#x8BF4;&#x660E;&#x67D0;&#x4E2A;&#x8FDB;&#x7A0B;&#x53EF;&#x80FD;&#x4E00;&#x76F4;&#x9738;&#x5360;&#x7740; CPU&#xFF08;&#x4E0D;&#x65AD;&#x8BF7;&#x6C42;&#x8D44;&#x6E90;&#xFF09;&#xFF1B;
 run queue&#xFF08;r&#xFF09;&#x521A;&#x597D;&#x5728;4&#x4E2A;</p>
-<pre class="language-"><code>vmstat 1
+<pre><code>vmstat 1
 procs -----------memory---------- ---swap-- -----io---- --system-- -----cpu------
  r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
 14  0    140 2904316 341912 3952308  0    0     0   460 1106 9593 36 64  1  0  0
@@ -1129,7 +1125,7 @@ procs -----------memory---------- ---swap-- -----io---- --system-- -----cpu-----
 run queue&#xFF08;r&#xFF09;&#x5728;14&#x4E2A;&#x7EBF;&#x7A0B;&#x4EE5;&#x4E0A;&#xFF0C;&#x6309;&#x7167;&#x8FD9;&#x4E2A;&#x6D4B;&#x8BD5;&#x673A;&#x5668;&#x7684;&#x786C;&#x4EF6;&#x914D;&#x7F6E;&#xFF08;&#x56DB;&#x6838;&#xFF09;&#xFF0C;&#x5E94;&#x8BE5;&#x4FDD;&#x6301;&#x5728;12&#x4E2A;&#x4EE5;&#x5185;</p>
 <h3 id="mpstat">mpstat</h3>
 <p>mpstat &#x548C; vmstat &#x7C7B;&#x4F3C;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x662F; mpstat &#x53EF;&#x4EE5;&#x8F93;&#x51FA;&#x591A;&#x4E2A;&#x5904;&#x7406;&#x5668;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x8F93;&#x51FA;&#x663E;&#x793A; CPU1 &#x548C; CPU2 &#x57FA;&#x672C;&#x4E0A;&#x6CA1;&#x6709;&#x6D3E;&#x4E0A;&#x7528;&#x573A;&#xFF0C;&#x7CFB;&#x7EDF;&#x6709;&#x8DB3;&#x591F;&#x7684;&#x80FD;&#x529B;&#x5904;&#x7406;&#x66F4;&#x591A;&#x7684;&#x4EFB;&#x52A1;&#x3002;</p>
-<pre class="language-"><code>Linux 3.10.0-123.el7.x86_64 (d114-app-06)   05/12/2016  _x86_64_    (24 CPU)
+<pre><code>Linux 3.10.0-123.el7.x86_64 (d114-app-06)   05/12/2016  _x86_64_    (24 CPU)
 
 02:55:54 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
 02:55:54 PM  all    2.10    0.04    0.19    0.01    0.00    0.02    0.00    0.00    0.00   97.63
@@ -1144,7 +1140,7 @@ run queue&#xFF08;r&#xFF09;&#x5728;14&#x4E2A;&#x7EBF;&#x7A0B;&#x4EE5;&#x4E0A;&#xF
 %idle      &#x5728;internal&#x65F6;&#x95F4;&#x6BB5;&#x91CC;&#xFF0C;CPU&#x9664;&#x53BB;&#x7B49;&#x5F85;&#x78C1;&#x76D8;IO&#x64CD;&#x4F5C;&#x5916;&#x7684;&#x56E0;&#x4E3A;&#x4EFB;&#x4F55;&#x539F;&#x56E0;&#x800C;&#x7A7A;&#x95F2;&#x7684;&#x65F6;&#x95F4;&#x95F2;&#x7F6E;&#x65F6;&#x95F4;(%) (idle/total)*100
 </code></pre><h3 id="ps">ps</h3>
 <p>&#x5982;&#x679C;&#x53D1;&#x73B0;&#x67D0;&#x4E2A;&#x8FDB;&#x7A0B;&#x7279;&#x522B;&#x5360;&#x6709;cpu&#xFF0C;&#x67E5;&#x770B;&#x67D0;&#x4E2A;&#x8FDB;&#x7A0B;&#x7684;cpu&#x5229;&#x7528;&#x60C5;&#x51B5;</p>
-<pre class="language-"><code>li.sun@xg-ppe-web:~$ ps aux | grep hhvm
+<pre><code>li.sun@xg-ppe-web:~$ ps aux | grep hhvm
 www-data  4113  0.3  2.9 1033992 238096 ?      Ssl  14:32   0:06 /usr/bin/hhvm --config /etc/hhvm/php.ini
 
 USER: &#x6267;&#x884C;&#x8FDB;&#x7A0B;&#x7684;&#x7528;&#x6237;
@@ -1206,7 +1202,7 @@ COMMAND&#xFF1A;&#x8BE5;&#x7A0B;&#x5E8F;&#x7684;&#x5B9E;&#x9645;&#x6307;&#x4EE4;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"cpu","level":"1.7.7","depth":2,"next":{"title":"memory","level":"1.7.8","depth":2,"path":"section_linux/memmory.md","ref":"section_linux/memmory.md","articles":[]},"previous":{"title":"regex","level":"1.7.6","depth":2,"path":"section_linux/regex.md","ref":"section_linux/regex.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_linux/cpu.md","mtime":"2018-12-08T02:41:07.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T03:27:46.550Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"cpu","level":"1.7.7","depth":2,"next":{"title":"memory","level":"1.7.8","depth":2,"path":"section_linux/memmory.md","ref":"section_linux/memmory.md","articles":[]},"previous":{"title":"regex","level":"1.7.6","depth":2,"path":"section_linux/regex.md","ref":"section_linux/regex.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_linux/cpu.md","mtime":"2018-12-08T03:32:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T04:28:00.539Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

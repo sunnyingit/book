@@ -17,10 +17,6 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-okaidia.css">
-                
-            
-                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-toc2/toc2.css">
                 
             
@@ -304,9 +300,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="ob.md">
+        <li class="chapter " data-level="1.3.1" data-path="ob.html">
             
-                <span>
+                <a href="ob.html">
             
                     
                     python object
@@ -330,9 +326,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="module.md">
+        <li class="chapter " data-level="1.3.3" data-path="module.html">
             
-                <span>
+                <a href="module.html">
             
                     
                     module
@@ -1065,7 +1061,7 @@
 <p>ORM &#x5373;&#x4E3A;&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x548C;&#x6570;&#x636E;&#x5E93;&#x7684;&#x8868;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#xFF0C;&#x901A;&#x4FD7;&#x6765;&#x8BF4;&#xFF0C;&#x4E00;&#x4E2A;&#x7C7B;&#x6620;&#x5C04;&#x5230;&#x4E00;&#x5F20;&#x8868;&#xFF0C;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;(&#x5BF9;&#x8C61;)&#x5BF9;&#x5E94;&#x6570;&#x636E;&#x5E93;&#x8868;&#x91CC;&#x9762;&#x7684;&#x4E00;&#x884C;&#x6570;&#x636E;&#xFF0C;&#x5B9E;&#x4F8B;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x6570;&#x636E;&#x5E93;row&#x7684;&#x6570;&#x636E;&#x4FDD;&#x6301;&#x5B9E;&#x65F6;&#x540C;&#x6B65;</p>
 <h1 id="declare-a-mapping">Declare a Mapping</h1>
 <p><code>Engine</code>&#x63D0;&#x4F9B;&#x4E86;&#x6570;&#x636E;&#x5E93;&#x7684;&#x5165;&#x53E3;&#xFF0C;&#x5728;ORM&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4F9D;&#x7136;&#x9700;&#x8981;&#x521B;&#x5EFA;<code>Engine</code>, &#x8981;&#x5B9E;&#x73B0;ORM&#xFF0C;&#x6211;&#x4EEC;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x5FC5;&#x987B;&#x7EE7;&#x627F;<code>declarative_base()</code>&#x51FD;&#x6570;&#x751F;&#x6210;&#x7684;&#x7C7B;, &#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x5FC5;&#x987B;&#x6307;&#x5B9A;<code>__tablename__</code>&#x548C;&#x81F3;&#x5C11;&#x4E3B;&#x952E;&#x5B57;&#x6BB5;(primary_key)</p>
-<pre class="language-"><code>from sqlalchemy import create_engine
+<pre><code>from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import (
@@ -1089,7 +1085,7 @@ class Blog(DeclarativeBase):
     title = Column(String(128), default=&apos;&apos;)
     create_at = Column(DateTime, default=0)
 </code></pre><p>&#x4F7F;&#x7528;<code>Blog.__table__</code>&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x81EA;&#x5B9A;&#x4E49;&#x8868;&#x7ED3;&#x6784;, &#x66F4;&#x591A;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x53C2;&#x8003;&#xFF1A;</p>
-<pre class="language-"><code>Integer/BigInteger/SmallInteger
+<pre><code>Integer/BigInteger/SmallInteger
 &#x6574;&#x5F62;.
 Boolean
 &#x5E03;&#x5C14;&#x7C7B;&#x578B;. Python &#x4E2D;&#x8868;&#x73B0;&#x4E3A; True/False , &#x6570;&#x636E;&#x5E93;&#x6839;&#x636E;&#x652F;&#x6301;&#x60C5;&#x51B5;, &#x8868;&#x73B0;&#x4E3A; BOOLEAN &#x6216; SMALLINT . &#x5B9E;&#x4F8B;&#x5316;&#x65F6;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x662F;&#x5426;&#x521B;&#x5EFA;&#x7EA6;&#x675F;(&#x9ED8;&#x8BA4;&#x521B;&#x5EFA;).
@@ -1117,7 +1113,7 @@ UnicodeText
 &#x53C2;&#x8003; Unicode
 </code></pre><h1 id="create-an-instance-of-the-mapped-class">Create an Instance of the Mapped Class</h1>
 <p>&#x9996;&#x5148;&#x5B9E;&#x4F8B;&#x5316;&#x7C7B;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#x52A0;&#x5165;&#x5230;session&#x4E2D;&#xFF0C;&#x6700;&#x540E;&#x9009;&#x62E9;<code>commit or rollback</code>, &#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x4F7F;&#x7528;<code>session.add()</code>&#x4F1A;&#x81EA;&#x52A8;&#x5F00;&#x542F;&#x4E00;&#x4E2A;&#x4E8B;&#x7269;&#xFF0C;&#x5728;&#x672A;&#x8C03;&#x7528;<code>commit()</code>&#x4E4B;&#x524D;&#xFF0C;Blog Instance&#x7684;&#x72B6;&#x6001;&#x4E3A;<code>Pending</code>, &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;SQL&#x8BED;&#x53E5;&#x53D1;&#x9001;&#x5230;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x6B64;&#x65F6;&#x6570;&#x636E;&#x5E93;&#x91CC;&#x9762;&#x6CA1;&#x6709;<code>name=Blog</code>&#x8FD9;&#x6761;&#x8BB0;&#x5F55;&#xFF0C;&#x5982;&#x679C;&#x5176;&#x4ED6;&#x64CD;&#x4F5C;&#x67E5;&#x8BE2;<code>Blog.name=Blog</code>&#x5C06;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x6570;&#x636E;</p>
-<pre class="language-"><code>blog = Blog(name=&quot;Blog&quot;)
+<pre><code>blog = Blog(name=&quot;Blog&quot;)
 session.add(blog)
 
 print blog.name
@@ -1129,7 +1125,7 @@ None
 # &#x4E00;&#x6B21;&#x6DFB;&#x52A0;&#x591A;&#x4E2A;object
 session.add_all([Blog(name=&quot;blog&quot;), Blog(name=&quot;new_blog&quot;)])
 </code></pre><p>&#x90A3;&#x4E48;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#xFF0C;Blog Instance&#x7684;&#x6570;&#x636E;&#x4F1A;&#x88AB;&#x53D1;&#x9001;&#x5230;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x5462;&#xFF0C;&#x7B54;&#x6848;&#x662F;&#x8C03;&#x7528;<code>flush</code>&#x64CD;&#x4F5C;&#x4E4B;&#x540E;</p>
-<pre class="language-"><code>blog = Blog(name=&quot;Blog&quot;)
+<pre><code>blog = Blog(name=&quot;Blog&quot;)
 session.add(blog)
 # add&#x4E4B;&#x540E;&#xFF0C;&#x52A0;&#x5165;&#x4E86;flush&#x64CD;&#x4F5C;
 session.flush()
@@ -1139,7 +1135,7 @@ print blog.id
 </code></pre><p>&#x9664;&#x4E86;<code>flush</code>&#x64CD;&#x4F5C;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>query</code>&#x53BB;<code>flush</code>&#x6570;&#x636E;&#x5230;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#xFF0C;&#x6587;&#x6863;&#x4E2D;&#x6709;&#x4E00;&#x53E5;&#x8BDD;
 <code>If we query the database for Ed Jones, all pending information will first be flushed, and the query is issued immediately thereafter&#xFF0C; , the query will return results both from the database and from the flushed parts of the uncommitted transaction it holds. By default, Session objects autoflush their operations, but this can be disabled</code></p>
 <p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F; <code>session.autoflush = False</code>&#x4E4B;&#x540E;&#xFF0C;<code>session.query</code>&#x4E0D;&#x4F1A;&#x53D1;&#x9001;sql&#x5230;&#x6570;&#x636E;&#x5E93;, &#x4F46;&#x9ED8;&#x8BA4;&#x5F00;&#x542F;&#x4E86;<code>autoflush</code></p>
-<pre class="language-"><code>blog = Blog(name=&quot;Blog&quot;)
+<pre><code>blog = Blog(name=&quot;Blog&quot;)
 session.add(blog)
 session.query(Blog).filter(Blog.name == &apos;Blog&apos;).first()
 
@@ -1148,12 +1144,12 @@ print blog.id
 1
 </code></pre><h1 id="commit">commit</h1>
 <p>&#x6B64;&#x65F6;&#x67E5;&#x770B;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x6570;&#x636E;&#x5E93;&#x4F9D;&#x7136;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x6570;&#x636E;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x6570;&#x636E;&#x5E93;&#x8FD8;&#x4E48;&#x6709;&#x628A;&#x6570;&#x636E;&#x5199;&#x5165;&#x5230;&#x78C1;&#x76D8;&#x4E2D;&#xFF0C;&#x901A;&#x8FC7;<code>commit()</code>&#x53EF;&#x5B9E;&#x73B0;&#x5199;&#x5165;&#x78C1;&#x76D8;&#xFF0C;&#x6301;&#x4E45;&#x5316;&#x6570;&#x636E;, &#x9700;&#x8981;&#x7406;&#x89E3;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5F53;&#x6267;&#x884C;<code>session.commit()</code>&#x4E4B;&#x540E;&#xFF0C;&#x88AB;<code>session</code>&#x5F15;&#x7528;&#x7684;<code>connection resources</code>&#x4F1A;&#x88AB;&#x8FD4;&#x56DE;&#x5230;<code>connection pool</code>&#x4E2D;&#xFF0C; &#x540C;&#x65F6;commit&#x4E4B;&#x540E;&#xFF0C;session&#x4F1A;&#x8FC7;&#x671F;</p>
-<pre class="language-"><code>blog = Blog(name=&quot;Blog&quot;)
+<pre><code>blog = Blog(name=&quot;Blog&quot;)
 session.add(blog)
 session.commit()
 </code></pre><p>&#x6B64;&#x65F6;&#x5176;&#x4ED6;session&#x53EF;&#x901A;&#x8FC7;<code>Blog.name=Blog</code>&#x67E5;&#x8BE2;&#x8BE5;&#x6570;&#x636E;&#xFF0C;&#x90A3;&#x6709;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x5982;&#x679C;&#x6570;&#x636E;&#x88AB;<code>flush</code>&#x5230;&#x6570;&#x636E;&#x5E93;&#x4F46;&#x6CA1;&#x6709;<code>commit()</code>&#xFF0C;&#x5176;&#x4ED6;session&#x4F1A;&#x8BE5;&#x8BB0;&#x5F55;&#x5417;&#xFF0C;&#x7B54;&#x6848;&#x662F;&#x53D6;&#x51B3;&#x4E0E;&#x6570;&#x636E;&#x5E93;&#x7684;&#x9694;&#x79BB;&#x7EA7;&#x522B;&#xFF0C;&#x5982;&#x679C;&#x6570;&#x636E;&#x5E93;&#x7684;&#x9694;&#x79BB;&#x7EA7;&#x522B;&#x662F;<code>Read uncommitted</code>&#xFF0C;&#x5141;&#x8BB8;&#x810F;&#x8BFB;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x53EF;&#x80FD;&#x8BFB;&#x53D6;&#x5230;&#x5176;&#x4ED6;&#x4F1A;&#x8BDD;&#x4E2D;&#x672A;&#x63D0;&#x4EA4;&#x4E8B;&#x52A1;&#x4FEE;&#x6539;&#x7684;&#x6570;&#x636E;, &#x5373;&#x53EF;&#x83B7;&#x53D6;&#x5230;&#x6539;&#x8BB0;&#x5F55;</p>
 <p>session&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5BB9;&#x5668;&#xFF0C;&#x628A;&#x5BF9;&#x8C61;&#x52A0;&#x5165;&#x5230;session&#x4E2D;&#x540E;&#xFF0C;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x5BF9;&#x8C61;&#x7684;&#x503C;</p>
-<pre class="language-"><code>blog = Blog(name=&apos;Blog&apos;)
+<pre><code>blog = Blog(name=&apos;Blog&apos;)
 session.add(blog)
 print blog in session
 True
@@ -1163,27 +1159,27 @@ session.commmit()
 # &#x6700;&#x540E;&#x63D0;&#x4EA4;&#x5230;&#x6570;&#x636E;&#x5E93;&#x7684;&#x6570;&#x636E;&#x662F;`new_blog`
 </code></pre><h1 id="rolling-back">Rolling Back</h1>
 <p>&#x56DE;&#x6EDA;<code>session.add()</code>&#x64CD;&#x4F5C;&#xFF0C;<code>blog</code>&#x88AB;&#x63D0;&#x51FA;&#x4E86;<code>session</code>, &#x4E5F;&#x5C31;&#x662F;<code>session</code>&#x4E0D;&#x518D;&#x7BA1;&#x7406;<code>blog</code>&#x4E86;&#x3002;</p>
-<pre class="language-"><code>blog = Blog(name=&quot;Blog&quot;)
+<pre><code>blog = Blog(name=&quot;Blog&quot;)
 session.add(blog)
 session.rollback()
 print blog in session
 False
 </code></pre><h1 id="querying">Querying</h1>
 <p>&#x4F7F;&#x7528;<code>query</code>&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;<code>query object</code> <a href="http://docs.sqlalchemy.org/en/latest/orm/query.html" target="_blank">&#x8BE6;&#x7EC6;&#x6587;&#x6863;</a>, &#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x7CFB;&#x5217;&#x65B9;&#x6CD5;&#x4E30;&#x5BCC;&#x67E5;&#x8BE2;&#x6761;&#x4EF6;, &#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;<code>session.query()</code>&#x8FD4;&#x56DE;&#x662F;&#x4E00;&#x4E2A;&#x8FED;&#x4EE3;&#x5668;&#xFF0C;&#x4F7F;&#x7528;<code>for</code>&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;&#x67E5;&#x8BE2;&#x7684;&#x6240;&#x6709;&#x7ED3;&#x679C;&#xFF0C;&#x4F7F;&#x7528;&#x8FED;&#x4EE3;&#x5668;&#x53BB;&#x4F18;&#x5316;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;</p>
-<pre class="language-"><code>&gt;&gt;&gt; for instance in session.query(User).order_by(User.id):
+<pre><code>&gt;&gt;&gt; for instance in session.query(User).order_by(User.id):
 ...     print(instance.name, instance.fullname)
 ed Ed Jones
 wendy Wendy Williams
 mary Mary Contrary
 fred Fred Flinstone
 </code></pre><p>&#x67E5;&#x8BE2;&#x6307;&#x5B9A;&#x7684;&#x5217;</p>
-<pre class="language-"><code>for name, fullname in session.query(User.name, User.fullname):
+<pre><code>for name, fullname in session.query(User.name, User.fullname):
 ...     print(name, fullname)
 </code></pre><p>The tuples returned by Query are named tuples, supplied by the KeyedTuple class, and can be treated much like an ordinary Python object. The names are the same as the attribute&#x2019;s name for an attribute, and the class name for a class</p>
-<pre class="language-"><code> for row in session.query(User, User.name).all():
+<pre><code> for row in session.query(User, User.name).all():
     print(row.User, row.name)
 </code></pre><p>&#x5E38;&#x7528;&#x7684;&#x8FD8;&#x6709;</p>
-<pre class="language-"><code>query.filter(User.name == &apos;ed&apos;)
+<pre><code>query.filter(User.name == &apos;ed&apos;)
 query.filter(User.name != &apos;ed&apos;)
 query.filter(User.name.like(&apos;%ed%&apos;))
 query.filter(User.name.in_([&apos;ed&apos;, &apos;wendy&apos;, &apos;jack&apos;]))
@@ -1211,14 +1207,14 @@ session.query(Blog.id, Blog.title).filter(Blog.create &gt;= 0).first().title
 session.query(User).get(1)
 some_object = session.query(VersionedFoo).get((5, 10))
 </code></pre><h1 id="using-textual-sql">Using Textual SQL</h1>
-<pre class="language-"><code>&gt;&gt;&gt; from sqlalchemy import text
+<pre><code>&gt;&gt;&gt; from sqlalchemy import text
 &gt;&gt;&gt; for user in session.query(User).\
 ...             filter(text(&quot;id&lt;224&quot;)).\
 ...             order_by(text(&quot;id&quot;)).all():
 ...     print(user.name)
 </code></pre><h1 id="returning-lists-and-scalars">Returning Lists and Scalars</h1>
 <p>&#x662F;&#x65F6;&#x5019;&#x5173;&#x5FC3;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x4E86;&#xFF0C;&#x524D;&#x9762;&#x6211;&#x4EEC;&#x63D0;&#x5230;&#x8FC7;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x8FED;&#x4EE3;&#x5668;</p>
-<pre class="language-"><code># all() returns a list
+<pre><code># all() returns a list
 &gt;&gt;&gt; query = session.query(User).filter(User.name.like(&apos;%ed&apos;)).order_by(User.id)
 SQL&gt;&gt;&gt; query.all()
 [&lt;User(name=&apos;ed&apos;, fullname=&apos;Ed Jones&apos;, password=&apos;f8s7ccs&apos;)&gt;,
@@ -1235,39 +1231,39 @@ scalar() invokes the one() method, and upon success returns the first column of 
 &gt;&gt;&gt; query.scalar()
 1
 </code></pre><h1 id="counting">Counting</h1>
-<pre class="language-"><code>&gt;&gt;&gt; from sqlalchemy import func
+<pre><code>&gt;&gt;&gt; from sqlalchemy import func
 &gt;&gt;&gt; session.query(func.count(User.name), User.name).group_by(User.name).all()
 [(1, u&apos;ed&apos;), (1, u&apos;fred&apos;), (1, u&apos;mary&apos;), (1, u&apos;wendy&apos;)]
 
 &gt;&gt;&gt; session.query(User).filter(User.name.like(&apos;%ed&apos;)).count()
 2
 </code></pre><h1 id="deleting">Deleting</h1>
-<pre class="language-"><code>blog = session.query(Blog).filter(Blog.name == &apos;Blog&apos;).first()
+<pre><code>blog = session.query(Blog).filter(Blog.name == &apos;Blog&apos;).first()
 session.delete(blog)
 # &#x63D0;&#x4EA4;&#x4E4B;&#x540E;&#xFF0C;&#x5373;&#x53EF;&#x5220;&#x9664;blog&#x6570;&#x636E;
 session.commit()
 </code></pre><p><code>query</code>&#x4E4B;&#x540E;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5220;&#x9664;</p>
-<pre class="language-"><code>session.query(RegionActivity).\
+<pre><code>session.query(RegionActivity).\
         filter(RegionActivity.activity_id == act.id).\
         delete(synchronize_session=False)
 # False - don&#x2019;t synchronize the session. This option is the most efficient and is reliable once the session is expired, which typically occurs after a commit(), or explicitly using expire_all(). Before the expiration, objects may still remain in the session which were in fact deleted which can lead to confusing results if they are accessed via get() or already loaded collections
 </code></pre><h1 id="updating">updating</h1>
 <p>&#x548C;delete&#x4E00;&#x6837;&#xFF0C;&#x8FD8;&#x662F;&#x6709;&#x4E24;&#x79CD;&#x64CD;&#x4F5C;</p>
-<pre class="language-"><code>session.query(User).filter(User.username == &apos;abc&apos;).update({&apos;name&apos;: &apos;123&apos;})
+<pre><code>session.query(User).filter(User.username == &apos;abc&apos;).update({&apos;name&apos;: &apos;123&apos;})
 session.commit()
 
 user = session.query(User).filter_by(username=&apos;abc&apos;).scalar()
 user.name = &apos;223&apos;
 session.commit()
 </code></pre><p>&#x8BD5;&#x8BD5;&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;</p>
-<pre class="language-"><code>session.query(Blog).filter(Blog.name == &apos;Blog&apos;).update({Blog.name: Blog.name + &apos;x&apos;})
+<pre><code>session.query(Blog).filter(Blog.name == &apos;Blog&apos;).update({Blog.name: Blog.name + &apos;x&apos;})
 
 # InvalidRequestError: Could not evaluate current criteria in Python Specify &apos;fetch&apos; or False for the synchronize_session parameter
 </code></pre><p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>update</code>&#x64CD;&#x4F5C;&#x4F1A;&#x4FEE;&#x6539;<code>session</code>&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x4F46;&#x662F;&#x9700;&#x8981;&#x5F15;&#x7528;&#x5230;<code>blog.name</code>&#x7684;&#x65F6;&#x5019;&#x5C31;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x4FDD;&#x9669;&#x7684;&#x505A;&#x6CD5;&#x662F;</p>
-<pre class="language-"><code># &#x4FEE;&#x6539;&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5E76;&#x4E0D;&#x4FEE;&#x6539;session&#x91CC;&#x9762;&#x7684;&#x6570;&#x636E;
+<pre><code># &#x4FEE;&#x6539;&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5E76;&#x4E0D;&#x4FEE;&#x6539;session&#x91CC;&#x9762;&#x7684;&#x6570;&#x636E;
 session.query(Blog).filter(Blog.name == &apos;Blog&apos;).update({Blog.name: Blog.name + &apos;x&apos;}, synchronize_session=False)
 </code></pre><p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;<code>session.commit</code>&#x4E4B;&#x540E;&#xFF0C;session&#x5C31;&#x8FC7;&#x671F;&#x4E86;&#xFF0C;&#x518D;&#x6B21;&#x83B7;&#x53D6;&#x76F8;&#x5173;&#x5C5E;&#x6027;&#x503C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x901A;&#x8FC7;id&#x53BB;&#x6570;&#x636E;&#x5E93;&#x67E5;&#x8BE2;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#xFF0C;&#x5982;&#x679C;&#x628A;id&#x4FEE;&#x6539;&#x4E86;&#xFF0C;&#x90A3;&#x5C31;&#x4F1A;&#x51FA;&#x4E8B;&#x4E86;</p>
-<pre class="language-"><code>blog = session.query(Blog).filter(Blog.name == &apos;Blog&apos;).first()
+<pre><code>blog = session.query(Blog).filter(Blog.name == &apos;Blog&apos;).first()
 session.query(Blog).filter(Blog.name == &apos;Blog&apos;).update({Blog.name: Blog.name + &apos;x&apos;}, synchronize_session=False)
 print blog.name # &apos;Blog&apos; &#x5E76;&#x6CA1;&#x6709;&#x4FEE;&#x6539;session&#x91CC;&#x9762;&#x7684;&#x503C;
 session.commit()
@@ -1316,7 +1312,7 @@ print blog.name # &apos;Blogx&apos; &#x83B7;&#x53D6;&#x7684;&#x662F;&#x6700;&#x6
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SQLalchemy-orm","level":"1.3.15","depth":2,"next":{"title":"GO","level":"1.4","depth":1,"path":"section_go/README.md","ref":"section_go/README.md","articles":[]},"previous":{"title":"SQLalchemy-engine","level":"1.3.14","depth":2,"path":"section_python/SQLalchemy-engine.md","ref":"section_python/SQLalchemy-engine.md","articles":[]},"dir":"ltr"},"config":{"plugins":["prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_python/SQLalchemy-orm.md","mtime":"2018-12-08T02:41:07.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T03:27:46.550Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SQLalchemy-orm","level":"1.3.15","depth":2,"next":{"title":"GO","level":"1.4","depth":1,"path":"section_go/README.md","ref":"section_go/README.md","articles":[]},"previous":{"title":"SQLalchemy-engine","level":"1.3.14","depth":2,"path":"section_python/SQLalchemy-engine.md","ref":"section_python/SQLalchemy-engine.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_python/SQLalchemy-orm.md","mtime":"2018-12-08T03:32:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-08T04:28:00.539Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
