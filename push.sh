@@ -23,7 +23,7 @@
 
  git commit -m 'push by shell'
 
- git push > /dev/null 2>&1
+ git push -u origin gh-pages 
 
  [ $? != 0 ] && echo "fuck dog push sunny failed" && git checkout master && exit
 
