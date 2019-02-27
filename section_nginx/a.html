@@ -1,0 +1,1271 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>NGINX常用命令梳理 · 飘来飘去</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toc2/toc2.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../section_tool/" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://www.hellosunnyge.com/wordpress/" target="_blank" class="custom-link">飘来飘去</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../section_php/">
+            
+                <a href="../section_php/">
+            
+                    
+                    PHP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../section_php/intro.html">
+            
+                <a href="../section_php/intro.html">
+            
+                    
+                    Laravel-Intro
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../section_php/container.html">
+            
+                <a href="../section_php/container.html">
+            
+                    
+                    Laravel-Container
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../section_php/Facade.html">
+            
+                <a href="../section_php/Facade.html">
+            
+                    
+                    Laravel-Facade
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../section_php/sericeprovider.html">
+            
+                <a href="../section_php/sericeprovider.html">
+            
+                    
+                    Laravel-ServiceProvider
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../section_php/exception.html">
+            
+                <a href="../section_php/exception.html">
+            
+                    
+                    Laravel-Exception
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../section_php/evnet.html">
+            
+                <a href="../section_php/evnet.html">
+            
+                    
+                    Laravel-Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../section_php/route.html">
+            
+                <a href="../section_php/route.html">
+            
+                    
+                    Laravel-Route
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../section_php/mdiddleware.html">
+            
+                <a href="../section_php/mdiddleware.html">
+            
+                    
+                    Laravel-Middleware
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../section_php/log.html">
+            
+                <a href="../section_php/log.html">
+            
+                    
+                    Laravel-Log
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../section_php/reqeust.html">
+            
+                <a href="../section_php/reqeust.html">
+            
+                    
+                    Laravel-Request
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../section_php/response.html">
+            
+                <a href="../section_php/response.html">
+            
+                    
+                    Laravel-Response
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../section_php/response.html">
+            
+                <a href="../section_php/response.html">
+            
+                    
+                    Laravel-File
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../section_python/">
+            
+                <a href="../section_python/">
+            
+                    
+                    PYTHON
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../section_python/ob.html">
+            
+                <a href="../section_python/ob.html">
+            
+                    
+                    理解python对象本质
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../section_python/meta.html">
+            
+                <a href="../section_python/meta.html">
+            
+                    
+                    理解python元类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../section_python/class.html">
+            
+                <a href="../section_python/class.html">
+            
+                    
+                    理解python面向对象编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../section_python/yield.html">
+            
+                <a href="../section_python/yield.html">
+            
+                    
+                    python yield使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../section_python/decorator.html">
+            
+                <a href="../section_python/decorator.html">
+            
+                    
+                    python装饰器使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../section_python/struct.html">
+            
+                <a href="../section_python/struct.html">
+            
+                    
+                    python常用数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../section_python/contextlib.html">
+            
+                <a href="../section_python/contextlib.html">
+            
+                    
+                    contextlib
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../section_python/collection.html">
+            
+                <a href="../section_python/collection.html">
+            
+                    
+                    collections
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../section_python/itertools.html">
+            
+                <a href="../section_python/itertools.html">
+            
+                    
+                    itertools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../section_python/functools.html">
+            
+                <a href="../section_python/functools.html">
+            
+                    
+                    functools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../section_python/inpect.html">
+            
+                <a href="../section_python/inpect.html">
+            
+                    
+                    inspect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="../section_python/pytest.html">
+            
+                <a href="../section_python/pytest.html">
+            
+                    
+                    pytest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="../section_python/SQLalchemy-session.html">
+            
+                <a href="../section_python/SQLalchemy-session.html">
+            
+                    
+                    SQLalchemy-session
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="../section_python/SQLalchemy-engine.html">
+            
+                <a href="../section_python/SQLalchemy-engine.html">
+            
+                    
+                    SQLalchemy-engine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.15" data-path="../section_python/SQLalchemy-orm.html">
+            
+                <a href="../section_python/SQLalchemy-orm.html">
+            
+                    
+                    SQLalchemy-orm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../section_design/">
+            
+                <a href="../section_design/">
+            
+                    
+                    代码设计
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../section_design/tcp.html">
+            
+                <a href="../section_design/tcp.html">
+            
+                    
+                    TCP/IP 协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../section_design/http.html">
+            
+                <a href="../section_design/http.html">
+            
+                    
+                    HTTP 协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../section_design/demoin.html">
+            
+                <a href="../section_design/demoin.html">
+            
+                    
+                    领域驱动开发实践
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../section_design/health.html">
+            
+                <a href="../section_design/health.html">
+            
+                    
+                    分布式_API熔断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../section_design/collection.html">
+            
+                <a href="../section_design/collection.html">
+            
+                    
+                    连接池设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../section_design/thread.html">
+            
+                <a href="../section_design/thread.html">
+            
+                    
+                    线程池设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../section_mysql/">
+            
+                <a href="../section_mysql/">
+            
+                    
+                    数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    NGINX
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.6.1" data-path="a.html">
+            
+                <a href="a.html">
+            
+                    
+                    NGINX常用命令梳理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../section_tool/">
+            
+                <a href="../section_tool/">
+            
+                    
+                    常用工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../section_tool/sublime.html">
+            
+                <a href="../section_tool/sublime.html">
+            
+                    
+                    sublime-vscode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../section_tool/vim.html">
+            
+                <a href="../section_tool/vim.html">
+            
+                    
+                    vim
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../section_tool/zsh.html">
+            
+                <a href="../section_tool/zsh.html">
+            
+                    
+                    zsh
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../section_tool/Iterm.html">
+            
+                <a href="../section_tool/Iterm.html">
+            
+                    
+                    Iterm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../section_tool/brew.html">
+            
+                <a href="../section_tool/brew.html">
+            
+                    
+                    brew
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../section_tool/launchctl.html">
+            
+                <a href="../section_tool/launchctl.html">
+            
+                    
+                    launchctl
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../section_tool/supervisor.html">
+            
+                <a href="../section_tool/supervisor.html">
+            
+                    
+                    supervisor
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../section_linux/">
+            
+                <a href="../section_linux/">
+            
+                    
+                    linux管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../section_linux/ssh.html">
+            
+                <a href="../section_linux/ssh.html">
+            
+                    
+                    ssh
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../section_linux/proccess.html">
+            
+                <a href="../section_linux/proccess.html">
+            
+                    
+                    process
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../section_linux/text.html">
+            
+                <a href="../section_linux/text.html">
+            
+                    
+                    text
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../section_linux/shell.html">
+            
+                <a href="../section_linux/shell.html">
+            
+                    
+                    shell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../section_linux/regex.html">
+            
+                <a href="../section_linux/regex.html">
+            
+                    
+                    regex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../section_linux/cpu.html">
+            
+                <a href="../section_linux/cpu.html">
+            
+                    
+                    cpu
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="../section_linux/memmory.html">
+            
+                <a href="../section_linux/memmory.html">
+            
+                    
+                    memory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="../section_linux/io.html">
+            
+                <a href="../section_linux/io.html">
+            
+                    
+                    io
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" data-path="../section_linux/network.html">
+            
+                <a href="../section_linux/network.html">
+            
+                    
+                    network
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../section_test/">
+            
+                <a href="../section_test/">
+            
+                    
+                    测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../section_mind/">
+            
+                <a href="../section_mind/">
+            
+                    
+                    随想
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >NGINX常用命令梳理</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="nginx-&#x76F8;&#x5173;&#x77E5;&#x8BC6;&#x70B9;">nginx &#x76F8;&#x5173;&#x77E5;&#x8BC6;&#x70B9;</h1>
+<h2 id="&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</h2>
+<p> &#x5728;mac&#x7CFB;&#x7EDF;&#x4E2D;&#x4F7F;&#x7528;brew&#x547D;&#x4EE4;&#x5B89;&#x88C5;&#xFF0C; &#x5982;&#x679C;&#x8981;&#x652F;&#x6301;<code>ehco</code>&#x6307;&#x4EE4;&#xFF0C;&#x8BF7;&#x5B89;&#x88C5;<code>echo-modul</code>&#x6A21;&#x5757;</p>
+<pre><code> brew update
+ # &#x5B89;&#x88C5;&#x666E;&#x901A;&#x7248;
+ brew install nginx
+
+ # &#x5B89;&#x88C5;&#x652F;&#x6301;echo&#x6307;&#x4EE4;&#x7684;nginx, &#x5EFA;&#x8BAE;&#x5B89;&#x88C5;&#x6B64;&#x7248;&#x672C;&#xFF0C;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x8C03;&#x8BD5;
+ brew install nginx-full --with-echo-module
+</code></pre><h2 id="&#x5F00;&#x673A;&#x542F;&#x52A8;&#xFF0C;&#x91CD;&#x542F;&#xFF0C;&#x5173;&#x95ED;&#x7B49;&#x5E38;&#x7528;&#x64CD;&#x4F5C;">&#x5F00;&#x673A;&#x542F;&#x52A8;&#xFF0C;&#x91CD;&#x542F;&#xFF0C;&#x5173;&#x95ED;&#x7B49;&#x5E38;&#x7528;&#x64CD;&#x4F5C;</h2>
+<p>&#x901A;&#x8FC7;<code>brew install nginx</code>&#x5B89;&#x88C5;&#xFF0C;&#x652F;&#x6301;&#x5982;&#x4E0B;&#x64CD;&#x4F5C;</p>
+<pre><code> # &#x8BBE;&#x7F6E;&#x5F00;&#x673A;&#x542F;&#x52A8;
+ brew services start nginx
+ # &#x5E38;&#x7528;&#x64CD;&#x4F5C;
+ brew services stop | reload | restart nginx
+ # &#x67E5;&#x627E;&#x662F;&#x5426;&#x6210;&#x529F;&#x542F;&#x52A8;
+ ps -aux | grep nginx
+ # &#x9A8C;&#x8BC1;&#x914D;&#x7F6E;&#x662F;&#x5426;&#x6B63;&#x786E;&#xFF0C;&#x5EFA;&#x8BAE;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x4E4B;&#x540E;&#x6267;&#x884C;&#x6B64;&#x547D;&#x4EE4;&#x9A8C;&#x8BC1;
+ nginx -t
+ # &#x8BBE;&#x7F6E;nginx&#x7684;&#x524D;&#x7F00;path&#x8DEF;&#x5F84;&#xFF0C;&#x5728;nginx&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;,&#x50CF;access_log error_log&#x9700;&#x8981;&#x6307;&#x5B9A;&#x524D;&#x7F00;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;
+ # &#x9ED8;&#x8BA4;&#x524D;&#x7F00;&#x8DEF;&#x5F84;&#x662F;nginx&#x7684;&#x5B89;&#x88C5;&#x8DEF;&#x5F84;
+ nginx -p prefix_file_path
+ # &#x6307;&#x5B9A;nginx&#x8FD0;&#x884C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;
+ nginx -c nginx_conf_path
+ # &#x67E5;&#x770B;nginx&#x652F;&#x6301;&#x7684;&#x547D;&#x4EE4;
+ nginx -h
+</code></pre><p> &#x901A;&#x8FC7; <code>brew install nginx-full --with-echo-module</code> &#x5B89;&#x88C5;&#xFF0C; &#x652F;&#x6301;&#x5982;&#x4E0B;&#x64CD;&#x4F5C;</p>
+<pre><code>  &#x542F;&#x52A8;
+  nginx
+  &#x505C;&#x6B62; &#x91CD;&#x542F;
+  nginx -s stop | reload
+</code></pre><h2 id="nginx-&#x5185;&#x7F6E;&#x5E38;&#x91CF;">nginx &#x5185;&#x7F6E;&#x5E38;&#x91CF;</h2>
+<pre><code>location ~ .*args$ {
+  echo $document_root;
+  echo $document_uri;
+  echo $fastcgi_script_name;
+  echo $request_uri;
+  echo $request_method;
+  echo $args;
+  echo $remote_addr;
+  echo $remote_port;
+  echo $server_addr;
+  echo $server_port;
+  echo $server_name;
+  echo $content_type;
+  echo $content_length;
+  echo $scheme;
+}
+
+&#x8BF7;&#x6C42;&#xFF1A;http://localhost:8080/test/args?a=1&amp;b=2
+&#x8F93;&#x51FA;&#xFF1A;
+/usr/local/Cellar/nginx-full/1.12.2/html
+/test/args
+/test/args
+/test/args?a=1&amp;b=2
+GET
+a=1&amp;b=2
+127.0.0.1
+62787
+127.0.0.1
+8080
+localhost
+(&#x4E3A;&#x7A7A;)
+(&#x4E3A;&#x7A7A;)
+http
+</code></pre><p>&#x9700;&#x8981;&#x6CE8;&#x610F;:</p>
+<blockquote>
+<ul>
+<li><p><code>$document_root</code>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;root&#x6216;alias&#x6307;&#x4EE4;&#x914D;&#x7F6E;&#xFF0C;&#x6216;&#x5728;nginx&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#x4F7F;&#x7528;-p&#x6307;&#x5B9A;</p>
+</li>
+<li><p><code>$request_uri</code> &#x4EE5;<code>/</code>&#x5F00;&#x5934;</p>
+</li>
+<li><p>&#x5185;&#x7F6E;&#x5E38;&#x91CF;&#x4F1A;&#x4F20;&#x9012;&#x7ED9;fastcgi&#x6216;&#x8005;cgi&#x7A0B;&#x5E8F;</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="&#x5E38;&#x7528;&#x6A21;&#x5757;">&#x5E38;&#x7528;&#x6A21;&#x5757;</h2>
+<h3 id="ngxhttprewritemodule">ngx_http_rewrite_module</h3>
+<p>&#x6B64;&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x5E38;&#x7528;&#x6307;&#x4EE4;&#x6709;:<code>rewrite, last, break, redirect, permanent, set, if</code></p>
+<p>&#x4F7F;&#x7528;<code>rewrite</code>&#x6307;&#x4EE4;&#x6709;&#x4E24;&#x4E2A;&#x76EE;&#x7684;:</p>
+<p>1 &#x901A;&#x8FC7;&#x6B63;&#x5219;&#x5339;&#x914D;&#x5230;&#x7684;uri&#x5E76;&#x6539;&#x5199;uri, &#x4ECE;&#x800C;&#x6EE1;&#x8DB3;php&#x6846;&#x67B6;&#x4F7F;&#x7528;uri&#x505A;&#x8DEF;&#x7531;&#x5206;&#x53D1;</p>
+<p>2 &#x5B9E;&#x73B0;&#x7279;&#x5B9A;&#x7684;uri&#x4F7F;&#x7528;location&#x53BB;&#x5904;&#x7406;&#xFF0C;&#x4ECE;&#x800C;&#x6EE1;&#x8DB3;&#x4E0D;&#x540C;&#x7684;uri&#x6709;&#x4E0D;&#x540C;&#x7684;location&#x5904;&#x7406;&#xFF0C;&#x4F8B;&#x5982;&#x9759;&#x6001;&#x6587;&#x4EF6;&#xFF0C;php&#x6587;&#x4EF6;&#x7B49;&#x6709;&#x4E0D;&#x540C;&#x7684;location&#x5904;&#x7406;</p>
+<p>&#x7406;&#x89E3;&#x8FD9;&#x4E24;&#x4E2A;&#x76EE;&#x7684;&#x5F88;&#x91CD;&#x8981;&#xFF01;</p>
+<p><code>rewrite</code>&#x6307;&#x4EE4;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5728;<code>server</code>&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5728;<code>location</code>&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;`</p>
+<pre><code>server {
+    # $1&#x8868;&#x793A;&#x7B2C;&#x4E00;&#x4E2A;&#x62EC;&#x53F7;&#x5339;&#x914D;&#x7684;&#x5185;&#x5BB9;
+    rewrite ^/(.*)$ /msie/$1;
+
+    location ~ /msie/.* {
+        rewrite_log on;
+        echo &quot;rewrite&quot;;
+        echo $request_uri;
+        echo $document_uri;
+    }
+}
+
+# &#x5F53;&#x8BF7;&#x6C42;http://localhost:8080/test?a=1&amp;b=2 &#x8F93;&#x51FA;&#xFF1A;
+rewrite
+/test?a=1&amp;b=2  # &#x5E76;&#x4E0D;&#x662F;/msie/test?a=1&amp;b=2
+/msie/test  # &#x6539;&#x5199;&#x540E;&#x7684;url
+</code></pre><p>&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x8BF4;&#x660E;&#xFF1A;
+1 rewrite&#x987A;&#x5229;&#x5339;&#x914D;&#x5230;url&#x5E76;&#x8DEF;&#x7531;&#x5230;location ~ /msie/.* &#x5904;&#x7406;&#x672C;&#x6B21;&#x8BF7;&#x6C42;
+2 rewrite&#x6CA1;&#x6709;&#x6539;&#x53D8;$request_uri, &#x4EE5;$request_uri&#x505A;&#x8DEF;&#x7531;&#x7684;&#x8BF7;&#x7279;&#x522B;&#x6CE8;&#x610F;
+3 $document_uri&#x53D8;&#x91CF;&#x5DF2;&#x7ECF;&#x6539;&#x53D8;&#x4E3A;rewrite&#x4E4B;&#x540E;&#x7684;/msie/test</p>
+<p><code>rewrite  regexp</code> &#x5E38;&#x7528;&#x8868;&#x8FBE;&#x5F0F;</p>
+<pre><code># &#x4EE5;/author&#x5F00;&#x5934;&#x7684;url &#x91CD;&#x5199;&#x5230;/show/author
+rewrite ^/author/(.*)$ /show/author?id=$1;
+
+# &#x4EE5;/library&#x5F00;&#x5934;&#x7684;url &#x6216;&#x8005;/library/ &#x6216;&#x8005;/library/xxx?a=1 &#x91CD;&#x5199;&#x5230;/show/library/$1
+rewrite ^/library(?:/([^\?]*))?$ /show/library/$1;
+
+&#x5F53;&#x8F93;&#x5165;/library/test/?a=1, &#x6B63;&#x5219;&#x5F00;&#x59CB;&#x5339;&#x914D;:
+^&#x9996;&#x5148;&#x5339;&#x914D;&#x5F00;&#x5934;&#xFF0C;&#x6210;&#x529F;
+/library&#x5339;&#x914D;&#x5230;&#x6E90;uri&#x4E2D;/library&#x4F4D;&#x7F6E;
+&#x7136;&#x540E;(?:/([^\?]*))? &#x5F00;&#x59CB;&#x5339;&#x914D;&#xFF0C;&#x9996;&#x5148;(?:expression)&#x662F;&#x4E00;&#x4E2A;&#x987A;&#x5E8F;&#x73AF;&#x89C6;[&#x53EA;&#x5339;&#x914D;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4E0D;&#x5360;&#x6709;&#x5B57;&#x7B26;]
+&#x987A;&#x5E8F;&#x73AF;&#x89C6;&#x4E2D;/&#x5F00;&#x59CB;&#x5339;&#x914D;&#x6E90;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;/library&#x540E;&#x9762;&#x7684;&#x4E00;&#x4E2A;/&#xFF0C;&#x5339;&#x914D;&#x6210;&#x529F;&#xFF0C;&#x7136;&#x540E;[^\?]&#x5F00;&#x59CB;&#x5339;&#x914D;&#xFF0C;&#x5F00;&#x59CB;&#x5339;&#x914D;t&#xFF0C;&#x5339;&#x914D;&#x6210;&#x529F;&#xFF0C;&#x7531;&#x4E8E;[^\?]*&#x662F;&#x8D2A;&#x5A6A;&#x6A21;&#x5F0F;&#xFF0C;&#x7EE7;&#x7EED;&#x5339;&#x914D;&#x76F4;&#x5230;/library/test/?&#x7684;?&#x5931;&#x8D25;&#xFF0C;&#x6240;&#x4EE5;[^\?]*&#x5339;&#x914D;&#x7684;&#x5185;&#x5BB9;&#x5305;&#x62EC;?, &#x5982;&#x9898;[^\?]* &#x5339;&#x914D;&#x5230;&#x7684;&#x5C31;&#x662F;test &#x6240;&#x4EE5; $1=test
+</code></pre><p><code>break</code>&#x6307;&#x4EE4;</p>
+<p><code>break</code>&#x6307;&#x4EE4;&#x4F1A;&#x7EC8;&#x6B62;<code>ngx_http_rewrite_module</code>&#x6A21;&#x5757;&#x4E2D;&#x6240;&#x6709;&#x6307;&#x4EE4;&#x7684;&#x6267;&#x884C;</p>
+<p>&#x548C;break&#x7C7B;&#x4F3C;&#x7684;&#x6307;&#x4EE4;&#x662F;<code>last</code>, &#x5982;&#x679C;<code>rewrite</code>&#x5728;server&#x4E2D;&#x5B9A;&#x4E49;,&#x90A3;&#x4E48;<code>break</code>&#x548C;<code>last</code>&#x57FA;&#x672C;&#x4E00;&#x6837;</p>
+<pre><code>server {
+    # &#x6267;&#x884C;&#x5230;break&#x6307;&#x4EE4;&#x540E;&#xFF0C;nginx&#x5C06;&#x6839;&#x636E;&#x88AB;&#x91CD;&#x5199;&#x7684;uri
+    # &#x91CD;&#x65B0;&#x53D1;&#x8D77;location&#x5339;&#x914D;&#x9636;&#x6BB5;,&#x6700;&#x7EC8;&#x4F1A;&#x5339;&#x914D;&#x5230;location ~ /msie/.*
+    rewrite ^/(.*)$ /msie/$1 break; # &#x8FD9;&#x91CC;&#x628A;break&#x6539;&#x6210;last&#x4E5F;&#x4E00;&#x6837;
+
+    location ~ /msie/.* {
+        echo &quot;rewrite&quot;;
+    }
+}
+
+# &#x8F93;&#x5165;url: localhost/test?a=1
+# &#x8F93;&#x51FA;: &quot;rewrite&quot;
+# &#x8BC1;&#x660E;&#x5339;&#x914D;&#x5230;&#x4E86;location ~ /msie/.*
+</code></pre><p>&#x5982;&#x679C;<code>rewrite</code>&#x5728;<code>location</code>&#x4E2D;&#x5B9A;&#x4E49;&#xFF0C;<code>nginx</code>&#x4E0D;&#x4F1A;&#x91CD;&#x65B0;&#x53D1;&#x8D77;<code>location</code>&#x5339;&#x914D;&#xFF0C;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x672C;&#x6B21;<code>location</code>&#x7684;&#x5185;&#x5BB9;&#x8F93;&#x51FA;</p>
+<pre><code>server {
+    location /1 {
+       echo &quot;1&quot;;
+       rewrite   (.*)   /2?o_uri=$1 break;
+    }
+
+    location /2 {
+       echo &quot;2&quot;;
+    }
+}
+
+# &#x8F93;&#x5165;url: localhost/1?a=1
+# &#x8F93;&#x51FA;: &quot;1&quot; &#x8BC1;&#x660E;&#x5339;&#x914D;&#x5230;&#x4E86;location /1 &#x8BC1;&#x660E;location&#x5339;&#x914D;&#x7EC8;&#x6B62;&#x5728; location /1&#x4E2D; &#x5E76;&#x6CA1;&#x6709;&#x5230;location /2&#x4E2D;
+</code></pre><p>&#x8FD9;&#x4E2A;&#x5B9E;&#x4F8B;&#x4E2D;&#xFF0C;<code>rewrite</code>&#x6307;&#x4EE4;&#x52A0;&#x5165;<code>break</code>&#x6307;&#x4EE4;&#xFF0C;&#x76EE;&#x7684;&#x53EA;&#x662F;&#x4E3A;&#x4E86;&#x91CD;&#x5199;<code>uri</code></p>
+<p><code>last</code>&#x6307;&#x4EE4;</p>
+<p><code>last</code> &#x6307;&#x4EE4;&#x662F;&#x7528;&#x4E8E;&#x4E3A;&#x88AB;<code>rewrite</code>&#x540E;&#x7684;<code>uri</code>&#x91CD;&#x65B0;&#x5339;&#x914D;&#x65B0;&#x7684;<code>location</code></p>
+<pre><code>server {
+    location /1 {
+       echo &quot;1&quot;;
+       rewrite   (.*)   /2?o_uri=$1 last;
+    }
+
+    location /2 {
+       echo &quot;2&quot;;
+    }
+}
+
+# &#x8F93;&#x5165;url: localhost/1?a=1
+# &#x8F93;&#x51FA;: &quot;2&quot; &#x8BC1;&#x660E;&#x5339;&#x914D;&#x5230;&#x4E86;location /2 &#x8BC1;&#x660E;location&#x5339;&#x914D;&#x7EC8;&#x6B62;&#x5728; location /2&#x4E2D;
+# &#x8FD9;&#x91CC;&#x4E3A;&#x4EC0;&#x4E48;&#x53EA;&#x8F93;&#x51FA;&#x4E86;2&#x6CA1;&#x6709;&#x8F93;&#x51FA;1&#x5462;&#xFF0C;&#x56E0;&#x4E3A;nginx&#x6267;&#x884C;&#x6709;&#x591A;&#x4E2A;&#x9636;&#x6BB5;&#xFF0C;echo&#x6307;&#x4EE4;&#x662F;&#x5728;rewrite&#x4E4B;&#x540E;&#x6267;&#x884C;&#xFF0C;&#x7531;&#x4E8E;
+# rewrite uri&#x540E;&#x6700;&#x7EC8;&#x5339;&#x914D;&#x5230;&#x4E86;location /2&#xFF0C; &#x6240;&#x4EE5;&#x6267;&#x884C;location /2&#x4E2D;&#x7684;echo&#x6307;&#x4EE4;
+</code></pre><p><code>redirect, permanent</code> &#x6307;&#x4EE4;</p>
+<p>&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x6307;&#x4EE4;&#x7684;&#x76EE;&#x7684;&#x5C31;&#x662F;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x4E00;&#x4E2A;&#x65B0;&#x7684;url&#x91CC;&#x9762;&#xFF0C;&#x6BD4;&#x5982;&#x7F51;&#x7AD9;&#x91CC;&#x9762;&#x67D0;&#x4E00;&#x4E2A;url&#x8FC7;&#x671F;&#x4E86;&#xFF0C;&#x5F53;&#x7528;&#x6237;&#x8BBF;&#x95EE;&#x8FD9;&#x4E2A;url&#xFF0C;&#x53EF;&#x4EE5;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x9996;&#x9875;, &#x672C;&#x6B21;&#x8BF7;&#x6C42;&#x8FD4;&#x56DE;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x72B6;&#x6001;&#x7801;&#x662F;<code>302</code> &#x8868;&#x793A;&#x6C38;&#x4E45;&#x8F6C;&#x79FB;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x4E34;&#x65F6;&#x8F6C;&#x79FB;&#x5219;&#x4F7F;&#x7528;<code>permanent</code>&#x6307;&#x4EE4; &#x8FD4;&#x56DE;&#x72B6;&#x6001;&#x7801;<code>301</code></p>
+<pre><code># &#x5B9E;&#x73B0;&#x65E0;&#x6548;&#x7684;url&#x7684;&#x91CD;&#x5B9A;&#x5411; &#x8FD4;&#x56DE;302
+rewrite /invalid_url/.* $scheme://$server_name redirect;
+# &#x8FD4;&#x56DE;301
+rewrite /invalid_url/.* $scheme://$server_name permanent;
+</code></pre><p><code>if</code> &#x6307;&#x4EE4;</p>
+<p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>if</code>&#x6307;&#x4EE4;&#x5B9E;&#x73B0;&#x5BF9;<code>$scheme, $http_host, $http_user_agent $server_name</code>&#x7B49;&#x53D8;&#x91CF;&#x5224;&#x65AD;, <code>if</code>
+&#x6307;&#x4EE4;&#x53EF;&#x4EE5;&#x5728;<code>server</code>&#x548C;<code>location</code>&#x4E2D;&#x5B9A;&#x4E49;</p>
+<pre><code>if ($scheme = &quot;http&quot;) {
+  rewrite ^ https://www.thegeekstuff.com$uri permanent;
+}
+
+if ($http_host = thegeekstuff.com) {
+  rewrite  (.*)  https://www.thegeekstuff.com$1;
+}
+
+if ($http_user_agent = MSIE) {
+    rewrite ^(.*)$ /pdf/$1 break;
+}
+</code></pre><p><code>set</code> &#x6307;&#x4EE4;
+&#x53EF;&#x4EE5;&#x7ED9;&#x53D8;&#x91CF;&#x8D4B;&#x503C;</p>
+<pre><code> location ~* ^/(a)\.(jpg) {
+    set $img_name $1;
+    set $img_ext $2;
+    # &#x53D1;&#x9001;&#x7ED9;php&#x7A0B;&#x5E8F;&#x5904;&#x7406;
+    rewrite (.*)  /index.php/?img_name=$img_name&amp;img_ext=$img_ext;
+}
+</code></pre><h3 id="location">location</h3>
+<h4 id="location&#x5339;&#x914D;&#x5185;&#x5BB9;">location&#x5339;&#x914D;&#x5185;&#x5BB9;</h4>
+<p>location&#x5339;&#x914D;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x88AB;&#x5339;&#x914D;&#x7684;&#x662F;uri, &#x4E0D;&#x5305;&#x62EC;&#x534F;&#x8BAE;&#x548C;&#x57DF;&#x540D;&#xFF0C;&#x4E5F;&#x4E0D;&#x5305;&#x62EC;?&#x540E;&#x9762;&#x7684;&#x5185;&#x5BB9;</p>
+<pre><code>&#x8F93;&#x5165;url: www.test.com/path/info/test?a=1&amp;b=2
+&#x5339;&#x914D;&#x5185;&#x5BB9;:/path/info/test
+</code></pre><h4 id="&#x4F7F;&#x7528;&#x6B63;&#x5219;">&#x4F7F;&#x7528;&#x6B63;&#x5219;</h4>
+<p>&#x5982;&#x679C;&#x8981;&#x4F7F;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x201C;~&#x201D;,&#x201C;~*&#x201D;&#x4FEE;&#x9970;&#x624D;&#x53EF;&#x4EE5;&#xFF0C;&#x8FD9;&#x548C;rewrite&#x4E0D;&#x4E00;&#x6837;</p>
+<pre><code>&quot;~&quot; : &#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;
+&quot;~*&quot;: &#x4E0D;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;
+ =: &#x7CBE;&#x786E;&#x5339;&#x914D;
+ ^~: &#x53EA;&#x5339;&#x914D;&#x4EE5; uri &#x5F00;&#x5934;
+</code></pre><h4 id="&#x6700;&#x957F;&#x5339;&#x914D;&#x89C4;&#x5219;">&#x6700;&#x957F;&#x5339;&#x914D;&#x89C4;&#x5219;</h4>
+<pre><code>location / {    
+    [ configuration A ]
+} 
+location /documents/ {
+    [ configuration B ]
+}
+
+&#x8F93;&#x5165; /documents/ &#x5339;&#x914D;&#x5230;B
+</code></pre><h4 id="&#x6B63;&#x5219;&#x5339;&#x914D;&#x6210;&#x529F;">&#x6B63;&#x5219;&#x5339;&#x914D;&#x6210;&#x529F;</h4>
+<p>&#x4E0D;&#x9700;&#x8981;&#x5B8C;&#x5168;&#x5339;&#x914D;&#x5230;uri, &#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x5339;&#x914D;&#x6210;&#x529F;&#x5373;&#x53EF;</p>
+<pre><code>locaction ~ (^/path\/info) {
+    [configurationC]
+}
+
+&#x8F93;&#x5165;URL: /path/info/test &#x53EF;&#x4EE5;&#x5339;&#x914D;&#x5230;locaction ~ (^/path\/info)
+</code></pre><h2 id="ngxhttpproxymodule">ngx_http_proxy_module</h2>
+<p>&#x6B64;&#x6A21;&#x5757;&#x5B9E;&#x73B0;<code>http</code>&#x4EE3;&#x7406;&#xFF0C; &#x7B80;&#x5355;&#x914D;&#x7F6E;&#x5982;&#x4E0B;</p>
+<pre><code>location / {
+    proxy_pass  http://localhost:8000;
+    proxy_set_header Host  $host;
+    proxy_set_header X-Real-IP $remote_addr;
+}
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: NGINX">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../section_tool/" class="navigation navigation-next " aria-label="Next page: 常用工具">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"NGINX常用命令梳理","level":"1.6.1","depth":2,"next":{"title":"常用工具","level":"1.7","depth":1,"path":"section_tool/README.md","ref":"section_tool/README.md","articles":[{"title":"sublime-vscode","level":"1.7.1","depth":2,"path":"section_tool/sublime.md","ref":"section_tool/sublime.md","articles":[]},{"title":"vim","level":"1.7.2","depth":2,"path":"section_tool/vim.md","ref":"section_tool/vim.md","articles":[]},{"title":"zsh","level":"1.7.3","depth":2,"path":"section_tool/zsh.md","ref":"section_tool/zsh.md","articles":[]},{"title":"Iterm","level":"1.7.4","depth":2,"path":"section_tool/Iterm.md","ref":"section_tool/Iterm.md","articles":[]},{"title":"brew","level":"1.7.5","depth":2,"path":"section_tool/brew.md","ref":"section_tool/brew.md","articles":[]},{"title":"launchctl","level":"1.7.6","depth":2,"path":"section_tool/launchctl.md","ref":"section_tool/launchctl.md","articles":[]},{"title":"supervisor","level":"1.7.7","depth":2,"path":"section_tool/supervisor.md","ref":"section_tool/supervisor.md","articles":[]}]},"previous":{"title":"NGINX","level":"1.6","depth":1,"path":"section_nginx/README.md","ref":"section_nginx/README.md","articles":[{"title":"NGINX常用命令梳理","level":"1.6.1","depth":2,"path":"section_nginx/a.md","ref":"section_nginx/a.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_nginx/a.md","mtime":"2019-02-27T16:08:01.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-02-27T16:14:19.331Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toc2/toc2.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
