@@ -960,346 +960,83 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="python-&#x88C5;&#x9970;&#x5668;">python &#x88C5;&#x9970;&#x5668;</h1>
-<p><a href="http://stackoverflow.com/questions/739654/how-can-i-make-a-chain-of-function-decorators-in-python/1594484#1594484" target="_blank">&#x539F;&#x6587;&#x94FE;&#x63A5;</a></p>
-<hr>
-<!-- toc -->
-<ul>
-<li><a href="#function-is-object">function is object</a></li>
-<li><a href="#&#x51FD;&#x6570;&#x5F15;&#x7528;">&#x51FD;&#x6570;&#x5F15;&#x7528;</a></li>
-<li><a href="#&#x81EA;&#x5DF1;&#x5199;&#x4E00;&#x4E2A;&#x88C5;&#x9970;&#x5668;">&#x81EA;&#x5DF1;&#x5199;&#x4E00;&#x4E2A;&#x88C5;&#x9970;&#x5668;</a></li>
-<li><a href="#&#x88C5;&#x9970;&#x5668;&#x9610;&#x8FF0;">&#x88C5;&#x9970;&#x5668;&#x9610;&#x8FF0;</a></li>
-<li><a href="#&#x88C5;&#x9970;&#x5BF9;&#x8C61;&#x65B9;&#x6CD5;&#x7684;&#x88C5;&#x9970;&#x5668;">&#x88C5;&#x9970;&quot;&#x5BF9;&#x8C61;&#x65B9;&#x6CD5;&quot;&#x7684;&#x88C5;&#x9970;&#x5668;</a></li>
-<li><a href="#&#x5411;&#x88C5;&#x9970;&#x5668;&#x51FD;&#x6570;&#x4F20;&#x9012;&#x53C2;&#x6570;">&#x5411;&#x88C5;&#x9970;&#x5668;&#x51FD;&#x6570;&#x4F20;&#x9012;&#x53C2;&#x6570;</a></li>
-<li><a href="#&#x5411;&#x88C5;&#x9970;&#x5668;&#x4F20;&#x9012;&#x53C2;&#x6570;">&#x5411;&#x88C5;&#x9970;&#x5668;&#x4F20;&#x9012;&#x53C2;&#x6570;</a></li>
-<li><a href="#&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;">&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;</a></li>
-<li><a href="#&#x5728;&#x56DE;&#x5230;&#x51FD;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;">&#x5728;&#x56DE;&#x5230;&#x201C;&#x51FD;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x201D;</a></li>
-<li><a href="#functools-&#x6A21;&#x5757;">functools &#x6A21;&#x5757;</a></li>
-</ul>
-<!-- toc stop -->
-<h3 id="function-is-object">function is object</h3>
-<p>&#x5728;python&#x4E2D;&#xFF0C;&#x51FD;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x4EE5;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x8D4B;&#x503C;&#x7ED9;&#x53D8;&#x91CF;</p>
-<pre><code class="lang-python">
-def shout(word=&quot;yes&quot;):
-    return word.capitalize() + &quot;!&quot;
+<p>&#x88C5;&#x9970;&#x5668;&#x672C;&#x8D28;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5173;&#x5FC3;&#x4E24;&#x4E2A;&#x95EE;&#x9898;:</p>
+<ol>
+<li>&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x88AB;&#x8C03;&#x7528;</li>
+<li>&#x8C03;&#x7528;&#x65F6;&#x5982;&#x4F55;&#x4F20;&#x9012;</li>
+</ol>
+<p>&#x7406;&#x89E3;&#x8FD9;&#x4E24;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x5C31;&#x641E;&#x6E05;&#x695A;&#x4E86;python&#x88C5;&#x9970;&#x5668;</p>
+<h2 id="&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x88C5;&#x9970;&#x5668;">&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x88C5;&#x9970;&#x5668;</h2>
+<pre><code># &#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x662F;func
+def decorator(func):
 
-print shout()
-# outputs : &apos;Yes!&apos;
+    def wrapper():
+        print &quot;before call func&quot;
+        func()
+        print &quot;after call func&quot;
 
-# &#x901A;&#x8FC7;&#x51FD;&#x6570;&#x540D;&#x8D4B;&#x503C;&#x7ED9;&#x53D8;&#x91CF;
-scream = shout
-print scream()
-# outputs: &apos;Yes!&apos;
-
-# &#x5220;&#x9664;shout&#x4E4B;&#x540E;&#xFF0C;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x6267;&#x884C;scream
-del shout
-try:
-    print shout()
-except NameError, e:
-    print e
-    #outputs: &quot;name &apos;shout&apos; is not defined&quot;
-
-print scream()
-# outputs: &apos;Yes!&apos;
-
-# &#x4F5C;&#x4E3A;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;
-def shout_yes(scream):
-    scream()
-
-shout_yes(scream)
-# outputs: &apos;Yes!&apos;
-</code></pre>
-<h3 id="&#x51FD;&#x6570;&#x5F15;&#x7528;">&#x51FD;&#x6570;&#x5F15;&#x7528;</h3>
-<blockquote>
-<p>&#x51FD;&#x6570;&#x662F;&#x5BF9;&#x8C61;&#xFF0C;&#x610F;&#x5473;&#x7740;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x60F3;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x53D8;&#x91CF;&#x4E00;&#x4E0B;&#xFF0C;<strong>[&#x8D4B;&#x503C;&#x7ED9;&#x5176;&#x4ED6;&#x53D8;&#x91CF;]</strong>&#xFF0C;<strong>[&#x5220;&#x9664;]</strong>&#xFF0C;<strong>[&#x4FEE;&#x6539;]</strong>&#xFF0C;<strong>[&#x4F5C;&#x4E3A;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;]</strong>&#xFF0C;<strong>[&#x4F5C;&#x4E3A;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;]</strong></p>
-</blockquote>
-<pre><code class="lang-python">def getTalk(type=&quot;shout&quot;):
-
-    # &#x5B9A;&#x4E49;&#x51FD;&#x6570;, &#x548C;&#x5B9A;&#x4E49;&#x5176;&#x4ED6;&#x4EFB;&#x4F55;&#x5BF9;&#x8C61;&#x4E00;&#x6837;
-    def shout(word=&quot;yes&quot;):
-        return word.capitalize()+&quot;!&quot;
-
-    def whisper(word=&quot;yes&quot;) :
-        return word.lower()+&quot;...&quot;;
-
-    # &#x8FD4;&#x56DE;&#x51FD;&#x6570;&#xFF0C;&#x548C;&#x8FD4;&#x56DE;&#x5176;&#x4ED6;&#x4EFB;&#x4F55;&#x5BF9;&#x8C61;&#x4E00;&#x6837;
-    if type == &quot;shout&quot;:
-        # &#x6CA1;&#x6709;&#x4F7F;&#x7528;&quot;()&quot;, &#x5E76;&#x4E0D;&#x662F;&#x8981;&#x8C03;&#x7528;&#x51FD;&#x6570;&#xFF0C;&#x800C;&#x662F;&#x8981;&#x8FD4;&#x56DE;&#x51FD;&#x6570;&#x5BF9;&#x8C61;
-        return shout
-    else:
-        return whisper
-
-
-# &#x5C06;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x503C;&#x8D4B;&#x503C;&#x7ED9;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;
-talk = getTalk()
-
-# &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x6253;&#x5370;&#x4E0B;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5BF9;&#x8C61;
-print talk
-#outputs : &lt;function shout at 0xb7ea817c&gt;
-
-# &#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x662F;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;
-print talk()
-#outputs : Yes!
-
-# &#x76F4;&#x63A5;&#x6267;&#x884C;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;
-print getTalk(&quot;whisper&quot;)()
-#outputs : yes...
-
-# &#x5982;&#x679C;&#x4F60;&#x60F3;&#x91CD;&#x65B0;&#x7ED9;&#x51FD;&#x6570;&#x8D4B;&#x503C;&#xFF0C; &#x4E5F;&#x662F;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x7684;
-talk = int
-talk(2.1)
-# outputs: 2
-</code></pre>
-<h3 id="&#x81EA;&#x5DF1;&#x5199;&#x4E00;&#x4E2A;&#x88C5;&#x9970;&#x5668;">&#x81EA;&#x5DF1;&#x5199;&#x4E00;&#x4E2A;&#x88C5;&#x9970;&#x5668;</h3>
-<blockquote>
-<p>&#x51FD;&#x6570;&#x88C5;&#x9970;&#x5668;&#x7684;&#x672C;&#x8D28;&#x5C31;&#x662F;&quot;&#x88C5;&#x9970;&quot;&#x51FD;&#x6570;&#xFF0C;&#x5728;&#x4E0D;&#x6539;&#x52A8;&#x51FD;&#x6570;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7ED9;&#x88AB;&#x88C5;&#x9970;&#x7684;&#x51FD;&#x6570;&#x52A0;&#x4E0A;&#x5176;&#x4ED6;&#x529F;&#x80FD;</p>
-</blockquote>
-<pre><code class="lang-python"># &#x53C2;&#x6570;&#x5C31;&#x662F;&#x9700;&#x8981;&#x88AB;&#x88C5;&#x9970;&#x7684;&#x51FD;&#x6570;
-def my_shiny_new_decorator(a_function_to_decorate):
-
-    # &#x5BF9;&#x539F;&#x59CB;&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x5305;&#x88C5;
-    def the_wrapper_around_the_original_function():
-
-        # &#x5C06;&#x4F60;&#x8981;&#x5728;&#x539F;&#x59CB;&#x51FD;&#x6570;&#x4E4B;&#x524D;&#x6267;&#x884C;&#x7684;&#x4EE3;&#x7801;&#x653E;&#x5230;&#x8FD9;&#x91CC;
-        print &quot;Before the function runs&quot;
-
-        # &#x8C03;&#x7528;&#x539F;&#x59CB;&#x51FD;&#x6570;(&#x9700;&#x8981;&#x5E26;&#x62EC;&#x53F7;)
-        a_function_to_decorate()
-
-        # &#x5C06;&#x4F60;&#x8981;&#x5728;&#x539F;&#x59CB;&#x51FD;&#x6570;&#x4E4B;&#x540E;&#x6267;&#x884C;&#x7684;&#x4EE3;&#x7801;&#x653E;&#x5230;&#x8FD9;&#x91CC;
-        print &quot;After the function runs&quot;
-
-    # &#x4EE3;&#x7801;&#x5230;&#x8FD9;&#x91CC;&#xFF0C;&#x51FD;&#x6570;&#x2018;a_function_to_decorate&#x2019;&#x8FD8;&#x6CA1;&#x6709;&#x88AB;&#x6267;&#x884C;
-    # &#x6211;&#x4EEC;&#x5C06;&#x8FD4;&#x56DE;&#x521A;&#x624D;&#x521B;&#x5EFA;&#x7684;&#x8FD9;&#x4E2A;&#x5305;&#x88C5;&#x51FD;&#x6570;
-    # &#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5305;&#x542B;&#x539F;&#x59CB;&#x51FD;&#x6570;&#x53CA;&#x8981;&#x6267;&#x884C;&#x7684;&#x9644;&#x52A0;&#x4EE3;&#x7801;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x88AB;&#x4F7F;&#x7528;
-    return the_wrapper_around_the_original_function
-
-# &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x51FD;&#x6570;
-def a_stand_alone_function():
-    print &quot;I am a stand alone function, don&apos;t you dare modify me&quot;
-
-a_stand_alone_function()
-#outputs: I am a stand alone function, don&apos;t you dare modify me
-
-# &#x597D;&#x4E86;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x4F60;&#x53EF;&#x4EE5;&#x88C5;&#x9970;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x6269;&#x5C55;&#x5176;&#x884C;&#x4E3A;
-# &#x5C06;&#x51FD;&#x6570;&#x4F20;&#x9012;&#x7ED9;&#x88C5;&#x9970;&#x5668;&#xFF0C;&#x88C5;&#x9970;&#x5668;&#x5C06;&#x52A8;&#x6001;&#x5730;&#x5C06;&#x5176;&#x5305;&#x88C5;&#x5728;&#x4EFB;&#x4F55;&#x4F60;&#x60F3;&#x6267;&#x884C;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x51FD;&#x6570;
-a_stand_alone_function_decorated = my_shiny_new_decorator(a_stand_alone_function)
-
-# &#x8C03;&#x7528;&#x65B0;&#x51FD;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x88C5;&#x9970;&#x5668;&#x7684;&#x6548;&#x679C;
-a_stand_alone_function_decorated()
-#outputs:
-#Before the function runs
-#I am a stand alone function, don&apos;t you dare modify me
-#After the function runs
-</code></pre>
-<h3 id="&#x88C5;&#x9970;&#x5668;&#x9610;&#x8FF0;">&#x88C5;&#x9970;&#x5668;&#x9610;&#x8FF0;</h3>
-<p>&#x4E4B;&#x524D;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x662F;&#x6211;&#x4EEC;&#x624B;&#x52A8;&#x6267;&#x884C; <code>a_stand_alone_function_decorated = my_shiny_new_decorator(a_stand_alone_function)</code></p>
-<p>&#x5982;&#x679C;&#x4F7F;&#x7528;pthon&#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x90A3;&#x5E94;&#x8BE5;&#x50CF;&#x8FD9;&#x6837;&#xFF0C; &#x4F7F;&#x7528;<code>@</code></p>
-<pre><code class="lang-python">@my_shiny_new_decorator
-def another_stand_alone_function():
+    # &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;
+    return wrapper()
+</code></pre><h2 id="&#x88C5;&#x9970;&#x5668;&#x7684;&#x8C03;&#x7528;">&#x88C5;&#x9970;&#x5668;&#x7684;&#x8C03;&#x7528;</h2>
+<p>&#x4F7F;&#x7528;<code>@</code>&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x88C5;&#x9970;&#x5668;</p>
+<pre><code>@decorator
+def test():
     print &quot;Leave me alone&quot;
 
-another_stand_alone_function()
-#outputs:
-#Before the function runs
-#Leave me alone
-#After the function runs
-</code></pre>
-<p>&#x6240;&#x4EE5;&#xFF0C; &#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;&#x6548;&#x679C;&#x662F;&#x7B49;&#x4EF7;&#x7684;&#xFF1A;
-<code>nother_stand_alone_function = my_shiny_new_decorator(another_stand_alone_function) = @my_shiny_new_decorator</code>
-&#x5982;&#x679C;&#x6709;&#x591A;&#x4E2A;&#x88C5;&#x9970;&#x5668;</p>
-<pre><code class="lang-python">@bread
+
+# &#x6267;&#x884C;test&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x5148;&#x4F1A;&#x81EA;&#x52A8;&#x8C03;&#x7528;decorator&#x51FD;&#x6570;&#x8FD4;&#x56DE;wrapper
+# &#x7136;&#x540E;&#x518D;&#x6267;&#x884C;wrapper&#x51FD;&#x6570;
+test()
+</code></pre><h2 id="&#x5E38;&#x7528;&#x4F8B;&#x5B50;">&#x5E38;&#x7528;&#x4F8B;&#x5B50;</h2>
+<pre><code>def fault_tolerance(func):
+    def wrapper():
+        try:
+            return func()
+        except Exception as e:
+            pass
+    return wrapper
+</code></pre><h2 id="wrapper&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;">wrapper&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;</h2>
+<p>&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x5F53;&#x8C03;&#x7528;test&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x6267;&#x884C;&#x7684;&#x662F;wrapper&#x51FD;&#x6570;</p>
+<p>&#x6709;&#x4E2A;&#x95EE;&#x9898;&#x662F;&#xFF0C;&#x5B9A;&#x4E49;wrapper&#x4E4B;&#x524D;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x4E0D;&#x77E5;&#x9053;test&#x6267;&#x884C;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x6240;&#x4EE5;wrapper&#x51FD;&#x6570;&#x5FC5;&#x987B;&#x52A8;&#x6001;&#x63A5;&#x53D7;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;</p>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>*args, **kwargs</code><a href="http://www.saltycrane.com/blog/2008/01/how-to-use-args-and-kwargs-in-python/" target="_blank">&#x731B;&#x51FB;</a></p>
+<pre><code>def fault_tolerance(func):
+    def wrapper():
+        try:
+            return func(*args, **kwargs)
+        except Exception as e:
+            pass
+    return wrapper
+</code></pre><h2 id="&#x5411;&#x88C5;&#x9970;&#x5668;&#x4F20;&#x9012;&#x53C2;&#x6570;">&#x5411;&#x88C5;&#x9970;&#x5668;&#x4F20;&#x9012;&#x53C2;&#x6570;</h2>
+<p>&#x88C5;&#x9970;&#x5668;&#x662F;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;wrapper&#x51FD;&#x6570;&#xFF0C;&#x4E8C;&#x7EA7;&#x88C5;&#x9970;&#x5668;&#x5C31;&#x662F;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;decorator&#xFF0C;&#x6839;&#x636E;&#x4E0D;&#x540C;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x4E0D;&#x540C;&#x7684;decorator</p>
+<pre><code>
+# &#x7EDF;&#x8BA1;&#x51FD;&#x6570;&#x7684;&#x8BF7;&#x6C42;&#x6570;&#x91CF;
+def record_stage_empty_response(metric):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kw):
+            response = func(*args, **kw)
+            if not response:
+                statsd.incr(&apos;key1.key2.{}.empty&apos;.format(metric))
+            return response
+        return wrapper
+    return decorator
+
+
+# &#x5FC5;&#x987B;&#x8981;&#x6267;&#x884C;record_stage_empty_response&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;decorator
+@record_stage_empty_response(&apos;keys&apos;)
+def func():
+    pass
+</code></pre><h2 id="&#x591A;&#x4E2A;&#x88C5;&#x9970;&#x5668;">&#x591A;&#x4E2A;&#x88C5;&#x9970;&#x5668;</h2>
+<p>&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x591A;&#x4E2A;&#x88C5;&#x9970;&#x5668;&#xFF0C; &#x5343;&#x4E07;&#x8981;&#x6CE8;&#x610F;&#x88C5;&#x9970;&#x5668;&#x7684;&#x987A;&#x5E8F;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x51FA;&#x73B0;bug, &#x6700;&#x5916;&#x5C42;&#x7684;&#x88C5;&#x9970;&#x5668;&#x6700;&#x5148;&#x88AB;&#x6267;&#x884C;&#x3002;</p>
+<pre><code>```python
+@bread
 @ingredients
 def sandwich(food=&quot;--ham--&quot;):
     print food
 
 # &#x7B49;&#x4EF7;&#x4E8E;&#xFF1A;
-bread(ingredients(sandwich))
-
-# &#x88C5;&#x9970;&#x5668;&#x4F4D;&#x7F6E;&#x7684;&#x987A;&#x5E8F;&#x5F88;&#x91CD;&#x8981;&#xFF0C;&#x5148;&#x6267;&#x884C;bread&#x51FD;&#x6570;&#xFF0C;bread&#x8C03;&#x7528;ingredients, ingredients&#x53C8;&#x4F1A;&#x8C03;&#x7528;sandwich
-</code></pre>
-<h3 id="&#x88C5;&#x9970;&#x5BF9;&#x8C61;&#x65B9;&#x6CD5;&#x7684;&#x88C5;&#x9970;&#x5668;">&#x88C5;&#x9970;&quot;&#x5BF9;&#x8C61;&#x65B9;&#x6CD5;&quot;&#x7684;&#x88C5;&#x9970;&#x5668;</h3>
-<p>Python&#x4E2D;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x51FD;&#x6570;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;<strong>&#x9664;&#x4E86;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x9996;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x6307;&#x5411;&#x5F53;&#x524D;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;(self)</strong>&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4F60;&#x53EF;&#x4EE5;&#x7528;&#x540C;&#x6837;&#x7684;&#x65B9;&#x6CD5;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x88C5;&#x9970;&#x5668;&#xFF0C;&#x53EA;&#x662F;&#x5FC5;&#x987B;&#x8003;&#x8651;self</p>
-<pre><code class="lang-python">def method_friendly_decorator(method_to_decorate):
-    # wrapper&#x662F;&#x88AB;&#x8FD4;&#x56DE;&#x7684;&#x51FD;&#x6570;&#x53D8;&#x91CF;&#xFF0C;&#x6700;&#x7EC8;&#x9700;&#x8981;&#x5728;class&#x4E2D;&#x6267;&#x884C;&#xFF0C;&#x7531;&#x4E8E;class&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5FC5;&#x987B;&#x662F;self&#xFF0C;&#x6240;&#x4EE5;wrapper&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5FC5;&#x987B;&#x4E5F;&#x662F;self
-    def wrapper(self, lie):
-        lie = lie - 3 # very friendly, decrease age even more :-)
-        # method_to_decorate&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E5F;&#x5FC5;&#x987B;&#x662F;self
-        return method_to_decorate(self, lie)
-    return wrapper
-
-class Lucy(object):
-
-    def __init__(self):
-        self.age = 32
-
-    @method_friendly_decorator
-    def sayYourAge(self, lie):
-        print &quot;I am %s, what did you think?&quot; % (self.age + lie)
-
-l = Lucy()
-l.sayYourAge(-3)
-#outputs: I am 26, what did you think?
-</code></pre>
-<h3 id="&#x5411;&#x88C5;&#x9970;&#x5668;&#x51FD;&#x6570;&#x4F20;&#x9012;&#x53C2;&#x6570;">&#x5411;&#x88C5;&#x9970;&#x5668;&#x51FD;&#x6570;&#x4F20;&#x9012;&#x53C2;&#x6570;</h3>
-<p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x7ED9;&#x88C5;&#x9970;&#x5668;&#x4F20;&#x9012;&#x4E86;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;<code>self</code>, <code>lie</code>, &#x6211;&#x4EEC;&#x5728;&#x7ED9;&#x88C5;&#x9970;&#x5668;&#x51FD;&#x6570;&#x4F20;&#x9012;&#x53C2;&#x6570;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x662F;&#x7ED9;<strong><code>wrapper</code></strong>&#x4F20;&#x9012;&#x53C2;&#x6570;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x7684;&#x6700;&#x7EC8;&#x7684;&#x51FD;&#x6570;&#x5B9E;&#x9645;&#x4E0A;&#x53D8;&#x6210;&#x4E86;&#x88C5;&#x9970;&#x5668;&#x8FD4;&#x56DE;&#x7684;<strong><code>wrapper</code></strong></p>
-<p>&#x4F60;&#x53EF;&#x4EE5;&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x66F4;&#x52A0;&#x901A;&#x7528;&#x7684;&#x88C5;&#x9970;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x4F5C;&#x7528;&#x5728;&#x4EFB;&#x4F55;&#x51FD;&#x6570;&#x6216;&#x5BF9;&#x8C61;&#x65B9;&#x6CD5;&#x4E0A;&#xFF0C;&#x800C;&#x4E0D;&#x5FC5;&#x5173;&#x7CFB;&#x5176;&#x53C2;&#x6570;&#x4F7F;&#x7528;&#xFF0C; &#x4F7F;&#x7528;&#xFF1A;</p>
-<p><code>*args, **kwargs</code></p>
-<p>&#x5982;&#x679C;&#x5BF9;&#x7740;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#x4E0D;&#x719F;&#x6089;&#xFF0C;<a href="http://www.saltycrane.com/blog/2008/01/how-to-use-args-and-kwargs-in-python/" target="_blank">&#x731B;&#x51FB;</a></p>
-<pre><code class="lang-python">def a_decorator_passing_arbitrary_arguments(function_to_decorate):
-    # &#x5305;&#x88C5;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x4EFB;&#x4F55;&#x53C2;&#x6570;
-       def a_wrapper_accepting_arbitrary_arguments(*args, **kwargs):
-
-        # &#x901A;&#x8FC7; a_wrapper_accepting_arbitrary_arguments &#x4F20;&#x9012;&#x8FC7;&#x6765;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x56E0;&#x4E3A;&#x95ED;&#x5305;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x53EF;&#x4EE5;&#x88AB;function_to_decorate&#x8BBF;&#x95EE;&#x5230;
-        function_to_decorate(*args, **kwargs)
-    return a_wrapper_accepting_arbitrary_arguments
-</code></pre>
-<h3 id="&#x5411;&#x88C5;&#x9970;&#x5668;&#x4F20;&#x9012;&#x53C2;&#x6570;">&#x5411;&#x88C5;&#x9970;&#x5668;&#x4F20;&#x9012;&#x53C2;&#x6570;</h3>
-<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x60F3;&#x88C5;&#x9970;&#x5668;&#x51FD;&#x6570;&#x4F20;&#x9012;&#x4EFB;&#x610F;&#x7684;&#x53C2;&#x6570;&#x4E86;&#xFF0C;&#x90A3;&#x6211;&#x4EEC;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x50CF;&#x88C5;&#x9970;&#x5668;&#x4F20;&#x9012;&#x53C2;&#x6570;&#x7684;&#xFF0C;&#x6BD4;&#x5982;&#x6211;&#x4EEC;&#x60F3;&#x6839;&#x636E;&#x4E0D;&#x540C;&#x7684;&#x53C2;&#x6570;&#x8FD4;&#x56DE;&#x4E0D;&#x540C;&#x7684;<code>wrapper</code>&#x51FD;&#x6570;</p>
-<p>&#x4F46;&#x662F;&#xFF0C;&#x88C5;&#x9970;&#x5668;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x4F60;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x4F20;&#x9012;&#x53C2;&#x6570;&#x7ED9;&#x88C5;&#x9970;&#x5668;&#x672C;&#x8EAB;
-&#x90A3;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x505A;&#x7684;&#x5C31;&#x662F;&#xFF0C;&#x5728;&#x88C5;&#x9970;&#x5668;&#x5916;&#x9762;&#x5728;&#x5305;&#x4E00;&#x5C42;</p>
-<pre><code class="lang-python"># &#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x88C5;&#x9970;&#x5668;&#x7684;&#x51FD;&#x6570;
-def decorator_maker():
-
-    print &quot;I make decorators! I am executed only once: &quot;+\
-          &quot;when you make me create a decorator.&quot;
-
-    def my_decorator(func):
-        print &quot;I am a decorator! I am executed only when you decorate a function.&quot;
-
-        def wrapped():
-            print (&quot;I am the wrapper around the decorated function. &quot;
-                  &quot;I am called when you call the decorated function. &quot;
-                  &quot;As the wrapper, I return the RESULT of the decorated function.&quot;)
-            return func()
-
-        print &quot;As the decorator, I return the wrapped function.&quot;
-        return wrapped
-
-    print &quot;As a decorator maker, I return a decorator&quot;
-    return my_decorator
-
-# Let&apos;s create a decorator. It&apos;s just a new function after all.
-# &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x88C5;&#x9970;&#x5668;&#xFF0C;&#x672C;&#x8D28;&#x4E0A;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;
-new_decorator = decorator_maker()
-#outputs:
-#I make decorators! I am executed only once: when you make me create a decorator.
-#As a decorator maker, I return a decorator
-
-# &#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;&#x88C5;&#x9970;&#x51FD;&#x6570;
-
-def decorated_function():
-    print &quot;I am the decorated function.&quot;
-
-decorated_function = new_decorator(decorated_function)
-#outputs:
-#I am a decorator! I am executed only when you decorate a function.
-#As the decorator, I return the wrapped function
-
-# &#x8C03;&#x7528;&#x88AB;&#x88C5;&#x9970;&#x51FD;&#x6570;
-decorated_function()
-#outputs:
-#I am the wrapper around the decorated function. I am called when you call the decorated function.
-#As the wrapper, I return the RESULT of the decorated function.
-#I am the decorated function.
-</code></pre>
-<p>&#x6211;&#x4EEC;&#x8DF3;&#x8FC7;&#x4E2D;&#x95F4;&#x53D8;&#x91CF;&#xFF0C;&#x505A;&#x540C;&#x6837;&#x7684;&#x4E8B;&#x60C5;</p>
-<pre><code class="lang-python">def decorated_function():
-    print &quot;I am the decorated function.&quot;
-# &#x5148;&#x6267;&#x884C;&#x4E00;&#x4E2A;docorator_maker()&#x51FD;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;docorator
-decorated_function = decorator_maker()(decorated_function)
-
-#outputs:
-#I make decorators! I am executed only once: when you make me create a decorator.
-#As a decorator maker, I return a decorator
-#I am a decorator! I am executed only when you decorate a function.
-#As the decorator, I return the wrapped function.
-
-# &#x6700;&#x540E;:
-decorated_function()
-#outputs:
-#I am the wrapper around the decorated function. I am called when you call the decorated function.
-#As the wrapper, I return the RESULT of the decorated function.
-#I am the decorated function.
-</code></pre>
-<p>&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;&#x8BED;&#x6CD5;&#xFF0C;&#x66F4;&#x7B80;&#x77ED;</p>
-<pre><code class="lang-python"># &#x773C;&#x775B;&#x7741;&#x5927;&#x70B9;&#xFF0C;&#x8FD9;&#x91CC;&#x2018;@&#x2019;&#x8C03;&#x7528;&#x7684;&#x662F;decorator_maker()&#x6267;&#x884C;&#x540E;&#x8FD4;&#x56DE;&#x7684;decorator,&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5728;improt&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E0D;&#x7BA1;&#x662F;&#x5426;&#x8C03;&#x7528;decorated_function&#xFF0C;decorator_maker()&#x90FD;&#x4F1A;&#x6267;&#x884C;
-@decorator_maker()
-def decorated_function():
-    print &quot;I am the decorated function.&quot;
-#outputs:
-#I make decorators! I am executed only once: when you make me create a decorator.
-#As a decorator maker, I return a decorator
-#I am a decorator! I am executed only when you decorate a function.
-#As the decorator, I return the wrapped function.
-
-#&#x6700;&#x7EC8;:
-decorated_function()
-#outputs:
-#I am the wrapper around the decorated function. I am called when you call the decorated function.
-#As the wrapper, I return the RESULT of the decorated function.
-#I am the decorated function.
-</code></pre>
-<p>&#x56DE;&#x5230;&#x95EE;&#x9898;&#xFF0C;&#x5411;&#x88C5;&#x9970;&#x5668;&#x672C;&#x8EAB;&#x4F20;&#x9012;&#x53C2;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x51FD;&#x6570;&#x53BB;&#x521B;&#x5EFA;&#x88C5;&#x9970;&#x5668;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F20;&#x9012;&#x53C2;&#x6570;&#x7ED9;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5BF9;&#x4E48;&#xFF1F;</p>
-<pre><code class="lang-python">def decorator_maker_with_arguments(decorator_arg1, decorator_arg2):
-
-    print &quot;I make decorators! And I accept arguments:&quot;, decorator_arg1, decorator_arg2
-
-    def my_decorator(func):
-        # &#x8FD9;&#x91CC;&#x80FD;&#x4F20;&#x9012;&#x53C2;&#x6570;&#x7684;&#x80FD;&#x529B;&#xFF0C;&#x662F;&#x95ED;&#x5305;&#x7684;&#x7279;&#x6027;
-        # &#x66F4;&#x591A;&#x95ED;&#x5305;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x53C2;&#x8003; http://stackoverflow.com/questions/13857/can-you-explain-closures-as-they-relate-to-python
-        print &quot;I am the decorator. Somehow you passed me arguments:&quot;, decorator_arg1, decorator_arg2
-
-        # &#x4E0D;&#x8981;&#x641E;&#x6DF7;&#x4E86;&#x88C5;&#x9970;&#x5668;&#x53C2;&#x6570;&#x548C;&#x51FD;&#x6570;&#x53C2;&#x6570;
-        def wrapped(function_arg1, function_arg2) :
-            print (&quot;I am the wrapper around the decorated function.\n&quot;
-                  &quot;I can access all the variables\n&quot;
-                  &quot;\t- from the decorator: {0} {1}\n&quot;
-                  &quot;\t- from the function call: {2} {3}\n&quot;
-                  &quot;Then I can pass them to the decorated function&quot;
-                  .format(decorator_arg1, decorator_arg2,
-                          function_arg1, function_arg2))
-            return func(function_arg1, function_arg2)
-
-        return wrapped
-
-    return my_decorator
-
-@decorator_maker_with_arguments(&quot;Leonard&quot;, &quot;Sheldon&quot;)
-def decorated_function_with_arguments(function_arg1, function_arg2):
-    print (&quot;I am the decorated function and only knows about my arguments: {0}&quot;
-           &quot; {1}&quot;.format(function_arg1, function_arg2))
-
-decorated_function_with_arguments(&quot;Rajesh&quot;, &quot;Howard&quot;)
-#outputs:
-#I make decorators! And I accept arguments: Leonard Sheldon
-#I am the decorator. Somehow you passed me arguments: Leonard Sheldon
-#I am the wrapper around the decorated function.
-#I can access all the variables
-#   - from the decorator: Leonard Sheldon
-#   - from the function call: Rajesh Howard
-#Then I can pass them to the decorated function
-#I am the decorated function and only knows about my arguments: Rajesh Howard
-</code></pre>
-<p>&#x5230;&#x76EE;&#x524D;&#x4E3A;&#x6B62;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7ED9;&#x88C5;&#x9970;&#x5668;&#x4F20;&#x9012;&#x53C2;&#x6570;&#xFF0C;&#x88C5;&#x9970;&#x5668;&#x51FD;&#x6570;&#x4F20;&#x9012;&#x53C2;&#x6570;&#xFF0C;&#x6211;&#x5E0C;&#x671B;&#x628A;&#x8FD9;&#x4E24;&#x79CD;&#x51FD;&#x6570;&#x90FD;&#x4F20;&#x9012;&#x7ED9;&#x6700;&#x88C5;&#x9970;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x600E;&#x4E48;&#x505A;</p>
-<pre><code class="lang-python"># &#x652F;&#x6301;&#x4EFB;&#x610F;&#x53C2;&#x6570;&#x7684;&#x88C5;&#x9970;&#x5668;
-def decorator_maker_with_var_args(*decorator_maker_agrs, **decorator_maker_kwagrs):
-    print type(decorator_maker_agrs), type(decorator_maker_kwagrs)
-    print &apos;i am decorator maker with agrs&apos;
-    for arg in decorator_maker_agrs:
-        print &apos;arg from *agrs format &apos;, arg
-    for key in decorator_maker_kwagrs:
-        print &quot;anthor keyword agr is: %r, %r&quot; % (key, decorator_maker_kwagrs[key])
-
-    def decoratro(fun):
-        def wrapper(*agrs, **kwagrs):
-            new_kwargs = decorator_maker_kwagrs.copy()
-            new_kwargs.update(kwagrs)
-
-            # &#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x83B7;&#x53D6;&#x88C5;&#x9970;&#x5668;maker&#xFF0C; &#x88C5;&#x9970;&#x5668;&#x7684;&#x53C2;&#x6570;
-            fun(*(decorator_maker_agrs + agrs), **new_kwargs)
-        return wrapper
-</code></pre>
-<h3 id="&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;">&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;</h3>
+bread(ingredients(sandwich()))
+</code></pre><h2 id="&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;">&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;</h2>
 <pre><code class="lang-python">def benchmark(func):
     &quot;&quot;&quot;
     &#x88C5;&#x9970;&#x5668;&#x6253;&#x5370;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x65F6;&#x95F4;
@@ -1334,21 +1071,6 @@ def counter(func):
         return res
     wrapper.count = 0
     return wrapper
-
-@counter
-@benchmark
-@logging
-def reverse_string(string):
-    return str(reversed(string))
-
-print reverse_string(&quot;Able was I ere I saw Elba&quot;)
-
-
-#outputs:
-#logging: reverse_string (&apos;Able was I ere I saw Elba&apos;,) {}
-#benchmark: wrapper 2.6e-05
-#counter: wrapper has been used: 1x
-#&lt;reversed object at 0x1020edfd0&gt;
 
 # &#x628A;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x53D8;&#x6210;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;
 def daemon_decorator_maker(name, wait):
@@ -1393,17 +1115,19 @@ def gen_keygenerator(namespace, func):
 
     return generate_key
 </code></pre>
-<h3 id="&#x5728;&#x56DE;&#x5230;&#x51FD;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;">&#x5728;&#x56DE;&#x5230;&#x201C;&#x51FD;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x201D;</h3>
-<p>&#x51FD;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x51FD;&#x6570;&#x4F1A;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x4F7F;&#x7528;<code>dir(func_name)</code>&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5BF9;&#x8C61;</p>
+<h2 id="functools">functools</h2>
+<p>&#x51FD;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x51FD;&#x6570;&#x4F1A;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x4F7F;&#x7528;<code>dir(func_name)</code>&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5BF9;&#x8C61;</p>
 <pre><code class="lang-python"># &#x51FD;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;
 def func_obj(a, b):
     &apos;&apos;&apos;
     this id doc
     &apos;&apos;&apos;
     pass
+
 print func_obj.__doc__
 print func_obj.__module__
 print func_obj.__name__
+
 # &#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x662F;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x7684;
 func_obj.__doc__ = &quot;updated doc&quot;
 print func_obj.__doc__
@@ -1548,7 +1272,7 @@ wraps() &#x51FD;&#x6570;&#x628A;&#x7528; partial() &#x628A; update_wrapper() &#x
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"python装饰器使用","level":"1.3.5","depth":2,"next":{"title":"python常用数据结构","level":"1.3.6","depth":2,"path":"section_python/struct.md","ref":"section_python/struct.md","articles":[]},"previous":{"title":"python yield使用","level":"1.3.4","depth":2,"path":"section_python/yield.md","ref":"section_python/yield.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_python/decorator.md","mtime":"2019-03-02T07:04:51.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-03-02T07:11:41.418Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"python装饰器使用","level":"1.3.5","depth":2,"next":{"title":"python常用数据结构","level":"1.3.6","depth":2,"path":"section_python/struct.md","ref":"section_python/struct.md","articles":[]},"previous":{"title":"python yield使用","level":"1.3.4","depth":2,"path":"section_python/yield.md","ref":"section_python/yield.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_python/decorator.md","mtime":"2019-03-02T09:34:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-03-02T09:35:14.897Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

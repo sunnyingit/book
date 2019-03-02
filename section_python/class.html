@@ -960,6 +960,186 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x7406;&#x89E3;python&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;">&#x7406;&#x89E3;python&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;</h1>
+<p>python&#x7C7B;&#x4F7F;&#x7528;<code>class</code>&#x5173;&#x952E;&#x5B57;&#x5B9A;&#x4E49;&#xFF0C;&#x4F7F;&#x7528;<code>class</code>&#x5B9A;&#x4E49;&#x7684;&#x7C7B;&#x53C8;&#x53EF;&#x4EE5;&#x79F0;&#x4E3A;&#x7C7B;&#x578B;&#x5BF9;&#x8C61;</p>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x8BF4;&#xFF0C;&#x4F7F;&#x7528;<code>class</code>&#x5173;&#x952E;&#x5B57;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x7EE7;&#x627F;&#x4E86;object&#x5BF9;&#x8C61;&#x7684;&#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#x662F;<code>New-Style Class</code></p>
+<p>&#x5728;python3&#x4E2D;&#x6240;&#x6709;&#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#x90FD;&#x662F;<code>New-Style Class</code></p>
+<pre><code>class User(object): pass
+</code></pre><h3 id="&#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x7ED3;&#x6784;&#x4F53;">&#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x7ED3;&#x6784;&#x4F53;</h3>
+<p>object&#x7C7B;&#x7684;C&#x7ED3;&#x6784;&#x4F53;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>    typedef struct
+    {
+        PyObject_HEAD PyObject *cl_bases;    PyObject *cl_dict;    PyObject *cl_name;
+        PyObject *cl_getattr;
+        PyObject *cl_setattr;
+        PyObject *cl_delattr;
+    } PyClassObject;
+</code></pre><p>&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x7ED3;&#x6784;&#x4F53;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;object&#x7C7B;&#x5B58;&#x50A8;&#x4E86;&#x6240;&#x6709;&#x7684;&#x9759;&#x6001;&#x5B57;&#x6BB5;&#x548C;&#x65B9;&#x6CD5;</p>
+<p>&#x901A;&#x8FC7;&#x5B9E;&#x4F8B;&#x5316;object&#x7C7B;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x3010;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x3011;</p>
+<pre><code>In [76]: class User(object): pass
+# &#x5B9E;&#x4F8B;&#x5316;&#x51FA;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;u
+In [77]: u = User()
+
+# &#x7531;&#x6B64;&#x53EF;&#x4EE5;&#x770B;&#x51FA;u&#x5BF9;&#x8C61;&#x7684;ob_type&#x662F;User&#x5BF9;&#x8C61;
+In [78]: type(u)
+Out[78]: __main__.User
+</code></pre><p>&#x3010;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x3011;C&#x7ED3;&#x6784;&#x4F53;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>typedef struct
+{
+    PyObject_HEAD
+    PyClassObject *in_class;
+    PyObject  *in_dict;
+    PyObject  *in_weakreflist;
+} PyInstanceObject;
+</code></pre><p>&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x4E5F;&#x6709;&#x4E00;&#x4E2A;dict&#x5B57;&#x6BB5;&#xFF0C;&#x4FDD;&#x5B58;&#x7684;&#x662F;&#x6240;&#x6709;&#x7684;&#x5B9E;&#x4F8B;&#x5B57;&#x6BB5;</p>
+<pre><code>In [79]: u.name = &quot;sunli&quot;
+In [81]: u.__dict__
+Out[81]: {&apos;name&apos;: &apos;sunli&apos;}
+</code></pre><p>&#x9700;&#x8981;&#x6E05;&#x695A;&#x5B9E;&#x4F8B;&#x5B57;&#x6BB5;&#x548C;&#x9759;&#x6001;&#x5B57;&#x6BB5;&#x7684;&#x533A;&#x522B;&#xFF0C;&#x7C7B;&#x5BF9;&#x8C61;&#x7684;&#x5B57;&#x6BB5;&#x7684;&#x67E5;&#x627E;&#x987A;&#x5E8F;&#x662F;&#xFF1A;</p>
+<pre><code>instance.__dict__ -&gt; class.__dict__ -&gt; baseclass.__dict__
+</code></pre><h2 id="&#x5B57;&#x6BB5;&#x521D;&#x59CB;&#x5316;">&#x5B57;&#x6BB5;&#x521D;&#x59CB;&#x5316;</h2>
+<pre><code>class User(object):
+    # &#x9759;&#x6001;&#x5B57;&#x6BB5;
+    __table__ = &quot;user&quot;
+
+    # &#x521D;&#x59CB;&#x5316;
+    def __init__(self, name):
+        self.name = name
+
+    # &#x5E8F;&#x5217;&#x5316;
+    def __str__(self):
+        return &quot;my name is: {0}&quot;.format(self.name)
+</code></pre><p>&#x5C0F;&#x5FC3;&#x5F97;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;<code>__init__,  __str__</code>&#x5176;&#x5B9E;&#x662F;&#x91CD;&#x5199;type&#x5BF9;&#x8C61;&#x91CC;&#x9762;<code>__init__, __str__</code> &#x51FD;&#x6570;</p>
+<p>&#x8FD8;&#x8BB0;&#x5F97;type&#x5BF9;&#x8C61;&#x5B9A;&#x4E49;&#x7684;&#x64CD;&#x4F5C;&#x51FD;&#x6570;&#x6709;&#x54EA;&#x4E9B;&#x4E48;</p>
+<h2 id="&#x7C7B;&#x65B9;&#x6CD5;">&#x7C7B;&#x65B9;&#x6CD5;</h2>
+<p>&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;&#x548C;&#x51FD;&#x6570;&#x7684;&#x533A;&#x522B;&#x662F;self &#x8FD9;&#x4E2A;&#x9690;&#x5F0F;&#x53C2;&#x6570;</p>
+<pre><code># &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x6253;&#x5370;&#x65B9;&#x6CD5;
+def p(self): print(self.name)
+
+# &#x7ED9;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x52A8;&#x6001;&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;
+u.p = p
+
+# &#x8C03;&#x7528;p&#x65B9;&#x6CD5;
+u.p(u)
+</code></pre><p>&#x4F7F;&#x7528; staticmethod&#x3001;classmethod &#x88C5;&#x9970;&#x5668;&#x53EF;&#x4EE5;&#x6784;&#x9020;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#xFF0C;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x88AB;&#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#x76F4;&#x63A5;&#x8C03;&#x7528;</p>
+<pre><code>&gt;&gt;&gt; class User(object):
+...     def a(): pass
+...
+...     @staticmethod &#x6CA1;&#x6709;&#x53C2;&#x6570;
+...     def b(): pass
+...
+...     @classmethod  &#x6709;&#x53C2;&#x6570;
+...     def c(cls): pass
+&gt;&gt;&gt; User.a
+</code></pre><h2 id="&#x7C7B;&#x7EE7;&#x627F;">&#x7C7B;&#x7EE7;&#x627F;</h2>
+<p>&#x548C;&#x5176;&#x4ED6;&#x8BED;&#x8A00;&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;&#x7C7B;&#x7EE7;&#x627F;&#x9700;&#x8981;&#x663E;&#x793A;&#x7684;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x521D;&#x59CB;&#x5316;&#x51FD;&#x6570;</p>
+<pre><code># &#x7EE7;&#x627F;&#x4E86;BaseMenu&#x7C7B;
+class Menu(BaseMenu):
+
+    def __init__(self, restaurant_id):
+        # &#x5FC5;&#x987B;&#x663E;&#x793A;&#x7684;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;init&#x51FD;&#x6570;
+        super(Menu, self).__init__(restaurant_id)
+</code></pre><p>super &#x7684;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x51B3;&#x5B9A;&#x4E86;&#x5728;&#x7C7B; mro &#x5217;&#x8868;&#x4E2D;&#x7684;&#x641C;&#x7D22;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;</p>
+<pre><code># &#x8868;&#x793A;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;__init_&#x51FD;&#x6570;&#xFF0C;&#x67E5;&#x627E;&#x7684;&#x987A;&#x5E8F;&#x662F;Menu&#x7C7B;&#x7684;&#x7236;&#x7C7B;
+super(Menu, self).__init__(restaurant_id)
+</code></pre><p>&#x5982;&#x679C;&#x9700;&#x8981;&#x663E;&#x793A;&#x7684;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x51FD;&#x6570;</p>
+<pre><code>class TargetUrlValidator(StringValidator):
+    @classmethod
+    def validate(cls, target_url):
+        # &#x663E;&#x5F0F;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x51FD;&#x6570;
+        super(TargetUrlValidator, cls).validate(target_url)
+</code></pre><p><code>__mro__</code>: &#x5173;&#x952E;&#x5B57;&#x8BB0;&#x5F55;&#x4E86;&#x7C7B;&#x7684;&#x64CD;&#x4F5C;&#x987A;&#x5E8F;
+<code>__bases__</code>: &#x57FA;&#x7C7B;&#x5217;&#x8868;&#xFF0C;&#x53EF;&#x76F4;&#x63A5;&#x4FEE;&#x6539;&#x6765;&#x66F4;&#x6362;&#x57FA;&#x7C7B;&#xFF0C;&#x5F71;&#x54CD; mro &#x987A;&#x5E8F;&#x3002;</p>
+<pre><code>In [100]: class A(object): pass
+In [101]: class B(A): pass
+
+In [102]: B.__mro__
+# &#x5148;&#x67E5;&#x627E;B&#xFF0C;&#x7136;&#x540E;&#x67E5;&#x627E;A
+Out[102]: (__main__.B, __main__.A, object)
+
+# &#x8BB0;&#x5F55;&#x4E86;B&#x7684;&#x7236;&#x7C7B;
+In [111]: B.__bases__
+Out[111]: (__main__.A,)
+</code></pre><h2 id="&#x62BD;&#x8C61;&#x7C7B;">&#x62BD;&#x8C61;&#x7C7B;</h2>
+<p>&#x8C61;&#x7C7B; (Abstract Class)  &#x6CD5;&#x5B9E;&#x4F8B;&#x5316;&#xFF0C;&#x4E14;&#x6D3E; &#x7C7B;&#x5FC5;&#x987B; &quot;&#x5B8C;&#x6574;&quot; &#x5B9E;&#x73B0;&#x6240;&#x6709;&#x62BD;&#x8C61;&#x6210;&#x5458;&#x624D;&#x53EF;&#x521B;&#x5EFA;&#x5B9E;&#x4F8B;&#x3002;</p>
+<pre><code>&gt;&gt; from abc import ABCMeta, abstractmethod, abstractproperty
+
+&gt;&gt;&gt; class UserAbstract(object):
+        # &#x4F7F;&#x7528;&#x5143;&#x7C7B;&#x6765;&#x63A7;&#x5236;&#xFF0C;&#x521B;&#x5EFA;&#x8FD9;&#x4E2A;&#x7C7B;&#x9700;&#x8981;&#x68C0;&#x67E5;&#x662F;&#x5426;&#x5B9E;&#x73B0;print_id&#x65B9;&#x6CD5;
+...     __metaclass__ = ABCMeta
+
+...     def __init__(self, uid):
+...         self._uid = uid
+...
+...     @abstractmethod
+...     def print_id(self): pass
+</code></pre><h2 id="&#x64CD;&#x4F5C;&#x7B26;&#x91CD;&#x8F7D;">&#x64CD;&#x4F5C;&#x7B26;&#x91CD;&#x8F7D;</h2>
+<p> &#x79F0;&#x7D22;&#x5F15;&#x5668;&#xFF0C;&#x50CF;&#x5E8F;&#x5217;&#x6216;&#x5B57;&#x5178;&#x7C7B;&#x578B;&#x90A3;&#x6837;&#x64CD;&#x4F5C;&#x5BF9;&#x8C61;&#x3002;</p>
+<pre><code> def Items(object):
+
+    def __init__(self):
+        self.fields = {}
+
+    def __getitem__(self, key):
+        return self.fields.get(key)
+
+    def __setitem__(self, key, value):
+        self.fields[key] = value
+
+    def __delitem__(self, key):
+        del self.fields[key]
+
+    def __contains__(self, key):
+        return key in self.fields
+</code></pre><h2 id="getattr-vs-getattribute"><strong>getattr</strong> VS <strong>getattribute</strong></h2>
+<p>&#x5148;&#x770B;&#x770B;&#x8FD9;&#x51E0;&#x4E2A;&#x6CD5;&#x7684;&#x89E6;&#x53D1;&#x65F6;&#x673A;</p>
+<p>&#x2022; <strong>getattr</strong>: &#x8BBF;&#x95EE;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x6210;&#x5458;&#x3002;
+&#x2022; <strong>setattr</strong>: &#x5BF9;&#x4EFB;&#x4F55;&#x6210;&#x5458;&#x7684;&#x8D4B;&#x503C;&#x64CD;&#x4F5C;&#x3002;
+&#x2022; <strong>delattr</strong>: &#x5220;&#x9664;&#x6210;&#x5458;&#x64CD;&#x4F5C;&#x3002;
+&#x2022; <strong>getattribute</strong>: &#x8BBF;&#x95EE;&#x4EFB;&#x4F55;&#x5B58;&#x5728;&#x6216;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x6210;&#x5458;&#xFF0C;&#x5305;&#x62EC; <strong>dict</strong>&#x3002;</p>
+<p>&#x4E0D;&#x8981;&#x5728;&#x8FD9;&#x51E0;&#x4E2A;&#x65B9;&#x6CD5;&#x91CC;&#x9762;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x5BF9;&#x8C61;&#x6210;&#x5458; &#x4F8B;&#x5982; self.key</p>
+<p>&#x4E5F;&#x4E0D;&#x8981;hasattr/getattr/setattr/delattr&#x51FD;&#x6570;&#xFF0C;&#x4F8B;&#x5982;getattr(self, key)</p>
+<p>&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x4F1A;&#x88AB;&#x518D;&#x6B21;&#x62E6;&#x622A;&#xFF0C;&#x5F62;&#x6210;&#x65E0;&#x9650;&#x5FAA;&#x73AF;&#x3002;</p>
+<p>&#x6B63;&#x786E;&#x7684;&#x505A;&#x6CD5;&#x662F;&#x76F4;&#x63A5;&#x64CD;&#x4F5C; <code>self.__dict__[&apos;key&apos;]</code>&#x3002;</p>
+<p> <code>__getattribute__</code>&#x8FDE; <code>__dict__</code> &#x90FD;&#x4F1A;&#x62E6;&#x622A;&#xFF0C;&#x53EA;&#x80FD;&#x4F7F;&#x7528;&#x57FA;&#x7C7B;&#x7684; <code>__getattribute__</code> &#x8FD4;&#x56DE;&#x7ED3;&#x679C;</p>
+<p> &#x76F4;&#x63A5;&#x4F7F;&#x7528;[&#x7C7B;&#x540D;.&#x5B57;&#x6BB5;]&#x8BBF;&#x95EE;&#x5E76;&#x4E0D;&#x4F1A;&#x8FDB;&#x5165;<code>__getattribute__</code>&#x62E6;&#x622A;&#x51FD;&#x6570;</p>
+<pre><code> class ModelProxy(object)
+
+    def __init__(self, t_obj):
+        self.t_obj = t_obj
+
+    def __getattribute__(self, name):
+
+        # &#x4F7F;&#x7528;ModelProxy.key&#x5E76;&#x4E0D;&#x4F1A;&#x6267;&#x884C;__getattribute__&#x65B9;&#x6CD5;&#xFF01;&#xFF01;&#xFF01;
+        # &#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;getattr(type(self), name, None)
+        # type(self)&#x8FD4;&#x56DE;&#x7684;&#x662F;ModelProxy
+
+        # &#x5982;&#x679C;&#x4F7F;&#x7528; getattr(self, name, None)&#x5219;&#x4F1A;&#x8FDB;&#x5165;&#x65E0;&#x9650;&#x5FAA;&#x73AF;
+        value = getattr(type(self), name, None)
+
+        # &#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x629B;&#x5F03;&#x5F02;&#x5E38;, &#x629B;&#x51FA;&#x5F02;&#x5E38;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x8C03;&#x7528;&#x8C03;&#x7528;__getattr__
+        if value is None:
+            raise AttributeError
+        elif callable(value):
+            return lambda: value(self)
+        else:
+            return value
+
+    def __getattr__(self, name):
+
+        # &#x4F7F;&#x7528;&#x57FA;&#x7C7B;&#x7684;__getattribute__&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x57FA;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x88AB;&#x8C03;&#x7528;
+        # &#x662F;&#x56E0;&#x4E3A;&#x57FA;&#x7C7B;&#x7684;__getattribute__&#x5E76;&#x6CA1;&#x6709;&#x88AB;&#x91CD;&#x5199;
+        # &#x8FD8;&#x6709;&#x4E00;&#x79CD;&#x8C03;&#x7528;&#x57FA;&#x7C7B;&#x7684;&#x65B9;&#x6CD5; super(ModelProxy, self).__getattribute__(self, &quot;t_obj&quot;)
+        t_obj = object.__getattribute__(self, &quot;t_obj&quot;)
+        return getattr(t_obj, name)
+</code></pre><p>&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x660E;&#x767D;</p>
+<pre><code>1. &#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x8BBF;&#x95EE;&#x5C5E;&#x6027;&#x8C03;&#x7528;&#x7684;&#x662F;&#x7C7B;&#x5B9A;&#x4E49;&#x7684;__getattribute__
+
+2. &#x7C7B;&#x578B;&#x5BF9;&#x8C61;(&#x7C7B;)&#x8BBF;&#x95EE;&#x9759;&#x6001;&#x5C5E;&#x6027;&#x8C03;&#x7528;&#x65F6;&#x5143;&#x7C7B;(&#x9ED8;&#x8BA4;&#x662F;type&#x5BF9;&#x8C61;)&#x7684;__getattribute__
+</code></pre><p>&#x8FD8;&#x6709;&#x5E38;&#x7528;&#x7684;&#x91CD;&#x8F7D;&#x65B9;&#x6CD5;&#x6709;<code>__call__</code></p>
+<h2 id="&#x63CF;&#x8FF0;&#x7B26;">&#x63CF;&#x8FF0;&#x7B26;</h2>
+<p>python&#x5B9A;&#x4E49;&#x4E86;<code>__get__</code>, <code>__set__</code>&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x7C7B;&#x5C31;&#x662F;&#x63CF;&#x8FF0;&#x7B26;&#x3002;</p>
+<h2 id="todo-&#x63CF;&#x8FF0;&#x7B26;&#x548C;&#x5C5E;&#x6027;&#x7684;&#x76F8;&#x5173;&#x5185;&#x5BB9;">TODO &#x63CF;&#x8FF0;&#x7B26;&#x548C;&#x5C5E;&#x6027;&#x7684;&#x76F8;&#x5173;&#x5185;&#x5BB9;</h2>
 
                                 
                                 </section>
@@ -1003,7 +1183,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"理解python面向对象编程","level":"1.3.3","depth":2,"next":{"title":"python yield使用","level":"1.3.4","depth":2,"path":"section_python/yield.md","ref":"section_python/yield.md","articles":[]},"previous":{"title":"理解python元类","level":"1.3.2","depth":2,"path":"section_python/meta.md","ref":"section_python/meta.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_python/class.md","mtime":"2019-03-02T07:04:51.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-03-02T07:11:41.418Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"理解python面向对象编程","level":"1.3.3","depth":2,"next":{"title":"python yield使用","level":"1.3.4","depth":2,"path":"section_python/yield.md","ref":"section_python/yield.md","articles":[]},"previous":{"title":"理解python元类","level":"1.3.2","depth":2,"path":"section_python/meta.md","ref":"section_python/meta.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_python/class.md","mtime":"2019-03-02T08:56:14.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-03-02T09:35:14.897Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
