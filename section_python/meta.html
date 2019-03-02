@@ -960,11 +960,11 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="python-&#x5143;&#x7C7B;&#x7406;&#x89E3;">python &#x5143;&#x7C7B;&#x7406;&#x89E3;</h1>
-<p>&#x5728;&#x7406;&#x89E3;<strong>&#x5143;&#x7C7B;</strong>&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x6E05;&#x695A;python&#x7684;PyClassObject&#x5BF9;&#x8C61;</p>
+<p>&#x5728;&#x7406;&#x89E3;<strong>&#x5143;&#x7C7B;</strong>&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x8981;&#x6E05;&#x695A;python&#x7684;PyClassObject&#x5BF9;&#x8C61;</p>
 <p>&#x4E5F;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x5E38;&#x7528;&#x7684;object&#x5BF9;&#x8C61;&#xFF0C;&#x4E0B;&#x9762;&#x7EDF;&#x4E00;&#x79F0;&#x4E3A;PyClassObject</p>
-<p>&#x5728;python&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x7684;python&#x5BF9;&#x8C61;&#x4E00;&#x822C;&#x90FD;&#x8981;&#x6C42;&#x7EE7;&#x627F;PyClassObject&#x5BF9;&#x8C61;</p>
+<p>&#x5728;python&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x7684;python &#x5BF9;&#x8C61;&#x4E00;&#x822C;&#x90FD;&#x8981;&#x6C42;&#x7EE7;&#x627F;PyClassObject&#x5BF9;&#x8C61;</p>
 <pre><code>In [10]: class A(object): pass
-</code></pre><p>&#x5728;&#x300A;python&#x5BF9;&#x8C61;&#x7684;&#x672C;&#x8D28;&#x300B;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x6E05;&#x695A;&#xFF0C;python&#x5BF9;&#x8C61;&#x7684;&#x521B;&#x5EFA;&#xFF0C;&#x5FC5;&#x987B;&#x77E5;&#x9053;&#x521B;&#x5EFA;&#x6B64;&#x5BF9;&#x8C61;&#x7684;C&#x8BED;&#x8A00;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x4EE5;&#x53CA;&#x8BE5;&#x5BF9;&#x8C61;&#x6240;&#x9700;&#x7684;<strong>ob_type</strong>&#x503C;</p>
+</code></pre><p>&#x5728;&#x300A;python&#x5BF9;&#x8C61;&#x7684;&#x672C;&#x8D28;&#x300B;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x6E05;&#x695A;&#xFF0C;&#x521B;&#x5EFA;python&#x5BF9;&#x8C61;&#xFF0C;&#x5FC5;&#x987B;&#x77E5;&#x9053;&#x6B64;&#x5BF9;&#x8C61;&#x7684;C&#x8BED;&#x8A00;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x4EE5;&#x53CA;&#x8BE5;&#x5BF9;&#x8C61;&#x6240;&#x9700;&#x7684;<strong>ob_type</strong></p>
 <p>&#x4E0B;&#x9762;&#x662F;claasObject&#x5BF9;&#x8C61;&#x7684;C&#x8BED;&#x8A00;&#x7ED3;&#x6784;&#x4F53;:</p>
 <pre><code># PyClassObject &#x7684;&#x5B9A;&#x4E49;
 typedef struct
@@ -983,9 +983,8 @@ In [10]: class A(object): pass
 # type(A) == type &#x8BF4;&#x660E;A&#x5BF9;&#x8C61;&#x7684;ob_type&#x662F;type&#x5BF9;&#x8C61;
 In [11]: type(A)
 Out[11]: type
-</code></pre><p>&#x65E2;&#x7136;&#x6211;&#x4EEC;&#x6E05;&#x695A;&#x4E86;PyClassObject&#x5BF9;&#x8C61;&#x662F;type&#x5BF9;&#x8C61;<strong>&#x5B9E;&#x4F8B;&#x5316;</strong>&#x5F97;&#x5230;&#x7684;</p>
-<p>&#x518D;&#x6DF1;&#x5165;&#x4E00;&#x70B9;&#xFF0C;type&#x5BF9;&#x8C61;&#x5982;&#x4F55;&#x5B9E;&#x4F8B;&#x5316;&#x5F97;&#x5230;object&#x5BF9;&#x8C61;&#x7684;&#x5462;</p>
-<p>&#x6211;&#x4EEC;&#x8FD8;&#x662F;&#x56DE;&#x5230;type&#x5BF9;&#x8C61;&#x7684;&#x7ED3;&#x6784;&#x4F53;</p>
+</code></pre><p>&#x65E2;&#x7136;&#x6211;&#x4EEC;&#x6E05;&#x695A;&#x4E86;PyClassObject&#x5BF9;&#x8C61;&#x662F;type&#x5BF9;&#x8C61;<strong>&#x521B;&#x5EFA;</strong>&#x7684;(&#x6216;&#x8005;&#x53EF;&#x4EE5;&#x8BF4;&#x662F;&#x5B9E;&#x4F8B;&#x5316;)</p>
+<p>&#x518D;&#x6DF1;&#x5165;&#x4E00;&#x70B9;&#xFF0C;type&#x5BF9;&#x8C61;&#x5982;&#x4F55;&#x5B9E;&#x4F8B;&#x5316;&#x5F97;&#x5230;object&#x5BF9;&#x8C61;&#x7684;&#x5462;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x662F;&#x56DE;&#x5230;type&#x5BF9;&#x8C61;&#x7684;&#x7ED3;&#x6784;&#x4F53;</p>
 <pre><code>typedef struct _typeobject {
     .....
 
@@ -996,8 +995,8 @@ Out[11]: type
     PyObject *tp_mro;  // &#x5B9A;&#x4E49;&#x4E86;&#x67E5;&#x627E;&#x7236;&#x7C7B;&#x7684;&#x89C4;&#x5219;
     .....
 }
-</code></pre><p>&#x6CE8;&#x610F;&#xFF0C;type&#x5BF9;&#x8C61;&#x6709;new&#x65B9;&#x6CD5;  type&#x5BF9;&#x8C61;<strong>&#x5B9E;&#x4F8B;&#x5316;</strong>&#x5F97;&#x5230;PyClassObject&#x5BF9;&#x8C61;&#x5C31;&#x662F;&#x8C03;&#x7528;type&#x5BF9;&#x8C61;&#x7684;new&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x7684;</p>
-<p>&#x5B9E;&#x4F8B;&#x5316;PyClassObject&#x67E5;&#x627E;new&#x65B9;&#x6CD5;&#x7684;&#x89C4;&#x5219;&#x5982;&#x4E0B;:</p>
+</code></pre><p>&#x6CE8;&#x610F;&#xFF0C;type&#x5BF9;&#x8C61;&#x6709;new&#x65B9;&#x6CD5;&#xFF0C;  type&#x5BF9;&#x8C61;<strong>&#x5B9E;&#x4F8B;&#x5316;</strong>&#x5F97;&#x5230;PyClassObject&#x5BF9;&#x8C61;&#x5C31;&#x662F;&#x8C03;&#x7528;type&#x5BF9;&#x8C61;&#x7684;new&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x7684;</p>
+<p>&#x521B;&#x5EFA;PyClassObject&#x5BF9;&#x8C61;&#x65F6;&#x67E5;&#x627E;new&#x65B9;&#x6CD5;&#x7684;&#x89C4;&#x5219;&#x5982;&#x4E0B;:</p>
 <pre><code>1. &#x9996;&#x5148;&#x53BB;&#x67E5;&#x627E;PyClassObject&#x5BF9;&#x8C61;&#x5BF9;&#x5E94;&#x7684;new&#x65B9;&#x6CD5;
 
 2.  &#x5982;&#x679C;&#x7EE7;&#x7EED;PyClassObject&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#xFF0C;&#x5219;&#x67E5;&#x627E;ob_type&#x6307;&#x5B9A;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;type&#x5BF9;&#x8C61;&#x7684;new&#x65B9;&#x6CD5;
@@ -1116,7 +1115,7 @@ class ReturnSelfMeta(type):
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"理解python元类","level":"1.3.2","depth":2,"next":{"title":"理解python面向对象编程","level":"1.3.3","depth":2,"path":"section_python/class.md","ref":"section_python/class.md","articles":[]},"previous":{"title":"理解python对象本质","level":"1.3.1","depth":2,"path":"section_python/ob.md","ref":"section_python/ob.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_python/meta.md","mtime":"2019-03-02T07:03:29.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-03-02T07:03:45.610Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"理解python元类","level":"1.3.2","depth":2,"next":{"title":"理解python面向对象编程","level":"1.3.3","depth":2,"path":"section_python/class.md","ref":"section_python/class.md","articles":[]},"previous":{"title":"理解python对象本质","level":"1.3.1","depth":2,"path":"section_python/ob.md","ref":"section_python/ob.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_python/meta.md","mtime":"2019-03-02T07:11:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-03-02T07:11:41.418Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
