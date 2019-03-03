@@ -558,7 +558,7 @@
                 <a href="../section_design/health.html">
             
                     
-                    分布式_API熔断
+                    API熔断—滑动窗口算法
             
                 </a>
             
@@ -566,7 +566,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="../section_design/collection.html">
+        <li class="chapter " data-level="1.4.5" data-path="../section_design/constenct.html">
+            
+                <a href="../section_design/constenct.html">
+            
+                    
+                    一致性hash算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../section_design/collection.html">
             
                 <a href="../section_design/collection.html">
             
@@ -579,7 +592,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.6" data-path="../section_design/thread.html">
+        <li class="chapter " data-level="1.4.7" data-path="../section_design/thread.html">
             
                 <a href="../section_design/thread.html">
             
@@ -1260,7 +1273,7 @@ location /documents/ {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"NGINX常用命令梳理","level":"1.6.1","depth":2,"next":{"title":"常用工具","level":"1.7","depth":1,"path":"section_tool/README.md","ref":"section_tool/README.md","articles":[{"title":"sublime-vscode","level":"1.7.1","depth":2,"path":"section_tool/sublime.md","ref":"section_tool/sublime.md","articles":[]},{"title":"vim","level":"1.7.2","depth":2,"path":"section_tool/vim.md","ref":"section_tool/vim.md","articles":[]},{"title":"zsh","level":"1.7.3","depth":2,"path":"section_tool/zsh.md","ref":"section_tool/zsh.md","articles":[]},{"title":"Iterm","level":"1.7.4","depth":2,"path":"section_tool/Iterm.md","ref":"section_tool/Iterm.md","articles":[]},{"title":"brew","level":"1.7.5","depth":2,"path":"section_tool/brew.md","ref":"section_tool/brew.md","articles":[]},{"title":"launchctl","level":"1.7.6","depth":2,"path":"section_tool/launchctl.md","ref":"section_tool/launchctl.md","articles":[]},{"title":"supervisor","level":"1.7.7","depth":2,"path":"section_tool/supervisor.md","ref":"section_tool/supervisor.md","articles":[]}]},"previous":{"title":"NGINX","level":"1.6","depth":1,"path":"section_nginx/README.md","ref":"section_nginx/README.md","articles":[{"title":"NGINX常用命令梳理","level":"1.6.1","depth":2,"path":"section_nginx/a.md","ref":"section_nginx/a.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_nginx/a.md","mtime":"2019-03-02T14:59:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-03-03T05:19:19.469Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"NGINX常用命令梳理","level":"1.6.1","depth":2,"next":{"title":"常用工具","level":"1.7","depth":1,"path":"section_tool/README.md","ref":"section_tool/README.md","articles":[{"title":"sublime-vscode","level":"1.7.1","depth":2,"path":"section_tool/sublime.md","ref":"section_tool/sublime.md","articles":[]},{"title":"vim","level":"1.7.2","depth":2,"path":"section_tool/vim.md","ref":"section_tool/vim.md","articles":[]},{"title":"zsh","level":"1.7.3","depth":2,"path":"section_tool/zsh.md","ref":"section_tool/zsh.md","articles":[]},{"title":"Iterm","level":"1.7.4","depth":2,"path":"section_tool/Iterm.md","ref":"section_tool/Iterm.md","articles":[]},{"title":"brew","level":"1.7.5","depth":2,"path":"section_tool/brew.md","ref":"section_tool/brew.md","articles":[]},{"title":"launchctl","level":"1.7.6","depth":2,"path":"section_tool/launchctl.md","ref":"section_tool/launchctl.md","articles":[]},{"title":"supervisor","level":"1.7.7","depth":2,"path":"section_tool/supervisor.md","ref":"section_tool/supervisor.md","articles":[]}]},"previous":{"title":"NGINX","level":"1.6","depth":1,"path":"section_nginx/README.md","ref":"section_nginx/README.md","articles":[{"title":"NGINX常用命令梳理","level":"1.6.1","depth":2,"path":"section_nginx/a.md","ref":"section_nginx/a.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_nginx/a.md","mtime":"2019-03-03T05:21:48.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-03-03T07:32:13.885Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
