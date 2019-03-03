@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>launchctl · 飘来飘去</title>
+        <title>Mysql · 飘来飘去</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="supervisor.html" />
+    <link rel="next" href="../section_nginx/" />
     
     
-    <link rel="prev" href="brew.html" />
+    <link rel="prev" href="redis.html" />
     
 
     </head>
@@ -597,9 +597,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="../section_mysql/">
+        <li class="chapter " data-level="1.5" data-path="./">
             
-                <a href="../section_mysql/">
+                <a href="./">
             
                     
                     数据库
@@ -611,9 +611,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../section_mysql/redis.html">
+        <li class="chapter " data-level="1.5.1" data-path="redis.html">
             
-                <a href="../section_mysql/redis.html">
+                <a href="redis.html">
             
                     
                     Redis
@@ -624,9 +624,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="../section_mysql/mysql.html">
+        <li class="chapter active" data-level="1.5.2" data-path="mysql.html">
             
-                <a href="../section_mysql/mysql.html">
+                <a href="mysql.html">
             
                     
                     Mysql
@@ -674,9 +674,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7" data-path="./">
+        <li class="chapter " data-level="1.7" data-path="../section_tool/">
             
-                <a href="./">
+                <a href="../section_tool/">
             
                     
                     常用工具
@@ -688,9 +688,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.7.1" data-path="sublime.html">
+        <li class="chapter " data-level="1.7.1" data-path="../section_tool/sublime.html">
             
-                <a href="sublime.html">
+                <a href="../section_tool/sublime.html">
             
                     
                     sublime-vscode
@@ -701,9 +701,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.2" data-path="vim.html">
+        <li class="chapter " data-level="1.7.2" data-path="../section_tool/vim.html">
             
-                <a href="vim.html">
+                <a href="../section_tool/vim.html">
             
                     
                     vim
@@ -714,9 +714,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.3" data-path="zsh.html">
+        <li class="chapter " data-level="1.7.3" data-path="../section_tool/zsh.html">
             
-                <a href="zsh.html">
+                <a href="../section_tool/zsh.html">
             
                     
                     zsh
@@ -727,9 +727,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.4" data-path="Iterm.html">
+        <li class="chapter " data-level="1.7.4" data-path="../section_tool/Iterm.html">
             
-                <a href="Iterm.html">
+                <a href="../section_tool/Iterm.html">
             
                     
                     Iterm
@@ -740,9 +740,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.5" data-path="brew.html">
+        <li class="chapter " data-level="1.7.5" data-path="../section_tool/brew.html">
             
-                <a href="brew.html">
+                <a href="../section_tool/brew.html">
             
                     
                     brew
@@ -753,9 +753,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.7.6" data-path="launchctl.html">
+        <li class="chapter " data-level="1.7.6" data-path="../section_tool/launchctl.html">
             
-                <a href="launchctl.html">
+                <a href="../section_tool/launchctl.html">
             
                     
                     launchctl
@@ -766,9 +766,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.7" data-path="supervisor.html">
+        <li class="chapter " data-level="1.7.7" data-path="../section_tool/supervisor.html">
             
-                <a href="supervisor.html">
+                <a href="../section_tool/supervisor.html">
             
                     
                     supervisor
@@ -976,7 +976,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >launchctl</a>
+        <a href=".." >Mysql</a>
     </h1>
 </div>
 
@@ -991,32 +991,73 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="launchctl">launchctl</h1>
-<p>launchctl &#x7BA1;&#x7406;OS X&#x7684;&#x542F;&#x52A8;&#x811A;&#x672C;&#xFF0C;&#x63A7;&#x5236;&#x542F;&#x52A8;&#x8BA1;&#x7B97;&#x673A;&#x65F6;&#x9700;&#x8981;&#x5F00;&#x542F;&#x7684;&#x670D;&#x52A1;&#x3002;&#x4E5F;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x5B9A;&#x65F6;&#x6267;&#x884C;&#x7279;&#x5B9A;&#x4EFB;&#x52A1;&#x7684;&#x811A;&#x672C;&#xFF0C;&#x5C31;&#x50CF;Linux crontab&#x4E00;&#x6837;, &#x901A;&#x8FC7;&#x52A0;&#x88C5;*.plist&#x6587;&#x4EF6;&#x6267;&#x884C;&#x76F8;&#x5E94;&#x547D;&#x4EE4;</p>
-<h4 id="&#x4F7F;&#x7528;"><strong>&#x4F7F;&#x7528;</strong></h4>
-<p>&#x5F00;&#x673A;&#x65F6;&#x81EA;&#x52A8;&#x542F;&#x52A8;mysql&#x670D;&#x52A1;&#x5668;&#xFF1A;
-<code>$ sudo launchctl load -w /System/Library/LaunchDaemons/homebrew.mxcl.mysql.plist</code></p>
-<p><code>launchctl list</code> &#x663E;&#x793A;&#x5F53;&#x524D;&#x7684;&#x542F;&#x52A8;&#x811A;&#x672C;&#x3002;</p>
-<p><code>sudo launchctl unload [path/to/script]</code> &#x505C;&#x6B62;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x542F;&#x52A8;&#x811A;&#x672C;&#xFF0C;&#x518D;&#x52A0;&#x4E0A; -w &#x9009;&#x9879;&#x5373;&#x53EF;&#x53BB;&#x9664;&#x5F00;&#x673A;&#x542F;&#x52A8;&#x3002;</p>
-<p>Launchd&#x811A;&#x672C;&#x5B58;&#x50A8;&#x5728;&#x4EE5;&#x4E0B;&#x4F4D;&#x7F6E;, &#x9ED8;&#x8BA4;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x521B;&#x5EFA;&#x4E2A;&#x4EBA;&#x7684;LaunchAgents&#x76EE;&#x5F55;</p>
-<pre><code>~/Library/LaunchAgents
-/Library/LaunchAgents
-/Library/LaunchDaemons
-/System/Library/LaunchAgents
-/System/Library/LaunchDaemons
-</code></pre><p><code>mkdir -p ~/Library/LaunchAgents</code></p>
-<h4 id="brew&#x548C;launchctl&#x914D;&#x7F6E;&#x4F7F;&#x7528;">brew&#x548C;launchctl&#x914D;&#x7F6E;&#x4F7F;&#x7528;</h4>
-<p>&#x901A;&#x8FC7;brew&#x5B89;&#x88C5;&#x7684;&#x8F6F;&#x4EF6;&#xFF0C;&#x901A;&#x5E38;&#x90FD;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;*.plist&#x6587;&#x4EF6;,&#x6240;&#x4EE5;&#x901A;&#x8FC7;launchctl&#x53EF;&#x4EE5;&#x4F7F;brew&#x5B89;&#x88C5;&#x7684;&#x8F6F;&#x4EF6;&#x5F00;&#x673A;&#x81EA;&#x542F;&#x52A8;</p>
-<h4 id="mac&#x5E38;&#x7528;&#x547D;&#x4EE4;">MAC&#x5E38;&#x7528;&#x547D;&#x4EE4;</h4>
-<p><code>pbcopy</code> &#x548C; <code>pbpaste</code></p>
-<p>&#x8FD9;&#x4E24;&#x4E2A;&#x5DE5;&#x5177;&#x53EF;&#x4EE5;&#x6253;&#x901A;&#x547D;&#x4EE4;&#x884C;&#x548C;&#x526A;&#x8D34;&#x677F;&#x3002;&#x5F53;&#x7136;&#x7528;&#x9F20;&#x6807;&#x64CD;&#x4F5C;&#x590D;&#x5236;&#x7C98;&#x8D34;&#x4E5F;&#x53EF;&#x4EE5;&#x2014;&#x2014;&#x4F46;&#x8FD9;&#x4E24;&#x4E2A;&#x5DE5;&#x5177;&#x7684;&#x771F;&#x6B63;&#x5A01;&#x529B;&#xFF0C;&#x53D1;&#x6325;&#x5728;&#x5C06;&#x5176;&#x7528;&#x4F5C;Unix&#x5DE5;&#x5177;&#x7684;&#x65F6;&#x5019;&#x3002;&#x610F;&#x601D;&#x5C31;&#x662F;&#x8BF4;&#xFF1A;&#x53EF;&#x4EE5;&#x5C06;&#x8FD9;&#x4E24;&#x4E2A;&#x5DE5;&#x5177;&#x7528;&#x4F5C;&#x7BA1;&#x9053;&#x3001;IO&#x91CD;&#x5B9A;&#x5411;&#x4EE5;&#x53CA;&#x548C;&#x5176;&#x4ED6;&#x547D;&#x4EE4;&#x7684;&#x6574;&#x5408;&#x3002;&#x4F8B;&#x5982;&#xFF1A;
-<code>$ ls ~ | pbcopy</code>
-&#x53EF;&#x4EE5;&#x5C06;&#x4E3B;&#x76EE;&#x5F55;&#x7684;&#x6587;&#x4EF6;&#x5217;&#x8868;&#x590D;&#x5236;&#x5230;&#x526A;&#x8D34;&#x677F;&#x3002;
-&#x4E5F;&#x53EF;&#x4EE5;&#x628A;&#x4EFB;&#x610F;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#x8BFB;&#x5165;&#x526A;&#x8D34;&#x677F;&#xFF1A;</p>
-<p><code>$ pbcopy &lt; blogpost.txt</code>
-&#x505A;&#x70B9;&#x66F4;&#x75AF;&#x72C2;&#x7684;&#x5C1D;&#x8BD5;&#xFF1A;&#x83B7;&#x53D6;&#x6700;&#x65B0;Google&#x7EAA;&#x5FF5;&#x5FBD;&#x6807;&#xFF08;doodle&#xFF09;&#x7684;URL&#x5E76;&#x590D;&#x5236;&#x5230;&#x526A;&#x8D34;&#x677F;&#xFF1A;</p>
-<p><code>$ pbpaste &gt;&gt; tasklist.txt</code></p>
-<p><a href="http://ss64.com/osx/" target="_blank">Mac &#x547D;&#x4EE4;&#x5927;&#x5168;</a></p>
+                                <h1 id="mysql-&#x4F7F;&#x7528;&#x603B;&#x7ED3;">Mysql &#x4F7F;&#x7528;&#x603B;&#x7ED3;</h1>
+<h2 id="&#x5B57;&#x6BB5;&#x7C7B;&#x578B;&#x9009;&#x62E9;">&#x5B57;&#x6BB5;&#x7C7B;&#x578B;&#x9009;&#x62E9;</h2>
+<p>&#x6574;&#x6570;&#xFF1A; TINYINT(1&#x5B57;&#x8282;),  MEDIUMINT(2&#x5B57;&#x8282;), INT(4&#x5B57;&#x8282;) BIGINT(8&#x5B57;&#x8282;)&#x3002;&#x5982;&#x679C;&#x786E;&#x5B9A;&#x662F;&#x6B63;&#x6574;&#x6570;&#xFF0C;&#x4F7F;&#x7528;<code>unsigned</code> &#x6CE8;&#x610F;&#xFF1A; INT(11)&#xFF1A; &#x53EA;&#x662F;&#x5BA2;&#x6237;&#x7AEF;&#x7528;&#x6765;&#x663E;&#x793A;&#x7684;&#x957F;&#x5EA6;&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x6539;&#x53D8;INT&#x7684;&#x5B57;&#x8282;&#x6570;</p>
+<p>&#x5B57;&#x7B26;&#x4E32;&#xFF1A;VARCHAR &#x548C;CHAR&#x3002; VARCHAR&#x7C7B;&#x578B;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x53EF;&#x53D8;&#x957F;&#x5B57;&#x7B26;&#x4E32;</p>
+<p>&#x679A;&#x4E3E;&#xFF1A;ENUM&#xFF0C;&#x5728;&#x5B9E;&#x9645;&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x5C3D;&#x91CF;&#x4E0D;&#x4F7F;&#x7528;&#x679A;&#x4E3E;&#xFF0C;&#x9664;&#x975E;&#x503C;&#x7684;&#x9009;&#x9879;&#x662F;&#x786E;&#x5B9A;&#x7684;(&#x5F80;&#x5F80;&#x4E1A;&#x52A1;&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x9009;&#x9879;&#x662F;&#x4E0D;&#x786E;&#x5B9A;&#x7684;)</p>
+<p>&#x65F6;&#x95F4;: DATETIME &#x548C; TIMESTAMP</p>
+<p>DATETIME &#x4ED6;&#x628A;&#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4;&#x5C01;&#x88C5;&#x5230;&#x683C;&#x5F0F;&#x4E3A;&#xFF08;YYMMDDHHMMSS&#xFF09;&#x7684;&#x6574;&#x6570;&#x4E2D;&#xFF0C;&#x4F7F;&#x7528;8&#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x4FDD;&#x5B58;&#x7684;&#x5E74;&#x4EFD;&#x5230;&#xFF08;1001 - 9999&#xFF09;&#x6700;&#x540E;&#x663E;&#x793A;&#x7684;&#x683C;&#x5F0F;&#x4E3A;&#xFF1A;0000-00-00 00:00:00&#xFF0C;&#x548C;&#x65F6;&#x533A;&#x6709;&#x5173;</p>
+<p>TIMESTAMP &#x4ED6;&#x4FDD;&#x5B58;&#x7684;&#x65F6;&#x95F4;&#x4E3A;1970-2038&#xFF0C; &#x4F7F;&#x7528;4&#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x548C;&#x65F6;&#x533A;&#x6709;&#x5173;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x63D2;&#x5165;&#x548C;&#x66F4;&#x65B0;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E0D;&#x8F93;&#x5165;&#x65F6;&#x95F4;&#x7684;&#x8BDD;&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x5F53;&#x524D;&#x7684;&#x65F6;&#x95F4;</p>
+<p>&#x5C3D;&#x91CF;&#x4F7F;&#x7528;TIMESTAMP&#xFF0C;&#x56E0;&#x4E3A;&#x4ED6;&#x7684;&#x6548;&#x7387;&#x66F4;&#x597D;</p>
+<h2 id="not-null">NOT NULL</h2>
+<p>MySQL&#x4E2D;&#x7684;NULL&#x5176;&#x5B9E;&#x662F;&#x5360;&#x7528;&#x7A7A;&#x95F4;&#x7684;&#xFF0C; NULL&#x4E0D;&#x5229;&#x4E8E;&#x7D22;&#x5F15;&#xFF0C;&#x5C3D;&#x91CF;&#x4F7F;&#x7528;NOT NULL</p>
+<h2 id="&#x7279;&#x6B8A;sql&#x4F18;&#x5316;">&#x7279;&#x6B8A;SQL&#x4F18;&#x5316;</h2>
+<p><strong>COUNT</strong> &#x4F18;&#x5316;</p>
+<p><code>select COUNT(*) from table where id &gt; 5</code></p>
+<p>&#x5982;&#x679C;&#x8FD9;&#x6761;&#x8BED;&#x53E5;&#x626B;&#x63CF;&#x6570;&#x636E;&#x6761;&#x6570;&#x8FC7;&#x5F97;&#xFF0C;&#x53EF;&#x4EE5;&#x8F6C;&#x5316;sql&#x4E3A;:</p>
+<p><code>select count(*) from table - select count(*) from table where id &lt;= 5</code></p>
+<p><strong>LIMIT</strong> &#x5206;&#x9875;&#x4F18;&#x5316;
+<code>LIMIT 10000, 20</code>&#x7684;&#x67E5;&#x8BE2;&#x4F1A;&#x626B;&#x63CF;10020&#x6761;&#x6570;&#x636E;&#xFF0C;&#x7136;&#x540E;&#x53EA;&#x8FD4;&#x56DE;&#x6700;&#x540E;&#x7684;20&#x6761;&#xFF0C;&#x524D;&#x9762;&#x7684;10000&#x6761;&#x6570;&#x636E;&#x90FD;&#x4F1A;&#x88AB;&#x629B;&#x5F03;&#xFF0C;&#x4EE3;&#x4EF7;&#x975E;&#x5E38;&#x9AD8;&#x3002;</p>
+<p>&#x65B9;&#x6848;&#x4E00;&#xFF1A; &#x628A;limit&#x8F6C;&#x5316;&#x4E3A;&#x5DF2;&#x77E5;&#x7684;&#x626B;&#x63CF;&#x8BB0;&#x5F55;</p>
+<p>&#x5047;&#x8BBE;<code>LIMIT 10000</code> &#x662F;&#x4ECE;id=10000&#x5F00;&#x59CB;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x8F6C;&#x5316;&#x4E3A;
+<code>where id &gt;= 10000 and id &lt; 10020</code></p>
+<p>&#x65B9;&#x6848;&#x4E8C;&#xFF1A; &#x4F7F;&#x7528;&#x7F13;&#x5B58;&#x5148;&#x53BB;1000&#x6761;&#x6570;&#x636E;&#xFF0C;&#x5206;&#x9875;&#x6BCF;&#x6B21;&#x90FD;&#x4ECE;&#x7F13;&#x5B58;&#x91CC;&#x9762;&#x8BFB;&#x53D6;&#xFF0C;&#x8FD9;&#x6837;mysql&#x7684;&#x6570;&#x636E;&#x4E0D;&#x4F1A;&#x88AB;&#x629B;&#x5F03;</p>
+<p><strong>ORDER BY</strong> &#x4F18;&#x5316;</p>
+<p>ORDER BY&#x7684;&#x5B57;&#x6BB5;&#x6700;&#x597D;&#x521B;&#x5EFA;&#x7D22;&#x5F15;&#xFF0C;&#x5728;&#x7D22;&#x5F15;&#x5B57;&#x6BB5;&#x4E0A;&#x6392;&#x5E8F;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x7D22;&#x5F15;&#x7684;&#x987A;&#x5E8F;</p>
+<p><strong>mysql &#x7CFB;&#x5217;&#x6587;&#x7AE0;</strong></p>
+<p><a href="http://hedengcheng.com/?p=771" target="_blank"><strong>MySQL &#x52A0;&#x9501;&#x5904;&#x7406;&#x5206;&#x6790;</strong></a></p>
+<p>&#x603B;&#x7ED3;&#xFF1A;</p>
+<ol>
+<li><p>MySQL InnoDB&#x5B58;&#x50A8;&#x5F15;&#x64CE;&#xFF0C;&#x5B9E;&#x73B0;&#x7684;&#x662F;&#x57FA;&#x4E8E;&#x591A;&#x7248;&#x672C;&#x7684;&#x5E76;&#x53D1;&#x63A7;&#x5236;&#x534F;&#x8BAE;</p>
+</li>
+<li><p>&#x5FEB;&#x7167;&#x8BFB;&#xFF1A;&#x7B80;&#x5355;&#x7684;select&#x64CD;&#x4F5C;&#xFF0C;&#x5C5E;&#x4E8E;&#x5FEB;&#x7167;&#x8BFB;&#xFF0C;&#x4E0D;&#x52A0;&#x9501;</p>
+</li>
+<li><p>&#x5F53;&#x524D;&#x8BFB;&#xFF1A;&#x7279;&#x6B8A;&#x7684;&#x8BFB;&#x64CD;&#x4F5C;&#xFF0C;&#x63D2;&#x5165;/&#x66F4;&#x65B0;/&#x5220;&#x9664;&#x64CD;&#x4F5C;&#xFF0C;&#x5C5E;&#x4E8E;&#x5F53;&#x524D;&#x8BFB;&#xFF0C;&#x9700;&#x8981;&#x52A0;&#x9501;&#x3002;(select for update, lock in share mode)</p>
+</li>
+</ol>
+<ol>
+<li>InnoDB&#x4E0E;MySQL Server&#x7684;&#x4EA4;&#x4E92;&#xFF0C;&#x662F;&#x4E00;&#x6761;&#x4E00;&#x6761;&#x8FDB;&#x884C;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x52A0;&#x9501;&#x4E5F;&#x662F;&#x4E00;&#x6761;&#x4E00;&#x6761;&#x8FDB;&#x884C;&#x7684;&#x3002;&#x5148;&#x5BF9;&#x4E00;&#x6761;&#x6EE1;&#x8DB3;&#x6761;&#x4EF6;&#x7684;&#x8BB0;&#x5F55;&#x52A0;&#x9501;&#xFF0C;&#x8FD4;&#x56DE;&#x7ED9;MySQL Server&#xFF0C;&#x505A;&#x4E00;&#x4E9B;DML&#x64CD;&#x4F5C;&#xFF1B;&#x7136;&#x540E;&#x5728;&#x8BFB;&#x53D6;&#x4E0B;&#x4E00;&#x6761;&#x52A0;&#x9501;&#xFF0C;&#x76F4;&#x81F3;&#x8BFB;&#x53D6;&#x5B8C;&#x6BD5;</li>
+</ol>
+<ol>
+<li>&#x9501;&#x64CD;&#x4F5C;&#x5206;&#x4E3A;&#x4E24;&#x4E2A;&#x9636;&#x6BB5;&#xFF1A;&#x52A0;&#x9501;&#x9636;&#x6BB5;&#x4E0E;&#x89E3;&#x9501;&#x9636;&#x6BB5;&#xFF0C;&#x5E76;&#x4E14;&#x4FDD;&#x8BC1;&#x52A0;&#x9501;&#x9636;&#x6BB5;&#x4E0E;&#x89E3;&#x9501;&#x9636;&#x6BB5;&#x4E0D;&#x76F8;&#x4EA4;</li>
+</ol>
+<p><a href="https://mp.weixin.qq.com/s/yFms_F4h30LofGUkuv1b2g" target="_blank"><strong>MySql &#x4E8B;&#x52A1;&#x5904;&#x7406;&#x548C;ACID&#x7279;&#x6027;</strong></a></p>
+<ol>
+<li>InnoDB &#x652F;&#x6301;&#x4E8B;&#x52A1;</li>
+<li>&#x539F;&#x5B50;&#x6027;(Atomicity) &#x4F7F;&#x7528;undo log&#x4FDD;&#x8BC1;&#x539F;&#x5B50;&#x6027;</li>
+<li><p>&#x6301;&#x4E45;&#x6027;(Durability) &#x4F7F;&#x7528;redo log &#x4FDD;&#x8BC1;&#x6301;&#x4E45;&#x6027; mysql&#x6267;&#x884C;sql&#x540E;&#x9996;&#x5148;&#x628A;&#x4FEE;&#x6539;&#x7684;&#x5185;&#x5BB9;&#x5199;&#x5165;&#x5230;redo log &#x7136;&#x540E;&#x5199;&#x5165;&#x5230;mysql Buffer Pool, mysql&#x5F02;&#x6B65;&#x5904;&#x7406;&#xFF0C;&#x628A;Buffer Pool&#x7684;&#x5185;&#x5BB9;&#x5237;&#x5230;&#x78C1;&#x76D8;&#xFF0C;&#x7136;&#x540E;Buffer Pool&#x7684;&#x6570;&#x636E;&#x6CA1;&#x6709;&#x5237;&#x5230;&#x78C1;&#x76D8;&#xFF0C;mysql&#x5B95;&#x673A;&#x4E86;&#xFF0C;&#x6B64;&#x65F6;&#x91C7;&#x7528;redo log&#x5C31;&#x662F;&#x6062;&#x590D;</p>
+</li>
+<li><p>&#x9694;&#x79BB;&#x6027;(Isolation) &#x4E24;&#x4E2A;&#x4E8B;&#x52A1;&#x4E4B;&#x95F4;&#x76F8;&#x4E92;&#x9694;&#x79BB;</p>
+<ol>
+<li>&#x810F;&#x8BFB;&#xFF1A;&#x4E8B;&#x52A1;A&#x53EF;&#x4EE5;&#x8BFB;&#x53D6;&#x5230;&#x4E8B;&#x52A1;B&#x4E2D;&#x672A;&#x63D0;&#x4EA4;&#x7684;&#x6570;&#x636E;</li>
+<li>&#x4E0D;&#x53EF;&#x91CD;&#x590D;&#x8BFB;&#xFF1A;&#x4E8B;&#x52A1;A&#x4E24;&#x6B21;&#x8BFB;&#x540C;&#x4E00;&#x6570;&#x636E;&#xFF0C;&#x8BFB;&#x5230;&#x7684;&#x6570;&#x636E;&#x4E0D;&#x4E00;&#x6837;(&#x6709;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;B&#x63D0;&#x4EA4;&#x6539;&#x5199;&#x4E86;&#x67D0;&#x6761;&#x6570;&#x636E;)</li>
+<li>&#x5E7B;&#x8BFB;&#xFF1A;&#x4E8B;&#x52A1;A&#x4E24;&#x6B21;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x6761;&#x4EF6;&#x67E5;&#x8BE2;&#xFF0C;&#x67E5;&#x8BE2;&#x8BB0;&#x5F55;&#x7684;&#x6761;&#x6570;&#x4E0D;&#x4E00;&#x6837;(&#x6709;&#x53E6;&#x5916;&#x7684;&#x4E8B;&#x52A1;&#x63D0;&#x4EA4;&#x4E86;&#x65B0;&#x6570;&#x636E;)</li>
+</ol>
+</li>
+</ol>
+<p>  &#x9ED8;&#x8BA4;&#x9694;&#x79BB;&#x7EA7;&#x522B;RR(&#x53EF;&#x91CD;&#x590D;&#x8BFB;)&#xFF0C;(Read Uncommmit, Read Commit  Repeatable Read, Serializable)</p>
+<p>  RR &#x89E3;&#x51B3;&#x810F;&#x8BFB;&#x3001;&#x4E0D;&#x53EF;&#x91CD;&#x590D;&#x8BFB;&#x3001;&#x5E7B;&#x8BFB;(GAP&#x9501;)&#x7B49;&#x95EE;&#x9898;&#xFF0C;&#x4F7F;&#x7528;&#x7684;&#x662F; MVCC&#xFF1A;MVCC &#x5168;&#x79F0; Multi-Version Concurrency Control&#xFF0C;&#x5373;&#x591A;&#x7248;&#x672C;&#x7684;&#x5E76;&#x53D1;&#x63A7;&#x5236;&#x534F;&#x8BAE;</p>
+<p>  mysql&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x810F;&#x8BFB;&#xFF0C; &#x4E8B;&#x52A1;A&#x53D1;&#x73B0;&#x67D0;&#x6761;&#x6570;&#x636E;&#x5DF2;&#x7ECF;&#x88AB;&#x4FEE;&#x6539;&#xFF0C;&#x4E14;&#x72B6;&#x6001;&#x4E3A;&#x672A;&#x63D0;&#x4EA4;&#xFF0C;&#x5219;&#x4F7F;&#x7528;undo log&#x8FDB;&#x884C;&#x56DE;&#x6EDA;</li>
+<li><p>&#x4E0D;&#x53EF;&#x91CD;&#x590D;&#x8BFB;&#xFF0C;&#x4E8B;&#x52A1;A&#x7B2C;&#x4E00;&#x6B21;&#x8BFB;&#xFF0C;&#x8BB0;&#x5F55;&#x52A0;&#x5165;&#x7248;&#x672C;&#x53F7;&#xFF0C;&#x7531;&#x4E8E;&#x6570;&#x636E;&#x88AB;&#x5176;&#x4ED6;&#x4E8B;&#x52A1;&#x4FEE;&#x6539;&#xFF0C;&#x8BB0;&#x5F55;&#x7248;&#x672C;&#x53F7;&#x53D8;&#x5316;&#xFF0C;&#x4E8B;&#x52A1;A&#x7B2C;&#x4E8C;&#x6B21;&#x8BFB;&#xFF0C;&#x53D1;&#x73B0;&#x7248;&#x672C;&#x53F7;&#x5BF9;&#x4E0D;&#x4E0A;&#xFF0C;&#x4F7F;&#x7528;undo log&#x56DE;&#x6EDA;</p>
+</li>
+<li><p>&#x5E7B;&#x8BFB;&#xFF0C;&#x4F7F;&#x7528;gap&#x9501;</p>
+</li>
+</ol>
+<p>&#x4E00;&#x81F4;&#x6027;: &#x6307;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x7EA6;&#x675F;&#x6761;&#x4EF6;&#x5B8C;&#x6574;&#xFF0C;&#x6BD4;&#x5982;&#x4E3B;&#x952E;&#x5B58;&#x5728;&#x4E14;&#x552F;&#x4E00;</p>
+<p>[<strong>&#x6570;&#x636E;&#x4E00;&#x81F4;&#x6027;-&#x5206;&#x533A;&#x53EF;&#x7528;&#x6027;-&#x6027;&#x80FD;&#x2014;&#x2014;&#x591A;&#x526F;&#x672C;&#x5F3A;&#x540C;&#x6B65;&#x6570;&#x636E;&#x5E93;&#x7CFB;&#x7EDF;</strong>](<a href="http://hedengcheng.com/?p=892" target="_blank">http://hedengcheng.com/?p=892</a></p>
 
                                 
                                 </section>
@@ -1044,12 +1085,12 @@
 
             
                 
-                <a href="brew.html" class="navigation navigation-prev " aria-label="Previous page: brew">
+                <a href="redis.html" class="navigation navigation-prev " aria-label="Previous page: Redis">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="supervisor.html" class="navigation navigation-next " aria-label="Next page: supervisor">
+                <a href="../section_nginx/" class="navigation navigation-next " aria-label="Next page: NGINX">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1060,7 +1101,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"launchctl","level":"1.7.6","depth":2,"next":{"title":"supervisor","level":"1.7.7","depth":2,"path":"section_tool/supervisor.md","ref":"section_tool/supervisor.md","articles":[]},"previous":{"title":"brew","level":"1.7.5","depth":2,"path":"section_tool/brew.md","ref":"section_tool/brew.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_tool/launchctl.md","mtime":"2019-03-02T14:59:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-03-03T05:19:19.469Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Mysql","level":"1.5.2","depth":2,"next":{"title":"NGINX","level":"1.6","depth":1,"path":"section_nginx/README.md","ref":"section_nginx/README.md","articles":[{"title":"NGINX常用命令梳理","level":"1.6.1","depth":2,"path":"section_nginx/a.md","ref":"section_nginx/a.md","articles":[]}]},"previous":{"title":"Redis","level":"1.5.1","depth":2,"path":"section_mysql/redis.md","ref":"section_mysql/redis.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_mysql/mysql.md","mtime":"2019-03-03T05:19:06.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-03-03T05:19:19.469Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
