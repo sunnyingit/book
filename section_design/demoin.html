@@ -579,7 +579,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.6" data-path="collection.html">
+        <li class="chapter " data-level="1.4.6" data-path="lru.html">
+            
+                <a href="lru.html">
+            
+                    
+                    LRU算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="collection.html">
             
                 <a href="collection.html">
             
@@ -592,7 +605,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.7" data-path="thread.html">
+        <li class="chapter " data-level="1.4.8" data-path="thread.html">
             
                 <a href="thread.html">
             
@@ -1132,9 +1145,6 @@ class PaperDataService {
 <p>e. &#x3010;&#x8FC7;&#x7A0B;&#x5F0F;&#x3011;&#x9605;&#x8BFB;&#x8D77;&#x6765;&#x5F88;&#x7D2F;&#xFF0C;&#x53EA;&#x8981;&#x641E;&#x6E05;&#x695A;&#x4E1A;&#x52A1;&#x624D;&#x80FD;&#x61C2;&#x4EE3;&#x7801;&#xFF0C;&#x800C;&#x4E14;&#x9700;&#x8981;&#x770B;&#x5B8C;&#x4EE3;&#x7801;&#x624D;&#x80FD;&#x77E5;&#x9053;&#x5177;&#x4F53;&#x4EE3;&#x7801;&#x5185;&#x5BB9;&#xFF0C;&#x53EF;&#x60F3;&#x800C;&#x77E5;&#xFF0C;&#x8FD9;&#x79CD;&#x4EE3;&#x7801;&#x7684;&#x516C;&#x7528;&#x6027;&#x4E86;&#xFF0C;&#x6211;&#x6709;&#x770B;&#x4F60;&#x4EE3;&#x7801;&#x7684;&#x65F6;&#x95F4;&#x8FD8;&#x4E0D;&#x5982;&#x81EA;&#x5DF1;&#x5199;&#x4E00;&#x904D;&#xFF0C;&#x4E8E;&#x662F;&#x8D8A;&#x6765;&#x8D8A;&#x591A;&#x7684;&#x91CD;&#x590D;&#x4EE3;&#x7801;</p>
 </li>
 </ol>
-<p>&#x3010;&#x5B66;&#x672F;&#x8001;&#x4EE3;&#x7801;&#x3011;:</p>
-<p><a href="http://agroup.baidu.com/sunli/md/article/1466726" target="_blank">http://agroup.baidu.com/sunli/md/article/1466726</a></p>
-<p>&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x53EA;&#x6D89;&#x53CA;&#x5230;&#x3010;&#x8BBA;&#x6587;&#x3011;&#x7684;&#x5904;&#x7406;,  &#x5982;&#x679C;&#x4E1A;&#x52A1;&#x6D89;&#x53CA;&#x5230;&#x591A;&#x4E2A;&#x8D44;&#x6E90;&#xFF0C;&#x5176;&#x4ED6;&#x8D44;&#x6E90;&#x4E5F;&#x6709;&#x7C7B;&#x4F3C;&#x4E8E;&#x3010;&#x8BBA;&#x6587;&#x3011;&#x7684;&#x5904;&#x7406;&#x903B;&#x8F91;&#xFF0C;&#x90A3;&#x4EE3;&#x7801;&#x7684;&#x590D;&#x6742;&#x7A0B;&#x5EA6;&#xFF0C;&#x53EF;&#x60F3;&#x800C;&#x77E5;&#x3002;</p>
 <p>&#x4E0B;&#x9762;&#xFF0C; &#x6211;&#x4EEC;&#x601D;&#x8003;&#x4F18;&#x5316;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x4F1A;&#x4E00;&#x6B65;&#x4E00;&#x6B65;&#x7684;&#x8BF4;&#x660E;DDD&#x6A21;&#x5F0F;&#x4E3A;&#x4EC0;&#x4E48;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x4EE5;&#x4E0A;&#x7684;&#x95EE;&#x9898;</p>
 <h2 id="&#x89E3;&#x51B3;&#x65B9;&#x6848;">&#x89E3;&#x51B3;&#x65B9;&#x6848;</h2>
 <p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x91CD;&#x6784;&#x3010;&#x8FC7;&#x7A0B;&#x5F0F;&#x3011;&#x8FBE;&#x5230;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x7684;&#x4EE3;&#x7801;&#x4F18;&#x5316;&#xFF0C;&#x62FF;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x6765;&#x8BF4;&#xFF0C;&#x53EF;&#x4EE5;&#x505A;&#x7684;&#x4E8B;&#x60C5;&#x662F;:</p>
@@ -1671,7 +1681,7 @@ class PaperModel {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"领域驱动开发实践","level":"1.4.3","depth":2,"next":{"title":"API熔断—滑动窗口算法","level":"1.4.4","depth":2,"path":"section_design/health.md","ref":"section_design/health.md","articles":[]},"previous":{"title":"HTTP 协议","level":"1.4.2","depth":2,"path":"section_design/http.md","ref":"section_design/http.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_design/demoin.md","mtime":"2019-03-03T05:21:48.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-03-03T07:32:13.885Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"领域驱动开发实践","level":"1.4.3","depth":2,"next":{"title":"API熔断—滑动窗口算法","level":"1.4.4","depth":2,"path":"section_design/health.md","ref":"section_design/health.md","articles":[]},"previous":{"title":"HTTP 协议","level":"1.4.2","depth":2,"path":"section_design/http.md","ref":"section_design/http.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-prism","-highlight","toc2"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"]},"toc2":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"飘来飘去","links":{"sidebar":{"飘来飘去":"http://www.hellosunnyge.com/wordpress/"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*"},"file":{"path":"section_design/demoin.md","mtime":"2019-03-07T01:14:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-03-07T01:16:39.454Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
